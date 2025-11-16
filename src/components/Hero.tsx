@@ -10,8 +10,8 @@ const Hero = () => {
       });
     }
   };
-  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle">
-      <div className="container mx-auto px-6 py-24 md:py-32 relative z-10 bg-[#171d24]">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-5 leading-tight">
             Fast, Affordable Websites for Local Businesses
