@@ -17,12 +17,12 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-5 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards]">
             Fast, Affordable Websites for Local Businesses
             <span className="block mt-3 text-4xl md:text-6xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
-              Delivered in 48–72 Hours
+              Delivered in 3-4 Days
             </span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards]">
-            Delivered in 48–72 Hours with your existing booking method integrated.
+            Delivered in 3-4 Days with your existing booking method integrated.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards]">
