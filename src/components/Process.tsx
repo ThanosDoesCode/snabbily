@@ -44,7 +44,7 @@ const Process = () => {
             From first contact to live website in just a few days
           </p>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-            You only send your photos and basic details — I build everything else.
+            You only send your photos and basic details. I build everything else.
           </p>
         </div>
 
