@@ -13,7 +13,7 @@ const Index = () => {
   return <div className="min-h-screen">
       <Hero className="bg-[#171d24]" />
       <AnimatedSection>
-        <Services />
+        <Services className="bg-[#171d24]" />
       </AnimatedSection>
       <AnimatedSection>
         <WhyWebsite />
