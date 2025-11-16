@@ -51,7 +51,7 @@ const WhyWebsite = () => {
           <Card className="border border-accent/20 bg-gradient-to-br from-accent/5 to-accent/10 shadow-soft">
             <CardContent className="pt-6">
               <p className="text-base text-center font-medium">Your website isn't about heavy SEO
-It's about looking trustworthy when customers find you anywhere.<span className="text-accent font-semibold">Your website isn't about heavy SEO</span>
+— it's about looking trustworthy when customers find you anywhere.<span className="text-accent font-semibold">Your website isn't about heavy SEO</span>
                 <br />
                 — it's about looking trustworthy when customers find you anywhere.
               </p>
