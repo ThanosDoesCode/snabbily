@@ -119,8 +119,8 @@ const BookingIntegration = () => {
             <CardContent className="py-7">
               <p className="text-base text-center font-medium leading-relaxed">
                 <span className="text-primary font-semibold">Keep Your Workflow Simple</span>
-                <br />I integrate whatever booking method you already use - whether it's a full platform or just a phone
-                number. No need to change your process.
+                <br />I integrate whatever booking method you already use -- whether it's a full platform or just a
+                phone number. No need to change your process.
               </p>
             </CardContent>
           </Card>
