@@ -55,7 +55,7 @@ const BookingIntegration = () => {
           <div className="mt-6 max-w-3xl mx-auto">
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
               <p className="text-sm text-center font-medium text-foreground">
-                <span className="text-primary font-semibold">I integrate the booking method you already use,</span> no
+                <span className="text-primary font-semibold">I integrate the booking method you already use</span> - no
                 new software needed.
               </p>
             </div>
@@ -119,7 +119,7 @@ const BookingIntegration = () => {
             <CardContent className="py-7">
               <p className="text-base text-center font-medium leading-relaxed">
                 <span className="text-primary font-semibold">Keep Your Workflow Simple</span>
-                <br />I integrate whatever booking method you already use, whether it's a full platform or just a phone
+                <br />I integrate whatever booking method you already use - whether it's a full platform or just a phone
                 number. No need to change your process.
               </p>
             </CardContent>
