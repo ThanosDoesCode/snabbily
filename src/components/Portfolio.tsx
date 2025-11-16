@@ -9,115 +9,147 @@ import fadeFlowDemo from "@/assets/fade-flow-demo.png";
 import masterCutsDemo from "@/assets/master-cuts-demo.png";
 import barberPoleDemo from "@/assets/barber-pole-demo.png";
 import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
+import { motion } from "framer-motion";
 
-const Portfolio = () => {
-  const projects = [
-    {
-      image: glowStudioDemo,
-      title: "Beauty Salon",
-      industry: "Beauty & Wellness",
-      deliveryTime: "48 hours",
-      description: "Modern salon website with seamless booking integration",
-      url: "https://glow-studio-demo-swe.lovable.app",
+const fadeGrid = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
     },
-    {
-      image: barberProDemo,
-      title: "Barber Shop",
-      industry: "Men's Grooming",
-      deliveryTime: "48 hours",
-      description: "Elegant dark-themed barbershop with appointment scheduling",
-      url: "https://barber-pro-prompt.lovable.app",
-    },
-    {
-      image: fadeFlowDemo,
-      title: "Barber Shop",
-      industry: "Men's Grooming",
-      deliveryTime: "48 hours",
-      description: "Premium barbershop with online booking system",
-      url: "https://fade-flow-arts.lovable.app",
-    },
-    {
-      image: masterCutsDemo,
-      title: "Nail Salon",
-      industry: "Beauty & Wellness",
-      deliveryTime: "48 hours",
-      description: "Elegant nail salon with appointment scheduling",
-      url: "https://classic-cut-crafters.lovable.app",
-    },
-    {
-      image: barberPoleDemo,
-      title: "Barber Shop",
-      industry: "Men's Grooming",
-      deliveryTime: "48 hours",
-      description: "Classic barbershop with modern booking integration",
-      url: "https://barber-pole-chronicles.lovable.app",
-    },
-    {
-      image: gildedRoseDemo,
-      title: "Hair Studio",
-      industry: "Beauty & Styling",
-      deliveryTime: "48 hours",
-      description: "Modern hair studio with seamless online booking",
-      url: "https://gilded-rose-salon.lovable.app",
-    },
-  ];
-
-  return (
-    <section className="py-40 bg-secondary" id="portfolio">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-20 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Recent Work</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See how I've helped local businesses establish their online presence
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
-          {projects.map((project, index) => {
-            const CardWrapper = project.url ? 'a' : 'div';
-            const cardProps = project.url 
-              ? { href: project.url, target: "_blank", rel: "noopener noreferrer", className: "block" }
-              : {};
-            
-            return (
-              <CardWrapper key={index} {...cardProps}>
-                <Card
-                  className="overflow-hidden border border-border bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] hover:-translate-y-1 group animate-scale-in cursor-pointer"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-              <div className="relative overflow-hidden aspect-video">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
-              </div>
-              <CardHeader className="pb-4">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <CardTitle className="text-xl text-left">{project.title} – Demo Project</CardTitle>
-                  <Badge variant="secondary" className="shrink-0 text-xs">
-                    {project.deliveryTime}
-                  </Badge>
-                </div>
-                <CardDescription className="text-left">{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <div className="space-y-2.5 text-sm">
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Industry:</span>
-                    <span className="font-medium text-foreground">{project.industry}</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </CardWrapper>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
+  },
 };
+
+const fadeCard = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, type: "spring" } },
+};
+
+const projects = [
+  {
+    image: glowStudioDemo,
+    title: "Beauty Salon",
+    industry: "Beauty & Wellness",
+    deliveryTime: "48 hours",
+    description: "Modern salon website with seamless booking integration",
+    url: "https://glow-studio-demo-swe.lovable.app",
+  },
+  {
+    image: barberProDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
+    deliveryTime: "48 hours",
+    description: "Elegant dark-themed barbershop with appointment scheduling",
+    url: "https://barber-pro-prompt.lovable.app",
+  },
+  {
+    image: fadeFlowDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
+    deliveryTime: "48 hours",
+    description: "Premium barbershop with online booking system",
+    url: "https://fade-flow-arts.lovable.app",
+  },
+  {
+    image: masterCutsDemo,
+    title: "Nail Salon",
+    industry: "Beauty & Wellness",
+    deliveryTime: "48 hours",
+    description: "Elegant nail salon with appointment scheduling",
+    url: "https://classic-cut-crafters.lovable.app",
+  },
+  {
+    image: barberPoleDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
+    deliveryTime: "48 hours",
+    description: "Classic barbershop with modern booking integration",
+    url: "https://barber-pole-chronicles.lovable.app",
+  },
+  {
+    image: gildedRoseDemo,
+    title: "Hair Studio",
+    industry: "Beauty & Styling",
+    deliveryTime: "48 hours",
+    description: "Modern hair studio with seamless online booking",
+    url: "https://gilded-rose-salon.lovable.app",
+  },
+];
+
+const Portfolio = () => (
+  <section className="py-40 bg-secondary" id="portfolio">
+    <div className="container mx-auto px-6">
+      <motion.div
+        className="text-center mb-20"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.15 }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">Recent Work</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          See how I've helped local businesses establish their online presence
+        </p>
+      </motion.div>
+      <motion.div
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto"
+        variants={fadeGrid}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {projects.map((project, index) => {
+          const CardWrapper = project.url ? "a" : "div";
+          const cardProps = project.url
+            ? {
+                href: project.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "block",
+              }
+            : {};
+          return (
+            <motion.div key={index} variants={fadeCard}>
+              <CardWrapper {...cardProps}>
+                <Card className="overflow-hidden border border-border bg-card transition-all duration-300 hover:border-primary/40 hover:shadow-card dark:hover:shadow-[var(--glow-card)] hover:-translate-y-1 group cursor-pointer">
+                  <div className="relative overflow-hidden aspect-video">
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      whileHover={{ scale: 1.08, rotate: 1.75 }}
+                      transition={{ type: "spring", stiffness: 80 }}
+                    />
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+                      whileHover={{ opacity: 0.6 }}
+                    />
+                  </div>
+                  <CardHeader className="pb-4">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <CardTitle className="text-xl text-left">{project.title} – Demo Project</CardTitle>
+                      <Badge variant="secondary" className="shrink-0 text-xs">
+                        {project.deliveryTime}
+                      </Badge>
+                    </div>
+                    <CardDescription className="text-left">{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <div className="space-y-2.5 text-sm">
+                      <div className="flex items-center justify-between">
+                        <span className="text-muted-foreground">Industry:</span>
+                        <span className="font-medium text-foreground">{project.industry}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CardWrapper>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+    </div>
+  </section>
+);
 
 export default Portfolio;
