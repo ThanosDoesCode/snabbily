@@ -33,44 +33,44 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="py-32 bg-secondary" id="portfolio">
+    <section className="py-40 bg-secondary" id="portfolio">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Recent Work</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             See how I've helped local businesses establish their online presence
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="overflow-hidden border hover:border-primary/30 transition-all duration-500 hover:shadow-medium group animate-scale-in cursor-pointer hover:scale-105"
+              className="overflow-hidden border border-border bg-card hover:border-primary/30 transition-all duration-300 hover:shadow-card hover:-translate-y-1 group animate-scale-in cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden aspect-video">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
               </div>
-              <CardHeader>
+              <CardHeader className="pb-4">
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <CardTitle className="text-2xl">{project.title}</CardTitle>
-                  <Badge variant="secondary" className="shrink-0">
+                  <CardTitle className="text-xl text-left">{project.title} – Demo Project</CardTitle>
+                  <Badge variant="secondary" className="shrink-0 text-xs">
                     {project.deliveryTime}
                   </Badge>
                 </div>
-                <CardDescription>{project.description}</CardDescription>
+                <CardDescription className="text-left">{project.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-2 text-sm">
+              <CardContent className="pt-0">
+                <div className="space-y-2.5 text-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Industry:</span>
-                    <span className="font-medium">{project.industry}</span>
+                    <span className="font-medium text-foreground">{project.industry}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Booking:</span>

@@ -32,13 +32,13 @@ const BookingIntegration = () => {
     name: "Callback Request Form",
     description: "Request a callback"
   }];
-  return <section className="py-32 bg-background" id="booking">
+  return <section className="py-40 bg-background" id="booking">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Flexible Booking Integration
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             I integrate the booking method you already use — no new system to learn, no extra subscription unless you want one
           </p>
           
@@ -51,23 +51,23 @@ const BookingIntegration = () => {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-16">
           {/* Advanced Booking Systems */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <Calendar className="h-8 w-8 text-primary" />
+            <div className="flex items-center gap-3 mb-8">
+              <Calendar className="h-7 w-7 text-primary" strokeWidth={2} />
               <h3 className="text-2xl font-semibold">Advanced Booking Systems</h3>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {advancedSystems.map((system, index) => <Card key={index} className="border hover:border-primary/30 transition-all duration-300 animate-scale-in" style={{
+            <div className="grid md:grid-cols-3 gap-8">
+              {advancedSystems.map((system, index) => <Card key={index} className="border border-border bg-card hover:border-primary/30 transition-all duration-300 animate-scale-in" style={{
               animationDelay: `${index * 0.1}s`
             }}>
-                  <CardHeader>
-                    <CardTitle className="text-xl">{system.name}</CardTitle>
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-lg">{system.name}</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{system.description}</p>
-                    <p className="text-sm text-primary mt-4">
+                  <CardContent className="pt-0">
+                    <p className="text-muted-foreground text-sm mb-4">{system.description}</p>
+                    <p className="text-xs text-primary font-medium">
                       Embed directly using your existing account
                     </p>
                   </CardContent>
@@ -77,17 +77,17 @@ const BookingIntegration = () => {
 
           {/* Simple Booking Methods */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Simple, No-Cost Booking Methods</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {simpleMethods.map((method, index) => <Card key={index} className="border hover:border-primary/30 transition-all duration-300 text-center animate-scale-in" style={{
+            <h3 className="text-2xl font-semibold mb-8">Simple, No-Cost Booking Methods</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+              {simpleMethods.map((method, index) => <Card key={index} className="border border-border bg-card hover:border-primary/30 transition-all duration-300 text-center animate-scale-in" style={{
               animationDelay: `${(index + 3) * 0.1}s`
             }}>
-                  <CardContent className="pt-6">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mx-auto mb-4">
-                      <method.icon className="h-6 w-6 text-primary-foreground" />
+                  <CardContent className="pt-6 pb-6">
+                    <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center mx-auto mb-3">
+                      <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={2} />
                     </div>
-                    <h4 className="font-semibold mb-2">{method.name}</h4>
-                    <p className="text-sm text-muted-foreground">{method.description}</p>
+                    <h4 className="font-semibold text-sm mb-1.5">{method.name}</h4>
+                    <p className="text-xs text-muted-foreground">{method.description}</p>
                   </CardContent>
                 </Card>)}
             </div>
@@ -95,8 +95,8 @@ const BookingIntegration = () => {
 
           {/* Key Message */}
           <Card className="border border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10 shadow-soft">
-            <CardContent className="py-8">
-              <p className="text-base text-center font-medium">
+            <CardContent className="py-7">
+              <p className="text-base text-center font-medium leading-relaxed">
                 <span className="text-primary font-semibold">Keep Your Workflow Simple</span>
                 <br />
                 I integrate whatever booking method you already use — whether it's a full platform or just a phone number. No need to change your process.

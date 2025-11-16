@@ -12,40 +12,40 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle">
-      <div className="container mx-auto px-6 py-32 relative z-10">
+      <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-5 leading-tight">
             Fast, Affordable Websites for Local Businesses
-            <span className="block mt-2 text-4xl md:text-6xl bg-gradient-primary bg-clip-text text-transparent">
+            <span className="block mt-3 text-4xl md:text-6xl bg-gradient-primary bg-clip-text text-transparent">
               Delivered in 48–72 Hours
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
             Delivered in 48–72 Hours with your existing booking method integrated.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
               size="lg"
-              className="text-xl px-10 py-7 bg-gradient-primary hover:opacity-90 transition-all shadow-medium hover:shadow-large"
+              className="text-lg px-12 py-6 bg-gradient-primary hover:opacity-90 transition-all shadow-card hover:shadow-medium font-semibold"
               onClick={() => scrollToSection("portfolio")}
             >
               View My Work
-              <ArrowRight className="ml-2 h-6 w-6" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="text-xl px-10 py-7 border-2 hover:bg-secondary/50 transition-all"
+              className="text-lg px-12 py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all font-semibold"
               onClick={() => scrollToSection("contact")}
             >
               Get Your Website
             </Button>
           </div>
 
-          <div className="bg-card/80 backdrop-blur-sm border border-primary/15 rounded-2xl p-6 shadow-soft max-w-2xl mx-auto">
-            <p className="text-xl md:text-2xl font-semibold text-foreground leading-relaxed">
+          <div className="bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-5 shadow-soft max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               <span className="text-primary">Google Maps</span> helps customers find you.
               <br />
               <span className="text-accent">A website</span> helps customers choose you.
