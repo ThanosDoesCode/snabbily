@@ -46,7 +46,7 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="overflow-hidden border border-border bg-card hover:border-primary/30 transition-all duration-300 hover:shadow-card hover:-translate-y-1 group animate-scale-in cursor-pointer"
+              className="overflow-hidden border border-border bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] hover:-translate-y-1 group animate-scale-in cursor-pointer"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden aspect-video">
