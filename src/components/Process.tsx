@@ -57,7 +57,7 @@ const Process = () => {
               {steps.map((step, index) => (
                 <Card
                   key={index}
-                  className="border border-border bg-card hover:border-primary/30 transition-all duration-300 hover:shadow-card animate-slide-up relative"
+                  className="border border-border bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] animate-slide-up relative"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="pt-6 pb-6">

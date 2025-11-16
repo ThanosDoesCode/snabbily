@@ -59,7 +59,7 @@ const BookingIntegration = () => {
               <h3 className="text-2xl font-semibold">Advanced Booking Systems</h3>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
-              {advancedSystems.map((system, index) => <Card key={index} className="border border-border bg-card hover:border-primary/30 transition-all duration-300 animate-scale-in" style={{
+              {advancedSystems.map((system, index) => <Card key={index} className="border border-border bg-card hover:border-primary/40 transition-all duration-300 dark:hover:shadow-[var(--glow-card)] animate-scale-in" style={{
               animationDelay: `${index * 0.1}s`
             }}>
                   <CardHeader className="pb-3">
@@ -79,7 +79,7 @@ const BookingIntegration = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-8">Simple, No-Cost Booking Methods</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {simpleMethods.map((method, index) => <Card key={index} className="border border-border bg-card hover:border-primary/30 transition-all duration-300 text-center animate-scale-in" style={{
+              {simpleMethods.map((method, index) => <Card key={index} className="border border-border bg-card hover:border-primary/40 transition-all duration-300 dark:hover:shadow-[var(--glow-card)] text-center animate-scale-in" style={{
               animationDelay: `${(index + 3) * 0.1}s`
             }}>
                   <CardContent className="pt-6 pb-6">

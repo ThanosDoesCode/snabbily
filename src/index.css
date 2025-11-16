@@ -83,11 +83,17 @@ All colors MUST be HSL.
     --input: 210 18% 18%;
     --ring: 210 85% 58%;
     
-    /* Dark mode shadows */
+    /* Dark mode shadows with glow effects */
     --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.15), 0 1px 2px -1px hsl(0 0% 0% / 0.15);
     --shadow-medium: 0 4px 6px -1px hsl(0 0% 0% / 0.2), 0 2px 4px -2px hsl(0 0% 0% / 0.2);
     --shadow-large: 0 10px 15px -3px hsl(0 0% 0% / 0.25), 0 4px 6px -4px hsl(0 0% 0% / 0.25);
     --shadow-card: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    
+    /* Glow effects for dark mode */
+    --glow-primary: 0 0 20px hsl(210 85% 58% / 0.15), 0 0 40px hsl(210 85% 58% / 0.08);
+    --glow-primary-strong: 0 0 30px hsl(210 85% 58% / 0.25), 0 0 60px hsl(210 85% 58% / 0.12);
+    --glow-card: 0 4px 20px hsl(210 85% 58% / 0.08), 0 0 1px hsl(210 85% 58% / 0.1);
+    --glow-accent: 0 0 20px hsl(15 85% 62% / 0.15), 0 0 40px hsl(15 85% 62% / 0.08);
   }
 }
 

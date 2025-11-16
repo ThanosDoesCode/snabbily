@@ -36,7 +36,7 @@ const Contact = () => {
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Contact Form */}
-          <Card className="border border-border bg-card shadow-soft">
+          <Card className="border border-border bg-card shadow-soft dark:shadow-[var(--glow-card)]">
             <CardHeader className="pb-5">
               <CardTitle className="text-2xl">Send a Message</CardTitle>
               <CardDescription>
@@ -99,7 +99,7 @@ const Contact = () => {
 
           {/* Contact Information */}
           <div className="space-y-6">
-            <Card className="border border-border bg-card shadow-soft">
+            <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
               <CardContent className="pt-6 pb-6">
                 <div className="flex items-start gap-4">
                   <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
@@ -119,7 +119,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border border-border bg-card shadow-soft">
+            <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
               <CardContent className="pt-6 pb-6">
                 <div className="flex items-start gap-4">
                   <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
@@ -139,7 +139,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border border-border bg-card shadow-soft">
+            <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
               <CardContent className="pt-6 pb-6">
                 <div className="flex items-start gap-4">
                   <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">

@@ -40,7 +40,7 @@ const Pricing = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
-          {plans.map((plan, index) => <Card key={index} className={`border bg-card transition-all duration-300 hover:shadow-card animate-slide-up ${plan.popular ? "border-primary shadow-soft scale-[1.02]" : "border-border hover:border-primary/30"}`} style={{
+          {plans.map((plan, index) => <Card key={index} className={`border bg-card transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] animate-slide-up ${plan.popular ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] scale-[1.02]" : "border-border hover:border-primary/40"}`} style={{
           animationDelay: `${index * 0.1}s`
         }}>
               {plan.popular && <div className="bg-gradient-primary text-primary-foreground text-center py-2 rounded-t-lg font-semibold text-sm">

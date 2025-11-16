@@ -59,7 +59,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="border border-border bg-card hover:border-primary/30 transition-all duration-300 hover:shadow-card animate-slide-up"
+              className="border border-border bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader className="pb-4">

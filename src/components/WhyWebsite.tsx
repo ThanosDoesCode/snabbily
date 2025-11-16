@@ -30,7 +30,7 @@ const WhyWebsite = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
-          {reasons.map((reason, index) => <Card key={index} className="border border-border bg-card hover:border-primary/30 transition-all duration-300 hover:shadow-card animate-scale-in" style={{
+          {reasons.map((reason, index) => <Card key={index} className="border border-border bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] animate-scale-in" style={{
           animationDelay: `${index * 0.1}s`
         }}>
               <CardContent className="pt-6 pb-6">
