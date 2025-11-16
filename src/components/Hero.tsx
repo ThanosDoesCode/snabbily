@@ -21,12 +21,8 @@ const Hero = () => {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto">
-            Delivered in 48–72 Hours — with your existing booking method integrated.
-          </p>
-          
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Most small businesses rely only on Google Maps. I build professional websites that increase trust and bookings.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Delivered in 48–72 Hours with your existing booking method integrated.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
