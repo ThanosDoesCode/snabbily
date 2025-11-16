@@ -42,7 +42,6 @@ const Hero = () => {
             >
               Get Your Website
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
-              <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Button>
           </div>
 
