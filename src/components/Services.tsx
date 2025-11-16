@@ -58,32 +58,23 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group border border-border bg-card hover:border-primary transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] overflow-hidden relative"
+              className="group border border-border bg-card hover:border-primary/50 transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:hover:shadow-[var(--glow-card)]"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {/* Animated background on hover */}
-              <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
-
-              <CardHeader className="pb-4 relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 group-hover:rotate-[360deg] transition-transform duration-700">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 group-hover:animate-[float_2s_ease-in-out_infinite]">
                   <service.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
                 </div>
-                <CardTitle className="text-xl group-hover:translate-x-2 transition-transform duration-300">
-                  {service.title}
-                </CardTitle>
-                <CardDescription className="group-hover:text-foreground transition-colors duration-300">
-                  {service.description}
-                </CardDescription>
+                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardDescription>{service.description}</CardDescription>
               </CardHeader>
-              <CardContent className="pt-0 relative z-10">
+              <CardContent className="pt-0">
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-2.5 text-sm opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-[-20px] transition-all duration-500"
-                      style={{ transitionDelay: `${idx * 0.1}s` }}
-                    >
-                      <span className="text-primary mt-0.5 font-semibold">✓</span>
+                    <li key={idx} className="flex items-start gap-2.5 text-sm">
+                      <span className="text-primary mt-0.5 font-semibold group-hover:animate-[ping_1s_ease-in-out_infinite]">
+                        ✓
+                      </span>
                       <span className="text-muted-foreground leading-relaxed">{feature}</span>
                     </li>
                   ))}
