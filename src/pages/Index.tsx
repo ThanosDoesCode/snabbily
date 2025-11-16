@@ -11,9 +11,9 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 const Index = () => {
   return <div className="min-h-screen">
-      <Hero className="bg-[#171d24]" />
+      <Hero />
       <AnimatedSection>
-        <Services className="bg-[#171d24]" />
+        <Services />
       </AnimatedSection>
       <AnimatedSection>
         <WhyWebsite />
@@ -36,7 +36,7 @@ const Index = () => {
       <AnimatedSection>
         <Contact />
       </AnimatedSection>
-      <Footer className="bg-[#1d242a]" />
+      <Footer />
     </div>;
 };
 export default Index;
