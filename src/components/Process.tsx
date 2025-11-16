@@ -55,86 +55,87 @@ const Process = () => {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="relative">
-            {/* Modern flowing path */}
-            <svg className="absolute inset-0 w-full h-full hidden lg:block pointer-events-none" style={{ zIndex: 0 }}>
-              <defs>
-                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: "hsl(210, 85%, 48%)", stopOpacity: 0.3 }} />
-                  <stop offset="100%" style={{ stopColor: "hsl(15, 85%, 58%)", stopOpacity: 0.3 }} />
-                </linearGradient>
-              </defs>
-              <path
-                d="M 150 80 Q 300 120, 450 100 T 750 150 Q 900 180, 1050 160 T 1350 240"
-                stroke="url(#pathGradient)"
-                strokeWidth="2"
-                fill="none"
-                strokeDasharray="8,8"
-                className="animate-[dash_20s_linear_infinite]"
-              />
-            </svg>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {steps.map((step, index) => (
-                <div
-                  key={index}
-                  className="relative opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
-                  style={{ animationDelay: `${0.4 + index * 0.15}s` }}
-                >
-                  <Card className="group h-full border border-border bg-card hover:border-primary hover:-translate-y-2 hover:shadow-large dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 relative overflow-hidden">
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                    {/* Step number indicator */}
-                    <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-soft group-hover:scale-110 transition-transform duration-300">
-                      {index + 1}
-                    </div>
-
-                    <CardContent className="pt-8 pb-8 relative z-10">
-                      {/* Icon */}
-                      <div className="mb-5">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                          <step.icon className="h-7 w-7 text-primary-foreground" strokeWidth={2} />
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
-
-                      {/* Progress indicator */}
-                      <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
-                          <div className="h-full bg-gradient-primary w-0 group-hover:w-full transition-all duration-1000"></div>
-                        </div>
-                        {index < steps.length - 1 ? (
-                          <ArrowRight className="h-4 w-4 text-primary" />
-                        ) : (
-                          <Check className="h-4 w-4 text-primary" strokeWidth={3} />
-                        )}
-                      </div>
-                    </CardContent>
-
-                    {/* Bottom accent line */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-700"></div>
-                  </Card>
-
-                  {/* Connecting arrow (desktop only) */}
-                  {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
-                    <div
-                      className="hidden lg:block absolute top-1/2 -right-4 z-20 opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]"
-                      style={{ animationDelay: `${0.6 + index * 0.15}s` }}
-                    >
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                        <ArrowRight className="h-4 w-4 text-primary" />
-                      </div>
-                    </div>
-                  )}
+          <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="relative opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
+                style={{ animationDelay: `${0.4 + index * 0.15}s` }}
+              >
+                {/* Dotted line behind card */}
+                <div className="absolute inset-0 -z-10 flex items-center justify-center">
+                  <svg className="w-full h-full">
+                    <defs>
+                      <linearGradient id={`pathGradient-${index}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="hsl(210, 85%, 48%)" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="hsl(15, 85%, 58%)" stopOpacity="0.3" />
+                      </linearGradient>
+                    </defs>
+                    <line
+                      x1="5%"
+                      y1="50%"
+                      x2="95%"
+                      y2="50%"
+                      stroke={`url(#pathGradient-${index})`}
+                      strokeWidth="2"
+                      strokeDasharray="8,8"
+                    />
+                  </svg>
                 </div>
-              ))}
-            </div>
+
+                <Card className="group h-full border border-border bg-card hover:border-primary hover:-translate-y-2 hover:shadow-large dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 relative overflow-hidden">
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  {/* Step number indicator */}
+                  <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-soft group-hover:scale-110 transition-transform duration-300">
+                    {index + 1}
+                  </div>
+
+                  <CardContent className="pt-8 pb-8 relative z-10">
+                    {/* Icon */}
+                    <div className="mb-5">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                        <step.icon className="h-7 w-7 text-primary-foreground" strokeWidth={2} />
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+
+                    {/* Progress indicator */}
+                    <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
+                        <div className="h-full bg-gradient-primary w-0 group-hover:w-full transition-all duration-1000"></div>
+                      </div>
+                      {index < steps.length - 1 ? (
+                        <ArrowRight className="h-4 w-4 text-primary" />
+                      ) : (
+                        <Check className="h-4 w-4 text-primary" strokeWidth={3} />
+                      )}
+                    </div>
+                  </CardContent>
+
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-700"></div>
+                </Card>
+
+                {/* Connecting arrow (desktop only) */}
+                {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
+                  <div
+                    className="hidden lg:block absolute top-1/2 -right-4 z-20 opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]"
+                    style={{ animationDelay: `${0.6 + index * 0.15}s` }}
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                      <ArrowRight className="h-4 w-4 text-primary" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
 
