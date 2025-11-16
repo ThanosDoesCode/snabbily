@@ -1,18 +1,17 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 import { ArrowRight } from "lucide-react";
-
 const Hero = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle">
-      <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-subtle">
+      <div className="container mx-auto px-6 py-24 md:py-32 relative z-10 bg-[#171d24]">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-5 leading-tight">
             Fast, Affordable Websites for Local Businesses
@@ -26,20 +25,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              size="lg"
-              className="text-lg px-12 py-6 bg-gradient-primary hover:opacity-90 transition-all shadow-card hover:shadow-medium font-semibold"
-              onClick={() => scrollToSection("portfolio")}
-            >
+            <Button size="lg" className="text-lg px-12 py-6 bg-gradient-primary hover:opacity-90 transition-all shadow-card hover:shadow-medium font-semibold" onClick={() => scrollToSection("portfolio")}>
               View My Work
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-lg px-12 py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all font-semibold"
-              onClick={() => scrollToSection("contact")}
-            >
+            <Button size="lg" variant="outline" className="text-lg px-12 py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all font-semibold" onClick={() => scrollToSection("contact")}>
               Get Your Website
             </Button>
           </div>
@@ -53,8 +43,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

@@ -9,11 +9,9 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <Hero />
+  return <div className="min-h-screen">
+      <Hero className="bg-[#171d24]" />
       <AnimatedSection>
         <Services />
       </AnimatedSection>
@@ -39,8 +37,6 @@ const Index = () => {
         <Contact />
       </AnimatedSection>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
