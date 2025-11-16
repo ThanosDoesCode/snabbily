@@ -67,53 +67,65 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`group border bg-card transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] ${
+              className={`group relative border bg-card transition-all duration-500 opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] overflow-hidden ${
                 plan.popular
-                  ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] scale-[1.02] hover:-translate-y-2"
-                  : "border-border hover:border-primary/60 hover:-translate-y-2"
-              } hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:hover:shadow-[var(--glow-card)]`}
+                  ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] scale-[1.02]"
+                  : "border-border hover:border-primary"
+              }`}
               style={{
                 animationDelay: `${0.4 + index * 0.15}s`,
               }}
             >
+              {/* Animated border glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-20 blur-xl"></div>
+              </div>
+
+              {/* Rotating background gradient */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-700`}
+              ></div>
+
               {plan.popular && (
-                <div className="bg-gradient-primary text-primary-foreground text-center py-2 rounded-t-lg font-semibold text-sm relative overflow-hidden">
-                  <span className="relative z-10">Most Popular</span>
-                  {/* Subtle pulse */}
-                  <div className="absolute inset-0 bg-white/10 animate-[pulse_2s_ease-in-out_infinite]"></div>
+                <div className="relative bg-gradient-primary text-primary-foreground text-center py-2 rounded-t-lg font-semibold text-sm">
+                  Most Popular
                 </div>
               )}
-              <CardHeader className="pb-5">
-                <CardTitle className="text-xl flex items-center justify-between">
-                  {plan.name}
-                  {plan.popular && (
-                    <span className="w-2 h-2 rounded-full bg-primary animate-[ping_2s_ease-in-out_infinite]"></span>
-                  )}
-                </CardTitle>
+
+              <CardHeader className="pb-5 relative z-10">
+                <CardTitle className="text-xl">{plan.name}</CardTitle>
                 <CardDescription>{plan.description}</CardDescription>
-                <div className="pt-5 flex items-baseline gap-1">
+                <div className="pt-5 relative">
                   <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-base text-muted-foreground">SEK{plan.priceUnit || ""}</span>
+                  <span className="text-base text-muted-foreground ml-1">SEK{plan.priceUnit || ""}</span>
+                  {/* Animated underline */}
+                  <div className="h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-500 mt-2 rounded-full"></div>
                 </div>
               </CardHeader>
-              <CardContent className="pt-0">
+
+              <CardContent className="pt-0 relative z-10">
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 group-hover:gap-4 transition-all duration-300">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                      <span className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
-                        {feature}
-                      </span>
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="relative">
+                        <Check
+                          className="h-4 w-4 text-primary flex-shrink-0 mt-0.5 group-hover:animate-[spin_0.5s_ease-in-out]"
+                          strokeWidth={2.5}
+                        />
+                        <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
+                      </div>
+                      <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button
-                  className="w-full text-base py-6 font-semibold hover:-translate-y-1 transition-all duration-300 hover:shadow-lg"
+                  className="w-full text-base py-6 font-semibold relative overflow-hidden group/btn"
                   variant={plan.popular ? "default" : "outline"}
                   size="lg"
                   onClick={scrollToContact}
                 >
-                  Get Started
+                  <span className="relative z-10">Get Started</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
                 </Button>
               </CardContent>
             </Card>
@@ -123,10 +135,7 @@ const Pricing = () => {
           className="text-center mt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
           style={{ animationDelay: "1.2s" }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50">
-            <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-            <p className="text-sm text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
-          </div>
+          <p className="text-sm text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
         </div>
       </div>
     </section>
