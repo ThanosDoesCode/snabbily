@@ -8,19 +8,36 @@ import Portfolio from "@/components/Portfolio";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      <Services />
-      <WhyWebsite />
-      <BookingIntegration />
-      <Pricing />
-      <Process />
-      <Portfolio />
-      <FAQ />
-      <Contact />
+      <AnimatedSection>
+        <Services />
+      </AnimatedSection>
+      <AnimatedSection>
+        <WhyWebsite />
+      </AnimatedSection>
+      <AnimatedSection>
+        <BookingIntegration />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Pricing />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Process />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Portfolio />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FAQ />
+      </AnimatedSection>
+      <AnimatedSection>
+        <Contact />
+      </AnimatedSection>
       <Footer />
     </div>
   );
