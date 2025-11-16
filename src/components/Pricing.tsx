@@ -59,31 +59,43 @@ const Pricing = () => {
   return (
     <section className="py-40 bg-secondary" id="pricing">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20 animate-fade-in">
+        <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">No hidden fees, no surprises.</p>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto items-center">
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`border bg-card transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] animate-slide-up ${plan.popular ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] scale-[1.02]" : "border-border hover:border-primary/40"}`}
+              className={`group border bg-card transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] ${
+                plan.popular
+                  ? "border-primary shadow-[0_20px_70px_rgba(59,130,246,0.3)] dark:shadow-[var(--glow-primary-strong)] scale-[1.08] md:scale-[1.12] hover:scale-[1.15] z-10"
+                  : "border-border hover:border-primary/50 hover:scale-105 hover:shadow-large"
+              }`}
               style={{
-                animationDelay: `${index * 0.1}s`,
+                animationDelay: `${0.4 + index * 0.15}s`,
               }}
             >
               {plan.popular && (
-                <div className="bg-gradient-primary text-primary-foreground text-center py-2 rounded-t-lg font-semibold text-sm">
+                <div className="bg-gradient-primary text-primary-foreground text-center py-2.5 rounded-t-lg font-semibold text-sm flex items-center justify-center gap-2">
+                  <span className="animate-[ping_1.5s_ease-in-out_infinite] inline-block w-2 h-2 rounded-full bg-white"></span>
                   Most Popular
+                  <span className="animate-[ping_1.5s_ease-in-out_infinite] inline-block w-2 h-2 rounded-full bg-white"></span>
                 </div>
               )}
-              <CardHeader className="pb-5">
+              <CardHeader className={`${plan.popular ? "pb-6" : "pb-5"}`}>
                 <CardTitle className="text-xl">{plan.name}</CardTitle>
                 <CardDescription>{plan.description}</CardDescription>
                 <div className="pt-5">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-base text-muted-foreground ml-1">SEK{plan.priceUnit || ""}</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                    <span className="text-base text-muted-foreground">SEK{plan.priceUnit || ""}</span>
+                  </div>
+                  {plan.popular && (
+                    <p className="text-xs text-primary font-medium mt-2 animate-[pulse_2s_ease-in-out_infinite]">
+                      ⚡ Best Value
+                    </p>
+                  )}
                 </div>
               </CardHeader>
               <CardContent className="pt-0">
@@ -96,7 +108,7 @@ const Pricing = () => {
                   ))}
                 </ul>
                 <Button
-                  className="w-full text-base py-6 font-semibold"
+                  className={`w-full text-base py-6 font-semibold ${plan.popular ? "shadow-lg hover:shadow-xl" : ""} transition-all duration-300`}
                   variant={plan.popular ? "default" : "outline"}
                   size="lg"
                   onClick={scrollToContact}
@@ -107,8 +119,10 @@ const Pricing = () => {
             </Card>
           ))}
         </div>
-
-        <div className="text-center mt-10">
+        <div
+          className="text-center mt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
+          style={{ animationDelay: "1.2s" }}
+        >
           <p className="text-sm text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
         </div>
       </div>
