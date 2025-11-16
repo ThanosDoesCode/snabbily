@@ -58,23 +58,30 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group border border-border bg-card hover:border-primary/50 transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:hover:shadow-[var(--glow-card)]"
+              className="group border border-border bg-card hover:border-primary hover:-translate-y-2 hover:shadow-large dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] cursor-pointer"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <CardHeader className="pb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 group-hover:animate-[float_2s_ease-in-out_infinite]">
-                  <service.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
+                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <service.icon
+                    className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform duration-300"
+                    strokeWidth={2}
+                  />
                 </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </CardTitle>
                 <CardDescription>{service.description}</CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-sm">
-                      <span className="text-primary mt-0.5 font-semibold group-hover:animate-[ping_1s_ease-in-out_infinite]">
-                        ✓
-                      </span>
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 text-sm group-hover:translate-x-1 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 0.05}s` }}
+                    >
+                      <span className="text-primary mt-0.5 font-semibold">✓</span>
                       <span className="text-muted-foreground leading-relaxed">{feature}</span>
                     </li>
                   ))}
