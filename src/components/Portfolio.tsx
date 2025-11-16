@@ -40,6 +40,7 @@ const Portfolio = () => {
       bookingMethod: "Bokadirekt Integration",
       deliveryTime: "48 hours",
       description: "Elegant nail salon with appointment scheduling",
+      url: "https://classic-cut-crafters.lovable.app",
     },
     {
       image: portfolioFitness,
