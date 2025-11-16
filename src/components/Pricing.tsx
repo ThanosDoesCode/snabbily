@@ -13,7 +13,7 @@ const Pricing = () => {
   const plans = [
     {
       name: "Starter Website",
-      price: "3,000–4,000",
+      price: "3,990",
       description: "Perfect for new businesses getting online",
       features: [
         "Up to 3 pages",
@@ -27,7 +27,7 @@ const Pricing = () => {
     },
     {
       name: "Business Website",
-      price: "5,000–8,000",
+      price: "5,990",
       description: "Complete solution for established businesses",
       features: [
         "Up to 6 pages",
@@ -42,7 +42,7 @@ const Pricing = () => {
     },
     {
       name: "Maintenance",
-      price: "199–399",
+      price: "299",
       priceUnit: "/month",
       description: "Ongoing care for your website",
       features: [

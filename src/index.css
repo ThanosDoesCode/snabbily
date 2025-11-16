@@ -8,45 +8,46 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 15% 20%;
+    --background: 210 20% 96%;
+    --foreground: 210 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 15% 20%;
+    --card-foreground: 210 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 20%;
+    --popover-foreground: 210 20% 15%;
 
-    --primary: 210 85% 52%;
+    --primary: 210 85% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 97%;
-    --secondary-foreground: 210 15% 20%;
+    --secondary: 210 30% 92%;
+    --secondary-foreground: 210 20% 15%;
 
-    --muted: 210 30% 96%;
-    --muted-foreground: 210 12% 50%;
+    --muted: 210 25% 90%;
+    --muted-foreground: 210 15% 45%;
 
-    --accent: 15 85% 62%;
+    --accent: 15 85% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 92%;
-    --input: 210 15% 92%;
-    --ring: 210 85% 52%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 210 85% 48%;
 
     --radius: 1rem;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(210, 85%, 52%) 0%, hsl(200, 85%, 58%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(210, 40%, 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(15, 85%, 62%) 0%, hsl(25, 90%, 68%) 100%);
+    /* Custom design tokens with darker, more dramatic gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210, 85%, 45%) 0%, hsl(200, 85%, 52%) 50%, hsl(190, 80%, 58%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(210, 25%, 94%) 0%, hsl(210, 30%, 88%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(15, 85%, 55%) 0%, hsl(25, 90%, 62%) 50%, hsl(35, 85%, 68%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(210, 30%, 20%) 0%, hsl(210, 35%, 28%) 100%);
     
     /* Softer shadows for Apple-like aesthetic */
-    --shadow-soft: 0 2px 12px -2px hsl(210 85% 52% / 0.06);
-    --shadow-medium: 0 4px 20px -4px hsl(210 85% 52% / 0.08);
-    --shadow-large: 0 12px 40px -8px hsl(210 85% 52% / 0.12);
+    --shadow-soft: 0 2px 12px -2px hsl(210 85% 52% / 0.04);
+    --shadow-medium: 0 4px 20px -4px hsl(210 85% 52% / 0.06);
+    --shadow-large: 0 12px 40px -8px hsl(210 85% 52% / 0.08);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
