@@ -13,6 +13,7 @@ const Portfolio = () => {
       bookingMethod: "Bokadirekt Integration",
       deliveryTime: "48 hours",
       description: "Modern salon website with seamless booking integration",
+      url: "https://glow-studio-demo-swe.lovable.app",
     },
     {
       image: portfolioBarber,
@@ -43,12 +44,18 @@ const Portfolio = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden border border-border bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] hover:-translate-y-1 group animate-scale-in cursor-pointer"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+          {projects.map((project, index) => {
+            const CardWrapper = project.url ? 'a' : 'div';
+            const cardProps = project.url 
+              ? { href: project.url, target: "_blank", rel: "noopener noreferrer", className: "block" }
+              : {};
+            
+            return (
+              <CardWrapper key={index} {...cardProps}>
+                <Card
+                  className="overflow-hidden border border-border bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-card dark:hover:shadow-[var(--glow-card)] hover:-translate-y-1 group animate-scale-in cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
               <div className="relative overflow-hidden aspect-video">
                 <img
                   src={project.image}
@@ -79,7 +86,9 @@ const Portfolio = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
+          </CardWrapper>
+            );
+          })}
         </div>
       </div>
     </section>
