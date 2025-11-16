@@ -52,14 +52,7 @@ const BookingIntegration = () => {
             want one
           </p>
 
-          <div className="mt-6 max-w-3xl mx-auto">
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
-              <p className="text-sm text-center font-medium text-foreground">
-                <span className="text-primary font-semibold">I integrate the booking method you already use</span> — no
-                new software needed.
-              </p>
-            </div>
-          </div>
+          <div className="mt-6 max-w-3xl mx-auto"></div>
         </div>
 
         <div className="max-w-6xl mx-auto space-y-16">
