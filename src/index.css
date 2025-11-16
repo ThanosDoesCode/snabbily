@@ -128,10 +128,30 @@ All colors MUST be HSL.
 }
 
 /* Hero Section Animations */
-@keyframes fadeUp {
+@keyframes scaleIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
