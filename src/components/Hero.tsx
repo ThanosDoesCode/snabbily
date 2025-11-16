@@ -26,14 +26,22 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="...">
+            <Button
+              size="lg"
+              className="text-lg px-12 py-6 bg-gradient-primary hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] dark:hover:shadow-[var(--glow-primary-strong)] transition-all duration-300 font-semibold"
+              onClick={() => scrollToSection("portfolio")}
+            >
               View My Work
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
 
-            <Button size="lg" variant="outline" className="...">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-12 py-6 border-2 border-primary/30 hover:border-primary hover:bg-primary/10 hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] dark:hover:shadow-[var(--glow-primary)] transition-all duration-300 font-semibold"
+              onClick={() => scrollToSection("contact")}
+            >
               Get Your Website
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </div>
 
