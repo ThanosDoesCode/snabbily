@@ -3,11 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import portfolioSalon from "@/assets/portfolio-salon.jpg";
 import portfolioBarber from "@/assets/portfolio-barber.jpg";
 import portfolioFitness from "@/assets/portfolio-fitness.jpg";
+import glowStudioDemo from "@/assets/glow-studio-demo.png";
 
 const Portfolio = () => {
   const projects = [
     {
-      image: portfolioSalon,
+      image: glowStudioDemo,
       title: "Beauty Salon",
       industry: "Beauty & Wellness",
       bookingMethod: "Bokadirekt Integration",
