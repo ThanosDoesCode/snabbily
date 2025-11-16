@@ -7,6 +7,7 @@ import glowStudioDemo from "@/assets/glow-studio-demo.png";
 import barberProDemo from "@/assets/barber-pro-demo.png";
 import fadeFlowDemo from "@/assets/fade-flow-demo.png";
 import masterCutsDemo from "@/assets/master-cuts-demo.png";
+import barberPoleDemo from "@/assets/barber-pole-demo.png";
 
 const Portfolio = () => {
   const projects = [
@@ -47,7 +48,7 @@ const Portfolio = () => {
       url: "https://classic-cut-crafters.lovable.app",
     },
     {
-      image: portfolioBarber,
+      image: barberPoleDemo,
       title: "Barber Shop",
       industry: "Men's Grooming",
       bookingMethod: "SimplyBook.me",
