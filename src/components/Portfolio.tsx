@@ -8,6 +8,7 @@ import barberProDemo from "@/assets/barber-pro-demo.png";
 import fadeFlowDemo from "@/assets/fade-flow-demo.png";
 import masterCutsDemo from "@/assets/master-cuts-demo.png";
 import barberPoleDemo from "@/assets/barber-pole-demo.png";
+import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
 
 const Portfolio = () => {
   const projects = [
@@ -57,7 +58,7 @@ const Portfolio = () => {
       url: "https://barber-pole-chronicles.lovable.app",
     },
     {
-      image: portfolioBarber,
+      image: gildedRoseDemo,
       title: "Hair Studio",
       industry: "Beauty & Styling",
       bookingMethod: "Bokadirekt Integration",
