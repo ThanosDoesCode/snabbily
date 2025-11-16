@@ -28,7 +28,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
               size="lg"
-              className="text-lg px-12 py-6 bg-gradient-primary hover:scale-105 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] dark:hover:shadow-[var(--glow-primary-strong)] transition-all duration-300 font-semibold"
+              className="text-lg px-12 py-6 bg-gradient-primary hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(59,130,246,0.25)] transition-all duration-300 ease-out font-semibold animate-[float_3s_ease-in-out_infinite]"
               onClick={() => scrollToSection("portfolio")}
             >
               View My Work
@@ -38,7 +38,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="text-lg px-12 py-6 border-2 border-primary/30 hover:border-primary hover:bg-primary/10 hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] dark:hover:shadow-[var(--glow-primary)] transition-all duration-300 font-semibold"
+              className="text-lg px-12 py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary hover:-translate-y-2 hover:shadow-medium transition-all duration-300 ease-out font-semibold"
               onClick={() => scrollToSection("contact")}
             >
               Get Your Website
