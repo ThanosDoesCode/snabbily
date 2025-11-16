@@ -36,7 +36,7 @@ const Index = () => {
       <AnimatedSection>
         <Contact />
       </AnimatedSection>
-      <Footer />
+      <Footer className="bg-[#1d242a]" />
     </div>;
 };
 export default Index;
