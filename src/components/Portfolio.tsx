@@ -22,6 +22,7 @@ const Portfolio = () => {
       bookingMethod: "SimplyBook.me",
       deliveryTime: "48 hours",
       description: "Elegant dark-themed barbershop with appointment scheduling",
+      url: "https://barber-pro-prompt.lovable.app",
     },
     {
       image: portfolioFitness,
