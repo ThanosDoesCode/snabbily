@@ -5,6 +5,7 @@ import portfolioBarber from "@/assets/portfolio-barber.jpg";
 import portfolioFitness from "@/assets/portfolio-fitness.jpg";
 import glowStudioDemo from "@/assets/glow-studio-demo.png";
 import barberProDemo from "@/assets/barber-pro-demo.png";
+import fadeFlowDemo from "@/assets/fade-flow-demo.png";
 
 const Portfolio = () => {
   const projects = [
@@ -27,7 +28,7 @@ const Portfolio = () => {
       url: "https://barber-pro-prompt.lovable.app",
     },
     {
-      image: portfolioBarber,
+      image: fadeFlowDemo,
       title: "Barber Shop",
       industry: "Men's Grooming",
       bookingMethod: "Booksy Integration",
