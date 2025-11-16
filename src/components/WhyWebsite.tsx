@@ -36,27 +36,20 @@ const WhyWebsite = () => {
           {reasons.map((reason, index) => (
             <Card
               key={index}
-              className="group border border-border bg-card hover:border-primary/50 transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] relative overflow-hidden"
+              className="group border border-border bg-card hover:border-primary/50 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)] dark:hover:shadow-[var(--glow-card)] transition-all duration-500 opacity-0"
               style={{
-                animationDelay: `${index * 0.15}s`,
+                animation: `${index % 2 === 0 ? "slideInLeft" : "slideInRight"} 0.8s ease-out ${index * 0.15}s forwards`,
               }}
             >
-              {/* Progress bar from left */}
-              <div className="absolute top-0 left-0 h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-1000"></div>
-
               <CardContent className="pt-6 pb-6">
                 <div className="flex items-start gap-4">
-                  <div className="relative">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-500">
-                      <reason.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
-                    </div>
-                    {/* Number badge */}
-                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {index + 1}
-                    </div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 group-hover:animate-[pulse_1.5s_ease-in-out_infinite]">
+                    <reason.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-2">{reason.title}</h3>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                      {reason.title}
+                    </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">{reason.description}</p>
                   </div>
                 </div>
@@ -64,16 +57,13 @@ const WhyWebsite = () => {
             </Card>
           ))}
         </div>
-        <div
-          className="max-w-4xl mx-auto opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
-          style={{ animationDelay: "0.8s" }}
-        >
-          <Card className="border-2 border-accent/30 bg-gradient-to-br from-accent/5 to-accent/10 shadow-soft hover:shadow-[0_20px_50px_rgba(255,107,53,0.25)] hover:scale-[1.02] transition-all duration-500">
-            <CardContent className="py-8">
+        <div className="max-w-4xl mx-auto opacity-0 animate-[scaleIn_0.8s_ease-out_1s_forwards]">
+          <Card className="relative overflow-hidden border-2 border-accent/30 bg-gradient-to-br from-accent/5 to-accent/10 shadow-soft hover:shadow-[0_20px_60px_rgba(255,107,53,0.2)] transition-all duration-500">
+            {/* Animated glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
+            <CardContent className="py-8 relative z-10">
               <p className="text-base text-center font-medium leading-relaxed">
-                <span className="text-accent font-semibold text-lg inline-block hover:scale-110 transition-transform duration-300">
-                  Your website isn't about heavy SEO
-                </span>
+                <span className="text-accent font-semibold text-lg">Your website isn't about heavy SEO</span>
                 <br />
                 <span className="text-foreground">
                   It's about looking trustworthy when customers find you anywhere.
