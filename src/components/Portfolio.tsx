@@ -43,12 +43,13 @@ const Portfolio = () => {
       url: "https://classic-cut-crafters.lovable.app",
     },
     {
-      image: portfolioFitness,
-      title: "Spa & Wellness",
-      industry: "Health & Wellness",
+      image: portfolioBarber,
+      title: "Barber Shop",
+      industry: "Men's Grooming",
       bookingMethod: "SimplyBook.me",
-      deliveryTime: "72 hours",
-      description: "Luxury spa website with integrated booking system",
+      deliveryTime: "48 hours",
+      description: "Classic barbershop with modern booking integration",
+      url: "https://barber-pole-chronicles.lovable.app",
     },
     {
       image: portfolioBarber,
