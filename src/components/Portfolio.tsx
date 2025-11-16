@@ -31,6 +31,7 @@ const Portfolio = () => {
       bookingMethod: "Booksy Integration",
       deliveryTime: "48 hours",
       description: "Premium barbershop with online booking system",
+      url: "https://fade-flow-arts.lovable.app",
     },
     {
       image: portfolioSalon,
