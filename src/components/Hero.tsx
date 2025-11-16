@@ -30,31 +30,35 @@ const Hero = () => {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Professional websites with booking integration for Swedish small businesses
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto">
+            Delivered in 48–72 Hours — with your existing booking method integrated.
+          </p>
+          
+          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Most small businesses rely only on Google Maps. I build professional websites that increase trust and bookings.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button
               size="lg"
-              className="text-lg px-8 py-6 bg-gradient-primary hover:opacity-90 transition-all shadow-medium hover:shadow-large"
+              className="text-xl px-10 py-7 bg-gradient-primary hover:opacity-90 transition-all shadow-medium hover:shadow-large"
               onClick={() => scrollToSection("portfolio")}
             >
               View My Work
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-6 w-6" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="text-lg px-8 py-6 border-2 hover:bg-secondary/50 transition-all"
+              className="text-xl px-10 py-7 border-2 hover:bg-secondary/50 transition-all"
               onClick={() => scrollToSection("contact")}
             >
               Get Your Website
             </Button>
           </div>
 
-          <div className="bg-card/80 backdrop-blur-sm border-2 border-primary/20 rounded-2xl p-8 shadow-soft max-w-3xl mx-auto">
-            <p className="text-2xl md:text-3xl font-semibold text-foreground leading-relaxed">
+          <div className="bg-card/80 backdrop-blur-sm border border-primary/15 rounded-2xl p-6 shadow-soft max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl font-semibold text-foreground leading-relaxed">
               <span className="text-primary">Google Maps</span> helps customers find you.
               <br />
               <span className="text-accent">A website</span> helps customers choose you.

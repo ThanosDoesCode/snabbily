@@ -6,12 +6,12 @@ const Services = () => {
     {
       icon: Globe,
       title: "Website Creation",
-      description: "Complete website solution for your business",
+      description: "You send the basics — I handle everything else.",
       features: [
         "AI-built & modern design",
         "1–6 pages",
         "Mobile-first responsive",
-        "Integrated booking system",
+        "Flexible booking integration (Bokadirekt, SimplyBook, WhatsApp, calls, or a simple form)",
         "Basic SEO optimization",
         "Google Business Profile setup",
         "Delivery in 48–72 hours",
@@ -46,7 +46,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-24 bg-background" id="services">
+    <section className="py-32 bg-background" id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">What I Offer</h2>
@@ -59,24 +59,24 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-medium animate-slide-up"
+              className="border hover:border-primary/30 transition-all duration-300 hover:shadow-medium animate-slide-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader>
                 <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center mb-4">
                   <service.icon className="h-7 w-7 text-primary-foreground" />
                 </div>
-                <CardTitle className="text-2xl">{service.title}</CardTitle>
-                <CardDescription className="text-base">
+                <CardTitle className="text-xl">{service.title}</CardTitle>
+                <CardDescription className="text-sm">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3">
+                <ul className="space-y-2.5">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2 text-sm">
-                      <span className="text-primary mt-1">✓</span>
-                      <span className="text-foreground">{feature}</span>
+                      <span className="text-primary mt-0.5">✓</span>
+                      <span className="text-foreground/90">{feature}</span>
                     </li>
                   ))}
                 </ul>

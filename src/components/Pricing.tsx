@@ -33,7 +33,7 @@ const Pricing = () => {
         "Up to 6 pages",
         "Advanced booking integration",
         "Custom branding",
-        "Enhanced SEO",
+        "Improved SEO structure and metadata",
         "Google Business setup",
         "Professional photos integration",
         "72-hour delivery",
@@ -58,11 +58,11 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-24 bg-secondary" id="pricing">
+    <section className="py-32 bg-secondary" id="pricing">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             All prices in SEK. No hidden fees, no surprises.
           </p>
         </div>
@@ -71,10 +71,10 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`border-2 transition-all duration-300 hover:shadow-medium animate-slide-up ${
+              className={`border transition-all duration-300 hover:shadow-medium animate-slide-up ${
                 plan.popular
-                  ? "border-primary shadow-medium scale-105"
-                  : "border-border hover:border-primary/50"
+                  ? "border-primary shadow-soft scale-105"
+                  : "border-border/50 hover:border-primary/30"
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -84,26 +84,26 @@ const Pricing = () => {
                 </div>
               )}
               <CardHeader>
-                <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                <CardDescription className="text-base">{plan.description}</CardDescription>
+                <CardTitle className="text-xl">{plan.name}</CardTitle>
+                <CardDescription className="text-sm">{plan.description}</CardDescription>
                 <div className="pt-4">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-xl text-muted-foreground ml-1">
+                  <span className="text-3xl font-bold text-foreground">{plan.price}</span>
+                  <span className="text-lg text-muted-foreground ml-1">
                     SEK{plan.priceUnit || ""}
                   </span>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-2.5 mb-6">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground">{feature}</span>
+                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-foreground/90">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button
-                  className="w-full"
+                  className="w-full text-base py-6"
                   variant={plan.popular ? "default" : "outline"}
                   size="lg"
                   onClick={scrollToContact}
@@ -113,6 +113,12 @@ const Pricing = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        
+        <div className="text-center mt-8">
+          <p className="text-sm text-muted-foreground">
+            No hidden fees. Simple and transparent pricing.
+          </p>
         </div>
       </div>
     </section>
