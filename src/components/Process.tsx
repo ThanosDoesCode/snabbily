@@ -49,54 +49,58 @@ const Process = () => {
         </div>
         <div className="max-w-5xl mx-auto">
           <div className="relative">
-            {/* Animated Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block">
-              <div className="w-full h-0 bg-gradient-to-b from-primary via-primary to-accent animate-[expandDown_2s_ease-out_0.5s_forwards]"></div>
-            </div>
+            {/* Glowing Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-primary/20 via-primary/20 to-accent/20 hidden md:block blur-sm"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary to-accent hidden md:block"></div>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               {steps.map((step, index) => (
-                <Card
-                  key={index}
-                  className="group border border-border bg-card hover:border-primary hover:-translate-x-2 hover:shadow-large dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 relative opacity-0 animate-[slideInRight_0.8s_ease-out_forwards]"
-                  style={{ animationDelay: `${0.6 + index * 0.2}s` }}
-                >
-                  <CardContent className="pt-6 pb-6">
-                    <div className="flex items-start gap-6">
-                      <div className="relative">
-                        {/* Animated icon container */}
-                        <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                          <step.icon
-                            className="h-7 w-7 text-primary-foreground group-hover:scale-110 transition-transform duration-300"
-                            strokeWidth={2}
-                          />
+                <div key={index} className="relative">
+                  {/* Connection dot on timeline */}
+                  <div
+                    className="absolute left-[1.8rem] top-8 w-3 h-3 rounded-full bg-primary shadow-[0_0_20px_rgba(59,130,246,0.6)] hidden md:block opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+                    style={{ animationDelay: `${0.8 + index * 0.2}s` }}
+                  >
+                    <div className="absolute inset-0 rounded-full bg-primary animate-[ping_2s_ease-in-out_infinite]"></div>
+                  </div>
+
+                  <Card
+                    className="group border border-border bg-card hover:border-primary/60 hover:shadow-[0_20px_60px_rgba(59,130,246,0.15)] dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 relative opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] ml-0 md:ml-12"
+                    style={{ animationDelay: `${0.6 + index * 0.2}s` }}
+                  >
+                    {/* Animated corner accent */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-full"></div>
+
+                    <CardContent className="pt-6 pb-6">
+                      <div className="flex items-start gap-6">
+                        <div className="relative">
+                          <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft group-hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all duration-500">
+                            <step.icon
+                              className="h-7 w-7 text-primary-foreground animate-[float_3s_ease-in-out_infinite]"
+                              strokeWidth={2}
+                            />
+                          </div>
+
+                          <div className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-xs shadow-soft">
+                            {index + 1}
+                          </div>
                         </div>
 
-                        {/* Animated number badge */}
-                        <div className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-xs shadow-soft group-hover:scale-125 group-hover:animate-[ping_1s_ease-in-out_infinite] transition-all duration-300">
-                          {index + 1}
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <h3 className="text-xl font-semibold">{step.title}</h3>
+                            {index < steps.length - 1 && (
+                              <span className="text-muted-foreground text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                →
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-base text-muted-foreground leading-relaxed">{step.description}</p>
                         </div>
-
-                        {/* Pulsing ring */}
-                        <div className="absolute inset-0 rounded-xl bg-primary/20 animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
                       </div>
-
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
-                          {step.title}
-                        </h3>
-                        <p className="text-base text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
-                          {step.description}
-                        </p>
-
-                        {/* Progress indicator */}
-                        <div className="mt-4 h-1 bg-muted rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="h-full bg-gradient-primary w-0 group-hover:w-full transition-all duration-1000 ease-out"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
