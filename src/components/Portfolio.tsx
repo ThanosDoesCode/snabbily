@@ -56,6 +56,7 @@ const Portfolio = () => {
       bookingMethod: "Bokadirekt Integration",
       deliveryTime: "48 hours",
       description: "Modern hair studio with seamless online booking",
+      url: "https://gilded-rose-salon.lovable.app",
     },
   ];
 
