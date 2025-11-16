@@ -28,16 +28,17 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button
               size="lg"
-              className="text-lg px-12 py-6 bg-gradient-primary hover:opacity-90 transition-all shadow-card hover:shadow-medium font-semibold"
+              className="group text-lg px-12 py-6 bg-gradient-primary hover:opacity-90 hover:scale-105 hover:-translate-y-1 hover:shadow-large transition-all duration-300 font-semibold"
               onClick={() => scrollToSection("portfolio")}
             >
               View My Work
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
+
             <Button
               size="lg"
               variant="outline"
-              className="text-lg px-12 py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/50 transition-all font-semibold"
+              className="text-lg px-12 py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary hover:scale-105 hover:-translate-y-1 hover:shadow-medium transition-all duration-300 font-semibold"
               onClick={() => scrollToSection("contact")}
             >
               Get Your Website
