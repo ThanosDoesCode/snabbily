@@ -47,63 +47,43 @@ const Process = () => {
             You only send your photos and basic details. I build everything else.
           </p>
         </div>
-        <div className="max-w-5xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary to-accent hidden md:block" />
-
-            <div className="space-y-6">
-              {steps.map((step, index) => (
-                <Card
-                  key={index}
-                  className="group border border-border bg-card hover:border-primary/50 transition-all duration-500 relative opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] overflow-hidden"
-                  style={{ animationDelay: `${0.6 + index * 0.2}s` }}
-                >
-                  {/* Progress bar from left */}
-                  <div className="absolute left-0 top-0 bottom-0 w-0 bg-gradient-primary/10 group-hover:w-full transition-all duration-1000 ease-out"></div>
-
-                  <CardContent className="pt-6 pb-6 relative z-10">
-                    <div className="flex items-start gap-6">
-                      <div className="relative">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft group-hover:scale-110 transition-all duration-500">
-                          <step.icon className="h-7 w-7 text-primary-foreground" strokeWidth={2} />
-                        </div>
-
-                        {/* Checkmark appears on hover */}
-                        <div className="absolute inset-0 rounded-xl bg-accent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-0 group-hover:scale-100">
-                          <Check className="h-8 w-8 text-accent-foreground" strokeWidth={3} />
-                        </div>
-
-                        <div className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-xs shadow-soft group-hover:bg-primary transition-colors duration-300">
-                          {index + 1}
-                        </div>
-                      </div>
-
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="text-xl font-semibold group-hover:translate-x-2 transition-transform duration-300">
-                            {step.title}
-                          </h3>
-                          {/* Duration badge */}
-                          <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            Step {index + 1} of {steps.length}
-                          </span>
-                        </div>
-                        <p className="text-base text-muted-foreground leading-relaxed">{step.description}</p>
-
-                        {/* Completion bar */}
-                        <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-primary animate-[slideRight_1.5s_ease-out_forwards]"></div>
-                          </div>
-                          <span className="text-xs text-primary font-semibold">Done!</span>
-                        </div>
-                      </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-12">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center gap-8 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]`}
+                style={{ animationDelay: `${0.4 + index * 0.2}s` }}
+              >
+                {/* Icon side */}
+                <div className="flex-shrink-0">
+                  <div className="relative">
+                    <div
+                      className={`w-20 h-20 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-large hover:scale-110 hover:rotate-12 transition-all duration-500 ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
+                    >
+                      <step.icon className="h-10 w-10 text-primary-foreground" strokeWidth={2} />
                     </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-sm shadow-soft animate-[pulse_2s_ease-in-out_infinite]">
+                      {index + 1}
+                    </div>
+                    {/* Connecting line */}
+                    {index < steps.length - 1 && (
+                      <div className="hidden md:block absolute top-full left-1/2 -translate-x-1/2 w-0.5 h-12 bg-gradient-to-b from-primary to-transparent"></div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Content side */}
+                <Card className="flex-1 group border border-border bg-card hover:border-primary hover:shadow-large dark:hover:shadow-[var(--glow-card)] transition-all duration-500">
+                  <CardContent className="pt-6 pb-6">
+                    <h3 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="text-base text-muted-foreground leading-relaxed">{step.description}</p>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
