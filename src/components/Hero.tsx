@@ -17,7 +17,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold mb-5 leading-tight">
             Fast, Affordable Websites for Local Businesses
             <span className="block mt-3 text-4xl md:text-6xl bg-gradient-primary bg-clip-text text-transparent">
-              Delivered in 48–72 Hours
+              Delivered in 3-4 Days
             </span>
           </h1>
 
