@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy } from "lucide-react";
+import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, Check } from "lucide-react";
 
 const Process = () => {
   const steps = [
