@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, MapPin, Star } from "lucide-react";
+import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, Check, ArrowRight } from "lucide-react";
 
 const Process = () => {
   const steps = [
@@ -36,192 +36,124 @@ const Process = () => {
   ];
 
   return (
-    <section
-      className="py-40 bg-gradient-to-b from-amber-50 to-amber-100 dark:from-amber-950/20 dark:to-amber-900/10 relative overflow-hidden"
-      id="process"
-    >
-      {/* Decorative map elements */}
-      <div className="absolute inset-0 opacity-5 dark:opacity-10">
-        <div className="absolute top-10 left-10 text-amber-800 dark:text-amber-200 text-9xl rotate-12">✦</div>
-        <div className="absolute top-40 right-20 text-amber-800 dark:text-amber-200 text-6xl -rotate-12">⚓</div>
-        <div className="absolute bottom-20 left-20 text-amber-800 dark:text-amber-200 text-7xl rotate-45">⚔</div>
-        <div className="absolute bottom-40 right-40 text-amber-800 dark:text-amber-200 text-8xl -rotate-12">⚑</div>
+    <section className="py-40 bg-secondary relative overflow-hidden" id="process">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden opacity-30 dark:opacity-10">
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-full bg-amber-600 dark:bg-amber-500 flex items-center justify-center animate-[pulse_2s_ease-in-out_infinite]">
-              <MapPin className="h-6 w-6 text-white" strokeWidth={2.5} />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-amber-900 dark:text-amber-100">
-              Your Journey to Success
-            </h2>
-            <div
-              className="w-12 h-12 rounded-full bg-amber-600 dark:bg-amber-500 flex items-center justify-center animate-[pulse_2s_ease-in-out_infinite]"
-              style={{ animationDelay: "1s" }}
-            >
-              <Star className="h-6 w-6 text-white fill-white" strokeWidth={2.5} />
-            </div>
-          </div>
-          <p className="text-lg text-amber-800 dark:text-amber-200 max-w-2xl mx-auto mb-3 font-medium">
-            Follow the path from first contact to your live website
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Simple Process</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-3">
+            From first contact to live website in just a few days
           </p>
-          <p className="text-sm text-amber-700 dark:text-amber-300 max-w-2xl mx-auto">
-            🗺️ X marks the spot! You only send your photos and basic details.
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            You only send your photos and basic details. I build everything else.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="relative">
-            {/* Treasure map path - dotted line */}
-            <svg
-              className="absolute left-0 top-0 w-full h-full hidden md:block pointer-events-none"
-              style={{ zIndex: 0 }}
-            >
+            {/* Modern flowing path */}
+            <svg className="absolute inset-0 w-full h-full hidden lg:block pointer-events-none" style={{ zIndex: 0 }}>
+              <defs>
+                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: "hsl(210, 85%, 48%)", stopOpacity: 0.3 }} />
+                  <stop offset="100%" style={{ stopColor: "hsl(15, 85%, 58%)", stopOpacity: 0.3 }} />
+                </linearGradient>
+              </defs>
               <path
-                d="M 80 60 Q 200 100, 300 140 T 600 220 Q 700 260, 800 300 T 1100 380 Q 1200 420, 1300 460"
-                stroke="rgba(180, 83, 9, 0.3)"
-                strokeWidth="3"
+                d="M 150 80 Q 300 120, 450 100 T 750 150 Q 900 180, 1050 160 T 1350 240"
+                stroke="url(#pathGradient)"
+                strokeWidth="2"
                 fill="none"
-                strokeDasharray="10,10"
-                className="opacity-50 dark:opacity-30"
+                strokeDasharray="8,8"
+                className="animate-[dash_20s_linear_infinite]"
               />
             </svg>
 
-            <div className="space-y-12 md:space-y-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {steps.map((step, index) => (
                 <div
                   key={index}
-                  className={`flex ${index % 2 === 0 ? "justify-start" : "justify-end"} opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]`}
-                  style={{
-                    animationDelay: `${0.4 + index * 0.2}s`,
-                    marginLeft: index % 2 === 0 ? "0" : "auto",
-                    marginRight: index % 2 === 0 ? "auto" : "0",
-                  }}
+                  className="relative opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
+                  style={{ animationDelay: `${0.4 + index * 0.15}s` }}
                 >
-                  <Card
-                    className="group relative border-2 border-amber-700/30 dark:border-amber-600/30 bg-amber-50/90 dark:bg-amber-900/30 backdrop-blur-sm hover:border-amber-600 dark:hover:border-amber-500 hover:shadow-[0_10px_40px_rgba(180,83,9,0.3)] transition-all duration-500 max-w-xl overflow-hidden"
-                    style={{
-                      transform: `rotate(${index % 2 === 0 ? -1 : 1}deg)`,
-                    }}
-                  >
-                    {/* Torn paper effect on top */}
-                    <div
-                      className="absolute top-0 left-0 right-0 h-2 bg-amber-100 dark:bg-amber-800"
-                      style={{
-                        clipPath:
-                          "polygon(0 0, 5% 100%, 10% 0, 15% 100%, 20% 0, 25% 100%, 30% 0, 35% 100%, 40% 0, 45% 100%, 50% 0, 55% 100%, 60% 0, 65% 100%, 70% 0, 75% 100%, 80% 0, 85% 100%, 90% 0, 95% 100%, 100% 0)",
-                      }}
-                    ></div>
+                  <Card className="group h-full border border-border bg-card hover:border-primary hover:-translate-y-2 hover:shadow-large dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 relative overflow-hidden">
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    {/* Map stain effect */}
-                    <div className="absolute top-10 right-10 w-20 h-20 rounded-full bg-amber-800/5 dark:bg-amber-200/5 blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                    {/* Step number indicator */}
+                    <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-soft group-hover:scale-110 transition-transform duration-300">
+                      {index + 1}
+                    </div>
 
-                    <CardContent className="pt-8 pb-6 relative">
-                      <div className="flex items-start gap-6">
-                        {/* Treasure marker */}
-                        <div className="relative flex-shrink-0">
-                          {/* Map pin base */}
-                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 dark:from-amber-400 dark:to-amber-600 flex items-center justify-center shadow-[0_4px_12px_rgba(180,83,9,0.4)] group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 border-4 border-amber-200 dark:border-amber-800">
-                            <step.icon className="h-7 w-7 text-white" strokeWidth={2.5} />
-                          </div>
-
-                          {/* X marks the spot badge */}
-                          <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-red-600 dark:bg-red-500 text-white flex items-center justify-center font-bold text-lg shadow-lg group-hover:animate-[ping_1s_ease-in-out_infinite] border-2 border-white dark:border-gray-900">
-                            {index + 1}
-                          </div>
-
-                          {/* Treasure sparkle */}
-                          {index === steps.length - 1 && (
-                            <div className="absolute -bottom-1 -right-1">
-                              <Star className="h-5 w-5 text-amber-500 fill-amber-500 animate-[pulse_2s_ease-in-out_infinite]" />
-                            </div>
-                          )}
+                    <CardContent className="pt-8 pb-8 relative z-10">
+                      {/* Icon */}
+                      <div className="mb-5">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                          <step.icon className="h-7 w-7 text-primary-foreground" strokeWidth={2} />
                         </div>
+                      </div>
 
-                        <div className="flex-1">
-                          <div className="flex items-start justify-between mb-2">
-                            <h3
-                              className="text-xl font-bold text-amber-900 dark:text-amber-100 group-hover:text-amber-700 dark:group-hover:text-amber-300 transition-colors duration-300"
-                              style={{
-                                fontFamily: "Georgia, serif",
-                                textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
-                              }}
-                            >
-                              {step.title}
-                            </h3>
+                      {/* Content */}
+                      <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">{step.description}</p>
 
-                            {/* Distance marker */}
-                            <span
-                              className="text-xs px-2 py-1 rounded bg-amber-200 dark:bg-amber-800 text-amber-900 dark:text-amber-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                              style={{
-                                fontFamily: "Georgia, serif",
-                              }}
-                            >
-                              Step {index + 1}
-                            </span>
-                          </div>
-
-                          <p
-                            className="text-base text-amber-800 dark:text-amber-200 leading-relaxed"
-                            style={{
-                              fontFamily: "Georgia, serif",
-                            }}
-                          >
-                            {step.description}
-                          </p>
-
-                          {/* Treasure progress */}
-                          {index === steps.length - 1 ? (
-                            <div className="mt-4 flex items-center gap-2">
-                              <Star className="h-5 w-5 text-amber-500 fill-amber-500" />
-                              <span className="text-sm text-amber-700 dark:text-amber-300 font-bold">
-                                🎉 Treasure Found!
-                              </span>
-                              <Star className="h-5 w-5 text-amber-500 fill-amber-500" />
-                            </div>
-                          ) : (
-                            <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                              <div className="flex-1 h-2 bg-amber-200 dark:bg-amber-800 rounded-full overflow-hidden border border-amber-400 dark:border-amber-600">
-                                <div className="h-full bg-gradient-to-r from-amber-500 to-amber-600 animate-[slideRight_1.5s_ease-out_forwards]"></div>
-                              </div>
-                              <span className="text-xs text-amber-700 dark:text-amber-300 font-bold">→</span>
-                            </div>
-                          )}
+                      {/* Progress indicator */}
+                      <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-primary w-0 group-hover:w-full transition-all duration-1000"></div>
                         </div>
+                        {index < steps.length - 1 ? (
+                          <ArrowRight className="h-4 w-4 text-primary" />
+                        ) : (
+                          <Check className="h-4 w-4 text-primary" strokeWidth={3} />
+                        )}
                       </div>
                     </CardContent>
 
-                    {/* Compass rose corner decoration */}
-                    <div className="absolute bottom-2 right-2 w-8 h-8 opacity-20 dark:opacity-10 group-hover:opacity-40 dark:group-hover:opacity-20 transition-opacity duration-500">
-                      <div className="relative w-full h-full">
-                        <div className="absolute inset-0 flex items-center justify-center text-amber-800 dark:text-amber-200 text-xl">
-                          ✦
-                        </div>
+                    {/* Bottom accent line */}
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-700"></div>
+                  </Card>
+
+                  {/* Connecting arrow (desktop only) */}
+                  {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
+                    <div
+                      className="hidden lg:block absolute top-1/2 -right-4 z-20 opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]"
+                      style={{ animationDelay: `${0.6 + index * 0.15}s` }}
+                    >
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                        <ArrowRight className="h-4 w-4 text-primary" />
                       </div>
                     </div>
-                  </Card>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Treasure chest at the end */}
+        {/* Bottom CTA */}
         <div
           className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
           style={{ animationDelay: "2s" }}
         >
-          <div className="inline-block p-6 bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/40 dark:to-amber-800/40 rounded-2xl border-4 border-amber-700/30 dark:border-amber-600/30 shadow-[0_10px_40px_rgba(180,83,9,0.3)] animate-[float_3s_ease-in-out_infinite]">
-            <div className="text-6xl mb-2">💎</div>
-            <p
-              className="text-sm text-amber-900 dark:text-amber-100 font-bold"
-              style={{ fontFamily: "Georgia, serif" }}
-            >
-              Your Digital Treasure Awaits!
-            </p>
-          </div>
+          <Card className="inline-block border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 shadow-soft hover:shadow-large hover:scale-105 transition-all duration-500">
+            <CardContent className="py-6 px-8">
+              <div className="flex items-center gap-3">
+                <Rocket className="h-6 w-6 text-primary" />
+                <p className="text-base font-semibold text-foreground">
+                  Ready to start your journey? Let's build your website!
+                </p>
+                <Rocket className="h-6 w-6 text-primary rotate-45" />
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
