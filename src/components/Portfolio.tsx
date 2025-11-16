@@ -16,7 +16,6 @@ const Portfolio = () => {
       image: glowStudioDemo,
       title: "Beauty Salon",
       industry: "Beauty & Wellness",
-      bookingMethod: "Bokadirekt Integration",
       deliveryTime: "48 hours",
       description: "Modern salon website with seamless booking integration",
       url: "https://glow-studio-demo-swe.lovable.app",
@@ -25,7 +24,6 @@ const Portfolio = () => {
       image: barberProDemo,
       title: "Barber Shop",
       industry: "Men's Grooming",
-      bookingMethod: "SimplyBook.me",
       deliveryTime: "48 hours",
       description: "Elegant dark-themed barbershop with appointment scheduling",
       url: "https://barber-pro-prompt.lovable.app",
@@ -34,7 +32,6 @@ const Portfolio = () => {
       image: fadeFlowDemo,
       title: "Barber Shop",
       industry: "Men's Grooming",
-      bookingMethod: "Booksy Integration",
       deliveryTime: "48 hours",
       description: "Premium barbershop with online booking system",
       url: "https://fade-flow-arts.lovable.app",
@@ -43,7 +40,6 @@ const Portfolio = () => {
       image: masterCutsDemo,
       title: "Nail Salon",
       industry: "Beauty & Wellness",
-      bookingMethod: "Bokadirekt Integration",
       deliveryTime: "48 hours",
       description: "Elegant nail salon with appointment scheduling",
       url: "https://classic-cut-crafters.lovable.app",
@@ -52,7 +48,6 @@ const Portfolio = () => {
       image: barberPoleDemo,
       title: "Barber Shop",
       industry: "Men's Grooming",
-      bookingMethod: "SimplyBook.me",
       deliveryTime: "48 hours",
       description: "Classic barbershop with modern booking integration",
       url: "https://barber-pole-chronicles.lovable.app",
@@ -61,7 +56,6 @@ const Portfolio = () => {
       image: gildedRoseDemo,
       title: "Hair Studio",
       industry: "Beauty & Styling",
-      bookingMethod: "Bokadirekt Integration",
       deliveryTime: "48 hours",
       description: "Modern hair studio with seamless online booking",
       url: "https://gilded-rose-salon.lovable.app",
@@ -113,10 +107,6 @@ const Portfolio = () => {
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">Industry:</span>
                     <span className="font-medium text-foreground">{project.industry}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Booking:</span>
-                    <span className="font-medium text-primary">{project.bookingMethod}</span>
                   </div>
                 </div>
               </CardContent>
