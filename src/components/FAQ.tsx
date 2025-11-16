@@ -30,7 +30,7 @@ const FAQ = () => {
     {
       question: "Do I need new software or subscriptions?",
       answer:
-        "No — I integrate the booking method you already use. If you're using Bokadirekt, I'll embed it. If you prefer WhatsApp or phone bookings, I'll set that up. You don't need to learn anything new or pay for additional subscriptions unless you want to upgrade.",
+        "No. I integrate the booking method you already use — Bokadirekt, WhatsApp, calls, or a simple form.",
     },
     {
       question: "What if I don't have professional photos?",
@@ -50,7 +50,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 bg-background" id="faq">
+    <section className="py-32 bg-background" id="faq">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
@@ -65,7 +65,7 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-2 border-border rounded-lg px-6 hover:border-primary/50 transition-all duration-300 bg-card"
+                className="border border-border/50 rounded-lg px-6 hover:border-primary/30 transition-all duration-300 bg-card"
               >
                 <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary">
                   {faq.question}

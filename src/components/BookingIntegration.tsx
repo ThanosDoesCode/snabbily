@@ -38,18 +38,31 @@ const BookingIntegration = () => {
       name: "Email Form",
       description: "Free booking form",
     },
+    {
+      icon: Phone,
+      name: "Callback Request Form",
+      description: "Request a callback",
+    },
   ];
 
   return (
-    <section className="py-24 bg-background" id="booking">
+    <section className="py-32 bg-background" id="booking">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Flexible Booking Integration
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             I integrate the booking method you already use — no new system to learn, no extra subscription unless you want one
           </p>
+          
+          <div className="mt-6 max-w-3xl mx-auto">
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
+              <p className="text-sm text-center font-medium text-foreground">
+                <span className="text-primary font-semibold">I integrate the booking method you already use</span> — no new software needed.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-6xl mx-auto space-y-12">
@@ -63,7 +76,7 @@ const BookingIntegration = () => {
               {advancedSystems.map((system, index) => (
                 <Card
                   key={index}
-                  className="border-2 hover:border-primary/50 transition-all duration-300 animate-scale-in"
+                  className="border hover:border-primary/30 transition-all duration-300 animate-scale-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardHeader>
@@ -83,11 +96,11 @@ const BookingIntegration = () => {
           {/* Simple Booking Methods */}
           <div>
             <h3 className="text-2xl font-semibold mb-6">Simple, No-Cost Booking Methods</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
               {simpleMethods.map((method, index) => (
                 <Card
                   key={index}
-                  className="border-2 hover:border-primary/50 transition-all duration-300 text-center animate-scale-in"
+                  className="border hover:border-primary/30 transition-all duration-300 text-center animate-scale-in"
                   style={{ animationDelay: `${(index + 3) * 0.1}s` }}
                 >
                   <CardContent className="pt-6">
@@ -103,9 +116,9 @@ const BookingIntegration = () => {
           </div>
 
           {/* Key Message */}
-          <Card className="border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10">
+          <Card className="border border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10 shadow-soft">
             <CardContent className="py-8">
-              <p className="text-lg text-center font-medium">
+              <p className="text-base text-center font-medium">
                 <span className="text-primary font-semibold">Keep Your Workflow Simple</span>
                 <br />
                 I integrate whatever booking method you already use — whether it's a full platform or just a phone number. No need to change your process.

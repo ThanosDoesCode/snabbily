@@ -36,12 +36,15 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-24 bg-background" id="process">
+    <section className="py-32 bg-background" id="process">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">My Simple Process</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
             From first contact to live website in just a few days
+          </p>
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            You only send your photos and basic details — I build everything else.
           </p>
         </div>
 
@@ -54,7 +57,7 @@ const Process = () => {
               {steps.map((step, index) => (
                 <Card
                   key={index}
-                  className="border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-medium animate-slide-up relative"
+                  className="border hover:border-primary/30 transition-all duration-300 hover:shadow-soft animate-slide-up relative"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="pt-6">

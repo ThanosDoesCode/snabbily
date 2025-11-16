@@ -33,7 +33,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="py-24 bg-secondary" id="portfolio">
+    <section className="py-32 bg-secondary" id="portfolio">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Recent Work</h2>
@@ -42,24 +42,24 @@ const Portfolio = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-medium group animate-scale-in"
+              className="overflow-hidden border hover:border-primary/30 transition-all duration-500 hover:shadow-medium group animate-scale-in cursor-pointer hover:scale-105"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative overflow-hidden aspect-video">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
               </div>
               <CardHeader>
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                  <CardTitle className="text-2xl">{project.title}</CardTitle>
                   <Badge variant="secondary" className="shrink-0">
                     {project.deliveryTime}
                   </Badge>

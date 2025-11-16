@@ -26,7 +26,7 @@ const WhyWebsite = () => {
   ];
 
   return (
-    <section className="py-24 bg-secondary" id="why">
+    <section className="py-32 bg-secondary" id="why">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -41,7 +41,7 @@ const WhyWebsite = () => {
           {reasons.map((reason, index) => (
             <Card
               key={index}
-              className="border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-medium bg-card animate-scale-in"
+              className="border hover:border-primary/30 transition-all duration-300 hover:shadow-soft bg-card animate-scale-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="pt-6">
@@ -60,12 +60,12 @@ const WhyWebsite = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <Card className="border-2 border-accent/30 bg-gradient-to-br from-accent/5 to-accent/10">
+          <Card className="border border-accent/20 bg-gradient-to-br from-accent/5 to-accent/10 shadow-soft">
             <CardContent className="pt-6">
-              <p className="text-lg text-center font-medium">
-                <span className="text-accent font-semibold">Focus on Presentation, Not Just SEO</span>
+              <p className="text-base text-center font-medium">
+                <span className="text-accent font-semibold">Your website isn't about heavy SEO</span>
                 <br />
-                Your website isn't about ranking #1 on Google — it's about looking professional when customers find you through any channel.
+                — it's about looking trustworthy when customers find you anywhere.
               </p>
             </CardContent>
           </Card>
