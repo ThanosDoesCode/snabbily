@@ -36,14 +36,14 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-32 bg-background" id="process">
+    <section className="py-40 bg-background" id="process">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">My Simple Process</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-4">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-3">
             From first contact to live website in just a few days
           </p>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
             You only send your photos and basic details — I build everything else.
           </p>
         </div>
@@ -53,26 +53,26 @@ const Process = () => {
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary to-accent hidden md:block" />
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {steps.map((step, index) => (
                 <Card
                   key={index}
-                  className="border hover:border-primary/30 transition-all duration-300 hover:shadow-soft animate-slide-up relative"
+                  className="border border-border bg-card hover:border-primary/30 transition-all duration-300 hover:shadow-card animate-slide-up relative"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <CardContent className="pt-6">
+                  <CardContent className="pt-6 pb-6">
                     <div className="flex items-start gap-6">
                       <div className="relative">
-                        <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft">
-                          <step.icon className="h-8 w-8 text-primary-foreground" />
+                        <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 shadow-soft">
+                          <step.icon className="h-7 w-7 text-primary-foreground" strokeWidth={2} />
                         </div>
-                        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-sm shadow-soft">
+                        <div className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-accent text-accent-foreground flex items-center justify-center font-bold text-xs shadow-soft">
                           {index + 1}
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
-                        <p className="text-lg text-muted-foreground">{step.description}</p>
+                        <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                        <p className="text-base text-muted-foreground leading-relaxed">{step.description}</p>
                       </div>
                     </div>
                   </CardContent>
