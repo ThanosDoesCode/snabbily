@@ -6,7 +6,6 @@ import fadeFlowDemo from "@/assets/fade-flow-demo.png";
 import masterCutsDemo from "@/assets/master-cuts-demo.png";
 import barberPoleDemo from "@/assets/barber-pole-demo.png";
 import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
-import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -59,102 +58,89 @@ const projects = [
   },
 ];
 
-const fadeGrid = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
-    },
-  },
-};
-
-const fadeCard = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, type: "spring" } },
-};
-
 const Portfolio = () => (
-  <section
-    id="portfolio"
-    className="relative py-40 overflow-hidden bg-secondary bg-animated-gradient"
-    style={{ backgroundSize: "400% 400%", animation: "gradient-move 15s ease-in-out infinite" }}
-  >
+  <section id="portfolio" className="py-40 bg-secondary">
+    {/* Custom CSS animations */}
     <style>{`
-      @keyframes gradient-move {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeUp 0.7s ease forwards;
+      }
+      .fade-up-delayed {
+        opacity: 0;
+        animation-fill-mode: forwards;
+        animation-name: fadeUp;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-delay: var(--delay);
+      }
+      .scale-hover:hover {
+        transform: scale(1.05) rotate(1deg);
+        transition: transform 0.4s ease;
+        box-shadow: 0 10px 30px rgba(80, 80, 200, 0.15);
+      }
+      .img-hover-scale:hover {
+        transform: scale(1.1) rotate(1.5deg);
+        transition: transform 0.5s ease;
       }
     `}</style>
 
     <div className="container mx-auto px-6">
-      <motion.div
-        className="text-center mb-20"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.75, delay: 0.15 }}
-      >
+      <div className="text-center mb-20 fade-up" style={{ animationDelay: "0.15s" }}>
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Recent Work</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           See how I've helped local businesses establish their online presence
         </p>
-      </motion.div>
+      </div>
 
-      <motion.div
-        className="grid max-w-7xl mx-auto gap-12 md:grid-cols-2 lg:grid-cols-3"
-        variants={fadeGrid}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
         {projects.map((project, index) => {
           const Wrapper = project.url ? "a" : "div";
           return (
-            <motion.div
+            <Wrapper
               key={index}
-              variants={fadeCard}
-              whileHover={{ scale: 1.05, rotateZ: 1.5, boxShadow: "0 12px 48px rgba(80,80,200,0.2)" }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              href={project.url || undefined}
+              target={project.url ? "_blank" : undefined}
+              rel={project.url ? "noopener noreferrer" : undefined}
+              className="block"
+              style={{ "--delay": `${0.25 + index * 0.1}s` } as React.CSSProperties}
+              aria-label={project.title}
             >
-              <Wrapper
-                {...(project.url
-                  ? { href: project.url, target: "_blank", rel: "noopener noreferrer", className: "block" }
-                  : {})}
-                className="cursor-pointer"
+              <div
+                className="fade-up-delayed scale-hover rounded-lg overflow-hidden border border-border bg-card cursor-pointer"
+                style={{ animationDelay: `var(--delay)` }}
               >
-                <Card className="border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/40 dark:hover:shadow-[var(--glow-card)]">
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-48 transition-transform duration-500"
-                    initial={{ y: 40, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true, amount: 0.6 }}
-                    transition={{ type: "spring", duration: 0.7, delay: index * 0.07 }}
-                    whileHover={{ scale: 1.12, rotate: 2 }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-30 pointer-events-none" />
-                  <CardHeader className="pt-4 pb-3">
-                    <div className="mb-2 flex items-center justify-between gap-2">
-                      <CardTitle className="text-xl text-left">{project.title} – Demo Project</CardTitle>
-                      <Badge variant="secondary" className="shrink-0 text-xs">
-                        {project.deliveryTime}
-                      </Badge>
-                    </div>
-                    <CardDescription>{project.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <div className="flex justify-between text-sm text-muted-foreground">
-                      <span>Industry:</span>
-                      <span className="font-medium text-foreground">{project.industry}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Wrapper>
-            </motion.div>
+                <div className="relative overflow-hidden aspect-video">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover img-hover-scale" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-40 pointer-events-none" />
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xl font-semibold text-left">{project.title} – Demo Project</h3>
+                    <Badge variant="secondary" className="shrink-0 text-xs">
+                      {project.deliveryTime}
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground text-left mb-3">{project.description}</p>
+                  <div className="flex justify-between text-sm text-muted-foreground">
+                    <span>Industry:</span>
+                    <span className="font-medium text-foreground">{project.industry}</span>
+                  </div>
+                </div>
+              </div>
+            </Wrapper>
           );
         })}
-      </motion.div>
+      </div>
     </div>
   </section>
 );
