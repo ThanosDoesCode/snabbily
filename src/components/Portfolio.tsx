@@ -6,6 +6,7 @@ import portfolioFitness from "@/assets/portfolio-fitness.jpg";
 import glowStudioDemo from "@/assets/glow-studio-demo.png";
 import barberProDemo from "@/assets/barber-pro-demo.png";
 import fadeFlowDemo from "@/assets/fade-flow-demo.png";
+import masterCutsDemo from "@/assets/master-cuts-demo.png";
 
 const Portfolio = () => {
   const projects = [
@@ -37,7 +38,7 @@ const Portfolio = () => {
       url: "https://fade-flow-arts.lovable.app",
     },
     {
-      image: portfolioSalon,
+      image: masterCutsDemo,
       title: "Nail Salon",
       industry: "Beauty & Wellness",
       bookingMethod: "Bokadirekt Integration",
