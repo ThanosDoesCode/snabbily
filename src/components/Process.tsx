@@ -144,17 +144,14 @@ const Process = () => {
           className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
           style={{ animationDelay: "2s" }}
         >
-          <Card className="inline-block border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5 shadow-soft hover:shadow-large hover:scale-105 transition-all duration-500">
-            <CardContent className="py-6 px-8">
-              <div className="flex items-center gap-3">
-                <Rocket className="h-6 w-6 text-primary" />
-                <p className="text-base font-semibold text-foreground">
-                  Ready to start your journey? Let's build your website!
-                </p>
-                <Rocket className="h-6 w-6 text-primary rotate-45" />
-              </div>
-            </CardContent>
-          </Card>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-3 border-2 border-primary bg-gradient-to-br from-primary to-accent text-primary-foreground px-6 py-3 rounded-full font-semibold shadow-soft hover:shadow-large hover:scale-105 transition-all duration-500"
+          >
+            <Rocket className="h-5 w-5 rotate-45" />
+            Ready to start your journey?
+            <ArrowRight className="h-5 w-5" />
+          </a>
         </div>
       </div>
     </section>
