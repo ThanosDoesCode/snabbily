@@ -35,7 +35,7 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            LocalWebPro
+            TFlow Designs
           </button>
 
           <div className="flex items-center gap-4">
@@ -63,18 +63,9 @@ const Navbar = () => {
             >
               Contact
             </Button>
-            
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full"
-            >
-              {isDark ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
+
+            <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
+              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>
         </div>
