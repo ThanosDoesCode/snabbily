@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MessageCircle } from "lucide-react";
-
 const Contact = () => {
   // Load Calendly script
   useEffect(() => {
@@ -9,16 +8,13 @@ const Contact = () => {
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
     document.body.appendChild(script);
-
     return () => {
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
     };
   }, []);
-
-  return (
-    <section className="py-40 bg-secondary" id="contact">
+  return <section className="py-40 bg-secondary" id="contact">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Get Your Website</h2>
@@ -31,8 +27,10 @@ const Contact = () => {
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Calendly Scheduling Widget */}
           <Card className="border border-border bg-card shadow-soft overflow-hidden">
-            <CardHeader className="pb-3"></CardHeader>
-            <CardContent className="p-0" style={{ overflow: "hidden" }}>
+            
+            <CardContent className="p-0" style={{
+            overflow: "hidden"
+          }}>
               <style>{`
                 .calendly-inline-widget::-webkit-scrollbar {
                   display: none;
@@ -45,11 +43,11 @@ const Contact = () => {
                   overflow: hidden !important;
                 }
               `}</style>
-              <div
-                className="calendly-inline-widget"
-                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1"
-                style={{ minWidth: "320px", height: "700px", overflow: "hidden" }}
-              />
+              <div className="calendly-inline-widget" data-url="https://calendly.com/thanos-xintarakis/new-meeting-1" style={{
+              minWidth: "320px",
+              height: "700px",
+              overflow: "hidden"
+            }} />
             </CardContent>
           </Card>
 
@@ -64,10 +62,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-base mb-1">Email</h3>
                     <p className="text-muted-foreground text-sm">contact@example.se</p>
-                    <a
-                      href="mailto:contact@example.se"
-                      className="text-primary hover:underline text-sm mt-1 inline-block"
-                    >
+                    <a href="mailto:contact@example.se" className="text-primary hover:underline text-sm mt-1 inline-block">
                       Send an email →
                     </a>
                   </div>
@@ -101,12 +96,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-base mb-1">WhatsApp</h3>
                     <p className="text-muted-foreground text-sm">Quick response via WhatsApp</p>
-                    <a
-                      href="https://wa.me/46701234567"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline text-sm mt-1 inline-block"
-                    >
+                    <a href="https://wa.me/46701234567" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm mt-1 inline-block">
                       Message on WhatsApp →
                     </a>
                   </div>
@@ -123,8 +113,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
