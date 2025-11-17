@@ -6,9 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="text-center">
           <h3 className="text-2xl font-bold mb-2">Fast Websites for Local Businesses</h3>
-          <p className="text-muted-foreground mb-6">
-            Professional websites delivered in 48–72 hours
-          </p>
+          <p className="text-muted-foreground mb-6">Professional websites delivered in 3-4 days.</p>
           <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
             <a href="#services" className="hover:text-primary transition-colors">
               Services
