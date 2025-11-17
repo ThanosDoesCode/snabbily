@@ -35,10 +35,22 @@ const Contact = () => {
               <CardTitle className="text-2xl">Schedule a Call</CardTitle>
               <CardDescription>Pick a time that works best for you</CardDescription>
             </CardHeader>
-            <CardContent className="p-0">
+            <CardContent className="p-0" style={{ overflow: "hidden" }}>
+              <style>{`
+                .calendly-inline-widget::-webkit-scrollbar {
+                  display: none;
+                }
+                .calendly-inline-widget {
+                  -ms-overflow-style: none;
+                  scrollbar-width: none;
+                }
+                .calendly-inline-widget iframe {
+                  overflow: hidden !important;
+                }
+              `}</style>
               <div
-                className="calendly-inline-widget overflow-hidden"
-                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1?background_color=white&hide_gdpr_banner=1"
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1"
                 style={{ minWidth: "320px", height: "700px", overflow: "hidden" }}
               />
             </CardContent>
