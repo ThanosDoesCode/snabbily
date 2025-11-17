@@ -1,26 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Mail, Phone, MessageCircle } from "lucide-react";
-import { toast } from "sonner";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Message sent! I'll get back to you within 24 hours.");
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
-
   // Load Calendly script
   useEffect(() => {
     const script = document.createElement("script");
@@ -47,91 +29,23 @@ const Contact = () => {
         </div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
-          {/* Contact Form */}
-          <Card className="border border-border bg-card shadow-soft dark:shadow-[var(--glow-card)]">
-            <CardHeader className="pb-5">
-              <CardTitle className="text-2xl">Send a Message</CardTitle>
-              <CardDescription>Fill out the form and I'll get back to you within 24 hours</CardDescription>
+          {/* Calendly Scheduling Widget */}
+          <Card className="border border-border bg-card shadow-soft overflow-hidden">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-2xl">Schedule a Call</CardTitle>
+              <CardDescription>Pick a time that works best for you</CardDescription>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <Label htmlFor="name" className="text-sm font-medium">
-                    Name *
-                  </Label>
-                  <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    placeholder="Your name"
-                    className="mt-1.5 h-11"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="email" className="text-sm font-medium">
-                    Email *
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    placeholder="your@email.com"
-                    className="mt-1.5 h-11"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="phone" className="text-sm font-medium">
-                    Phone
-                  </Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+46 70 123 45 67"
-                    className="mt-1.5 h-11"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="message" className="text-sm font-medium">
-                    Message *
-                  </Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    placeholder="Tell me about your business and what you need..."
-                    className="mt-1.5 min-h-36"
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full py-6 font-semibold">
-                  Send Message
-                </Button>
-              </form>
+            <CardContent className="p-0">
+              <div
+                className="calendly-inline-widget overflow-hidden"
+                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1?background_color=e2e2e2&hide_gdpr_banner=1"
+                style={{ minWidth: "320px", height: "700px", overflow: "hidden" }}
+              />
             </CardContent>
           </Card>
 
           {/* Contact Information */}
           <div className="space-y-6">
-            {/* Calendly Scheduling Widget */}
-            <Card className="border border-border bg-card shadow-soft">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-xl">Schedule a Call</CardTitle>
-                <CardDescription>Pick a time that works best for you</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div
-                  className="calendly-inline-widget"
-                  data-url="https://calendly.com/thanos-xintarakis/new-meeting-1?background_color=e2e2e2"
-                  style={{ minWidth: "320px", height: "700px" }}
-                />
-              </CardContent>
-            </Card>
-
             <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
               <CardContent className="pt-6 pb-6">
                 <div className="flex items-start gap-4">
