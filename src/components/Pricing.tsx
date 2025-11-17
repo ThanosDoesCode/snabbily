@@ -70,7 +70,7 @@ const Pricing = () => {
               className={`group relative border bg-card transition-all duration-500 opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] overflow-hidden ${
                 plan.popular
                   ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] scale-[1.02]"
-                  : "border-border hover:border-primary"
+                  : "border-border hover:border-primary scale-[0.95]"
               }`}
               style={{
                 animationDelay: `${0.4 + index * 0.15}s`,
