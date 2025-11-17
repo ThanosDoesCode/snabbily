@@ -106,7 +106,9 @@ const BookingIntegration = () => {
                   style={{
                     animationDelay: `${1.2 + index * 0.1}s`,
                   }}
-                ></Card>
+                >
+                  <CardContent className="pt-6 pb-6"></CardContent>
+                </Card>
               ))}
             </div>
           </div>
