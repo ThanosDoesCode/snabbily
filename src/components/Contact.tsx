@@ -121,7 +121,7 @@ const Contact = () => {
 
             <div className="bg-muted/50 rounded-lg p-5 border border-border">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <span className="font-semibold text-foreground">Fast Response Time:</span> I typically reply within 1–3
+                <span className="font-semibold text-foreground">Fast Response Time:</span> I typically reply within 3–5
                 hours.
               </p>
             </div>
