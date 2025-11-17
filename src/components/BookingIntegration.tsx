@@ -27,11 +27,6 @@ const BookingIntegration = () => {
       description: "Direct message booking",
     },
     {
-      icon: MessageCircle,
-      name: "Messenger Booking",
-      description: "Facebook Messenger",
-    },
-    {
       icon: Mail,
       name: "Email Form",
       description: "Free booking form",
