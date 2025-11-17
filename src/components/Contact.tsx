@@ -38,7 +38,7 @@ const Contact = () => {
             <CardContent className="p-0">
               <div
                 className="calendly-inline-widget overflow-hidden"
-                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1"
+                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1?background_color=white&hide_gdpr_banner=1"
                 style={{ minWidth: "320px", height: "700px", overflow: "hidden" }}
               />
             </CardContent>
