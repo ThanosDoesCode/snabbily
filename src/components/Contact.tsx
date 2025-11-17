@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +21,20 @@ const Contact = () => {
     setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
+  // Load Calendly script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <section className="py-40 bg-secondary" id="contact">
       <div className="container mx-auto px-6">
@@ -29,9 +43,7 @@ const Contact = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
             Ready to establish your professional online presence? Let's talk!
           </p>
-          <p className="text-sm text-primary font-medium">
-            I usually reply within 1–3 hours during business days.
-          </p>
+          <p className="text-sm text-primary font-medium">I usually reply within 1–3 hours during business days.</p>
         </div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
@@ -39,14 +51,14 @@ const Contact = () => {
           <Card className="border border-border bg-card shadow-soft dark:shadow-[var(--glow-card)]">
             <CardHeader className="pb-5">
               <CardTitle className="text-2xl">Send a Message</CardTitle>
-              <CardDescription>
-                Fill out the form and I'll get back to you within 24 hours
-              </CardDescription>
+              <CardDescription>Fill out the form and I'll get back to you within 24 hours</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <Label htmlFor="name" className="text-sm font-medium">Name *</Label>
+                  <Label htmlFor="name" className="text-sm font-medium">
+                    Name *
+                  </Label>
                   <Input
                     id="name"
                     value={formData.name}
@@ -57,7 +69,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="email" className="text-sm font-medium">Email *</Label>
+                  <Label htmlFor="email" className="text-sm font-medium">
+                    Email *
+                  </Label>
                   <Input
                     id="email"
                     type="email"
@@ -69,7 +83,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone" className="text-sm font-medium">Phone</Label>
+                  <Label htmlFor="phone" className="text-sm font-medium">
+                    Phone
+                  </Label>
                   <Input
                     id="phone"
                     type="tel"
@@ -80,7 +96,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="message" className="text-sm font-medium">Message *</Label>
+                  <Label htmlFor="message" className="text-sm font-medium">
+                    Message *
+                  </Label>
                   <Textarea
                     id="message"
                     value={formData.message}
@@ -99,6 +117,21 @@ const Contact = () => {
 
           {/* Contact Information */}
           <div className="space-y-6">
+            {/* Calendly Scheduling Widget */}
+            <Card className="border border-border bg-card shadow-soft">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-xl">Schedule a Call</CardTitle>
+                <CardDescription>Pick a time that works best for you</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div
+                  className="calendly-inline-widget"
+                  data-url="https://calendly.com/thanos-xintarakis/new-meeting-1?background_color=e2e2e2"
+                  style={{ minWidth: "320px", height: "700px" }}
+                />
+              </CardContent>
+            </Card>
+
             <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
               <CardContent className="pt-6 pb-6">
                 <div className="flex items-start gap-4">
@@ -128,10 +161,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-base mb-1">Phone</h3>
                     <p className="text-muted-foreground text-sm">+46 70 123 45 67</p>
-                    <a
-                      href="tel:+46701234567"
-                      className="text-primary hover:underline text-sm mt-1 inline-block"
-                    >
+                    <a href="tel:+46701234567" className="text-primary hover:underline text-sm mt-1 inline-block">
                       Call now →
                     </a>
                   </div>
@@ -163,7 +193,8 @@ const Contact = () => {
 
             <div className="bg-muted/50 rounded-lg p-5 border border-border">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <span className="font-semibold text-foreground">Fast Response Time:</span> I typically reply within 1–3 hours during business days (9 AM - 6 PM CET).
+                <span className="font-semibold text-foreground">Fast Response Time:</span> I typically reply within 1–3
+                hours during business days (9 AM - 6 PM CET).
               </p>
             </div>
           </div>
