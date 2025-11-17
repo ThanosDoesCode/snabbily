@@ -106,20 +106,7 @@ const BookingIntegration = () => {
                   style={{
                     animationDelay: `${1.2 + index * 0.1}s`,
                   }}
-                >
-                  <CardContent className="pt-6 pb-6">
-                    <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center mx-auto mb-3 group-hover:animate-[float_2s_ease-in-out_infinite]">
-                      <method.icon
-                        className="h-5 w-5 text-primary-foreground group-hover:scale-125 transition-transform duration-300"
-                        strokeWidth={2}
-                      />
-                    </div>
-                    <h4 className="font-semibold text-sm mb-1.5">{method.name}</h4>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      {method.description}
-                    </p>
-                  </CardContent>
-                </Card>
+                ></Card>
               ))}
             </div>
           </div>
