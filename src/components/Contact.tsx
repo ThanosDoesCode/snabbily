@@ -22,7 +22,7 @@ const Contact = () => {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
             Ready to establish your professional online presence? Let's talk!
           </p>
-          <p className="text-sm text-primary font-medium">I usually reply within 1–3 hours during business days.</p>
+          <p className="text-sm text-primary font-medium">I usually reply within 3–5 hours during business days.</p>
         </div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
