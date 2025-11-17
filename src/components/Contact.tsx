@@ -30,7 +30,8 @@ const Contact = () => {
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Calendly Scheduling Widget */}
-          
+          <Card className="border border-border bg-card shadow-soft overflow-hidden">
+            <CardHeader className="pb-3"></CardHeader>
             <CardContent className="p-0" style={{ overflow: "hidden" }}>
               <style>{`
                 .calendly-inline-widget::-webkit-scrollbar {
