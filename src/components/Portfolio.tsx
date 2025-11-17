@@ -4,7 +4,7 @@ import glowStudioDemo from "@/assets/glow-studio-demo.png";
 import barberProDemo from "@/assets/barber-pro-demo.png";
 import fadeFlowDemo from "@/assets/fade-flow-demo.png";
 import masterCutsDemo from "@/assets/master-cuts-demo.png";
-import barberPoleDemo from "@/assets/barber-pole-demo.png";
+import classicCutsDemo from "@/assets/classic-cuts-demo.png";
 import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
 
 const projects = [
@@ -41,12 +41,12 @@ const projects = [
     url: "https://classic-cut-crafters.lovable.app",
   },
   {
-    image: barberPoleDemo,
+    image: classicCutsDemo,
     title: "Barber Shop",
     industry: "Men's Grooming",
     deliveryTime: "4 days",
     description: "Classic barbershop with modern booking integration",
-    url: "https://barber-pole-chronicles.lovable.app",
+    url: "https://classic-cut-crafters.lovable.app",
   },
   {
     image: gildedRoseDemo,
