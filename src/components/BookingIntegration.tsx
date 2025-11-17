@@ -88,26 +88,37 @@ const BookingIntegration = () => {
           {/* Simple Booking Methods */}
           <div className="opacity-0 animate-[fadeUp_0.8s_ease-out_1s_forwards]">
             <h3 className="text-2xl font-semibold mb-8">Simple, No-Cost Booking Methods</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="grid md:grid-cols-3 gap-8">
               {simpleMethods.map((method, index) => (
                 <Card
                   key={index}
-                  className="group border border-border bg-card hover:border-primary/50 hover:shadow-[0_10px_40px_rgba(59,130,246,0.2)] dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 text-center opacity-0 animate-[popIn_0.6s_cubic-bezier(0.68,-0.55,0.27,1.55)_forwards]"
+                  className="group relative border border-border bg-card hover:border-primary/70 transition-all duration-500 opacity-0 animate-[slideInLeft_0.8s_ease-out_forwards] overflow-hidden"
                   style={{
-                    animationDelay: `${1.2 + index * 0.1}s`,
+                    animationDelay: `${1.2 + index * 0.15}s`,
                   }}
                 >
-                  <CardContent className="pt-6 pb-6">
-                    <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center mx-auto mb-3 group-hover:animate-[float_2s_ease-in-out_infinite]">
+                  {/* Animated gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shimmer_2s_ease-in-out_infinite] transition-opacity duration-500"></div>
+
+                  <CardHeader className="pb-3 relative z-10">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-3 group-hover:animate-[float_2s_ease-in-out_infinite]">
                       <method.icon
-                        className="h-5 w-5 text-primary-foreground group-hover:scale-125 transition-transform duration-300"
+                        className="h-6 w-6 text-primary-foreground"
                         strokeWidth={2}
                       />
                     </div>
-                    <h4 className="font-semibold text-sm mb-1.5">{method.name}</h4>
-                    <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      {method.description}
-                    </p>
+                    <CardTitle className="text-lg group-hover:translate-x-2 transition-transform duration-300">
+                      {method.name}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="pt-0 relative z-10">
+                    <p className="text-muted-foreground text-sm mb-4">{method.description}</p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary group-hover:animate-[ping_1s_ease-in-out_infinite]"></div>
+                      <p className="text-xs text-primary font-medium group-hover:text-primary transition-colors">
+                        No additional cost
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
