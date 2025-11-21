@@ -207,7 +207,7 @@ const Process = () => {
         <div className="text-center mt-20">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-2xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-1"
+            className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl font-semibold text-lg shadow-lg shadow-indigo-500/30 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-400 hover:-translate-y-1"
           >
             <Rocket className="w-6 h-6 transition-transform duration-400 group-hover:rotate-45" />
             Ready to start your journey?
