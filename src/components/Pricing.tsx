@@ -1,11 +1,7 @@
-import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, Sparkles, ArrowRight, Star } from "lucide-react";
-
+import { Check } from "lucide-react";
 const Pricing = () => {
-  const [activeCard, setActiveCard] = useState<number | null>(null);
-
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -14,7 +10,6 @@ const Pricing = () => {
       });
     }
   };
-
   const plans = [
     {
       name: "Starter Website",
@@ -29,9 +24,6 @@ const Pricing = () => {
         "3 days delivery",
       ],
       popular: false,
-      borderColor: "border-blue-500/30",
-      accentColor: "bg-blue-500",
-      glowColor: "shadow-blue-500/25",
     },
     {
       name: "Business Website",
@@ -47,9 +39,6 @@ const Pricing = () => {
         "4 days delivery",
       ],
       popular: true,
-      borderColor: "border-purple-500/30",
-      accentColor: "bg-purple-500",
-      glowColor: "shadow-purple-500/25",
     },
     {
       name: "Maintenance",
@@ -65,178 +54,91 @@ const Pricing = () => {
         "Performance monitoring",
       ],
       popular: false,
-      borderColor: "border-green-500/30",
-      accentColor: "bg-green-500",
-      glowColor: "shadow-green-500/25",
     },
   ];
-
   return (
-    <section className="py-40 bg-secondary relative overflow-hidden" id="pricing">
-      {/* Background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full translate-x-1/3 -translate-y-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full -translate-x-1/3 translate-y-1/3"></div>
-
-      <div className="container mx-auto px-6 relative">
-        <div className="text-center mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-semibold text-primary">TRANSPARENT PRICING</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Simple, Transparent Pricing</h2>
-          <p className="text-lg text-muted-foreground">No hidden fees, no surprises.</p>
+    <section className="py-40 bg-secondary" id="pricing">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">No hidden fees, no surprises.</p>
         </div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
-            <div key={index} className="relative">
-              <Card
-                onMouseEnter={() => setActiveCard(index)}
-                onMouseLeave={() => setActiveCard(null)}
-                className={`relative h-full border-2 ${plan.borderColor} bg-card transition-all duration-500 ${
-                  activeCard === index ? `shadow-2xl ${plan.glowColor} -translate-y-3 scale-[1.02]` : "shadow-md"
-                } ${plan.popular ? "ring-2 ring-primary/20" : ""}`}
-              >
-                {/* Gradient overlay on hover */}
-                <div
-                  className={`absolute inset-0 rounded-lg bg-gradient-to-br from-primary/0 via-accent/0 to-transparent transition-all duration-500 ${
-                    activeCard === index ? "from-primary/5 via-accent/3" : ""
-                  }`}
-                ></div>
+            <Card
+              key={index}
+              className={`group relative border bg-card transition-all duration-500 opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] overflow-hidden ${
+                plan.popular
+                  ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] scale-[1.02]"
+                  : "border-border hover:border-primary scale-[0.95]"
+              }`}
+              style={{
+                animationDelay: `${0.4 + index * 0.15}s`,
+              }}
+            >
+              {/* Animated border glow */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-20 blur-xl"></div>
+              </div>
 
-                {/* Corner decoration */}
-                <div className="absolute top-0 right-0 w-24 h-24 overflow-hidden">
-                  <div
-                    className={`absolute top-0 right-0 w-16 h-16 ${plan.accentColor} opacity-10 transform rotate-45 translate-x-8 -translate-y-8 transition-all duration-500 ${
-                      activeCard === index ? "scale-150 opacity-20" : ""
-                    }`}
-                  ></div>
-                </div>
-
-                {/* Popular star badge */}
-                {plan.popular && (
-                  <div className="absolute -top-4 -right-4 z-20">
-                    <div
-                      className={`relative w-12 h-12 ${plan.accentColor} rounded-full flex items-center justify-center shadow-xl transition-all duration-500 ${
-                        activeCard === index ? "scale-125 rotate-180" : "rotate-0"
-                      }`}
-                    >
-                      <Star className="w-6 h-6 text-white fill-white" />
-                    </div>
-                  </div>
-                )}
-
-                <CardHeader className="pb-6 relative z-10">
-                  <CardTitle
-                    className={`text-2xl mb-2 transition-all duration-400 ${
-                      activeCard === index ? "text-primary" : ""
-                    }`}
-                  >
-                    {plan.name}
-                  </CardTitle>
-                  <CardDescription className="text-sm min-h-[40px]">{plan.description}</CardDescription>
-
-                  {/* Price with underline effect */}
-                  <div className="pt-6 relative">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-5xl font-bold text-foreground">{plan.price}</span>
-                      <span className="text-lg text-muted-foreground">SEK{plan.priceUnit || ""}</span>
-                    </div>
-
-                    {/* Expanding circle indicators */}
-                    <div className="flex gap-2 mt-5">
-                      {[...Array(3)].map((_, i) => (
-                        <div
-                          key={i}
-                          className={`w-2 h-2 rounded-full transition-all duration-400 ${
-                            activeCard === index && i <= 2 ? `${plan.accentColor} scale-125` : "bg-muted scale-100"
-                          }`}
-                          style={{ transitionDelay: `${i * 100}ms` }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="pt-0 relative z-10 flex flex-col h-full">
-                  <ul className="space-y-4 mb-8 flex-1">
-                    {plan.features.map((feature, idx) => (
-                      <li
-                        key={idx}
-                        className={`flex items-start gap-3 transition-all duration-300 ${
-                          activeCard === index ? "translate-x-1" : ""
-                        }`}
-                        style={{ transitionDelay: `${idx * 50}ms` }}
-                      >
-                        <div
-                          className={`w-6 h-6 rounded-full border-2 ${plan.borderColor} flex items-center justify-center flex-shrink-0 transition-all duration-400 ${
-                            activeCard === index ? `${plan.accentColor} border-transparent scale-110` : "bg-background"
-                          }`}
-                        >
-                          <Check
-                            className={`h-3.5 w-3.5 transition-colors duration-400 ${
-                              activeCard === index ? "text-white" : "text-primary"
-                            }`}
-                            strokeWidth={3}
-                          />
-                        </div>
-                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Button
-                    className={`w-full text-base py-6 font-semibold transition-all duration-400 group/btn ${
-                      plan.popular
-                        ? `${plan.accentColor} hover:opacity-90 text-white shadow-lg`
-                        : "border-2 hover:border-primary"
-                    } ${activeCard === index ? "scale-105" : ""}`}
-                    variant={plan.popular ? "default" : "outline"}
-                    size="lg"
-                    onClick={scrollToContact}
-                  >
-                    <span className="flex items-center justify-center gap-2">
-                      Get Started
-                      <ArrowRight
-                        className={`w-5 h-5 transition-all duration-300 ${
-                          activeCard === index ? "translate-x-2 scale-110" : ""
-                        }`}
-                      />
-                    </span>
-                  </Button>
-                </CardContent>
-
-                {/* Top border accent */}
-                <div
-                  className={`absolute top-0 left-0 right-0 h-1 ${plan.accentColor} transition-all duration-700 origin-center ${
-                    activeCard === index ? "scale-x-100" : "scale-x-0"
-                  }`}
-                ></div>
-              </Card>
-            </div>
-          ))}
-        </div>
-
-        {/* Visual separator */}
-        <div className="flex items-center justify-center gap-4 mt-20 mb-8">
-          {plans.map((plan, index) => (
-            <div key={index} className="flex items-center gap-4">
+              {/* Rotating background gradient */}
               <div
-                className={`h-12 w-1 ${plan.accentColor} rounded-full transition-all duration-400 ${
-                  activeCard === index ? "h-16 shadow-lg" : ""
-                }`}
+                className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-700`}
               ></div>
-              {index < plans.length - 1 && <div className="w-12 h-0.5 bg-border"></div>}
-            </div>
+
+              {plan.popular && (
+                <div className="relative bg-gradient-primary text-primary-foreground text-center py-2 rounded-t-lg font-semibold text-sm">
+                  Most Popular
+                </div>
+              )}
+
+              <CardHeader className="pb-5 relative z-10">
+                <CardTitle className="text-xl">{plan.name}</CardTitle>
+                <CardDescription>{plan.description}</CardDescription>
+                <div className="pt-5 relative">
+                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                  <span className="text-base text-muted-foreground ml-1">SEK{plan.priceUnit || ""}</span>
+                  {/* Animated underline */}
+                  <div className="h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-500 mt-2 rounded-full"></div>
+                </div>
+              </CardHeader>
+
+              <CardContent className="pt-0 relative z-10">
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="relative">
+                        <Check
+                          className="h-4 w-4 text-primary flex-shrink-0 mt-0.5 group-hover:animate-[spin_0.5s_ease-in-out]"
+                          strokeWidth={2.5}
+                        />
+                        <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
+                      </div>
+                      <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  className="w-full text-base py-6 font-semibold relative overflow-hidden group/btn"
+                  variant={plan.popular ? "default" : "outline"}
+                  size="lg"
+                  onClick={scrollToContact}
+                >
+                  <span className="relative z-10">Get Started</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+                </Button>
+              </CardContent>
+            </Card>
           ))}
         </div>
-
-        <div className="text-center">
+        <div
+          className="text-center mt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
+          style={{ animationDelay: "1.2s" }}
+        >
           <p className="text-sm text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
         </div>
       </div>
     </section>
   );
 };
-
 export default Pricing;
