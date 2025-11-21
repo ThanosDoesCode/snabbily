@@ -116,22 +116,22 @@ const Portfolio = () => (
               aria-label={project.title}
             >
               <div
-                className="fade-up-delayed scale-hover rounded-lg overflow-hidden border border-border bg-card cursor-pointer"
+                className="fade-up-delayed scale-hover rounded-lg overflow-hidden border border-border bg-card cursor-pointer h-full flex flex-col"
                 style={{ animationDelay: `var(--delay)` }}
               >
                 <div className="relative overflow-hidden aspect-video">
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover img-hover-scale" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-40 pointer-events-none" />
                 </div>
-                <div className="p-5">
+                <div className="p-5 flex flex-col flex-grow">
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-semibold text-left">{project.title} – Demo Project</h3>
                     <Badge variant="secondary" className="shrink-0 text-xs">
                       {project.deliveryTime}
                     </Badge>
                   </div>
-                  <p className="text-sm text-muted-foreground text-left mb-3">{project.description}</p>
-                  <div className="flex justify-between text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground text-left mb-3 flex-grow">{project.description}</p>
+                  <div className="flex justify-between text-sm text-muted-foreground mt-auto">
                     <span>Industry:</span>
                     <span className="font-medium text-foreground">{project.industry}</span>
                   </div>
