@@ -34,8 +34,8 @@ const projects = [
   },
   {
     image: masterCutsDemo,
-    title: "Nail Salon",
-    industry: "Beauty & Wellness",
+    title: "Barber Shop",
+    industry: "Men's Grooming",
     deliveryTime: "3 days",
     description: "Elegant nail salon with appointment scheduling",
     url: "https://classic-cut-crafters.lovable.app",
