@@ -37,7 +37,7 @@ const projects = [
     title: "Barber Shop",
     industry: "Men's Grooming",
     deliveryTime: "3 days",
-    description: "",
+    description: "Barbershop with online scheduling",
     url: "https://classic-cut-crafters.lovable.app",
   },
   {
