@@ -40,7 +40,7 @@ const Process = () => {
     },
     {
       icon: Rocket,
-      title: "Deliver in 3-4 Days",
+      title: "Deliver in 48–72 Hours",
       description: "Your website is live and ready for customers",
       accent: "border-l-yellow-500",
       iconBg: "bg-yellow-500",
@@ -89,11 +89,11 @@ const Process = () => {
                 <Card
                   onMouseEnter={() => setActiveCard(index)}
                   onMouseLeave={() => setActiveCard(null)}
-                  className={`relative border-l-4 ${step.accent} bg-card transition-all duration-400 ${
+                  className={`relative h-full border-l-4 ${step.accent} bg-card transition-all duration-400 ${
                     activeCard === index ? `shadow-2xl ${step.glowColor} translate-x-2` : "shadow-md hover:shadow-lg"
                   }`}
                 >
-                  <CardContent className="p-8 relative">
+                  <CardContent className="p-8 relative h-full flex flex-col">
                     {/* Diagonal stripe decoration */}
                     <div
                       className={`absolute top-0 right-0 w-20 h-20 opacity-5 transition-opacity duration-400 ${
@@ -132,7 +132,7 @@ const Process = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="space-y-3 mb-6">
+                    <div className="space-y-3 mb-6 flex-1">
                       <h3
                         className={`text-xl font-semibold transition-all duration-300 ${
                           activeCard === index ? "translate-x-1" : ""
