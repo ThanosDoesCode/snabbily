@@ -1,60 +1,95 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, Check, ArrowRight } from "lucide-react";
+import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, Check, ArrowRight, Zap } from "lucide-react";
 
 const Process = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const steps = [
     {
       icon: MessageCircle,
       title: "Quick Call or Message",
       description: "We discuss your business and what you need",
+      color: "from-blue-500 to-cyan-500",
+      bgGlow: "bg-blue-500/20",
     },
     {
       icon: FileText,
       title: "Collect Details",
       description: "I gather your content, photos, and booking preferences",
+      color: "from-purple-500 to-pink-500",
+      bgGlow: "bg-purple-500/20",
     },
     {
       icon: Hammer,
       title: "Build Website",
       description: "I create your professional website with AI assistance",
+      color: "from-orange-500 to-red-500",
+      bgGlow: "bg-orange-500/20",
     },
     {
       icon: Calendar,
       title: "Integrate Booking",
       description: "I set up your preferred booking method",
+      color: "from-green-500 to-emerald-500",
+      bgGlow: "bg-green-500/20",
     },
     {
       icon: Rocket,
       title: "Deliver in 48–72 Hours",
       description: "Your website is live and ready for customers",
+      color: "from-yellow-500 to-amber-500",
+      bgGlow: "bg-yellow-500/20",
     },
     {
       icon: LifeBuoy,
       title: "Optional Ongoing Care",
       description: "Monthly maintenance if you want peace of mind",
+      color: "from-indigo-500 to-violet-500",
+      bgGlow: "bg-indigo-500/20",
     },
   ];
 
   return (
     <section className="py-40 bg-secondary relative overflow-hidden" id="process">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-30 dark:opacity-10">
-        <div
-          className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDuration: "4s" }}
-        ></div>
-        <div
-          className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDuration: "5s", animationDelay: "1s" }}
-        ></div>
+      {/* Animated mesh background */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary/30 via-transparent to-transparent rounded-full blur-3xl animate-spin-slow"></div>
+        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-accent/30 via-transparent to-transparent rounded-full blur-3xl animate-spin-slower"></div>
+      </div>
+
+      {/* Floating particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(12)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-primary/30 rounded-full animate-float"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${8 + Math.random() * 4}s`,
+            }}
+          />
+        ))}
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Simple Process</h2>
+        <div
+          className={`text-center mb-20 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 animate-bounce-subtle">
+            <Zap className="w-4 h-4 text-primary" />
+            <span className="text-sm font-semibold text-primary uppercase tracking-wider">Fast & Efficient</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
+            My Simple Process
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-3">
             From first contact to live website in just a few days
           </p>
@@ -68,98 +103,137 @@ const Process = () => {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className="relative opacity-0 animate-[slideInUp_0.7s_ease-out_forwards]"
-                style={{ animationDelay: `${0.3 + index * 0.1}s` }}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
+                className={`relative transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"
+                }`}
+                style={{
+                  transitionDelay: `${index * 150}ms`,
+                }}
+                onMouseEnter={() => setActiveStep(index)}
+                onMouseLeave={() => setActiveStep(null)}
               >
-                <Card
-                  className="group h-full border-2 border-border bg-card hover:border-primary transition-all duration-700 relative overflow-hidden"
-                  style={{
-                    transform: hoveredCard === index ? "translateY(-12px) scale(1.02)" : "translateY(0) scale(1)",
-                    boxShadow:
-                      hoveredCard === index
-                        ? "0 20px 40px rgba(0, 0, 0, 0.15), 0 0 30px rgba(59, 130, 246, 0.2)"
-                        : "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  }}
-                >
-                  {/* Animated gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-accent/0 to-primary/0 opacity-0 group-hover:from-primary/10 group-hover:via-accent/5 group-hover:to-primary/10 group-hover:opacity-100 transition-all duration-700"></div>
+                {/* Glow effect behind card */}
+                <div
+                  className={`absolute -inset-4 ${step.bgGlow} rounded-3xl blur-2xl transition-opacity duration-500 ${
+                    activeStep === index ? "opacity-100" : "opacity-0"
+                  }`}
+                />
 
-                  {/* Shimmer effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 overflow-hidden">
+                <Card
+                  className={`group relative h-full border-2 bg-card overflow-hidden transition-all duration-700 ${
+                    activeStep === index
+                      ? "border-primary shadow-2xl scale-105 -rotate-1"
+                      : "border-border hover:border-primary/50"
+                  }`}
+                >
+                  {/* Animated background pattern */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.1),rgba(255,255,255,0))]"></div>
+                  </div>
+
+                  {/* Rotating border effect */}
+                  <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}>
                     <div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
-                      style={{ animationDelay: `${index * 0.1}s` }}
+                      className={`absolute inset-0 bg-gradient-to-r ${step.color} opacity-20 animate-rotate-border`}
                     ></div>
                   </div>
 
-                  {/* Step number indicator with pulse */}
-                  <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-lg transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
-                    <span className="relative z-10">{index + 1}</span>
-                    <div className="absolute inset-0 rounded-full bg-primary/30 animate-ping opacity-0 group-hover:opacity-100"></div>
+                  {/* Flowing line animation */}
+                  <div className="absolute top-0 left-0 w-full h-1 overflow-hidden">
+                    <div
+                      className={`h-full bg-gradient-to-r ${step.color} -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out`}
+                    ></div>
                   </div>
 
-                  <CardContent className="pt-8 pb-8 relative z-10">
-                    {/* Icon with enhanced animation */}
-                    <div className="mb-6">
+                  {/* Step number with morphing effect */}
+                  <div className="absolute -top-3 -right-3 z-20">
+                    <div
+                      className={`relative w-12 h-12 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center font-bold text-white shadow-xl transition-all duration-500 ${
+                        activeStep === index ? "scale-125 rotate-180" : "rotate-0"
+                      }`}
+                    >
+                      <span className={`transition-all duration-500 ${activeStep === index ? "rotate-180" : ""}`}>
+                        {index + 1}
+                      </span>
+                      {/* Ripple effect */}
                       <div
-                        className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center shadow-lg transition-all duration-700 group-hover:shadow-2xl relative"
-                        style={{
-                          transform: hoveredCard === index ? "scale(1.15) rotate(8deg)" : "scale(1) rotate(0deg)",
-                        }}
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.color} animate-ping opacity-0 ${
+                          activeStep === index ? "opacity-75" : ""
+                        }`}
+                      ></div>
+                    </div>
+                  </div>
+
+                  <CardContent className="pt-10 pb-8 relative z-10">
+                    {/* Icon with 3D flip effect */}
+                    <div className="mb-6 perspective-1000">
+                      <div
+                        className={`relative w-20 h-20 transition-all duration-700 ${
+                          activeStep === index ? "rotate-y-180" : ""
+                        }`}
+                        style={{ transformStyle: "preserve-3d" }}
                       >
-                        <step.icon className="h-8 w-8 text-primary-foreground" strokeWidth={2} />
-                        {/* Orbiting ring */}
-                        <div className="absolute inset-0 rounded-2xl border-2 border-primary/30 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700"></div>
+                        {/* Front face */}
+                        <div
+                          className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-2xl backface-hidden`}
+                        >
+                          <step.icon className="h-10 w-10 text-white" strokeWidth={2} />
+                        </div>
+                        {/* Back face */}
+                        <div
+                          className={`absolute inset-0 rounded-3xl bg-gradient-to-tl ${step.color} flex items-center justify-center shadow-2xl backface-hidden rotate-y-180`}
+                        >
+                          <Check className="h-10 w-10 text-white" strokeWidth={3} />
+                        </div>
                       </div>
                     </div>
 
-                    {/* Content with staggered animation */}
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-semibold transition-all duration-500 group-hover:text-primary group-hover:translate-x-1">
+                    {/* Content with reveal animation */}
+                    <div className="space-y-3 overflow-hidden">
+                      <h3
+                        className={`text-xl font-semibold transition-all duration-500 ${
+                          activeStep === index ? "translate-x-2" : ""
+                        }`}
+                      >
                         {step.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed transition-all duration-500 group-hover:text-foreground/80 group-hover:translate-x-1">
+                      <p
+                        className={`text-sm text-muted-foreground leading-relaxed transition-all duration-500 delay-75 ${
+                          activeStep === index ? "translate-x-2" : ""
+                        }`}
+                      >
                         {step.description}
                       </p>
                     </div>
 
-                    {/* Progress indicator with smooth fill */}
-                    <div className="flex items-center gap-3 mt-6 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100">
-                      <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                    {/* Animated progress dots */}
+                    <div className="flex items-center gap-2 mt-6">
+                      {[...Array(5)].map((_, i) => (
                         <div
-                          className="h-full bg-gradient-primary rounded-full transition-all duration-1000 ease-out"
+                          key={i}
+                          className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                            activeStep === index && i <= 4 ? `bg-gradient-to-r ${step.color}` : "bg-muted"
+                          }`}
                           style={{
-                            width: hoveredCard === index ? "100%" : "0%",
+                            transitionDelay: activeStep === index ? `${i * 100}ms` : "0ms",
                           }}
-                        ></div>
-                      </div>
-                      {index < steps.length - 1 ? (
-                        <ArrowRight className="h-5 w-5 text-primary animate-pulse" />
-                      ) : (
-                        <Check className="h-5 w-5 text-primary" strokeWidth={3} />
-                      )}
+                        />
+                      ))}
                     </div>
                   </CardContent>
 
-                  {/* Bottom accent line with wave effect */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700 ease-out"></div>
-
-                  {/* Corner highlights */}
-                  <div className="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-primary/0 group-hover:w-8 group-hover:h-8 group-hover:border-primary/50 transition-all duration-500"></div>
-                  <div className="absolute bottom-0 right-0 w-0 h-0 border-b-2 border-r-2 border-primary/0 group-hover:w-8 group-hover:h-8 group-hover:border-primary/50 transition-all duration-500"></div>
+                  {/* Sliding bottom accent */}
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${step.color} origin-left transition-all duration-700 ${
+                      activeStep === index ? "scale-x-100" : "scale-x-0"
+                    }`}
+                  ></div>
                 </Card>
 
-                {/* Connecting arrow with fade animation */}
+                {/* Connection line with pulse */}
                 {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
-                  <div
-                    className="hidden lg:block absolute top-1/2 -right-4 z-20 opacity-0 animate-[fadeIn_0.8s_ease-out_forwards]"
-                    style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-                  >
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 hover:scale-110 transition-all duration-300">
-                      <ArrowRight className="h-5 w-5 text-primary animate-pulse" style={{ animationDuration: "2s" }} />
-                    </div>
+                  <div className="hidden lg:flex absolute top-1/2 -right-4 z-20 items-center justify-center w-8 h-8">
+                    <div className={`w-1 h-8 bg-gradient-to-b ${step.color} animate-pulse-slow`}></div>
                   </div>
                 )}
               </div>
@@ -167,52 +241,111 @@ const Process = () => {
           </div>
         </div>
 
-        {/* Bottom CTA with bounce */}
-        <div
-          className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
-          style={{ animationDelay: "1.2s" }}
-        >
+        {/* Bottom CTA with magnetic effect */}
+        <div className="text-center mt-20">
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 border-2 border-primary bg-gradient-to-br from-primary to-accent text-primary-foreground px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-500 group"
+            className="group inline-flex items-center gap-3 relative px-10 py-5 rounded-2xl font-semibold text-lg overflow-hidden transition-all duration-500 hover:scale-110 hover:shadow-2xl"
           >
-            <Rocket className="h-5 w-5 rotate-45 group-hover:rotate-0 transition-transform duration-500" />
-            Ready to start your journey?
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+            {/* Animated gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-gradient"></div>
+
+            {/* Shine effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            </div>
+
+            <span className="relative z-10 text-primary-foreground flex items-center gap-3">
+              <Rocket className="h-6 w-6 transition-all duration-500 group-hover:rotate-45 group-hover:-translate-y-2" />
+              Ready to start your journey?
+              <ArrowRight className="h-6 w-6 transition-transform duration-500 group-hover:translate-x-3" />
+            </span>
           </a>
         </div>
       </div>
 
       <style>{`
-        @keyframes slideInUp {
-          from {
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-slower {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
+        }
+
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+
+        .animate-spin-slower {
+          animation: spin-slower 25s linear infinite;
+        }
+
+        @keyframes float {
+          0%, 100% { 
+            transform: translateY(0px) translateX(0px);
             opacity: 0;
-            transform: translateY(40px);
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          50% { 
+            transform: translateY(-100px) translateX(50px);
+            opacity: 0.5;
           }
         }
 
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .animate-float {
+          animation: float 10s ease-in-out infinite;
         }
 
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+        @keyframes bounce-subtle {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-5px); }
+        }
+
+        .animate-bounce-subtle {
+          animation: bounce-subtle 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate-border {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        .animate-rotate-border {
+          animation: rotate-border 3s linear infinite;
+          filter: blur(20px);
+        }
+
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+
+        .animate-pulse-slow {
+          animation: pulse-slow 2s ease-in-out infinite;
+        }
+
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        .animate-gradient {
+          animation: gradient 3s ease infinite;
+        }
+
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+
+        .rotate-y-180 {
+          transform: rotateY(180deg);
+        }
+
+        .backface-hidden {
+          backface-visibility: hidden;
         }
       `}</style>
     </section>
