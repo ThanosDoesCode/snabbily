@@ -40,7 +40,7 @@ const Process = () => {
     },
     {
       icon: Rocket,
-      title: "Deliver in 48–72 Hours",
+      title: "Deliver in 3-4 Days",
       description: "Your website is live and ready for customers",
       accent: "border-l-yellow-500",
       iconBg: "bg-yellow-500",
@@ -58,10 +58,6 @@ const Process = () => {
 
   return (
     <section className="py-40 bg-secondary relative overflow-hidden" id="process">
-      {/* Subtle corner accents */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full translate-x-1/2 translate-y-1/2"></div>
-
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
