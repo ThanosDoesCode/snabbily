@@ -40,7 +40,7 @@ const Process = () => {
     },
     {
       icon: Rocket,
-      title: "Deliver in 48–72 Hours",
+      title: "Deliver in 3-4 Days",
       description: "Your website is live and ready for customers",
       accent: "border-l-yellow-500",
       iconBg: "bg-yellow-500",
