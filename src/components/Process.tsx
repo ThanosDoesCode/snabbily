@@ -1,115 +1,217 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, Check, ArrowRight } from "lucide-react";
+import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, Check, ArrowRight, Sparkles } from "lucide-react";
 
 const Process = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   const steps = [
     {
       icon: MessageCircle,
       title: "Quick Call or Message",
       description: "We discuss your business and what you need",
+      accent: "border-l-blue-500",
+      iconBg: "bg-blue-500",
+      glowColor: "shadow-blue-500/20",
     },
     {
       icon: FileText,
       title: "Collect Details",
       description: "I gather your content, photos, and booking preferences",
+      accent: "border-l-purple-500",
+      iconBg: "bg-purple-500",
+      glowColor: "shadow-purple-500/20",
     },
     {
       icon: Hammer,
       title: "Build Website",
       description: "I create your professional website with AI assistance",
+      accent: "border-l-orange-500",
+      iconBg: "bg-orange-500",
+      glowColor: "shadow-orange-500/20",
     },
     {
       icon: Calendar,
       title: "Integrate Booking",
       description: "I set up your preferred booking method",
+      accent: "border-l-green-500",
+      iconBg: "bg-green-500",
+      glowColor: "shadow-green-500/20",
     },
     {
       icon: Rocket,
       title: "Deliver in 48–72 Hours",
       description: "Your website is live and ready for customers",
+      accent: "border-l-yellow-500",
+      iconBg: "bg-yellow-500",
+      glowColor: "shadow-yellow-500/20",
     },
     {
       icon: LifeBuoy,
       title: "Optional Ongoing Care",
       description: "Monthly maintenance if you want peace of mind",
+      accent: "border-l-indigo-500",
+      iconBg: "bg-indigo-500",
+      glowColor: "shadow-indigo-500/20",
     },
   ];
 
   return (
-    <section className="py-40 bg-secondary relative" id="process">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Simple Process</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-3">
+    <section className="py-40 bg-secondary relative overflow-hidden" id="process">
+      {/* Subtle corner accents */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full translate-x-1/2 translate-y-1/2"></div>
+
+      <div className="container mx-auto px-6 relative">
+        <div className="text-center mb-24">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-semibold text-primary">STREAMLINED WORKFLOW</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">My Simple Process</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
             From first contact to live website in just a few days
           </p>
-          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground">
             You only send your photos and basic details. I build everything else.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {steps.map((step, index) => (
-              <Card
-                key={index}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className="group relative border-2 border-border bg-card hover:border-primary hover:shadow-lg transition-all duration-300"
-              >
-                {/* Step number */}
-                <div className="absolute -top-3 -right-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-primary text-primary-foreground flex items-center justify-center font-bold shadow-md">
-                    {index + 1}
-                  </div>
-                </div>
+              <div key={index} className="relative group">
+                {/* Connecting line for desktop */}
+                {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border z-0"></div>
+                )}
 
-                <CardContent className="pt-10 pb-8">
-                  {/* Icon */}
-                  <div className="mb-6">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
-                      <step.icon className="h-8 w-8 text-primary-foreground" strokeWidth={2} />
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{step.description}</p>
-
-                  {/* Progress bar */}
-                  <div className="flex items-center gap-3">
-                    <div className="flex-1 h-1 bg-muted rounded-full overflow-hidden">
+                <Card
+                  onMouseEnter={() => setActiveCard(index)}
+                  onMouseLeave={() => setActiveCard(null)}
+                  className={`relative border-l-4 ${step.accent} bg-card transition-all duration-400 ${
+                    activeCard === index ? `shadow-2xl ${step.glowColor} translate-x-2` : "shadow-md hover:shadow-lg"
+                  }`}
+                >
+                  <CardContent className="p-8 relative">
+                    {/* Diagonal stripe decoration */}
+                    <div
+                      className={`absolute top-0 right-0 w-20 h-20 opacity-5 transition-opacity duration-400 ${
+                        activeCard === index ? "opacity-10" : ""
+                      }`}
+                    >
                       <div
-                        className="h-full bg-gradient-primary transition-all duration-500"
-                        style={{ width: hoveredCard === index ? "100%" : "0%" }}
-                      />
+                        className={`w-full h-full ${step.iconBg} transform rotate-45 translate-x-10 -translate-y-10`}
+                      ></div>
                     </div>
-                    {index < steps.length - 1 ? (
-                      <ArrowRight className="h-4 w-4 text-primary" />
-                    ) : (
-                      <Check className="h-4 w-4 text-primary" strokeWidth={3} />
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+
+                    {/* Header with icon and number */}
+                    <div className="flex items-start justify-between mb-6">
+                      <div
+                        className={`relative ${step.iconBg} w-14 h-14 rounded-lg flex items-center justify-center text-white shadow-md transition-all duration-400 ${
+                          activeCard === index ? "scale-110 rotate-6" : ""
+                        }`}
+                      >
+                        <step.icon className="w-7 h-7" strokeWidth={2} />
+
+                        {/* Expanding ring */}
+                        <div
+                          className={`absolute inset-0 ${step.iconBg} rounded-lg transition-all duration-400 ${
+                            activeCard === index ? "scale-125 opacity-0" : "scale-100 opacity-0"
+                          }`}
+                        ></div>
+                      </div>
+
+                      <div
+                        className={`flex items-center justify-center w-8 h-8 rounded-full border-2 ${step.accent.replace("border-l-", "border-")} font-bold text-sm transition-all duration-400 ${
+                          activeCard === index ? "scale-125 rotate-12" : ""
+                        }`}
+                      >
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="space-y-3 mb-6">
+                      <h3
+                        className={`text-xl font-semibold transition-all duration-300 ${
+                          activeCard === index ? "translate-x-1" : ""
+                        }`}
+                      >
+                        {step.title}
+                      </h3>
+                      <p
+                        className={`text-sm text-muted-foreground leading-relaxed transition-all duration-300 delay-75 ${
+                          activeCard === index ? "translate-x-1" : ""
+                        }`}
+                      >
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom indicator */}
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-1.5 flex-1">
+                        {[...Array(4)].map((_, i) => (
+                          <div
+                            key={i}
+                            className={`h-1 flex-1 rounded-full transition-all duration-300 ${
+                              activeCard === index && i < 4 ? step.iconBg : "bg-muted"
+                            }`}
+                            style={{ transitionDelay: `${i * 80}ms` }}
+                          />
+                        ))}
+                      </div>
+
+                      <div
+                        className={`transition-all duration-300 ${
+                          activeCard === index ? "translate-x-1 opacity-100" : "opacity-40"
+                        }`}
+                      >
+                        {index < steps.length - 1 ? (
+                          <ArrowRight className="w-4 h-4 text-primary" />
+                        ) : (
+                          <Check className="w-4 h-4 text-primary" strokeWidth={3} />
+                        )}
+                      </div>
+                    </div>
+                  </CardContent>
+
+                  {/* Bottom edge highlight */}
+                  <div
+                    className={`absolute bottom-0 left-0 h-0.5 ${step.iconBg} transition-all duration-500 ${
+                      activeCard === index ? "w-full" : "w-0"
+                    }`}
+                  ></div>
+                </Card>
+              </div>
             ))}
           </div>
+        </div>
+
+        {/* Timeline visualization */}
+        <div className="max-w-4xl mx-auto mt-16 flex items-center justify-center gap-3">
+          {steps.map((step, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <div
+                className={`w-3 h-3 rounded-full ${step.iconBg} transition-all duration-300 ${
+                  activeCard === index ? "scale-150 shadow-lg" : "scale-100"
+                }`}
+              ></div>
+              {index < steps.length - 1 && <div className="w-8 h-0.5 bg-border"></div>}
+            </div>
+          ))}
         </div>
 
         {/* Bottom CTA */}
         <div className="text-center mt-20">
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-full font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-primary to-accent text-primary-foreground rounded-2xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-400 hover:-translate-y-1"
           >
-            <Rocket className="h-6 w-6" />
+            <Rocket className="w-6 h-6 transition-transform duration-400 group-hover:rotate-45" />
             Ready to start your journey?
-            <ArrowRight className="h-6 w-6" />
+            <ArrowRight className="w-6 h-6 transition-transform duration-400 group-hover:translate-x-2" />
           </a>
         </div>
       </div>
