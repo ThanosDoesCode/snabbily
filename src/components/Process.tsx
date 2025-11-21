@@ -40,7 +40,7 @@ const Process = () => {
     },
     {
       icon: Rocket,
-      title: "Deliver in 3-4 Days",
+      title: "Deliver in 48–72 Hours",
       description: "Your website is live and ready for customers",
       accent: "border-l-yellow-500",
       iconBg: "bg-yellow-500",
@@ -207,7 +207,7 @@ const Process = () => {
         <div className="text-center mt-20">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl font-semibold text-lg shadow-lg shadow-indigo-500/30 hover:shadow-2xl hover:shadow-indigo-500/40 transition-all duration-400 hover:-translate-y-1"
+            className="group inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl font-semibold text-lg shadow-lg shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all duration-400 hover:-translate-y-1"
           >
             <Rocket className="w-6 h-6 transition-transform duration-400 group-hover:rotate-45" />
             Ready to start your journey?
