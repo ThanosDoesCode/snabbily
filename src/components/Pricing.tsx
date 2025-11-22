@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+
 const Pricing = () => {
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -10,35 +11,41 @@ const Pricing = () => {
       });
     }
   };
+
   const plans = [
     {
       name: "Starter Website",
       price: "2,990",
-      description: "Perfect for new businesses getting online",
+      description: "Perfect for new barbershops who want a simple, clean online presence",
       features: [
-        "Up to 3 pages",
-        "Booking integration",
+        "1–3 pages",
+        "Clean template design",
+        "Booking integration (Bokadirekt/Fresha)",
         "Basic SEO",
         "Google Business setup",
-        "Mobile-first design",
-        "3 days delivery",
+        "Mobile-first",
+        "Gallery included",
+        "3–4 days delivery",
       ],
+      tagline: "A simple but beautiful website that gets your shop online fast.",
       popular: false,
     },
     {
       name: "Business Website",
       price: "4,990",
-      description: "Complete solution for established businesses",
+      description: "Premium solution for established barbershops who want a custom brand presence",
       features: [
-        "Up to 6 pages",
-        "Booking integration",
-        "Improved SEO structure and metadata",
-        "Custom branding",
-        "Google Business setup",
-        "Mobile",
-        "Professional photos integration",
-        "4 days delivery",
+        "4–6 pages",
+        "Custom branding (colors, fonts, brand style)",
+        "Custom layout (your structure, not just template)",
+        "Professional copywriting for service descriptions",
+        "Team/Barbers page",
+        "Before/after gallery (organized professionally)",
+        "Enhanced SEO structure (headings & layout)",
+        "Priority handling",
+        "3–4 days delivery",
       ],
+      tagline: "A premium website tailored to your brand and personality.",
       popular: true,
     },
     {
@@ -47,16 +54,16 @@ const Pricing = () => {
       priceUnit: "/month",
       description: "Ongoing care for your website",
       features: [
-        "Reliable hosting",
+        "Hosting",
         "Security updates",
-        "Booking updates",
-        "Small content updates",
+        "Booking/queue system support",
+        "Monthly changes (1–2 text or photo updates)",
         "Ongoing support",
-        "Performance monitoring",
       ],
       popular: false,
     },
   ];
+
   return (
     <section className="py-40 bg-secondary" id="pricing">
       <div className="container mx-auto px-6">
@@ -95,7 +102,7 @@ const Pricing = () => {
 
               <CardHeader className="pb-5 relative z-10">
                 <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <CardDescription>{plan.description}</CardDescription>
+                <CardDescription className="text-sm">{plan.description}</CardDescription>
                 <div className="pt-5 relative">
                   <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                   <span className="text-base text-muted-foreground ml-1">SEK{plan.priceUnit || ""}</span>
@@ -105,7 +112,7 @@ const Pricing = () => {
               </CardHeader>
 
               <CardContent className="pt-0 relative z-10">
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="relative">
@@ -119,6 +126,11 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
+
+                {plan.tagline && (
+                  <p className="text-xs text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>
+                )}
+
                 <Button
                   className="w-full text-base py-6 font-semibold relative overflow-hidden group/btn"
                   variant={plan.popular ? "default" : "outline"}
@@ -142,4 +154,5 @@ const Pricing = () => {
     </section>
   );
 };
+
 export default Pricing;
