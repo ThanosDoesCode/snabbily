@@ -36,9 +36,9 @@ const Pricing = () => {
       description: "Premium solution for established barbershops who want a custom brand presence",
       features: [
         "4–6 pages",
-        "Custom branding (colors, fonts, brand style)",
+        "Custom branding",
         "Custom design",
-        "Professional copywriting for service descriptions",
+        "Copywriting for service descriptions",
         "Team/Barbers page",
         "Professional before/after gallery",
         "Enhanced SEO structure",
