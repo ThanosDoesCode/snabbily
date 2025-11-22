@@ -89,7 +89,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-base mb-1">Phone</h3>
-                    <p className="text-muted-foreground text-sm">+46 70 123 45 67</p>
+                    <p className="text-muted-foreground text-sm">+46 76 341 41 05</p>
                     <a href="tel:+46701234567" className="text-primary hover:underline text-sm mt-1 inline-block">
                       Call now →
                     </a>
