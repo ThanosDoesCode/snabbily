@@ -7,10 +7,6 @@ import masterCutsDemo from "@/assets/master-cuts-demo.png";
 import classicCutsDemo from "@/assets/classic-cuts-demo.png";
 import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
 
-import React, { useEffect, useRef, useState } from "react";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Clock, Sparkles, ArrowRight } from "lucide-react";
-
 const projects = [
   {
     image: glowStudioDemo,
