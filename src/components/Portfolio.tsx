@@ -1,171 +1,148 @@
-import React, { useState } from "react";
-import { ExternalLink, Clock, Scissors, Sparkles, Star } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import glowStudioDemo from "@/assets/glow-studio-demo.png";
+import barberProDemo from "@/assets/barber-pro-demo.png";
+import fadeFlowDemo from "@/assets/fade-flow-demo.png";
+import masterCutsDemo from "@/assets/master-cuts-demo.png";
+import classicCutsDemo from "@/assets/classic-cuts-demo.png";
+import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
 
-const PROJECTS = [
+const projects = [
   {
-    title: "Glow Studio",
-    subtitle: "Beauty & Wellness",
+    image: glowStudioDemo,
+    title: "Beauty Salon",
+    industry: "Beauty & Wellness",
     deliveryTime: "3 days",
-    description: "Modern salon website with seamless booking integration and gallery showcase.",
+    description: "Modern salon website with seamless booking integration",
     url: "https://glow-studio-demo-swe.lovable.app",
-    tags: ["Booking System", "Gallery", "Modern"],
-    image: "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&q=80&w=800",
   },
   {
-    title: "The Baron",
-    subtitle: "Premium Grooming",
+    image: barberProDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
     deliveryTime: "4 days",
-    description: "Elegant dark-themed barbershop with appointment scheduling and service menu.",
+    description: "Elegant dark-themed barbershop with appointment scheduling",
     url: "https://barber-pro-prompt.lovable.app",
-    tags: ["Dark Mode", "Scheduling", "Premium"],
-    image: "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=800",
   },
   {
-    title: "Fade Flow",
-    subtitle: "Urban Cuts",
+    image: fadeFlowDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
     deliveryTime: "4 days",
-    description: "High-energy barbershop landing page featuring stylist profiles and reviews.",
+    description: "Premium barbershop with online booking system",
     url: "https://fade-flow-arts.lovable.app",
-    tags: ["Team Profiles", "Reviews", "Urban"],
-    image: "https://images.unsplash.com/photo-1503951914875-befbb6491842?auto=format&fit=crop&q=80&w=800",
   },
   {
-    title: "Master Cuts",
-    subtitle: "Traditional Barber",
+    image: masterCutsDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
     deliveryTime: "3 days",
-    description: "Clean, minimalist design focused on service clarity and location finding.",
+    description: "Barbershop with online scheduling",
     url: "https://classic-cut-crafters.lovable.app",
-    tags: ["Minimalist", "Maps", "Services"],
-    image: "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&q=80&w=800",
   },
   {
-    title: "Gilded Rose",
-    subtitle: "Hair Studio",
-    deliveryTime: "3 days",
-    description: "Sophisticated styling studio with lookbook integration and social feed.",
-    url: "https://gilded-rose-salon.lovable.app",
-    tags: ["Social Feed", "Lookbook", "Chic"],
-    image: "https://images.unsplash.com/photo-1560066984-12186d305d4d?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    title: "Classic Cuts",
-    subtitle: "Gentleman's Shop",
+    image: classicCutsDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
     deliveryTime: "4 days",
-    description: "Vintage aesthetic meeting modern functionality with mobile-first design.",
+    description: "Classic barbershop with modern booking integration",
     url: "https://classic-cut-crafters.lovable.app",
-    tags: ["Vintage", "Mobile First", "Contact"],
-    image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&q=80&w=800",
+  },
+  {
+    image: gildedRoseDemo,
+    title: "Hair Studio",
+    industry: "Beauty & Styling",
+    deliveryTime: "3 days",
+    description: "Modern hair studio with seamless online booking",
+    url: "https://gilded-rose-salon.lovable.app",
   },
 ];
 
-const ProjectCard = ({ project, index }) => {
-  return (
-    <a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative flex flex-col h-full rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-2"
-    >
-      {/* Image Container */}
-      <div className="relative h-60 overflow-hidden">
-        <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors z-10" />
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
-        />
+const Portfolio = () => (
+  <section id="portfolio" className="py-40 bg-secondary">
+    {/* Custom CSS animations */}
+    <style>{`
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-up {
+        animation: fadeUp 0.7s ease forwards;
+      }
+      .fade-up-delayed {
+        opacity: 0;
+        animation-fill-mode: forwards;
+        animation-name: fadeUp;
+        animation-duration: 0.7s;
+        animation-timing-function: ease;
+        animation-delay: var(--delay);
+      }
+      .scale-hover:hover {
+        transform: scale(1.05) rotate(1deg);
+        transition: transform 0.4s ease;
+        box-shadow: 0 10px 30px rgba(80, 80, 200, 0.15);
+      }
+      .img-hover-scale:hover {
+        transform: scale(1.1) rotate(1.5deg);
+        transition: transform 0.5s ease;
+      }
+    `}</style>
 
-        {/* Floating Badge - Top Right */}
-        <div className="absolute top-4 right-4 z-20">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm text-xs font-semibold text-slate-700 shadow-sm border border-slate-100">
-            <Clock className="w-3 h-3 text-blue-500" />
-            {project.deliveryTime}
-          </span>
-        </div>
-
-        {/* Overlay Icon */}
-        <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 backdrop-blur-[2px]">
-          <div className="bg-white text-slate-900 rounded-full p-3 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            <ExternalLink className="w-5 h-5" />
-          </div>
-        </div>
+    <div className="container mx-auto px-6">
+      <div className="text-center mb-20 fade-up" style={{ animationDelay: "0.15s" }}>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">Demo Work</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          See how I could help local businesses establish their online presence
+        </p>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col flex-grow p-6">
-        <div className="mb-4">
-          <div className="flex justify-between items-start mb-2">
-            <div>
-              <span className="text-xs font-bold tracking-wider text-blue-600 dark:text-blue-400 uppercase mb-1 block">
-                {project.subtitle}
-              </span>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {project.title}
-              </h3>
-            </div>
-          </div>
-          <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-2">
-            {project.description}
-          </p>
-        </div>
-
-        {/* Tags */}
-        <div className="mt-auto flex flex-wrap gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
-          {project.tags.map((tag, i) => (
-            <span
-              key={i}
-              className="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium"
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        {projects.map((project, index) => {
+          const Wrapper = project.url ? "a" : "div";
+          return (
+            <Wrapper
+              key={index}
+              href={project.url || undefined}
+              target={project.url ? "_blank" : undefined}
+              rel={project.url ? "noopener noreferrer" : undefined}
+              className="block"
+              style={{ "--delay": `${0.25 + index * 0.1}s` } as React.CSSProperties}
+              aria-label={project.title}
             >
-              #{tag}
-            </span>
-          ))}
-        </div>
+              <div
+                className="fade-up-delayed scale-hover rounded-lg overflow-hidden border border-border bg-card cursor-pointer h-full flex flex-col"
+                style={{ animationDelay: `var(--delay)` }}
+              >
+                <div className="relative overflow-hidden aspect-video">
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover img-hover-scale" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-40 pointer-events-none" />
+                </div>
+                <div className="p-5 flex flex-col flex-grow">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="text-xl font-semibold text-left">{project.title} – Demo Project</h3>
+                    <Badge variant="secondary" className="shrink-0 text-xs">
+                      {project.deliveryTime}
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground text-left mb-3 flex-grow">{project.description}</p>
+                  <div className="flex justify-between text-sm text-muted-foreground mt-auto">
+                    <span>Industry:</span>
+                    <span className="font-medium text-foreground">{project.industry}</span>
+                  </div>
+                </div>
+              </div>
+            </Wrapper>
+          );
+        })}
       </div>
-    </a>
-  );
-};
-
-const Portfolio = () => {
-  return (
-    <section className="min-h-screen py-24 bg-slate-50 dark:bg-slate-950 px-6 font-sans">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-6">
-            <Sparkles className="w-4 h-4" />
-            <span>Showcase Gallery</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6">
-            Digital Experiences for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              Modern Businesses
-            </span>
-          </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-            A selection of high-performance landing pages designed to convert visitors into customers for salons,
-            barbershops, and wellness studios.
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROJECTS.map((project, index) => (
-            <ProjectCard key={index} project={project} index={index} />
-          ))}
-        </div>
-
-        {/* Footer CTA */}
-        <div className="mt-20 text-center">
-          <p className="text-slate-400 text-sm">
-            Need a custom solution?{" "}
-            <a href="#" className="text-blue-600 hover:underline font-medium">
-              Let's talk
-            </a>
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Portfolio;
