@@ -169,6 +169,3 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
-
-// Wrapper for preview purposes
-export const App = () => <Portfolio />;
