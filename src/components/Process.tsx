@@ -58,6 +58,10 @@ const Process = () => {
 
   return (
     <section className="py-40 bg-secondary relative overflow-hidden" id="process">
+      {/* Subtle corner accents */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-accent/5 rounded-full translate-x-1/2 translate-y-1/2"></div>
+
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
@@ -85,11 +89,11 @@ const Process = () => {
                 <Card
                   onMouseEnter={() => setActiveCard(index)}
                   onMouseLeave={() => setActiveCard(null)}
-                  className={`relative h-full border-l-4 ${step.accent} bg-card transition-all duration-400 ${
+                  className={`relative border-l-4 ${step.accent} bg-card transition-all duration-400 ${
                     activeCard === index ? `shadow-2xl ${step.glowColor} translate-x-2` : "shadow-md hover:shadow-lg"
                   }`}
                 >
-                  <CardContent className="p-8 relative h-full flex flex-col">
+                  <CardContent className="p-8 relative">
                     {/* Diagonal stripe decoration */}
                     <div
                       className={`absolute top-0 right-0 w-20 h-20 opacity-5 transition-opacity duration-400 ${
@@ -128,7 +132,7 @@ const Process = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="space-y-3 mb-6 flex-1">
+                    <div className="space-y-3 mb-6">
                       <h3
                         className={`text-xl font-semibold transition-all duration-300 ${
                           activeCard === index ? "translate-x-1" : ""
