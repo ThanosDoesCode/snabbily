@@ -31,10 +31,11 @@ const Pricing = () => {
       description: "Complete solution for established businesses",
       features: [
         "Up to 6 pages",
-        "Advanced booking integration",
-        "Custom branding",
+        "Booking integration",
         "Improved SEO structure and metadata",
+        "Custom branding",
         "Google Business setup",
+        "Mobile-first design",
         "Professional photos integration",
         "4 days delivery",
       ],
