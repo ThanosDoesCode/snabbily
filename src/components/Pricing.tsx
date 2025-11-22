@@ -37,7 +37,7 @@ const Pricing = () => {
       features: [
         "4–6 pages",
         "Custom branding (colors, fonts, brand style)",
-        "Custom design (your structure, not just template)",
+        "Custom design",
         "Professional copywriting for service descriptions",
         "Team/Barbers page",
         "Professional before/after gallery",
