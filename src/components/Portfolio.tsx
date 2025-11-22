@@ -11,31 +11,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Clock, Sparkles, ArrowRight } from "lucide-react";
 
-// --- ASSET SETUP ---
-// The local imports below are commented out because the files don't exist in this preview environment.
-// To use your own images locally:
-// 1. Place your .png files in 'src/assets/'
-// 2. Uncomment the imports below
-// 3. Remove the 'const' placeholder lines
-
-// import glowStudioDemo from "@/assets/glow-studio-demo.png";
-const glowStudioDemo = "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80";
-
-// import barberProDemo from "@/assets/barber-pro-demo.png";
-const barberProDemo = "https://images.unsplash.com/photo-1503951914296-960fa8ea68f4?auto=format&fit=crop&w=800&q=80";
-
-// import fadeFlowDemo from "@/assets/fade-flow-demo.png";
-const fadeFlowDemo = "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80";
-
-// import masterCutsDemo from "@/assets/master-cuts-demo.png";
-const masterCutsDemo = "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=800&q=80";
-
-// import classicCutsDemo from "@/assets/classic-cuts-demo.png";
-const classicCutsDemo = "https://images.unsplash.com/photo-1532710093739-9470acff878f?auto=format&fit=crop&w=800&q=80";
-
-// import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
-const gildedRoseDemo = "https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=80";
-
 const projects = [
   {
     image: glowStudioDemo,
