@@ -1,28 +1,15 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import glowStudioDemo from "@/assets/glow-studio-demo.png";
+import barberProDemo from "@/assets/barber-pro-demo.png";
+import fadeFlowDemo from "@/assets/fade-flow-demo.png";
+import masterCutsDemo from "@/assets/master-cuts-demo.png";
+import classicCutsDemo from "@/assets/classic-cuts-demo.png";
+import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
+
 import React, { useEffect, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Clock, Sparkles, ArrowRight } from "lucide-react";
-
-// NOTE: The original local imports caused a build error in this environment because the files do not exist here.
-// I have commented them out and assigned placeholder URLs to the variables so the preview works.
-// You can uncomment the imports and remove the const assignments when you use this in your local project.
-
-// import glowStudioDemo from "@/assets/glow-studio-demo.png";
-const glowStudioDemo = "@/assets/glow-studio-demo.png";
-
-// import barberProDemo from "@/assets/barber-pro-demo.png";
-const barberProDemo = "@/assets/barber-pro-demo.png";
-
-// import fadeFlowDemo from "@/assets/fade-flow-demo.png";
-const fadeFlowDemo = "@/assets/fade-flow-demo.png";
-
-// import masterCutsDemo from "@/assets/master-cuts-demo.png";
-const masterCutsDemo = "@/assets/master-cuts-demo.png";
-
-// import classicCutsDemo from "@/assets/classic-cuts-demo.png";
-const classicCutsDemo = "@/assets/classic-cuts-demo.png";
-
-// import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
-const gildedRoseDemo = "@/assets/gilded-rose-demo.png";
 
 const projects = [
   {
