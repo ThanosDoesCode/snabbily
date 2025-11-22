@@ -71,19 +71,24 @@ const Pricing = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">No hidden fees, no surprises.</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto items-start">
           {plans.map((plan, index) => (
-            <Card
+            <div
               key={index}
-              className={`group relative border bg-card transition-all duration-500 opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] overflow-hidden ${
-                plan.popular
-                  ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] scale-[1.02]"
-                  : "border-border hover:border-primary scale-[0.95]"
+              className={`opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] ${
+                plan.popular ? "" : "md:scale-90"
               }`}
               style={{
                 animationDelay: `${0.4 + index * 0.15}s`,
               }}
             >
+              <Card
+                className={`group relative border bg-card transition-all duration-500 overflow-hidden h-full ${
+                  plan.popular
+                    ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)]"
+                    : "border-border hover:border-primary"
+                }`}
+              >
               {/* Animated border glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-20 blur-xl"></div>
@@ -126,9 +131,11 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
-
+                
                 {plan.tagline && (
-                  <p className="text-xs text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>
+                  <p className="text-xs text-muted-foreground italic mb-6 leading-relaxed">
+                    {plan.tagline}
+                  </p>
                 )}
 
                 <Button
