@@ -89,66 +89,65 @@ const Pricing = () => {
                     : "border-border hover:border-primary"
                 }`}
               >
-              {/* Animated border glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-20 blur-xl"></div>
-              </div>
-
-              {/* Rotating background gradient */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-700`}
-              ></div>
-
-              {plan.popular && (
-                <div className="relative bg-gradient-primary text-primary-foreground text-center py-2 rounded-t-lg font-semibold text-sm">
-                  Most Popular
+                {/* Animated border glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-20 blur-xl"></div>
                 </div>
-              )}
 
-              <CardHeader className="pb-5 relative z-10">
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
-                <CardDescription className="text-sm">{plan.description}</CardDescription>
-                <div className="pt-5 relative">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-base text-muted-foreground ml-1">SEK{plan.priceUnit || ""}</span>
-                  {/* Animated underline */}
-                  <div className="h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-500 mt-2 rounded-full"></div>
-                </div>
-              </CardHeader>
+                {/* Rotating background gradient */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-700`}
+                ></div>
 
-              <CardContent className="pt-0 relative z-10">
-                <ul className="space-y-3 mb-6">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="relative">
-                        <Check
-                          className="h-4 w-4 text-primary flex-shrink-0 mt-0.5 group-hover:animate-[spin_0.5s_ease-in-out]"
-                          strokeWidth={2.5}
-                        />
-                        <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
-                      </div>
-                      <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                {plan.tagline && (
-                  <p className="text-xs text-muted-foreground italic mb-6 leading-relaxed">
-                    {plan.tagline}
-                  </p>
+                {plan.popular && (
+                  <div className="relative bg-gradient-primary text-primary-foreground text-center py-2 rounded-t-lg font-semibold text-sm">
+                    Most Popular
+                  </div>
                 )}
 
-                <Button
-                  className="w-full text-base py-6 font-semibold relative overflow-hidden group/btn"
-                  variant={plan.popular ? "default" : "outline"}
-                  size="lg"
-                  onClick={scrollToContact}
-                >
-                  <span className="relative z-10">Get Started</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
-                </Button>
-              </CardContent>
-            </Card>
+                <CardHeader className="pb-5 relative z-10">
+                  <CardTitle className="text-xl">{plan.name}</CardTitle>
+                  <CardDescription className="text-sm">{plan.description}</CardDescription>
+                  <div className="pt-5 relative">
+                    <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                    <span className="text-base text-muted-foreground ml-1">SEK{plan.priceUnit || ""}</span>
+                    {/* Animated underline */}
+                    <div className="h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-500 mt-2 rounded-full"></div>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="pt-0 relative z-10">
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="relative">
+                          <Check
+                            className="h-4 w-4 text-primary flex-shrink-0 mt-0.5 group-hover:animate-[spin_0.5s_ease-in-out]"
+                            strokeWidth={2.5}
+                          />
+                          <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
+                        </div>
+                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {plan.tagline && (
+                    <p className="text-xs text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>
+                  )}
+
+                  <Button
+                    className="w-full text-base py-6 font-semibold relative overflow-hidden group/btn"
+                    variant={plan.popular ? "default" : "outline"}
+                    size="lg"
+                    onClick={scrollToContact}
+                  >
+                    <span className="relative z-10">Get Started</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
         <div
