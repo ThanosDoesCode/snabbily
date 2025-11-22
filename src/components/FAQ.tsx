@@ -1,9 +1,4 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const FAQ = () => {
   const faqs = [
@@ -25,12 +20,11 @@ const FAQ = () => {
     {
       question: "How fast is delivery?",
       answer:
-        "Most websites are delivered within 48–72 hours. Simpler sites (up to 3 pages) typically take 48 hours, while more complex sites (up to 6 pages with custom branding) take up to 72 hours. I'll give you an exact timeline after we discuss your needs.",
+        "Most websites are delivered within 3-4 days. Simpler sites (up to 3 pages) typically take 3 days, while more complex sites (up to 6 pages with custom branding) take up to 4 days. I'll give you an exact timeline after we discuss your needs.",
     },
     {
       question: "Do I need new software or subscriptions?",
-      answer:
-        "No. I integrate the booking method you already use — Bokadirekt, WhatsApp, calls, or a simple form.",
+      answer: "No. I integrate the booking method you already use — Bokadirekt, Calendly, calls, or a simple form.",
     },
     {
       question: "What if I don't have professional photos?",
