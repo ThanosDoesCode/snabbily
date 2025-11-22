@@ -6,7 +6,7 @@ const BookingIntegration = () => {
     {
       icon: Phone,
       name: "Click-to-Call",
-      description: "Ring för att Boka",
+      description: "Call to Book",
     },
     {
       icon: Mail,
