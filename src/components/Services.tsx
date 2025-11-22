@@ -11,10 +11,10 @@ const Services = () => {
         "AI-built & modern design",
         "1–6 pages",
         "Mobile-first responsive",
-        "Flexible booking integration (Bokadirekt, SimplyBook, WhatsApp, calls, or a simple form)",
-        "Basic SEO optimization",
+        "Flexible booking integration (Bokadirekt, SimplyBook, Calendly, calls, or a simple form)",
+        "SEO optimization",
         "Google Business Profile setup",
-        "Delivery in 48–72 hours",
+        "Delivery in 3-4 Days",
       ],
     },
     {
