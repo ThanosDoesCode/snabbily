@@ -53,7 +53,13 @@ const Pricing = () => {
       price: "299",
       priceUnit: "/month",
       description: "Ongoing care for your website",
-      features: ["Hosting", "Security updates", "Booking/queue system support", "Monthly changes", "Ongoing support"],
+      features: [
+        "Hosting",
+        "Security updates",
+        "Booking/queue system support",
+        "Up to 3 monthly changes",
+        "Ongoing support",
+      ],
       popular: false,
     },
   ];
