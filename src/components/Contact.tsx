@@ -99,25 +99,7 @@ const Contact = () => {
             </Card>
 
             <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
-              <CardContent className="pt-6 pb-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="h-5 w-5 text-primary-foreground" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-base mb-1">WhatsApp</h3>
-                    <p className="text-muted-foreground text-sm">Quick response via WhatsApp</p>
-                    <a
-                      href="https://wa.me/46763414105"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:underline text-sm mt-1 inline-block"
-                    >
-                      Message on WhatsApp →
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
+              <CardContent className="pt-6 pb-6"></CardContent>
             </Card>
 
             <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300"></Card>
