@@ -98,9 +98,7 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
-              <CardContent className="pt-6 pb-6"></CardContent>
-            </Card>
+            <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300"></Card>
 
             <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300"></Card>
 
