@@ -16,7 +16,7 @@ const Pricing = () => {
     {
       name: "Starter Website",
       price: "2,490",
-      description: "Perfect for new businesses getting online",
+      description: "Perfect for new barbershops getting online",
       features: [
         "Up to 3 pages",
         "Standard template",
@@ -41,12 +41,11 @@ const Pricing = () => {
         "Enhanced SEO",
         "Mobile-first design",
         "Enhanced gallery",
-        "Google business setup",
         "Analytics report",
         "Free 2 months maintenance",
         "1–2 weeks delivery",
       ],
-      tagline: "Everything you need to run your business online efficiently.",
+      tagline: "Everything you need to run your barbershop online efficiently.",
       popular: true,
       custom: false,
     },
@@ -214,19 +213,23 @@ const Pricing = () => {
                 <div>
                   <ul className="grid md:grid-cols-2 gap-3">
                     {[
-                      "Reliable hosting",
-                      "Security updates",
-                      "Booking system support",
-                      "Up to 3 monthly changes",
-                      "Ongoing support",
-                      "AI consultant based on your webpage",
+                      { text: "Reliable hosting", highlight: false },
+                      { text: "Security updates", highlight: false },
+                      { text: "Booking system support", highlight: false },
+                      { text: "Up to 3 monthly changes", highlight: false },
+                      { text: "Ongoing support", highlight: false },
+                      { text: "AI consultant based on your webpage", highlight: true },
                     ].map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <div className="relative">
                           <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                           <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
                         </div>
-                        <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
+                        <span
+                          className={`text-base leading-relaxed ${feature.highlight ? "text-primary font-semibold" : "text-muted-foreground"}`}
+                        >
+                          {feature.text}
+                        </span>
                       </li>
                     ))}
                   </ul>
