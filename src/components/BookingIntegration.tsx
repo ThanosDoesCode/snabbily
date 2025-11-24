@@ -6,7 +6,7 @@ const BookingIntegration = () => {
     {
       icon: Phone,
       name: "Click-to-Call",
-      description: "Call to book an appointment",
+      description: "Ring för att Boka",
     },
     {
       icon: Mail,
@@ -34,11 +34,8 @@ const BookingIntegration = () => {
 
               <CardContent className="py-10 px-8 relative z-10">
                 <div className="flex items-center gap-4 mb-6 justify-center">
-                  <div className="relative">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transition-all duration-500">
-                      <Calendar className="h-8 w-8 text-primary-foreground" strokeWidth={2} />
-                    </div>
-                    <div className="absolute inset-0 rounded-xl bg-primary/30 animate-[ping_2s_ease-in-out_infinite]"></div>
+                  <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transition-all duration-500">
+                    <Calendar className="h-8 w-8 text-primary-foreground" strokeWidth={2} />
                   </div>
                 </div>
                 <h3 className="text-3xl font-bold text-center mb-4">Use Your Current Booking System</h3>
