@@ -85,8 +85,8 @@ const Process = () => {
                 {/* Downward arrow for mobile */}
                 {index < steps.length - 1 && (
                   <div className="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-10">
-                    <div className="bg-primary/20 rounded-full p-1">
-                      <ArrowRight className="w-5 h-5 text-primary rotate-90" strokeWidth={2.5} />
+                    <div className="bg-primary/30 rounded-full p-2">
+                      <ArrowRight className="w-8 h-8 text-primary rotate-90" strokeWidth={3} />
                     </div>
                   </div>
                 )}
@@ -205,11 +205,10 @@ const Process = () => {
         <div className="text-center mt-20">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-3 px-10 py-5 bg-primary hover:bg-primary/90 text-primary-foreground rounded-2xl font-semibold text-lg shadow-lg shadow-primary/30 hover:shadow-2xl hover:shadow-primary/40 transition-all duration-400 hover:-translate-y-1"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-base transition-all duration-300 hover:gap-3 group"
           >
-            <Rocket className="w-6 h-6 transition-transform duration-400 group-hover:rotate-45" />
             Ready to start your journey?
-            <ArrowRight className="w-6 h-6 transition-transform duration-400 group-hover:translate-x-2" />
+            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
