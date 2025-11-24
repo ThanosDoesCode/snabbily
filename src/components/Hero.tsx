@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-image.jpg";
 import { ArrowRight } from "lucide-react";
+
 const Hero = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -10,6 +10,7 @@ const Hero = () => {
       });
     }
   };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
@@ -20,11 +21,9 @@ const Hero = () => {
               Delivered in 3-4 Days
             </span>
           </h1>
-
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards]">
             Delivered in 3-4 Days with your existing booking method integrated.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards]">
             <Button
               size="lg"
@@ -44,12 +43,11 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </div>
-
           <div className="bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-5 shadow-soft max-w-2xl mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards]">
             <p className="text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               <span className="text-primary">Google Maps</span> helps customers find you.
               <br />
-              <span className="text-accent">A website</span> helps customers choose you.
+              <span className="text-primary font-bold">A website</span> helps customers choose you.
             </p>
           </div>
         </div>
@@ -57,4 +55,5 @@ const Hero = () => {
     </section>
   );
 };
+
 export default Hero;
