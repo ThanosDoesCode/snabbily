@@ -17,7 +17,7 @@ const Process = () => {
     {
       icon: FileText,
       title: "Collect Info",
-      description: "I gather your content, photos, and booking preferences",
+      description: "We gather your content, photos, and booking preferences",
       accent: "border-l-purple-500",
       iconBg: "bg-purple-500",
       glowColor: "shadow-purple-500/20",
@@ -25,7 +25,7 @@ const Process = () => {
     {
       icon: Hammer,
       title: "Build Demo",
-      description: "I create a demo version for your review",
+      description: "We create a demo version for your review",
       accent: "border-l-orange-500",
       iconBg: "bg-orange-500",
       glowColor: "shadow-orange-500/20",
@@ -33,7 +33,7 @@ const Process = () => {
     {
       icon: Check,
       title: "Revision",
-      description: "You provide feedback and I make adjustments",
+      description: "You provide feedback and We make adjustments",
       accent: "border-l-pink-500",
       iconBg: "bg-pink-500",
       glowColor: "shadow-pink-500/20",
@@ -41,7 +41,7 @@ const Process = () => {
     {
       icon: Hammer,
       title: "Build Website",
-      description: "I finalize your professional website",
+      description: "We finalize your professional website",
       accent: "border-l-green-500",
       iconBg: "bg-green-500",
       glowColor: "shadow-green-500/20",
