@@ -219,11 +219,11 @@ const Process = () => {
         <div className="text-center mt-20">
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 border-2 rounded-xl font-bold text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden"
+            className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-2">
               Ready to start your journey?
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-2" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           </a>
