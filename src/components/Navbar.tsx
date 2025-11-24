@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -24,6 +25,7 @@ const Navbar = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false); // Close menu after clicking
     }
   };
 
@@ -38,6 +40,7 @@ const Navbar = () => {
             TFlow Designs
           </button>
 
+          {/* Desktop Navigation */}
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
@@ -63,12 +66,51 @@ const Navbar = () => {
             >
               Contact
             </Button>
-
             <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden rounded-full"
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 space-y-2 animate-in slide-in-from-top duration-300">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => scrollToSection("portfolio")}
+              className="w-full justify-start"
+            >
+              Portfolio
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => scrollToSection("pricing")}
+              className="w-full justify-start"
+            >
+              Pricing
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => scrollToSection("contact")}
+              className="w-full justify-start"
+            >
+              Contact
+            </Button>
+          </div>
+        )}
       </div>
     </nav>
   );
