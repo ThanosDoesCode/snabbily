@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Shield, Link2, TrendingUp } from "lucide-react";
+
 const WhyWebsite = () => {
   const reasons = [
     {
@@ -23,6 +24,7 @@ const WhyWebsite = () => {
       description: "Present your business professionally before customers reach the booking stage.",
     },
   ];
+
   return (
     <section className="py-40 bg-secondary" id="why">
       <div className="container mx-auto px-6">
@@ -58,12 +60,12 @@ const WhyWebsite = () => {
           ))}
         </div>
         <div className="max-w-4xl mx-auto opacity-0 animate-[scaleIn_0.8s_ease-out_1s_forwards]">
-          <Card className="relative overflow-hidden border-2 border-accent/30 bg-gradient-to-br from-accent/5 to-accent/10 shadow-soft hover:shadow-[0_20px_60px_rgba(255,107,53,0.2)] transition-all duration-500">
+          <Card className="relative overflow-hidden border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 shadow-soft hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-500">
             {/* Animated glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
             <CardContent className="py-8 relative z-10">
               <p className="text-base text-center font-medium leading-relaxed">
-                <span className="text-accent font-semibold text-lg">Your website isn't about heavy SEO</span>
+                <span className="text-primary font-semibold text-lg">Your website isn't about heavy SEO</span>
                 <br />
                 <span className="text-foreground">
                   It's about looking trustworthy when customers find you anywhere.
@@ -76,4 +78,5 @@ const WhyWebsite = () => {
     </section>
   );
 };
+
 export default WhyWebsite;
