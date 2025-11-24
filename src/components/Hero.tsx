@@ -47,8 +47,7 @@ const Hero = () => {
             <p className="text-lg md:text-xl font-semibold text-foreground leading-relaxed">
               <span className="text-primary">Google Maps</span> helps customers find you.
               <br />
-              <span className="text-green-600 dark:text-green-400 font-bold">A website</span> helps customers choose
-              you.
+              <span className="text-green-600 dark:text-green-400">A website</span> helps customers choose you.
             </p>
           </div>
         </div>
