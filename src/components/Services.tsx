@@ -49,7 +49,7 @@ const Services = () => {
     <section className="py-40 bg-background" id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">What I Offer</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Offer</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Everything you need to establish a professional online presence
           </p>
