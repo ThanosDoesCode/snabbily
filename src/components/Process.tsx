@@ -48,7 +48,7 @@ const Process = () => {
     },
     {
       icon: Rocket,
-      title: "Deliver or Live",
+      title: "Live",
       description: "Your website goes live and is ready for customers",
       accent: "border-l-yellow-500",
       iconBg: "bg-yellow-500",
