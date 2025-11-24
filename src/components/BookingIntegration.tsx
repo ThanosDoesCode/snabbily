@@ -35,8 +35,7 @@ const BookingIntegration = () => {
                 </h3>
 
                 <p className="text-sm sm:text-base md:text-lg text-center text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto leading-relaxed">
-                  Already using Bokadirekt, Calendly, SimplyBook.me, or another platform? Perfect! I'll integrate it
-                  directly into your website at no extra cost.
+                  Already using Bokadirekt, Calendly, SimplyBook.me, or another platform? Perfect! We'll integrate it directly into your website at no extra cost.
                 </p>
 
                 <div className="flex items-center justify-center pt-2">
