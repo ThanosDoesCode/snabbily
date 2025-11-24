@@ -45,7 +45,7 @@ const Pricing = () => {
         "Free 2 months maintenance",
         "1–2 weeks delivery",
       ],
-      tagline: "Everything you need to run your barbershop online efficiently.",
+      tagline: "Everything you need to run your business online efficiently.",
       popular: true,
       custom: false,
     },
