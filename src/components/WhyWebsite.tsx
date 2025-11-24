@@ -63,11 +63,12 @@ const WhyWebsite = () => {
           <Card className="relative overflow-hidden border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 shadow-soft hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-500">
             {/* Animated glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
-            <CardContent className="py-8 relative z-10">
-              <p className="text-lg text-center font-medium leading-relaxed">
-                <span className="text-primary font-semibold text-xl">Your website isn't about heavy SEO</span>
-                <br />
-                <span className="text-foreground">
+            <CardContent className="py-6 px-6 md:py-8 md:px-8 relative z-10">
+              <p className="text-base md:text-lg text-center font-medium leading-relaxed">
+                <span className="text-primary font-semibold text-lg md:text-xl block mb-2">
+                  Your website isn't about heavy SEO
+                </span>
+                <span className="text-foreground text-sm md:text-base">
                   It's about looking trustworthy when customers find you anywhere.
                 </span>
               </p>
