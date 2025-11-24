@@ -46,7 +46,7 @@ const projects = [
     industry: "Men's Grooming",
     deliveryTime: "4 days",
     description: "Classic barbershop with modern booking integration",
-    url: "https://classic-cut-crafters.lovable.app",
+    url: "https://barber-pole-chronicles.lovable.app",
   },
   {
     image: gildedRoseDemo,

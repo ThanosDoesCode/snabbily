@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MessageCircle, Instagram } from "lucide-react";
-import { SiTiktok } from "react-icons/si";
 const Contact = () => {
   // Load Calendly script
   useEffect(() => {
