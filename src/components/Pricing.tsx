@@ -35,7 +35,7 @@ const Pricing = () => {
       price: "2,990",
       description: "Complete solution with booking and analytics",
       features: [
-        "Up to 5 pages",
+        "Up to 6 pages",
         "Standard template",
         "Booking integration",
         "Enhanced SEO",
