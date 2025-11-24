@@ -211,27 +211,32 @@ const Pricing = () => {
 
                 {/* Right side - Features */}
                 <div>
-                  <ul className="grid md:grid-cols-2 gap-3">
-                    {[
-                      { text: "Reliable hosting", highlight: false },
-                      { text: "Security updates", highlight: false },
-                      { text: "Booking system support", highlight: false },
-                      { text: "Up to 3 monthly changes", highlight: false },
-                      { text: "Ongoing support", highlight: false },
-                      { text: "AI consultant based on your webpage", highlight: true },
-                    ].map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="relative">
-                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                          <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
-                        </div>
-                        <span
-                          className={`text-base leading-relaxed ${feature.highlight ? "text-primary font-semibold" : "text-muted-foreground"}`}
-                        >
-                          {feature.text}
-                        </span>
-                      </li>
-                    ))}
+                  <ul className="space-y-3">
+                    <div className="grid md:grid-cols-2 gap-3">
+                      {[
+                        { text: "Reliable hosting", highlight: false },
+                        { text: "Security updates", highlight: false },
+                        { text: "Booking system support", highlight: false },
+                        { text: "Up to 3 monthly changes", highlight: false },
+                      ].map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="relative">
+                            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                            <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
+                          </div>
+                          <span className="text-base text-muted-foreground leading-relaxed">{feature.text}</span>
+                        </li>
+                      ))}
+                    </div>
+                    <li className="flex items-start gap-3">
+                      <div className="relative">
+                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                        <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
+                      </div>
+                      <span className="text-base text-primary font-semibold leading-relaxed">
+                        AI consultant based on your webpage
+                      </span>
+                    </li>
                   </ul>
                   <div className="mt-6">
                     <Button
