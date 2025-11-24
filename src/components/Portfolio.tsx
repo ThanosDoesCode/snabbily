@@ -34,7 +34,7 @@ const projects = [
   },
   {
     image: masterCutsDemo,
-    title: "Nail Salon",
+    title: "Barber Shop",
     industry: "Men's Grooming",
     deliveryTime: "3 days",
     description: "Elegant barbershop with appointment scheduling",
