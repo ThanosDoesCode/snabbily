@@ -50,11 +50,13 @@ const BookingIntegration = () => {
 
                 <div className="flex items-center justify-center pt-2">
                   <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-1 text-center">
-                    <p className="text-xs sm:text-sm text-primary font-semibold">Free integration</p>
-                    <span className="hidden sm:inline text-primary">•</span>
-                    <p className="text-xs sm:text-sm text-primary font-semibold">Keep your existing workflow</p>
-                    <span className="hidden sm:inline text-primary">•</span>
-                    <p className="text-xs sm:text-sm text-primary font-semibold">No learning curve</p>
+                    <p className="text-xs sm:text-sm text-primary font-semibold order-1 sm:order-1">Keep your existing workflow</p>
+                    <span className="hidden sm:inline text-primary order-2">•</span>
+                    <div className="flex items-center gap-1 order-2 sm:order-3">
+                      <p className="text-xs sm:text-sm text-primary font-semibold">Free integration</p>
+                      <span className="text-primary">•</span>
+                      <p className="text-xs sm:text-sm text-primary font-semibold">No learning curve</p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
