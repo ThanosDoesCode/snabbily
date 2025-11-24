@@ -82,6 +82,13 @@ const Process = () => {
                   <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border z-0"></div>
                 )}
 
+                {/* Downward arrow for mobile */}
+                {index < steps.length - 1 && (
+                  <div className="md:hidden absolute -bottom-3 left-1/2 -translate-x-1/2 z-10">
+                    <ArrowRight className="w-6 h-6 text-primary rotate-90" />
+                  </div>
+                )}
+
                 <Card
                   onMouseEnter={() => setActiveCard(index)}
                   onMouseLeave={() => setActiveCard(null)}
