@@ -60,22 +60,6 @@ const Hero = () => {
               you.
             </p>
           </div>
-
-          {/* Optional: Trust indicators */}
-          <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 opacity-0 animate-[fadeIn_0.8s_ease-out_1.4s_forwards] px-4">
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
-              <span className="font-medium">3-4 Day Delivery</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-              <span className="font-medium">Free Booking Integration</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
-              <div className="w-2 h-2 rounded-full bg-purple-500"></div>
-              <span className="font-medium">Mobile Responsive</span>
-            </div>
-          </div>
         </div>
       </div>
 
