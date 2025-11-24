@@ -52,7 +52,6 @@ const FAQ = () => {
             Common questions about websites for local businesses
           </p>
         </div>
-
         <div className="max-w-4xl mx-auto">
           <Accordion type="single" collapsible className="space-y-5">
             {faqs.map((faq, index) => (
@@ -64,7 +63,7 @@ const FAQ = () => {
                 <AccordionTrigger className="text-left text-base font-semibold hover:text-primary py-5 hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground pt-1 pb-5 leading-relaxed">
+                <AccordionContent className="text-base text-muted-foreground pt-1 pb-5 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
