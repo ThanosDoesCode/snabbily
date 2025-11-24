@@ -8,13 +8,13 @@ const Services = () => {
       title: "Website Creation",
       description: "You send the basics — I handle everything else.",
       features: [
-        "AI-built & modern design",
-        "1–6 pages",
-        "Mobile-first responsive",
-        "Flexible booking integration (Bokadirekt, SimplyBook, Calendly, calls, or a simple form)",
+        "Modern, AI-assisted design",
+        "1–6 pages included",
+        "Mobile-first & responsive",
+        "Booking integration (any platform or simple form)",
         "SEO optimization",
-        "Google Business Profile setup",
-        "Delivery in 3-4 Days",
+        "Google Business setup",
+        "Delivered in 3–4 days",
       ],
     },
     {
@@ -22,12 +22,12 @@ const Services = () => {
       title: "Monthly Maintenance",
       description: "Ongoing support and peace of mind",
       features: [
-        "Reliable hosting",
-        "Security updates",
-        "Booking system updates",
-        "Small content updates",
-        "Ongoing support",
-        "Performance monitoring",
+        "Reliable hosting included",
+        "Security & software updates",
+        "Booking system support",
+        "Up to 3 monthly changes",
+        "Ongoing technical support",
+        "AI consultant based on your webpage",
       ],
     },
     {
@@ -39,7 +39,7 @@ const Services = () => {
         "Professional photo editing",
         "Custom landing pages",
         "Content writing services",
-        "Branding elements",
+        "Custom branding elements",
         "Advanced integrations",
       ],
     },
@@ -49,7 +49,7 @@ const Services = () => {
     <section className="py-40 bg-background" id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Offer</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">What I Offer</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Everything you need to establish a professional online presence
           </p>
@@ -71,14 +71,14 @@ const Services = () => {
                 <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </CardTitle>
-                <CardDescription>{service.description}</CardDescription>
+                <CardDescription className="text-base">{service.description}</CardDescription>
               </CardHeader>
               <CardContent className="pt-0">
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {service.features.map((feature, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-2.5 text-sm group-hover:translate-x-1 transition-transform duration-300"
+                      className="flex items-start gap-2.5 text-base group-hover:translate-x-1 transition-transform duration-300"
                       style={{ transitionDelay: `${idx * 0.05}s` }}
                     >
                       <span className="text-primary mt-0.5 font-semibold">✓</span>
