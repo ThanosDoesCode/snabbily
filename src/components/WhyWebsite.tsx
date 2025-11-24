@@ -49,10 +49,10 @@ const WhyWebsite = () => {
                     <reason.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2 group-hover:translate-x-2 transition-transform duration-300">
+                    <h3 className="text-xl font-semibold mb-2 group-hover:translate-x-2 transition-transform duration-300">
                       {reason.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{reason.description}</p>
+                    <p className="text-muted-foreground text-base leading-relaxed">{reason.description}</p>
                   </div>
                 </div>
               </CardContent>
@@ -64,8 +64,8 @@ const WhyWebsite = () => {
             {/* Animated glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
             <CardContent className="py-8 relative z-10">
-              <p className="text-base text-center font-medium leading-relaxed">
-                <span className="text-primary font-semibold text-lg">Your website isn't about heavy SEO</span>
+              <p className="text-lg text-center font-medium leading-relaxed">
+                <span className="text-primary font-semibold text-xl">Your website isn't about heavy SEO</span>
                 <br />
                 <span className="text-foreground">
                   It's about looking trustworthy when customers find you anywhere.
