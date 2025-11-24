@@ -98,7 +98,7 @@ const Portfolio = () => (
       <div className="text-center mb-20 fade-up" style={{ animationDelay: "0.15s" }}>
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Demo Work</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          See how I could help local businesses establish their online presence
+          See how I can help enhance your online presence.
         </p>
       </div>
 
