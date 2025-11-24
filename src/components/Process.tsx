@@ -82,8 +82,8 @@ const Process = () => {
                   <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border z-0"></div>
                 )}
 
-                {/* Downward arrow for mobile */}
-                {index < steps.length - 1 && (
+                {/* Downward arrow for mobile or check mark for last card */}
+                {index < steps.length - 1 ? (
                   <div className="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-10">
                     <div
                       className={`${step.iconBg} rounded-full p-2 shadow-lg transition-all duration-400 ${
@@ -91,6 +91,16 @@ const Process = () => {
                       }`}
                     >
                       <ArrowRight className="w-8 h-8 text-white rotate-90" strokeWidth={3} />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-10">
+                    <div
+                      className={`${step.iconBg} rounded-full p-2 shadow-lg transition-all duration-400 ${
+                        activeCard === index ? "scale-110 shadow-xl" : ""
+                      }`}
+                    >
+                      <Check className="w-8 h-8 text-white" strokeWidth={3} />
                     </div>
                   </div>
                 )}
