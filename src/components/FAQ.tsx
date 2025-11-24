@@ -37,6 +37,11 @@ const FAQ = () => {
         "Yes! With the optional maintenance subscription, I can help you with updates. Or I can show you how to make simple changes yourself. The choice is yours.",
     },
     {
+      question: "What if I don't have a domain or already have one?",
+      answer:
+        "If you don't have a domain, I can help you register one (typically 100-200 SEK/year). If you already have a domain, perfect! I'll connect your new website to it. Either way, I'll guide you through the process.",
+    },
+    {
       question: "What happens after the website is live?",
       answer:
         "Your website is yours! You can choose the optional monthly maintenance plan for hosting, updates, and support, or manage it yourself. I'm here to help either way.",
