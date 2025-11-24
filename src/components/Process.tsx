@@ -205,7 +205,7 @@ const Process = () => {
         <div className="text-center mt-20">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-base transition-all duration-300 hover:gap-3 group"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-lg font-medium text-base transition-all duration-300 hover:gap-3 group"
           >
             Ready to start your journey?
             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
