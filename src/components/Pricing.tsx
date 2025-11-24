@@ -35,14 +35,14 @@ const Pricing = () => {
       price: "2,990",
       description: "Complete solution with booking and analytics",
       features: [
-        "Up to 6 pages",
+        "Up to 5 pages",
         "Standard template",
         "Booking integration",
         "Enhanced SEO",
         "Mobile-first design",
         "Enhanced gallery",
         "Analytics report",
-        "Free 2 months maintenance",
+        "Free 3 months maintenance",
         "1–2 weeks delivery",
       ],
       tagline: "Everything you need to run your barbershop online efficiently.",
@@ -101,7 +101,7 @@ const Pricing = () => {
 
                 {/* Rotating background gradient */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-700`}
+                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/5 group-hover:to-accent/5 transition-all duration-700`}
                 ></div>
 
                 {plan.popular && (
@@ -203,7 +203,7 @@ const Pricing = () => {
                   <h3 className="text-2xl font-bold mb-2">Maintenance</h3>
                   <p className="text-sm text-muted-foreground mb-4">Ongoing care for your website</p>
                   <div className="mb-4">
-                    <span className="text-5xl font-bold text-foreground">399</span>
+                    <span className="text-5xl font-bold text-foreground">299</span>
                     <span className="text-xl text-muted-foreground ml-2">SEK/month</span>
                   </div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/20 rounded-full">
