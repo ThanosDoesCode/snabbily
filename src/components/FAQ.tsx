@@ -3,12 +3,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const FAQ = () => {
   const faqs = [
     {
-      question: "We already appear on Google Maps, why need a website?",
+      question: "We already appear on Google Maps — why need a website?",
       answer:
         "Google Maps shows where you are. A website shows who you are. It presents your services, prices, photos, and brand professionally. Customers are more likely to choose a business with a website over one without.",
     },
     {
-      question: "We already use Bokadirekt, why add a website?",
+      question: "We already use Bokadirekt — why add a website?",
       answer:
         "Booking platforms are great for scheduling, but they don't present your business. A website increases trust, showcases your work, explains your services, and makes customers more confident before they book. Think of it as your digital storefront.",
     },
