@@ -12,22 +12,28 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="container mx-auto px-6 py-24 md:py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-5 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-32 relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Main Headline */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
             Fast, Affordable Websites for Local Businesses
-            <span className="block mt-3 text-4xl md:text-6xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
+            <span className="block mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
               Delivered in 3-4 Days
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards]">
-            Delivered in 3-4 Days with your existing booking method integrated.
+
+          {/* Subheadline */}
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
+            Get a professional website with your existing booking method integrated—no learning curve, no extra
+            subscriptions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards]">
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-12 md:mb-16 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
             <Button
               size="lg"
-              className="group text-lg px-12 py-6 bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative"
+              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto"
               onClick={() => scrollToSection("portfolio")}
             >
               View My Work
@@ -36,21 +42,47 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="group text-lg px-12 py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold"
+              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto"
               onClick={() => scrollToSection("contact")}
             >
               Get Your Website
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </div>
-          <div className="bg-card/90 backdrop-blur-sm border border-border rounded-2xl p-5 shadow-soft max-w-2xl mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards]">
-            <p className="text-lg md:text-xl font-semibold text-foreground leading-relaxed">
-              <span className="text-primary">Google Maps</span> helps customers find you.
-              <br />
-              <span className="text-green-600 dark:text-green-400">A website</span> helps customers choose you.
+
+          {/* Value Proposition Box */}
+          <div className="bg-card/90 backdrop-blur-sm border-2 border-border rounded-2xl sm:rounded-3xl p-6 sm:p-7 md:p-8 shadow-soft max-w-2xl mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards] mx-4">
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed sm:leading-relaxed md:leading-loose">
+              <span className="text-primary font-bold">Google Maps</span> helps customers find you.
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              <span className="text-green-600 dark:text-green-400 font-bold">A website</span> helps customers choose
+              you.
             </p>
           </div>
+
+          {/* Optional: Trust indicators */}
+          <div className="mt-10 sm:mt-12 md:mt-16 flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 opacity-0 animate-[fadeIn_0.8s_ease-out_1.4s_forwards] px-4">
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <div className="w-2 h-2 rounded-full bg-green-500"></div>
+              <span className="font-medium">3-4 Day Delivery</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+              <span className="font-medium">Free Booking Integration</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
+              <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+              <span className="font-medium">Mobile Responsive</span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl"></div>
       </div>
     </section>
   );
