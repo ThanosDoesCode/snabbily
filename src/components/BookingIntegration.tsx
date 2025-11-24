@@ -42,8 +42,7 @@ const BookingIntegration = () => {
                   Already using Bokadirekt, Calendly, SimplyBook.me, or another platform? Perfect! I'll integrate it
                   directly into your website at no extra cost.
                 </p>
-                <div className="flex items-center gap-2 justify-center flex-wrap">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
+                <div className="flex items-center justify-center">
                   <p className="text-xs md:text-sm text-primary font-semibold text-center">
                     Free integration • Keep your existing workflow • No learning curve
                   </p>
