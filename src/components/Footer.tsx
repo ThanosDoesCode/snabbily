@@ -28,7 +28,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="border-t border-border pt-6">
-            <p className="text-muted-foreground text-sm">© {currentYear} TFlow Designs. All rights reserved.</p>
+            <p className="text-muted-foreground text-sm">© {currentYear} Snabbily. All rights reserved.</p>
           </div>
         </div>
       </div>
