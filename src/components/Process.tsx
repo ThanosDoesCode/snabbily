@@ -159,7 +159,7 @@ const Process = () => {
 
                     {/* Bottom indicator - stays at bottom */}
                     <div className="flex items-center gap-2">
-                      <div className="flex gap-1.5 flex-1">
+                      <div className="flex gap-1.5 w-full">
                         {[...Array(4)].map((_, i) => (
                           <div
                             key={i}
@@ -171,18 +171,6 @@ const Process = () => {
                             }}
                           />
                         ))}
-                      </div>
-
-                      <div
-                        className={`transition-all duration-300 ${
-                          activeCard === index ? "translate-x-1 opacity-100" : "opacity-40"
-                        }`}
-                      >
-                        {index < steps.length - 1 ? (
-                          <ArrowRight className="w-4 h-4 text-primary" />
-                        ) : (
-                          <Check className="w-4 h-4 text-primary" strokeWidth={3} />
-                        )}
                       </div>
                     </div>
                   </CardContent>
