@@ -85,8 +85,12 @@ const Process = () => {
                 {/* Downward arrow for mobile */}
                 {index < steps.length - 1 && (
                   <div className="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-10">
-                    <div className="bg-primary/30 rounded-full p-2">
-                      <ArrowRight className="w-8 h-8 text-primary rotate-90" strokeWidth={3} />
+                    <div
+                      className={`${step.iconBg} rounded-full p-2 shadow-lg transition-all duration-400 ${
+                        activeCard === index ? "scale-110 shadow-xl" : ""
+                      }`}
+                    >
+                      <ArrowRight className="w-8 h-8 text-white rotate-90" strokeWidth={3} />
                     </div>
                   </div>
                 )}
