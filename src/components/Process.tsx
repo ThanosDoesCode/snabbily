@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, FileText, Hammer, Calendar, Rocket, LifeBuoy, Check, ArrowRight, Sparkles } from "lucide-react";
+import { MessageCircle, FileText, Hammer, Check, Rocket, ArrowRight, Sparkles } from "lucide-react";
 
 const Process = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
@@ -8,7 +8,7 @@ const Process = () => {
   const steps = [
     {
       icon: MessageCircle,
-      title: "Quick Call or Message",
+      title: "Call or Message",
       description: "We discuss your business and what you need",
       accent: "border-l-blue-500",
       iconBg: "bg-blue-500",
@@ -16,7 +16,7 @@ const Process = () => {
     },
     {
       icon: FileText,
-      title: "Collect Details",
+      title: "Collect Info",
       description: "I gather your content, photos, and booking preferences",
       accent: "border-l-purple-500",
       iconBg: "bg-purple-500",
@@ -24,35 +24,35 @@ const Process = () => {
     },
     {
       icon: Hammer,
-      title: "Build Website",
-      description: "I create your professional website with AI assistance",
+      title: "Build Demo",
+      description: "I create a demo version for your review",
       accent: "border-l-orange-500",
       iconBg: "bg-orange-500",
       glowColor: "shadow-orange-500/20",
     },
     {
-      icon: Calendar,
-      title: "Integrate Booking",
-      description: "I set up your preferred booking method",
+      icon: Check,
+      title: "Revision",
+      description: "You provide feedback and I make adjustments",
+      accent: "border-l-pink-500",
+      iconBg: "bg-pink-500",
+      glowColor: "shadow-pink-500/20",
+    },
+    {
+      icon: Hammer,
+      title: "Build Website",
+      description: "I finalize your professional website",
       accent: "border-l-green-500",
       iconBg: "bg-green-500",
       glowColor: "shadow-green-500/20",
     },
     {
       icon: Rocket,
-      title: "Deliver in 3-4 Days",
-      description: "Your website is live and ready for customers",
+      title: "Deliver or Live",
+      description: "Your website goes live and is ready for customers",
       accent: "border-l-yellow-500",
       iconBg: "bg-yellow-500",
       glowColor: "shadow-yellow-500/20",
-    },
-    {
-      icon: LifeBuoy,
-      title: "Optional Ongoing Care",
-      description: "Monthly maintenance if you want peace of mind",
-      accent: "border-l-indigo-500",
-      iconBg: "bg-indigo-500",
-      glowColor: "shadow-indigo-500/20",
     },
   ];
 
@@ -74,7 +74,7 @@ const Process = () => {
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-6 auto-rows-fr">
             {steps.map((step, index) => (
               <div key={index} className="relative group h-full">
                 {/* Connecting line for desktop */}
@@ -84,8 +84,10 @@ const Process = () => {
 
                 {/* Downward arrow for mobile */}
                 {index < steps.length - 1 && (
-                  <div className="md:hidden absolute -bottom-3 left-1/2 -translate-x-1/2 z-10">
-                    <ArrowRight className="w-6 h-6 text-primary rotate-90" />
+                  <div className="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-10">
+                    <div className="bg-primary/20 rounded-full p-1">
+                      <ArrowRight className="w-5 h-5 text-primary rotate-90" strokeWidth={2.5} />
+                    </div>
                   </div>
                 )}
 
