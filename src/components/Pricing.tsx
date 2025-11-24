@@ -96,12 +96,12 @@ const Pricing = () => {
               >
                 {/* Animated border glow */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-20 blur-xl"></div>
+                  <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-10 blur-xl"></div>
                 </div>
 
                 {/* Rotating background gradient */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/5 group-hover:to-accent/5 transition-all duration-700`}
+                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/3 group-hover:to-accent/3 transition-all duration-700`}
                 ></div>
 
                 {plan.popular && (
