@@ -6,7 +6,7 @@ const Services = () => {
     {
       icon: Globe,
       title: "Website Creation",
-      description: "You send the basics — I handle everything else.",
+      description: "You send the basics — We handle everything else.",
       features: [
         "Modern, AI-assisted design",
         "1–6 pages included",
