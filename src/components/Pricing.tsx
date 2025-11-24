@@ -16,7 +16,7 @@ const Pricing = () => {
     {
       name: "Starter Website",
       price: "2,490",
-      description: "Perfect for new barbershops getting online",
+      description: "Perfect for new businesses getting online",
       features: [
         "Up to 3 pages",
         "Standard template",
@@ -45,7 +45,7 @@ const Pricing = () => {
         "Free 2 months maintenance",
         "1–2 weeks delivery",
       ],
-      tagline: "Everything you need to run your barbershop online efficiently.",
+      tagline: "Everything you need to run your business online efficiently.",
       popular: true,
       custom: false,
     },
@@ -112,19 +112,19 @@ const Pricing = () => {
 
                 <CardHeader className="pb-5 relative z-10">
                   <CardTitle className="text-xl">{plan.name}</CardTitle>
-                  <CardDescription className="text-sm">{plan.description}</CardDescription>
+                  <CardDescription className="text-base">{plan.description}</CardDescription>
                   <div className="pt-5 relative">
                     {plan.custom ? (
                       <div className="flex flex-col">
                         <span className="text-3xl font-bold text-foreground">Upon Request</span>
-                        <span className="text-sm text-muted-foreground mt-1">Custom quote based on your needs</span>
+                        <span className="text-base text-muted-foreground mt-1">Custom quote based on your needs</span>
                       </div>
                     ) : (
                       <>
                         {plan.popular && (
                           <div className="mb-2">
                             <span className="text-2xl font-bold text-muted-foreground line-through">4,990</span>
-                            <span className="text-sm text-muted-foreground ml-1">SEK</span>
+                            <span className="text-base text-muted-foreground ml-1">SEK</span>
                           </div>
                         )}
                         <div>
@@ -154,13 +154,13 @@ const Pricing = () => {
                           />
                           <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
                         </div>
-                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
+                        <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
 
                   {plan.tagline && (
-                    <p className="text-xs text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>
+                    <p className="text-base text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>
                   )}
 
                   <Button
@@ -193,21 +193,18 @@ const Pricing = () => {
           style={{ animationDelay: "1.2s" }}
         >
           <Card className="group relative border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/50 transition-all duration-500 overflow-hidden">
-            {/* Animated background pulse */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 animate-[pulse_3s_ease-in-out_infinite]"></div>
-
             <CardContent className="p-8 md:p-10 relative z-10">
               <div className="grid md:grid-cols-[1fr,2fr] gap-8 items-center">
                 {/* Left side - Price and title */}
                 <div className="text-center md:text-left">
                   <h3 className="text-2xl font-bold mb-2">Maintenance</h3>
-                  <p className="text-sm text-muted-foreground mb-4">Ongoing care for your website</p>
+                  <p className="text-base text-muted-foreground mb-4">Ongoing care for your website</p>
                   <div className="mb-4">
                     <span className="text-5xl font-bold text-foreground">399</span>
                     <span className="text-xl text-muted-foreground ml-2">SEK/month</span>
                   </div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/20 rounded-full">
-                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                    <div className="w-2 h-2 rounded-full bg-primary"></div>
                     <span className="text-xs font-semibold text-primary">ONGOING SUPPORT</span>
                   </div>
                 </div>
@@ -228,7 +225,7 @@ const Pricing = () => {
                           <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                           <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
                         </div>
-                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
+                        <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -253,7 +250,7 @@ const Pricing = () => {
           className="text-center mt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
           style={{ animationDelay: "1.4s" }}
         >
-          <p className="text-sm text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
+          <p className="text-base text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
         </div>
       </div>
     </section>
