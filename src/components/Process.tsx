@@ -202,15 +202,15 @@ const Process = () => {
         </div>
 
         {/* Timeline visualization */}
-        <div className="max-w-4xl mx-auto mt-16 flex items-center justify-center gap-3">
+        <div className="max-w-4xl mx-auto mt-16 flex items-center justify-center gap-2 md:gap-3">
           {steps.map((step, index) => (
-            <div key={index} className="flex items-center gap-3">
+            <div key={index} className="flex items-center gap-2 md:gap-3">
               <div
-                className={`w-3 h-3 rounded-full ${step.iconBg} transition-all duration-300 ${
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full ${step.iconBg} transition-all duration-300 ${
                   activeCard === index ? "scale-150 shadow-lg" : "scale-100"
                 }`}
               ></div>
-              {index < steps.length - 1 && <div className="w-8 h-0.5 bg-border"></div>}
+              {index < steps.length - 1 && <div className="w-4 md:w-8 h-0.5 bg-border"></div>}
             </div>
           ))}
         </div>
