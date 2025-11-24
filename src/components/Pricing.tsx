@@ -121,8 +121,21 @@ const Pricing = () => {
                       </div>
                     ) : (
                       <>
-                        <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                        <span className="text-base text-muted-foreground ml-1">SEK</span>
+                        {plan.popular && (
+                          <div className="mb-2">
+                            <span className="text-2xl font-bold text-muted-foreground line-through">4,990</span>
+                            <span className="text-sm text-muted-foreground ml-1">SEK</span>
+                          </div>
+                        )}
+                        <div>
+                          <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                          <span className="text-base text-muted-foreground ml-1">SEK</span>
+                          {plan.popular && (
+                            <span className="ml-3 inline-flex items-center px-2.5 py-1 bg-green-500/20 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">
+                              Save 2,000 SEK
+                            </span>
+                          )}
+                        </div>
                       </>
                     )}
                     {/* Animated underline */}
