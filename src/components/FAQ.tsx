@@ -15,36 +15,36 @@ const FAQ = () => {
     {
       question: "Is this SEO heavy?",
       answer:
-        "No — it's presentation-focused. While I include basic SEO, the main goal isn't to rank #1 on Google for every search. It's to look professional and trustworthy when customers find you through any channel — Maps, social media, word of mouth, or search.",
+        "No — it's presentation-focused. While we include basic SEO, the main goal isn't to rank #1 on Google for every search. It's to look professional and trustworthy when customers find you through any channel — Maps, social media, word of mouth, or search.",
     },
     {
       question: "How fast is delivery?",
       answer:
-        "Most websites are delivered within 3-4 days. Simpler sites (up to 3 pages) typically take 3 days, while more complex sites (up to 6 pages with custom branding) take up to 4 days. I'll give you an exact timeline after we discuss your needs.",
+        "Most websites are delivered within 3-4 days. Simpler sites (up to 3 pages) typically take 4 days, while more complex sites (up to 6 pages with custom branding) can take up to 2 weeks. I'll give you an exact timeline after we discuss your needs.",
     },
     {
       question: "Do I need new software or subscriptions?",
-      answer: "No. I integrate the booking method you already use — Bokadirekt, Calendly, calls, or a simple form.",
+      answer: "No. We integrate the booking method you already use — Bokadirekt, Calendly, calls, or a simple form.",
     },
     {
       question: "What if I don't have professional photos?",
       answer:
-        "No problem! I can work with smartphone photos and offer professional photo editing as an add-on service. Good photos help, but they're not required to get started.",
+        "No problem! We can work with smartphone photos and offer professional photo editing as an add-on service. Good photos help, but they're not required to get started.",
     },
     {
       question: "Can I update the website myself later?",
       answer:
-        "Yes! With the optional maintenance subscription, I can help you with updates. Or I can show you how to make simple changes yourself. The choice is yours.",
+        "Yes! With the optional maintenance subscription, we can help you with updates. Or we can show you how to make simple changes yourself. The choice is yours.",
     },
     {
       question: "What if I don't have a domain or already have one?",
       answer:
-        "If you don't have a domain, I can help you register one (typically 100-200 SEK/year). If you already have a domain, perfect! I'll connect your new website to it. Either way, I'll guide you through the process.",
+        "If you don't have a domain, we can help you register one (typically 100-200 SEK/year). If you already have a domain, perfect! We'll connect your new website to it. Either way, We'll guide you through the process.",
     },
     {
       question: "What happens after the website is live?",
       answer:
-        "Your website is yours! You can choose the optional monthly maintenance plan for hosting, updates, and support, or manage it yourself. I'm here to help either way.",
+        "Your website is yours! You can choose the optional monthly maintenance plan for hosting, updates, and support, or manage it yourself. We're here to help either way.",
     },
   ];
 
