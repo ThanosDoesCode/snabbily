@@ -203,7 +203,7 @@ const Pricing = () => {
                   <h3 className="text-2xl font-bold mb-2">Maintenance</h3>
                   <p className="text-sm text-muted-foreground mb-4">Ongoing care for your website</p>
                   <div className="mb-4">
-                    <span className="text-5xl font-bold text-foreground">299</span>
+                    <span className="text-5xl font-bold text-foreground">399</span>
                     <span className="text-xl text-muted-foreground ml-2">SEK/month</span>
                   </div>
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/20 rounded-full">
