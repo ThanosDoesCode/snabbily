@@ -41,6 +41,7 @@ const Pricing = () => {
         "Enhanced SEO",
         "Mobile-first design",
         "Enhanced gallery",
+        "Google business setup",
         "Analytics report",
         "Free 2 months maintenance",
         "1–2 weeks delivery",
