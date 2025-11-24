@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, ArrowRight } from "lucide-react";
 
 const Pricing = () => {
   const scrollToContact = () => {
@@ -15,52 +15,57 @@ const Pricing = () => {
   const plans = [
     {
       name: "Starter Website",
-      price: "2,990",
-      description: "Perfect for new barbershops who want a simple, clean online presence",
+      price: "2,490",
+      description: "Perfect for new barbershops getting online",
       features: [
-        "1–3 pages",
-        "Clean template design",
-        "Booking integration",
+        "Up to 3 pages",
+        "Standard template",
+        "No booking integration",
         "Basic SEO",
-        "Google Business setup",
-        "Mobile-first",
+        "Mobile-first design",
         "Simple gallery",
         "3–4 days delivery",
       ],
-      tagline: "A simple but beautiful website that gets your shop online fast.",
+      tagline: "A clean, professional website to establish your online presence.",
       popular: false,
+      custom: false,
     },
     {
-      name: "Business Website",
-      price: "4,990",
-      description: "Premium solution for established barbershops who want a custom brand presence",
+      name: "Advanced Website",
+      price: "2,990",
+      description: "Complete solution with booking and analytics",
       features: [
-        "4–6 pages",
-        "Custom branding",
-        "Custom design",
-        "Enhanced SEO structure",
-        "Copywriting for service descriptions",
-        "Team/Barbers page",
-        "Professional before/after gallery",
-        "Priority handling",
-        "3–4 days delivery",
+        "Up to 5 pages",
+        "Standard template",
+        "Booking integration",
+        "Enhanced SEO",
+        "Mobile-first design",
+        "Enhanced gallery",
+        "Analytics report",
+        "Free 3 months maintenance",
+        "1–2 weeks delivery",
       ],
-      tagline: "A premium website tailored to your brand and personality.",
+      tagline: "Everything you need to run your barbershop online efficiently.",
       popular: true,
+      custom: false,
     },
     {
-      name: "Maintenance",
-      price: "299",
-      priceUnit: "/month",
-      description: "Ongoing care for your website",
+      name: "Custom Website",
+      price: null,
+      description: "Fully tailored solution built for your vision",
       features: [
-        "Hosting",
-        "Security updates",
-        "Booking/queue system support",
-        "Up to 3 monthly changes",
-        "Ongoing support",
+        "Unlimited pages",
+        "Custom design & branding",
+        "Advanced integrations",
+        "Custom features",
+        "Premium SEO strategy",
+        "Professional photography",
+        "Dedicated support",
+        "Timeline based on scope",
       ],
+      tagline: "Let's build something extraordinary together.",
       popular: false,
+      custom: true,
     },
   ];
 
@@ -109,8 +114,17 @@ const Pricing = () => {
                   <CardTitle className="text-xl">{plan.name}</CardTitle>
                   <CardDescription className="text-sm">{plan.description}</CardDescription>
                   <div className="pt-5 relative">
-                    <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                    <span className="text-base text-muted-foreground ml-1">SEK{plan.priceUnit || ""}</span>
+                    {plan.custom ? (
+                      <div className="flex flex-col">
+                        <span className="text-3xl font-bold text-foreground">Upon Request</span>
+                        <span className="text-sm text-muted-foreground mt-1">Custom quote based on your needs</span>
+                      </div>
+                    ) : (
+                      <>
+                        <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                        <span className="text-base text-muted-foreground ml-1">SEK</span>
+                      </>
+                    )}
                     {/* Animated underline */}
                     <div className="h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-500 mt-2 rounded-full"></div>
                   </div>
@@ -142,7 +156,16 @@ const Pricing = () => {
                     size="lg"
                     onClick={scrollToContact}
                   >
-                    <span className="relative z-10">Get Started</span>
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {plan.custom ? (
+                        <>
+                          Request Quote
+                          <ArrowRight className="w-4 h-4" />
+                        </>
+                      ) : (
+                        "Get Started"
+                      )}
+                    </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
                   </Button>
                 </CardContent>
