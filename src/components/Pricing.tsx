@@ -63,7 +63,7 @@ const Pricing = () => {
         "Dedicated support",
         "Timeline based on scope",
       ],
-      tagline: "Let's build something extraordinary together — fully tailored to your vision.",
+      tagline: "Let's build something extraordinary together.",
       popular: false,
       custom: true,
     },
