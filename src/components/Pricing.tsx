@@ -88,8 +88,10 @@ const Pricing = () => {
               }}
             >
               <Card
-                className={`group relative border bg-card transition-all duration-500 overflow-hidden h-full ${
-                  plan.popular ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)]" : "border-border"
+                className={`group relative border bg-card transition-all duration-500 overflow-hidden h-full hover:scale-105 ${
+                  plan.popular
+                    ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)]"
+                    : "border-border hover:border-primary"
                 }`}
               >
                 {/* Background gradient - no hover effect */}
