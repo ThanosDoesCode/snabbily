@@ -18,7 +18,7 @@ const Index = () => {
         <Services className="mx-0 my-0 px-0 py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <WhyWebsite className="py-[100px]" />
+        <WhyWebsite className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
         <BookingIntegration />
