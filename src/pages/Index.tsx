@@ -18,10 +18,10 @@ const Index = () => {
         <Services className="mx-0 my-0 px-0 py-0" />
       </AnimatedSection>
       <AnimatedSection>
-        <WhyWebsite className="py-[60px]" />
+        <WhyWebsite className="py-[120px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <BookingIntegration className="py-[60px]" />
+        <BookingIntegration className="py-[100px]" />
       </AnimatedSection>
       <AnimatedSection>
         <Pricing className="py-[60px]" />
