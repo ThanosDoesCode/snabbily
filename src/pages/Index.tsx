@@ -36,7 +36,7 @@ const Index = () => {
         <FAQ className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <Contact />
+        <Contact className="py-[60px]" />
       </AnimatedSection>
       <Footer />
     </div>;
