@@ -51,21 +51,16 @@ const Hero = () => {
           </div>
 
           {/* Value Proposition Box */}
-          <div className="bg-card/90 backdrop-blur-sm border-2 border-border rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-soft max-w-2xl mx-4 md:mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards]">
-            <div className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-foreground leading-relaxed space-y-3 sm:space-y-4">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                <span className="text-primary font-bold text-base sm:text-lg md:text-xl">Google Maps</span>
-                <span className="text-muted-foreground text-sm sm:text-base md:text-lg">helps customers find you.</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                <span className="text-green-600 dark:text-green-400 font-bold text-base sm:text-lg md:text-xl">
-                  A website
-                </span>
-                <span className="text-muted-foreground text-sm sm:text-base md:text-lg">
-                  helps customers choose you.
-                </span>
-              </div>
-            </div>
+          <div className="bg-card/90 backdrop-blur-sm border-2 border-border rounded-2xl sm:rounded-3xl p-6 sm:p-7 md:p-8 shadow-soft max-w-2xl mx-4 md:mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards]">
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-foreground leading-relaxed space-y-3">
+              <span className="block mb-3 sm:mb-4">
+                <span className="text-primary font-bold">Google Maps</span> helps customers find you.
+              </span>
+              <span className="block">
+                <span className="text-green-600 dark:text-green-400 font-bold">A website</span> helps customers choose
+                you.
+              </span>
+            </p>
           </div>
         </div>
       </div>
