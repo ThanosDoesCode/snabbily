@@ -7,16 +7,20 @@ interface BookingIntegrationProps {
 }
 
 const BookingIntegration = ({ className }: BookingIntegrationProps) => {
-  const simpleMethods = [{
-    icon: Phone,
-    name: "Click-to-Call",
-    description: "Call to book an appointment"
-  }, {
-    icon: Mail,
-    name: "Email Form",
-    description: "Free booking form"
-  }];
-  return <section className={cn("py-20 md:py-40 bg-background", className)} id="booking">
+  const simpleMethods = [
+    {
+      icon: Phone,
+      name: "Click-to-Call",
+      description: "Call to book an appointment",
+    },
+    {
+      icon: Mail,
+      name: "Email Form",
+      description: "Free booking form",
+    },
+  ];
+  return (
+    <section className={cn("py-20 md:py-40 bg-background", className)} id="booking">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 md:mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 px-4">Booking Integration</h2>
@@ -32,7 +36,10 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
               <CardContent className="py-8 px-5 sm:px-6 md:py-10 md:px-8 lg:px-10 relative z-10">
                 <div className="flex items-center gap-4 mb-6 md:mb-6 justify-center">
                   <div className="w-16 h-16 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-xl bg-gradient-primary flex items-center justify-center group-hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] transition-all duration-500">
-                    <Calendar className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-primary-foreground" strokeWidth={2} />
+                    <Calendar
+                      className="h-8 w-8 md:h-8 md:w-8 lg:h-10 lg:w-10 text-primary-foreground"
+                      strokeWidth={2}
+                    />
                   </div>
                 </div>
 
@@ -41,12 +48,15 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
                 </h3>
 
                 <p className="text-sm sm:text-base md:text-lg text-center text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto leading-relaxed">
-                  Already using Bokadirekt, Calendly, SimplyBook.me, or another platform? Perfect! We'll integrate it directly into your website at no extra cost.
+                  Already using Bokadirekt, Calendly, Fresha, or another platform? Perfect! We'll integrate it directly
+                  into your website at no extra cost.
                 </p>
 
                 <div className="flex items-center justify-center pt-2">
                   <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-1 text-center">
-                    <p className="text-xs sm:text-sm text-primary font-semibold order-1 sm:order-1">Keep your existing workflow</p>
+                    <p className="text-xs sm:text-sm text-primary font-semibold order-1 sm:order-1">
+                      Keep your existing workflow
+                    </p>
                     <span className="hidden sm:inline text-primary order-2">•</span>
                     <div className="flex items-center gap-1 order-2 sm:order-3">
                       <p className="text-xs sm:text-sm text-primary font-semibold">Free integration</p>
@@ -65,9 +75,14 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
               Or Add Simple Booking Options
             </h3>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
-              {simpleMethods.map((method, index) => <Card key={index} className="group relative border border-border bg-card hover:border-primary/70 transition-all duration-500 opacity-0 animate-[slideInLeft_0.8s_ease-out_forwards] overflow-hidden" style={{
-              animationDelay: `${1.0 + index * 0.15}s`
-            }}>
+              {simpleMethods.map((method, index) => (
+                <Card
+                  key={index}
+                  className="group relative border border-border bg-card hover:border-primary/70 transition-all duration-500 opacity-0 animate-[slideInLeft_0.8s_ease-out_forwards] overflow-hidden"
+                  style={{
+                    animationDelay: `${1.0 + index * 0.15}s`,
+                  }}
+                >
                   <CardHeader className="pb-3 relative z-10">
                     <div className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-3 group-hover:animate-[float_2s_ease-in-out_infinite]">
                       <method.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
@@ -85,11 +100,13 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
                       </p>
                     </div>
                   </CardContent>
-                </Card>)}
+                </Card>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default BookingIntegration;
