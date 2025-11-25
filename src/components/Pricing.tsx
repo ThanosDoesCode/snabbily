@@ -163,7 +163,7 @@ const Pricing = () => {
                   )}
 
                   <Button
-                    className="w-full text-base py-6 font-semibold relative overflow-hidden group/btn"
+                    className="w-full text-base py-6 font-semibold relative overflow-hidden"
                     variant={plan.popular ? "default" : "outline"}
                     size="lg"
                     onClick={scrollToContact}
@@ -178,7 +178,6 @@ const Pricing = () => {
                         "Get Started"
                       )}
                     </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
                   </Button>
                 </CardContent>
               </Card>
@@ -238,13 +237,12 @@ const Pricing = () => {
                   </ul>
                   <div className="mt-6">
                     <Button
-                      className="w-full md:w-auto px-8 text-base py-6 font-semibold relative overflow-hidden group/btn"
+                      className="w-full md:w-auto px-8 text-base py-6 font-semibold relative overflow-hidden"
                       variant="default"
                       size="lg"
                       onClick={scrollToContact}
                     >
                       <span className="relative z-10">Get Started</span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700"></div>
                     </Button>
                   </div>
                 </div>
