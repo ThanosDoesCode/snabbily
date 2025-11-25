@@ -1,7 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Globe, RefreshCw, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Globe, RefreshCw, Plus, ArrowRight } from "lucide-react";
 
 const Services = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
+
   const services = [
     {
       icon: Globe,
@@ -89,6 +99,23 @@ const Services = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* CTA Button */}
+        <div
+          className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
+          style={{ animationDelay: "0.6s" }}
+        >
+          <Button
+            className="px-8 md:px-10 py-6 md:py-7 text-base md:text-lg font-semibold relative overflow-hidden"
+            size="lg"
+            onClick={scrollToContact}
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              Get Your Website Today
+              <ArrowRight className="w-5 h-5" />
+            </span>
+          </Button>
         </div>
       </div>
     </section>
