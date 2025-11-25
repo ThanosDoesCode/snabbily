@@ -204,7 +204,7 @@ const Process = () => {
           >
             <span className="relative z-10 flex items-center gap-2">
               Ready to start your journey?
-              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-2" />
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           </a>
