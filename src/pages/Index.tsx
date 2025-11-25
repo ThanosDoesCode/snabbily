@@ -30,7 +30,7 @@ const Index = () => {
         <Process className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <Portfolio />
+        <Portfolio className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
         <FAQ />
