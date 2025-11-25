@@ -99,9 +99,9 @@ const Pricing = () => {
                   <div className="absolute inset-0 rounded-lg bg-gradient-primary opacity-10 blur-xl"></div>
                 </div>
 
-                {/* Background gradient */}
+                {/* Rotating background gradient */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : ""}`}
+                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : "from-primary/0 to-accent/0"} group-hover:from-primary/3 group-hover:to-accent/3 transition-all duration-700`}
                 ></div>
 
                 {plan.popular && (
@@ -146,7 +146,7 @@ const Pricing = () => {
                       </>
                     )}
                     {/* Animated underline */}
-                    <div className="h-1 bg-gradient-primary w-0 transition-all duration-500 mt-2 rounded-full"></div>
+                    <div className="h-1 bg-gradient-primary w-0 group-hover:w-full transition-all duration-500 mt-2 rounded-full"></div>
                   </div>
                 </CardHeader>
 
@@ -155,7 +155,11 @@ const Pricing = () => {
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <div className="relative">
-                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                          <Check
+                            className="h-4 w-4 text-primary flex-shrink-0 mt-0.5 group-hover:animate-[spin_0.5s_ease-in-out]"
+                            strokeWidth={2.5}
+                          />
+                          <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
                         </div>
                         <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
                       </li>
