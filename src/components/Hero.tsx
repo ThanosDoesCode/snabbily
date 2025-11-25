@@ -12,7 +12,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-32 sm:pt-36 md:pt-40">
+    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 sm:pt-28 md:pt-32">
       <div className="container mx-auto px-4 sm:px-6 py-0 sm:py-2 md:py-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Headline */}
