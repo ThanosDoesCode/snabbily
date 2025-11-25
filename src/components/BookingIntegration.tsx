@@ -1,6 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Phone, Mail } from "lucide-react";
-const BookingIntegration = () => {
+import { cn } from "@/lib/utils";
+
+interface BookingIntegrationProps {
+  className?: string;
+}
+
+const BookingIntegration = ({ className }: BookingIntegrationProps) => {
   const simpleMethods = [{
     icon: Phone,
     name: "Click-to-Call",
@@ -10,7 +16,7 @@ const BookingIntegration = () => {
     name: "Email Form",
     description: "Free booking form"
   }];
-  return <section className="py-20 md:py-40 bg-background" id="booking">
+  return <section className={cn("py-20 md:py-40 bg-background", className)} id="booking">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 md:mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 px-4">Booking Integration</h2>

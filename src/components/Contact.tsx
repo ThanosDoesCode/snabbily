@@ -1,7 +1,13 @@
 import { useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MessageCircle, Instagram } from "lucide-react";
-const Contact = () => {
+import { cn } from "@/lib/utils";
+
+interface ContactProps {
+  className?: string;
+}
+
+const Contact = ({ className }: ContactProps) => {
   // Load Calendly script
   useEffect(() => {
     const script = document.createElement("script");
@@ -15,7 +21,7 @@ const Contact = () => {
     };
   }, []);
   return (
-    <section className="py-40 bg-secondary" id="contact">
+    <section className={cn("py-40 bg-secondary", className)} id="contact">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Get Your Website</h2>

@@ -1,8 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Globe, RefreshCw, Plus, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const Services = () => {
+interface ServicesProps {
+  className?: string;
+}
+
+const Services = ({ className }: ServicesProps) => {
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -56,7 +61,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-40 bg-background" id="services">
+    <section className={cn("py-40 bg-background", className)} id="services">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Offer</h2>

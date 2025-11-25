@@ -1,8 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const Pricing = () => {
+interface PricingProps {
+  className?: string;
+}
+
+const Pricing = ({ className }: PricingProps) => {
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -70,7 +75,7 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-40 bg-secondary" id="pricing">
+    <section className={cn("py-40 bg-secondary", className)} id="pricing">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
@@ -128,11 +133,11 @@ const Pricing = () => {
                             <span className="text-base text-muted-foreground ml-1">SEK</span>
                           </div>
                           {plan.popular && (
-                            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit">
-                              <span className="text-xs font-bold text-green-600 dark:text-green-400">
+                            <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit">
+                              <span className="text-xs md:text-sm font-bold text-green-600 dark:text-green-400">
                                 🎉 LAUNCH OFFER
                               </span>
-                              <span className="text-xs font-semibold text-green-600 dark:text-green-400">
+                              <span className="text-xs md:text-sm font-semibold text-green-600 dark:text-green-400">
                                 Save 2,000 SEK
                               </span>
                             </div>
