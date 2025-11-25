@@ -15,7 +15,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <AnimatedSection>
-        <Services className="mx-0 my-0 px-0 py-[30px]" />
+        <Services className="mx-0 my-0 px-0 py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
         <WhyWebsite className="py-[100px]" />
