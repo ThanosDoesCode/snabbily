@@ -191,7 +191,7 @@ const Pricing = () => {
           className="max-w-4xl mx-auto mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
           style={{ animationDelay: "1.2s" }}
         >
-          <Card className="group relative border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/50 transition-all duration-500 overflow-hidden">
+          <Card className="relative border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/50 hover:scale-105 transition-all duration-500 overflow-hidden">
             <CardContent className="p-8 md:p-10 relative z-10">
               <div className="grid md:grid-cols-[1fr,2fr] gap-8 items-center">
                 {/* Left side - Price and title */}
@@ -230,7 +230,6 @@ const Pricing = () => {
                     <li className="flex items-start gap-3">
                       <div className="relative">
                         <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                        <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
                       </div>
                       <span className="text-base text-primary font-semibold leading-relaxed">
                         AI consultant based on your webpage
