@@ -69,10 +69,10 @@ const Hero = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-8 sm:mt-10 mb-8 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
+          <div className="mt-6 sm:mt-8 mb-12 sm:mb-16 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
             <div className="flex flex-col items-center gap-2 animate-bounce">
-              <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
-              <ChevronDown className="w-6 h-6 text-primary" strokeWidth={2.5} />
+              <span className="text-sm sm:text-base text-muted-foreground font-medium">Scroll to explore</span>
+              <ChevronDown className="w-8 h-8 sm:w-6 sm:h-6 text-primary" strokeWidth={3} />
             </div>
           </div>
         </div>
