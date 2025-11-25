@@ -13,7 +13,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-12 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
