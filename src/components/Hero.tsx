@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -51,7 +51,7 @@ const Hero = () => {
           </div>
 
           {/* Value Proposition Box */}
-          <div className="bg-card/90 backdrop-blur-sm border-2 border-border rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-soft max-w-2xl mx-4 md:mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards]">
+          <div className="bg-card/90 backdrop-blur-sm border-2 border-border rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 shadow-soft max-w-xl mx-4 md:mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards]">
             <div className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-foreground leading-relaxed space-y-3 sm:space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
                 <span className="text-primary font-bold text-base sm:text-lg md:text-xl">Google Maps</span>
@@ -65,6 +65,14 @@ const Hero = () => {
                   helps customers choose you.
                 </span>
               </div>
+            </div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="mt-12 sm:mt-16 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
+            <div className="flex flex-col items-center gap-2 animate-bounce">
+              <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
+              <ChevronDown className="w-6 h-6 text-primary" strokeWidth={2.5} />
             </div>
           </div>
         </div>
