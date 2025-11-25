@@ -12,25 +12,25 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 sm:pt-28 md:pt-32">
+    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28">
       <div className="container mx-auto px-4 sm:px-6 py-0 sm:py-2 md:py-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
             Fast, Affordable Websites for Local Businesses
-            <span className="block mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
+            <span className="block mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
               Delivered in 3-4 Days
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
             Get a professional website with your existing booking method integrated — no learning curve, no extra
             subscriptions.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-10 md:mb-12 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5 sm:mb-8 md:mb-10 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
             <Button
               size="lg"
               className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto"
@@ -69,10 +69,10 @@ const Hero = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-4 sm:mt-6 mb-16 sm:mb-20 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
-            <div className="flex flex-col items-center gap-2 animate-bounce">
-              <span className="text-sm sm:text-base text-muted-foreground font-medium">Scroll to explore</span>
-              <ChevronDown className="w-8 h-8 sm:w-6 sm:h-6 text-primary" strokeWidth={3} />
+          <div className="mt-3 sm:mt-4 mb-20 sm:mb-24 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
+            <div className="flex flex-col items-center gap-3 animate-bounce">
+              <span className="text-base sm:text-base text-muted-foreground font-semibold">Scroll to explore</span>
+              <ChevronDown className="w-10 h-10 sm:w-8 sm:h-8 text-primary" strokeWidth={3.5} />
             </div>
           </div>
         </div>
