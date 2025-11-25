@@ -1,265 +1,217 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Check, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { MessageCircle, FileText, Hammer, Check, Rocket, ArrowRight, Sparkles } from "lucide-react";
 
-const Pricing = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  };
+const Process = () => {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
-  const plans = [
+  const steps = [
     {
-      name: "Starter Website",
-      price: "2,490",
-      description: "Perfect for new barbershops getting online",
-      features: [
-        "Up to 3 pages",
-        "Standard template",
-        "No booking integration",
-        "Basic SEO",
-        "Mobile-first design",
-        "Simple gallery",
-        "3–4 days delivery",
-      ],
-      tagline: "A clean, professional website to establish your online presence.",
-      popular: false,
-      custom: false,
+      icon: MessageCircle,
+      title: "Call or Message",
+      description: "We discuss your business and what you need",
+      accent: "border-l-blue-500",
+      iconBg: "bg-blue-500",
+      glowColor: "shadow-blue-500/20",
     },
     {
-      name: "Advanced Website",
-      price: "2,990",
-      description: "Complete solution with booking and analytics",
-      features: [
-        "Up to 6 pages",
-        "Standard template",
-        "Booking integration",
-        "Enhanced SEO",
-        "Mobile-first design",
-        "Enhanced gallery",
-        "Analytics report",
-        "Free 2 months maintenance",
-        "1–2 weeks delivery",
-      ],
-      tagline: "Everything you need to run your barbershop online efficiently.",
-      popular: true,
-      custom: false,
+      icon: FileText,
+      title: "Collect Info",
+      description: "I gather your content, photos, and booking preferences",
+      accent: "border-l-purple-500",
+      iconBg: "bg-purple-500",
+      glowColor: "shadow-purple-500/20",
     },
     {
-      name: "Custom Website",
-      price: null,
-      description: "Fully tailored solution built for your vision",
-      features: [
-        "Unlimited pages",
-        "Custom design & branding",
-        "Advanced integrations",
-        "Custom features",
-        "Premium SEO strategy",
-        "Professional photography",
-        "Dedicated support",
-        "Timeline based on scope",
-      ],
-      tagline: "Let's build something extraordinary together.",
-      popular: false,
-      custom: true,
+      icon: Hammer,
+      title: "Build Demo",
+      description: "I create a demo version for your review",
+      accent: "border-l-orange-500",
+      iconBg: "bg-orange-500",
+      glowColor: "shadow-orange-500/20",
+    },
+    {
+      icon: Check,
+      title: "Revision",
+      description: "You provide feedback and I make adjustments",
+      accent: "border-l-pink-500",
+      iconBg: "bg-pink-500",
+      glowColor: "shadow-pink-500/20",
+    },
+    {
+      icon: Hammer,
+      title: "Build Website",
+      description: "I finalize your professional website",
+      accent: "border-l-green-500",
+      iconBg: "bg-green-500",
+      glowColor: "shadow-green-500/20",
+    },
+    {
+      icon: Rocket,
+      title: "Deliver or Live",
+      description: "Your website goes live and is ready for customers",
+      accent: "border-l-yellow-500",
+      iconBg: "bg-yellow-500",
+      glowColor: "shadow-yellow-500/20",
     },
   ];
 
   return (
-    <section className="py-40 bg-secondary" id="pricing">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">No hidden fees, no surprises.</p>
+    <section className="py-40 bg-secondary relative overflow-hidden" id="process">
+      <div className="container mx-auto px-6 relative">
+        <div className="text-center mb-24">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-semibold text-primary">STREAMLINED WORKFLOW</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">My Simple Process</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
+            From first contact to live website in just a few days
+          </p>
+          <p className="text-sm text-muted-foreground">
+            You only send your photos and basic details. I build everything else.
+          </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto items-start">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] ${
-                plan.popular ? "" : "md:scale-90"
-              }`}
-              style={{
-                animationDelay: `${0.4 + index * 0.15}s`,
-              }}
-            >
-              <Card
-                className={`group relative border bg-card transition-all duration-500 overflow-hidden h-full hover:scale-105 ${
-                  plan.popular
-                    ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)]"
-                    : "border-border hover:border-primary"
-                }`}
-              >
-                {/* Background gradient - no hover effect */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : ""}`}
-                ></div>
 
-                {plan.popular && (
-                  <div className="relative bg-gradient-primary text-primary-foreground text-center py-2 font-semibold text-sm">
-                    Most Popular
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-6 auto-rows-fr">
+            {steps.map((step, index) => (
+              <div key={index} className="relative group h-full">
+                {/* Connecting line for desktop */}
+                {index < steps.length - 1 && (index + 1) % 3 !== 0 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border z-0"></div>
+                )}
+
+                {/* Downward arrow for mobile or check mark for last card */}
+                {index < steps.length - 1 ? (
+                  <div className="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-10">
+                    <div className={`${step.iconBg} rounded-full p-2 shadow-lg transition-all duration-400`}>
+                      <ArrowRight className="w-8 h-8 text-white rotate-90" strokeWidth={3} />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="md:hidden absolute -bottom-6 left-1/2 -translate-x-1/2 z-10">
+                    <div className={`${step.iconBg} rounded-full p-2 shadow-lg transition-all duration-400`}>
+                      <Check className="w-8 h-8 text-white" strokeWidth={3} />
+                    </div>
                   </div>
                 )}
 
-                <CardHeader className="pb-5 relative z-10">
-                  <CardTitle className="text-xl">{plan.name}</CardTitle>
-                  <CardDescription className="text-base">{plan.description}</CardDescription>
-                  <div className="pt-5 relative">
-                    {plan.custom ? (
-                      <div className="flex flex-col">
-                        <span className="text-3xl font-bold text-foreground">Upon Request</span>
-                        <span className="text-base text-muted-foreground mt-1">Custom quote based on your needs</span>
+                <Card
+                  onMouseEnter={() => setActiveCard(index)}
+                  onMouseLeave={() => setActiveCard(null)}
+                  className={`relative h-full border-l-4 ${step.accent} bg-card transition-all duration-400 ${
+                    activeCard === index ? `shadow-2xl ${step.glowColor} translate-x-2` : "shadow-md hover:shadow-lg"
+                  }`}
+                >
+                  <CardContent className="p-8 relative h-full flex flex-col">
+                    {/* Diagonal stripe decoration */}
+                    <div
+                      className={`absolute top-0 right-0 w-20 h-20 opacity-5 transition-opacity duration-400 ${
+                        activeCard === index ? "opacity-10" : ""
+                      }`}
+                    >
+                      <div
+                        className={`w-full h-full ${step.iconBg} transform rotate-45 translate-x-10 -translate-y-10`}
+                      ></div>
+                    </div>
+
+                    {/* Header with icon and number */}
+                    <div className="flex items-start justify-between mb-6">
+                      <div
+                        className={`relative ${step.iconBg} w-14 h-14 rounded-lg flex items-center justify-center text-white shadow-md transition-all duration-400`}
+                      >
+                        <step.icon className="w-7 h-7" strokeWidth={2} />
                       </div>
-                    ) : (
-                      <>
-                        {plan.popular && (
-                          <div className="mb-2">
-                            <span className="text-2xl font-bold text-muted-foreground line-through">4,990</span>
-                            <span className="text-base text-muted-foreground ml-1">SEK</span>
-                          </div>
-                        )}
-                        <div className="flex flex-col gap-2">
-                          <div>
-                            <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                            <span className="text-base text-muted-foreground ml-1">SEK</span>
-                          </div>
-                          {plan.popular && (
-                            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit">
-                              <span className="text-xs font-bold text-green-600 dark:text-green-400">
-                                🎉 LAUNCH OFFER
-                              </span>
-                              <span className="text-xs font-semibold text-green-700 dark:text-green-300">
-                                Save 2,000 SEK
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                </CardHeader>
 
-                <CardContent className="pt-0 relative z-10">
-                  <ul className="space-y-3 mb-6">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="relative">
-                          <Check
-                            className="h-4 w-4 text-primary flex-shrink-0 mt-0.5 group-hover:animate-[spin_0.5s_ease-in-out]"
-                            strokeWidth={2.5}
+                      <div
+                        className={`flex items-center justify-center w-8 h-8 rounded-full border-2 ${step.accent.replace(
+                          "border-l-",
+                          "border-",
+                        )} font-bold text-sm transition-all duration-400`}
+                      >
+                        {index + 1}
+                      </div>
+                    </div>
+
+                    {/* Content - flex-grow to push bottom section down */}
+                    <div className="space-y-3 mb-6 flex-grow">
+                      <h3
+                        className={`text-xl font-semibold transition-all duration-300 ${
+                          activeCard === index ? "translate-x-1" : ""
+                        }`}
+                      >
+                        {step.title}
+                      </h3>
+                      <p
+                        className={`text-sm text-muted-foreground leading-relaxed transition-all duration-300 delay-75 ${
+                          activeCard === index ? "translate-x-1" : ""
+                        }`}
+                      >
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {/* Bottom indicator - stays at bottom */}
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-1.5 w-full">
+                        {[...Array(4)].map((_, i) => (
+                          <div
+                            key={i}
+                            className={`h-1 flex-1 rounded-full transition-all duration-300 ${
+                              activeCard === index && i < 4 ? step.iconBg : "bg-muted"
+                            }`}
+                            style={{
+                              transitionDelay: `${i * 80}ms`,
+                            }}
                           />
-                        </div>
-                        <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
 
-                  {plan.tagline && (
-                    <p className="text-base text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>
-                  )}
+                  {/* Bottom edge highlight */}
+                  <div
+                    className={`absolute bottom-0 left-0 h-0.5 ${step.iconBg} transition-all duration-500 ${
+                      activeCard === index ? "w-full" : "w-0"
+                    }`}
+                  ></div>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
 
-                  <Button
-                    className="w-full text-base py-6 font-semibold relative overflow-hidden"
-                    variant={plan.popular ? "default" : "outline"}
-                    size="lg"
-                    onClick={scrollToContact}
-                  >
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      {plan.custom ? (
-                        <>
-                          Request Quote
-                          <ArrowRight className="w-4 h-4" />
-                        </>
-                      ) : (
-                        "Get Started"
-                      )}
-                    </span>
-                  </Button>
-                </CardContent>
-              </Card>
+        {/* Timeline visualization */}
+        <div className="max-w-4xl mx-auto mt-16 flex items-center justify-center gap-2 md:gap-3">
+          {steps.map((step, index) => (
+            <div key={index} className="flex items-center gap-2 md:gap-3">
+              <div
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full ${step.iconBg} transition-all duration-300 ${
+                  activeCard === index ? "scale-150 shadow-lg" : "scale-100"
+                }`}
+              ></div>
+              {index < steps.length - 1 && <div className="w-4 md:w-8 h-0.5 bg-border"></div>}
             </div>
           ))}
         </div>
 
-        {/* Maintenance Card */}
-        <div
-          className="max-w-4xl mx-auto mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
-          style={{ animationDelay: "1.2s" }}
-        >
-          <Card className="relative border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/50 hover:scale-105 transition-all duration-500 overflow-hidden">
-            <CardContent className="p-8 md:p-10 relative z-10">
-              <div className="grid md:grid-cols-[1fr,2fr] gap-8 items-center">
-                {/* Left side - Price and title */}
-                <div className="text-center md:text-left">
-                  <h3 className="text-2xl font-bold mb-2">Maintenance</h3>
-                  <p className="text-base text-muted-foreground mb-4">Ongoing care for your website</p>
-                  <div className="mb-4">
-                    <span className="text-5xl font-bold text-foreground">399</span>
-                    <span className="text-xl text-muted-foreground ml-2">SEK/month</span>
-                  </div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/20 rounded-full">
-                    <div className="w-2 h-2 rounded-full bg-primary"></div>
-                    <span className="text-xs font-semibold text-primary">ONGOING SUPPORT</span>
-                  </div>
-                </div>
-
-                {/* Right side - Features */}
-                <div>
-                  <ul className="space-y-3">
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {[
-                        { text: "Reliable hosting", highlight: false },
-                        { text: "Security updates", highlight: false },
-                        { text: "Booking system support", highlight: false },
-                        { text: "Up to 3 monthly changes", highlight: false },
-                      ].map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <div className="relative">
-                            <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                            <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
-                          </div>
-                          <span className="text-base text-muted-foreground leading-relaxed">{feature.text}</span>
-                        </li>
-                      ))}
-                    </div>
-                    <li className="flex items-start gap-3">
-                      <div className="relative">
-                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                      </div>
-                      <span className="text-base text-primary font-semibold leading-relaxed">
-                        AI consultant based on your webpage
-                      </span>
-                    </li>
-                  </ul>
-                  <div className="mt-6">
-                    <Button
-                      className="w-full md:w-auto px-8 text-base py-6 font-semibold relative overflow-hidden"
-                      variant="default"
-                      size="lg"
-                      onClick={scrollToContact}
-                    >
-                      <span className="relative z-10">Get Started</span>
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div
-          className="text-center mt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
-          style={{ animationDelay: "1.4s" }}
-        >
-          <p className="text-base text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
+        {/* Bottom CTA */}
+        <div className="text-center mt-20">
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              Ready to start your journey?
+              <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-2" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          </a>
         </div>
       </div>
     </section>
   );
 };
 
-export default Pricing;
+export default Process;
