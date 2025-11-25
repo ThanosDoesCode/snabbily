@@ -27,7 +27,7 @@ const Index = () => {
         <Pricing className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <Process />
+        <Process className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
         <Portfolio />
