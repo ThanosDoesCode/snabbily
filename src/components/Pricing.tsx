@@ -127,13 +127,20 @@ const Pricing = () => {
                             <span className="text-base text-muted-foreground ml-1">SEK</span>
                           </div>
                         )}
-                        <div>
-                          <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                          <span className="text-base text-muted-foreground ml-1">SEK</span>
+                        <div className="flex flex-col gap-2">
+                          <div>
+                            <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                            <span className="text-base text-muted-foreground ml-1">SEK</span>
+                          </div>
                           {plan.popular && (
-                            <span className="ml-3 inline-flex items-center px-2.5 py-1 bg-green-500/20 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">
-                              Launch Discount: Save 2,000 SEK
-                            </span>
+                            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit">
+                              <span className="text-xs font-bold text-green-600 dark:text-green-400">
+                                🎉 LAUNCH OFFER
+                              </span>
+                              <span className="text-xs font-semibold text-green-700 dark:text-green-300">
+                                Save 2,000 SEK
+                              </span>
+                            </div>
                           )}
                         </div>
                       </>
