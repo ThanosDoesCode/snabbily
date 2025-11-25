@@ -37,7 +37,7 @@ const Hero = () => {
               onClick={() => scrollToSection("portfolio")}
             >
               View Our Work
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
               size="lg"
@@ -46,7 +46,7 @@ const Hero = () => {
               onClick={() => scrollToSection("contact")}
             >
               Get Your Website
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
 
