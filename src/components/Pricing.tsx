@@ -148,10 +148,7 @@ const Pricing = () => {
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <div className="relative">
-                          <Check
-                            className="h-4 w-4 text-primary flex-shrink-0 mt-0.5 group-hover:animate-[spin_0.5s_ease-in-out]"
-                            strokeWidth={2.5}
-                          />
+                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                         </div>
                         <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
                       </li>
