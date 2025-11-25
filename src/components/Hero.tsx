@@ -25,7 +25,7 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
-            Get a professional website with your existing booking method integrated—no learning curve, no extra
+            Get a professional website with your existing booking method integrated — no learning curve, no extra
             subscriptions.
           </p>
 
