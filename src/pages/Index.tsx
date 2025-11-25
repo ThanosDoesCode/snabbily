@@ -21,10 +21,10 @@ const Index = () => {
         <WhyWebsite className="py-[120px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <BookingIntegration className="py-[100px]" />
+        <BookingIntegration className="py-[120px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <Pricing className="py-[60px]" />
+        <Pricing className="py-[120px]" />
       </AnimatedSection>
       <AnimatedSection>
         <Process className="py-[60px]" />
