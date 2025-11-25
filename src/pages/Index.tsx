@@ -33,10 +33,10 @@ const Index = () => {
         <Portfolio className="py-[120px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <FAQ className="py-[60px]" />
+        <FAQ className="py-[120px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <Contact className="py-[60px]" />
+        <Contact className="py-[120px]" />
       </AnimatedSection>
       <Footer />
     </div>;
