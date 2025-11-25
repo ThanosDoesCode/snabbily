@@ -45,7 +45,7 @@ const Pricing = () => {
         "Free 2 months maintenance",
         "1–2 weeks delivery",
       ],
-      tagline: "Everything you need to run your business online efficiently.",
+      tagline: "Everything you need to run your barbershop online efficiently.",
       popular: true,
       custom: false,
     },
@@ -132,7 +132,7 @@ const Pricing = () => {
                           <span className="text-base text-muted-foreground ml-1">SEK</span>
                           {plan.popular && (
                             <span className="ml-3 inline-flex items-center px-2.5 py-1 bg-green-500/20 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold">
-                              Save 2,000 SEK
+                              Launch Discount: Save 2,000 SEK
                             </span>
                           )}
                         </div>
