@@ -33,7 +33,7 @@ const Index = () => {
         <Portfolio className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <FAQ />
+        <FAQ className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
         <Contact />
