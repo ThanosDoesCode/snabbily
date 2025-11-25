@@ -1,6 +1,11 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 
-const FAQ = () => {
+interface FAQProps {
+  className?: string;
+}
+
+const FAQ = ({ className }: FAQProps) => {
   const faqs = [
     {
       question: "We already appear on Google Maps — why need a website?",
@@ -49,7 +54,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-40 bg-background" id="faq">
+    <section className={cn("py-40 bg-background", className)} id="faq">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>

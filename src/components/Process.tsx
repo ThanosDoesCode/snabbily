@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, FileText, Hammer, Check, Rocket, ArrowRight, Sparkles } from "lucide-react";
-const Process = () => {
+import { cn } from "@/lib/utils";
+
+interface ProcessProps {
+  className?: string;
+}
+
+const Process = ({ className }: ProcessProps) => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const steps = [
     {
@@ -54,7 +60,7 @@ const Process = () => {
     },
   ];
   return (
-    <section className="py-40 bg-secondary relative overflow-hidden" id="process">
+    <section className={cn("py-40 bg-secondary relative overflow-hidden", className)} id="process">
       <div className="container mx-auto px-6 relative">
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">

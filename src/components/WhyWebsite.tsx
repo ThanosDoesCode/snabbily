@@ -1,7 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Shield, Link2, TrendingUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const WhyWebsite = () => {
+interface WhyWebsiteProps {
+  className?: string;
+}
+
+const WhyWebsite = ({ className }: WhyWebsiteProps) => {
   const reasons = [
     {
       icon: Building2,
@@ -26,7 +31,7 @@ const WhyWebsite = () => {
   ];
 
   return (
-    <section className="py-40 bg-secondary" id="why">
+    <section className={cn("py-40 bg-secondary", className)} id="why">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Why You Still Need a Website</h2>

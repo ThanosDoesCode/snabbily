@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 import glowStudioDemo from "@/assets/glow-studio-demo.png";
 import barberProDemo from "@/assets/barber-pro-demo.png";
 import fadeFlowDemo from "@/assets/fade-flow-demo.png";
@@ -49,7 +50,12 @@ const projects = [{
   description: "Modern hair studio with seamless online booking",
   url: "https://gilded-rose-salon.lovable.app"
 }];
-const Portfolio = () => <section id="portfolio" className="py-40 bg-secondary">
+
+interface PortfolioProps {
+  className?: string;
+}
+
+const Portfolio = ({ className }: PortfolioProps) => <section id="portfolio" className={cn("py-40 bg-secondary", className)}>
     {/* Custom CSS animations */}
     <style>{`
       @keyframes fadeUp {
