@@ -30,7 +30,7 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-12 md:mb-16 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-10 md:mb-12 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
             <Button
               size="lg"
               className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto"
@@ -69,7 +69,7 @@ const Hero = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-6 sm:mt-8 mb-12 sm:mb-16 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
+          <div className="mt-4 sm:mt-6 mb-16 sm:mb-20 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
             <div className="flex flex-col items-center gap-2 animate-bounce">
               <span className="text-sm sm:text-base text-muted-foreground font-medium">Scroll to explore</span>
               <ChevronDown className="w-8 h-8 sm:w-6 sm:h-6 text-primary" strokeWidth={3} />
