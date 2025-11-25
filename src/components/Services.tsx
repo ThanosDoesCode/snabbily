@@ -108,7 +108,7 @@ const Services = () => {
         >
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-8 md:px-10 py-6 md:py-7 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden"
+            className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-2">
               Get Your Website Today
