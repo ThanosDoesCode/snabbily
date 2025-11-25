@@ -21,7 +21,7 @@ const Index = () => {
         <WhyWebsite className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
-        <BookingIntegration />
+        <BookingIntegration className="py-[60px]" />
       </AnimatedSection>
       <AnimatedSection>
         <Pricing className="py-[60px]" />
