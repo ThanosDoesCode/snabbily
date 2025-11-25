@@ -10,7 +10,7 @@ const Hero = () => {
     }
   };
   return <section className="relative min-h-[85vh] sm:min-h-screen flex items-start justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28">
-      <div className="container mx-auto px-4 sm:px-6 py-0 sm:py-2 md:py-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 sm:py-2 md:py-4 relative z-10 py-0">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
