@@ -137,7 +137,7 @@ const Pricing = ({
 
                 {/* Right side - Features */}
                 <div>
-                  <ul className="space-y-3">
+                  <ul className="space-y-3 text-xs font-sans text-left">
                     <div className="grid md:grid-cols-2 gap-3">
                       {[{
                       text: "Reliable hosting",
