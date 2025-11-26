@@ -25,8 +25,8 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
-            Get a professional website with your existing booking method integrated — no learning curve, no extra
-            subscriptions.
+            Get a professional website in Swedish and English under 3000SEK with an existing or new booking method
+            integrated.
           </p>
 
           {/* CTA Buttons */}
