@@ -1,32 +1,35 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Shield, Link2, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 interface WhyWebsiteProps {
   className?: string;
 }
 
 const WhyWebsite = ({ className }: WhyWebsiteProps) => {
+  const { t } = useTranslation();
+
   const reasons = [
     {
       icon: Building2,
-      title: "Professional Presentation",
-      description: "Showcase your services, prices, photos, and brand identity in one beautiful place.",
+      title: t('why.cards.presentation.title'),
+      description: t('why.cards.presentation.desc'),
     },
     {
       icon: Shield,
-      title: "Trust & Credibility",
-      description: "A professional website signals legitimacy and builds customer confidence before they book.",
+      title: t('why.cards.trust.title'),
+      description: t('why.cards.trust.desc'),
     },
     {
       icon: Link2,
-      title: "A Single Clean Link",
-      description: "Share one link across all platforms instead of juggling multiple social media profiles.",
+      title: t('why.cards.link.title'),
+      description: t('why.cards.link.desc'),
     },
     {
       icon: TrendingUp,
-      title: "Higher Conversion",
-      description: "Present your business professionally before customers reach the booking stage.",
+      title: t('why.cards.conversion.title'),
+      description: t('why.cards.conversion.desc'),
     },
   ];
 
@@ -34,22 +37,22 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
     <section className={cn("py-40 bg-secondary", className)} id="why">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Why You Still Need a Website</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('why.title')}</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Even with Google Maps and booking platforms, a website is your digital storefront
+            {t('why.subtitle')}
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
           {reasons.map((reason, index) => (
             <Card
               key={index}
-              className="group border border-border bg-card hover:border-primary/50 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)] dark:hover:shadow-[var(--glow-card)] transition-all duration-500 opacity-0"
+              className="group border border-border bg-card hover:border-primary/50 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)] dark:hover:shadow-[var(--glow-card)] transition-all duration-500 opacity-0 h-full"
               style={{
                 animation: `${index % 2 === 0 ? "slideInLeft" : "slideInRight"} 0.8s ease-out ${index * 0.15}s forwards`,
               }}
             >
-              <CardContent className="pt-6 pb-6">
-                <div className="flex items-start gap-4">
+              <CardContent className="pt-6 pb-6 h-full">
+                <div className="flex items-start gap-4 h-full">
                   <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 group-hover:animate-[pulse_1.5s_ease-in-out_infinite]">
                     <reason.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
                   </div>
@@ -71,10 +74,10 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
             <CardContent className="py-6 px-6 md:py-8 md:px-8 relative z-10">
               <p className="text-base md:text-lg text-center font-medium leading-relaxed">
                 <span className="text-primary font-semibold text-lg md:text-xl block mb-2">
-                  Your website isn't about heavy SEO
+                  {t('why.bottom_card.highlight')}
                 </span>
                 <span className="text-foreground text-sm md:text-base">
-                  It's about looking trustworthy when customers find you anywhere.
+                  {t('why.bottom_card.text')}
                 </span>
               </p>
             </CardContent>
