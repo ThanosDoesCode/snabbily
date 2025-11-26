@@ -129,11 +129,11 @@ const Pricing = ({ className }: PricingProps) => {
                         </div>
 
                         {plan.popular && (
-                          <div className="inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2.5 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-500/40 rounded-full w-fit text-center">
-                            <span className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-bold text-green-600 dark:text-green-400 whitespace-nowrap">
+                          <div className="inline-flex items-center gap-1 sm:gap-0.5 md:gap-1 lg:gap-2 px-3 sm:px-1 md:px-2 lg:px-4 py-2 sm:py-0.5 md:py-1 lg:py-2.5 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 sm:border md:border-2 border-green-500/40 rounded-full w-fit text-center">
+                            <span className="text-xs sm:text-[7px] md:text-[8px] lg:text-sm font-bold text-green-600 dark:text-green-400 whitespace-nowrap">
                               🎉 LAUNCH OFFER
                             </span>
-                            <span className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-bold text-green-600 dark:text-green-400 whitespace-nowrap">
+                            <span className="text-xs sm:text-[7px] md:text-[8px] lg:text-sm font-bold text-green-600 dark:text-green-400 whitespace-nowrap">
                               Save 2,000 SEK
                             </span>
                           </div>
