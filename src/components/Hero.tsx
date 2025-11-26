@@ -33,16 +33,16 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5 sm:mb-8 md:mb-10 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
             <Button
               size="lg"
-              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 h-[52px] sm:h-[60px] bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto"
+              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto rounded-full"
               onClick={() => scrollToSection("pricing")}
             >
               View Our Offers
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto"
+              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto rounded-full"
               onClick={() => scrollToSection("contact")}
             >
               Get Your Website
@@ -71,7 +71,6 @@ const Hero = () => {
           {/* Scroll Indicator */}
           <div className="mt-8 sm:mt-10 mb-20 sm:mb-24 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
             <div className="flex flex-col items-center gap-4 animate-bounce">
-              <span className="text-base sm:text-base text-muted-foreground font-semibold">Scroll to explore</span>
               <ChevronDown className="w-10 h-10 sm:w-8 sm:h-8 text-primary" strokeWidth={3.5} />
             </div>
           </div>
