@@ -33,7 +33,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5 sm:mb-8 md:mb-10 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
             <Button
               size="lg"
-              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 border-2 border-primary/30 bg-gradient-primary hover:opacity-90 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto"
+              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 border-2 bg-gradient-primary hover:opacity-90 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto"
               onClick={() => scrollToSection("pricing")}
             >
               View Our Offers
