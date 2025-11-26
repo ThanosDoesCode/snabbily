@@ -2,196 +2,122 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-
 interface PricingProps {
   className?: string;
 }
-
-const Pricing = ({ className }: PricingProps) => {
+const Pricing = ({
+  className
+}: PricingProps) => {
   const scrollToContact = () => {
     const element = document.getElementById("contact");
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth",
+        behavior: "smooth"
       });
     }
   };
-
-  const plans = [
-    {
-      name: "Starter Website",
-      price: "2,490",
-      description: "Perfect for new barbershops getting online",
-      features: [
-        "Up to 3 pages",
-        "Standard template",
-        "No booking integration",
-        "Basic SEO",
-        "Mobile-first design",
-        "Simple gallery",
-        "3–4 days delivery",
-      ],
-      tagline: "A clean, professional website to establish your online presence.",
-      popular: false,
-      custom: false,
-    },
-    {
-      name: "Advanced Website",
-      price: "2,990",
-      description: "Complete solution with booking and analytics",
-      features: [
-        "Up to 6 pages",
-        "Standard template",
-        "Booking integration",
-        "Enhanced SEO",
-        "Mobile-first design",
-        "Enhanced gallery",
-        "Analytics report",
-        "Free 2 months maintenance",
-        "1–2 weeks delivery",
-      ],
-      tagline: "Everything you need to run your barbershop online efficiently.",
-      popular: true,
-      custom: false,
-    },
-    {
-      name: "Custom Website",
-      price: null,
-      description: "Fully tailored solution built for your vision",
-      features: [
-        "Unlimited pages",
-        "Custom design & branding",
-        "Advanced integrations",
-        "Custom features",
-        "Premium SEO strategy",
-        "Professional photography",
-        "Dedicated support",
-        "Timeline based on scope",
-      ],
-      tagline: "Let's build something extraordinary together.",
-      popular: false,
-      custom: true,
-    },
-  ];
-
-  return (
-    <section className={cn("py-40 bg-secondary", className)} id="pricing">
+  const plans = [{
+    name: "Starter Website",
+    price: "2,490",
+    description: "Perfect for new barbershops getting online",
+    features: ["Up to 3 pages", "Standard template", "No booking integration", "Basic SEO", "Mobile-first design", "Simple gallery", "3–4 days delivery"],
+    tagline: "A clean, professional website to establish your online presence.",
+    popular: false,
+    custom: false
+  }, {
+    name: "Advanced Website",
+    price: "2,990",
+    description: "Complete solution with booking and analytics",
+    features: ["Up to 6 pages", "Standard template", "Booking integration", "Enhanced SEO", "Mobile-first design", "Enhanced gallery", "Analytics report", "Free 2 months maintenance", "1–2 weeks delivery"],
+    tagline: "Everything you need to run your barbershop online efficiently.",
+    popular: true,
+    custom: false
+  }, {
+    name: "Custom Website",
+    price: null,
+    description: "Fully tailored solution built for your vision",
+    features: ["Unlimited pages", "Custom design & branding", "Advanced integrations", "Custom features", "Premium SEO strategy", "Professional photography", "Dedicated support", "Timeline based on scope"],
+    tagline: "Let's build something extraordinary together.",
+    popular: false,
+    custom: true
+  }];
+  return <section className={cn("py-40 bg-secondary", className)} id="pricing">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">No hidden fees, no surprises.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto items-start">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] ${
-                plan.popular ? "" : "md:scale-90"
-              }`}
-              style={{
-                animationDelay: `${0.4 + index * 0.15}s`,
-              }}
-            >
-              <Card
-                className={`group relative border bg-card transition-all duration-500 overflow-hidden h-full hover:scale-105 ${
-                  plan.popular
-                    ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)]"
-                    : "border-border hover:border-primary"
-                }`}
-              >
+          {plans.map((plan, index) => <div key={index} className={`opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_forwards] ${plan.popular ? "" : "md:scale-90"}`} style={{
+          animationDelay: `${0.4 + index * 0.15}s`
+        }}>
+              <Card className={`group relative border bg-card transition-all duration-500 overflow-hidden h-full hover:scale-105 ${plan.popular ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)]" : "border-border hover:border-primary"}`}>
                 {/* Background gradient - no hover effect */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : ""}`}
-                ></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${plan.popular ? "from-primary/5 to-accent/5" : ""}`}></div>
 
-                {plan.popular && (
-                  <div className="relative bg-gradient-primary text-primary-foreground text-center py-2 font-semibold text-sm">
+                {plan.popular && <div className="relative bg-gradient-primary text-primary-foreground text-center py-2 font-semibold text-sm">
                     Most Popular
-                  </div>
-                )}
+                  </div>}
 
                 <CardHeader className="pb-5 relative z-10">
                   <CardTitle className="text-xl">{plan.name}</CardTitle>
                   <CardDescription className="text-base">{plan.description}</CardDescription>
                   <div className="pt-5 relative">
-                    {plan.custom ? (
-                      <div className="flex flex-col">
+                    {plan.custom ? <div className="flex flex-col">
                         <span className="text-3xl font-bold text-foreground">Upon Request</span>
                         <span className="text-base text-muted-foreground mt-1">Custom quote based on your needs</span>
-                      </div>
-                    ) : (
-                      <>
-                        {plan.popular && (
-                          <div className="mb-2">
+                      </div> : <>
+                        {plan.popular && <div className="mb-2">
                             <span className="text-2xl font-bold text-muted-foreground line-through">4,990</span>
                             <span className="text-base text-muted-foreground ml-1">SEK</span>
-                          </div>
-                        )}
+                          </div>}
                         <div className="flex flex-col gap-2">
                           <div>
                             <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                             <span className="text-base text-muted-foreground ml-1">SEK</span>
                           </div>
-                          {plan.popular && (
-                            <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit">
-                              <span className="text-xs md:text-sm font-bold text-green-600 dark:text-green-400">
+                          {plan.popular && <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit">
+                              <span className="text-xs font-bold text-green-600 dark:text-green-400 md:text-xs">
                                 🎉 LAUNCH OFFER
                               </span>
                               <span className="text-xs md:text-sm font-semibold text-green-600 dark:text-green-400">
                                 Save 2,000 SEK
                               </span>
-                            </div>
-                          )}
+                            </div>}
                         </div>
-                      </>
-                    )}
+                      </>}
                   </div>
                 </CardHeader>
 
                 <CardContent className="pt-0 relative z-10">
                   <ul className="space-y-3 mb-6">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
+                    {plan.features.map((feature, idx) => <li key={idx} className="flex items-start gap-3">
                         <div className="relative">
                           <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                         </div>
                         <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
 
-                  {plan.tagline && (
-                    <p className="text-base text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>
-                  )}
+                  {plan.tagline && <p className="text-base text-muted-foreground italic mb-6 leading-relaxed">{plan.tagline}</p>}
 
-                  <Button
-                    className="w-full text-base py-6 font-semibold relative overflow-hidden"
-                    variant={plan.popular ? "default" : "outline"}
-                    size="lg"
-                    onClick={scrollToContact}
-                  >
+                  <Button className="w-full text-base py-6 font-semibold relative overflow-hidden" variant={plan.popular ? "default" : "outline"} size="lg" onClick={scrollToContact}>
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      {plan.custom ? (
-                        <>
+                      {plan.custom ? <>
                           Request Quote
                           <ArrowRight className="w-4 h-4" />
-                        </>
-                      ) : (
-                        "Get Started"
-                      )}
+                        </> : "Get Started"}
                     </span>
                   </Button>
                 </CardContent>
               </Card>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         {/* Maintenance Card */}
-        <div
-          className="max-w-4xl mx-auto mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
-          style={{ animationDelay: "1.2s" }}
-        >
+        <div className="max-w-4xl mx-auto mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]" style={{
+        animationDelay: "1.2s"
+      }}>
           <Card className="relative border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 hover:border-primary/50 hover:scale-105 transition-all duration-500 overflow-hidden">
             <CardContent className="p-8 md:p-10 relative z-10">
               <div className="grid md:grid-cols-[1fr,2fr] gap-8 items-center">
@@ -213,20 +139,25 @@ const Pricing = ({ className }: PricingProps) => {
                 <div>
                   <ul className="space-y-3">
                     <div className="grid md:grid-cols-2 gap-3">
-                      {[
-                        { text: "Reliable hosting", highlight: false },
-                        { text: "Security updates", highlight: false },
-                        { text: "Booking system support", highlight: false },
-                        { text: "Up to 3 monthly changes", highlight: false },
-                      ].map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
+                      {[{
+                      text: "Reliable hosting",
+                      highlight: false
+                    }, {
+                      text: "Security updates",
+                      highlight: false
+                    }, {
+                      text: "Booking system support",
+                      highlight: false
+                    }, {
+                      text: "Up to 3 monthly changes",
+                      highlight: false
+                    }].map((feature, idx) => <li key={idx} className="flex items-start gap-3">
                           <div className="relative">
                             <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                             <div className="absolute inset-0 bg-primary/20 rounded-full animate-[ping_2s_ease-in-out_infinite] opacity-0 group-hover:opacity-100"></div>
                           </div>
                           <span className="text-base text-muted-foreground leading-relaxed">{feature.text}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </div>
                     <li className="flex items-start gap-3">
                       <div className="relative">
@@ -238,12 +169,7 @@ const Pricing = ({ className }: PricingProps) => {
                     </li>
                   </ul>
                   <div className="mt-6">
-                    <Button
-                      className="w-full md:w-auto px-8 text-base py-6 font-semibold relative overflow-hidden"
-                      variant="default"
-                      size="lg"
-                      onClick={scrollToContact}
-                    >
+                    <Button className="w-full md:w-auto px-8 text-base py-6 font-semibold relative overflow-hidden" variant="default" size="lg" onClick={scrollToContact}>
                       <span className="relative z-10">Get Started</span>
                     </Button>
                   </div>
@@ -253,15 +179,12 @@ const Pricing = ({ className }: PricingProps) => {
           </Card>
         </div>
 
-        <div
-          className="text-center mt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
-          style={{ animationDelay: "1.4s" }}
-        >
+        <div className="text-center mt-10 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]" style={{
+        animationDelay: "1.4s"
+      }}>
           <p className="text-base text-muted-foreground">No hidden fees. Simple and transparent pricing.</p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Pricing;
