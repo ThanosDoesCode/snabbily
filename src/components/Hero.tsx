@@ -17,14 +17,14 @@ const Hero = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
             Fast, Affordable Websites for Local Businesses
             <span className="block mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
-              In Swedish and English, Delivered in 3-4 Days
+              Delivered in 3-4 Days
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
-            Get a professional website with your existing booking method integrated — no learning curve, no extra
-            subscriptions.
+            Get a professional website in Swedish and English under 3000SEK with your existing booking method integrated
+            — no learning curve, no extra subscriptions.
           </p>
 
           {/* CTA Buttons */}
