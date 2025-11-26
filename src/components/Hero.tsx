@@ -37,7 +37,7 @@ const Hero = () => {
               onClick={() => scrollToSection("pricing")}
             >
               View Our Offers
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
             <Button
               size="lg"
