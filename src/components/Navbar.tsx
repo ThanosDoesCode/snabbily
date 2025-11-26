@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next"; // Import hook
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
+import { LanguageSelector } from "./LanguageSelector"; // Import our new component
 
 const Navbar = () => {
+  const { t } = useTranslation(); // Initialize translation hook
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -24,7 +27,7 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const navbarHeight = 80; // Adjust this value based on your navbar height
+      const navbarHeight = 80; 
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
@@ -32,7 +35,7 @@ const Navbar = () => {
         top: offsetPosition,
         behavior: "smooth",
       });
-      setIsMenuOpen(false); // Close menu after clicking
+      setIsMenuOpen(false); 
     }
   };
 
@@ -48,33 +51,26 @@ const Navbar = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("portfolio")}
-              className="hidden md:inline-flex"
-            >
-              Portfolio
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("pricing")}
-              className="hidden md:inline-flex"
-            >
-              Pricing
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("contact")}
-              className="hidden md:inline-flex"
-            >
-              Contact
-            </Button>
-            <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          <div className="flex items-center gap-2 md:gap-4">
+            
+            {/* Desktop Links - Wrapped in t() */}
+            <div className="hidden md:flex items-center gap-1">
+                <Button variant="ghost" size="sm" onClick={() => scrollToSection("portfolio")}>
+                {t('nav.portfolio')}
+                </Button>
+                <Button variant="ghost" size="sm" onClick={() => scrollToSection("pricing")}>
+                {t('nav.pricing')}
+                </Button>
+                <Button variant="ghost" size="sm" onClick={() => scrollToSection("contact")}>
+                {t('nav.contact')}
+                </Button>
+            </div>
+
+            {/* Language Selector - Always visible for easy access */}
+            <LanguageSelector />
+
+            <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full w-9 h-9">
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
 
             {/* Mobile Menu Button */}
@@ -82,9 +78,9 @@ const Navbar = () => {
               variant="outline"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden rounded-full"
+              className="md:hidden rounded-full w-9 h-9"
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </Button>
           </div>
         </div>
@@ -98,7 +94,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("portfolio")}
               className="w-full justify-start"
             >
-              Portfolio
+              {t('nav.portfolio')}
             </Button>
             <Button
               variant="ghost"
@@ -106,7 +102,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("pricing")}
               className="w-full justify-start"
             >
-              Pricing
+              {t('nav.pricing')}
             </Button>
             <Button
               variant="ghost"
@@ -114,7 +110,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="w-full justify-start"
             >
-              Contact
+              {t('nav.contact')}
             </Button>
           </div>
         )}
