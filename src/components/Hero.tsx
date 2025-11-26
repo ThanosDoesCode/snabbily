@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
+
 const Hero = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -9,9 +10,10 @@ const Hero = () => {
       });
     }
   };
+
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen flex items-start justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28">
-      <div className="container mx-auto px-4 sm:px-6 sm:py-2 md:py-4 relative z-10 py-0">
+      <div className="container mx-auto px-4 sm:px-6 py-0 sm:py-2 md:py-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
@@ -23,8 +25,8 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
-            Get a professional website in Swedish and English under 3000SEK with an existing or new booking method
-            integrated.
+            Get a professional website with your existing booking method integrated — no learning curve, no extra
+            subscriptions.
           </p>
 
           {/* CTA Buttons */}
@@ -32,9 +34,9 @@ const Hero = () => {
             <Button
               size="lg"
               className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 py-5 sm:py-6 bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto"
-              onClick={() => scrollToSection("portfolio")}
+              onClick={() => scrollToSection("pricing")}
             >
-              View Our Work
+              View Our Offers
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
             <Button
@@ -68,7 +70,7 @@ const Hero = () => {
 
           {/* Scroll Indicator */}
           <div className="mt-8 sm:mt-10 mb-20 sm:mb-24 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
-            <div className="animate-bounce gap-[12px] items-center justify-start flex flex-col my-[50px] mx-[20px]">
+            <div className="flex flex-col items-center gap-4 animate-bounce">
               <span className="text-base sm:text-base text-muted-foreground font-semibold">Scroll to explore</span>
               <ChevronDown className="w-10 h-10 sm:w-8 sm:h-8 text-primary" strokeWidth={3.5} />
             </div>
@@ -84,4 +86,5 @@ const Hero = () => {
     </section>
   );
 };
+
 export default Hero;
