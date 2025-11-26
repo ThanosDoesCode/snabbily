@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
 const Hero = () => {
+  const { t } = useTranslation();
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -9,31 +13,31 @@ const Hero = () => {
       });
     }
   };
+
   return <section className="relative min-h-[85vh] sm:min-h-screen flex items-start justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28">
       <div className="container mx-auto px-4 sm:px-6 py-0 sm:py-2 md:py-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center py-0">
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
-            Fast, Affordable Websites for Local Businesses
+            {t('hero.title_main')}
             <span className="block mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
-              Delivered in 3-4 Days
+              {t('hero.title_accent')}
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
-            Get a professional website in Swedish and English under 3000SEK with an existing or new booking method
-            integrated.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5 sm:mb-8 md:mb-10 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
             <Button size="lg" onClick={() => scrollToSection("pricing")} className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto rounded-xl">
-              View Our Offers
+              {t('hero.cta_primary')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
             <Button size="lg" variant="outline" onClick={() => scrollToSection("contact")} className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] border-2 hover:bg-primary/10 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto rounded-2xl border-border">
-              Get Your Website
+              {t('hero.cta_secondary')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </div>
@@ -42,15 +46,15 @@ const Hero = () => {
           <div className="bg-card/90 backdrop-blur-sm border-2 border-border rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 shadow-soft max-w-xl mx-4 md:mx-auto opacity-0 animate-[slideUp_0.8s_ease-out_1.2s_forwards]">
             <div className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold text-foreground leading-relaxed space-y-3 sm:space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
-                <span className="text-primary font-bold text-base sm:text-lg md:text-xl">Google Maps</span>
-                <span className="text-muted-foreground text-sm sm:text-base md:text-lg">helps customers find you.</span>
+                <span className="text-primary font-bold text-base sm:text-lg md:text-xl">{t('hero.val_maps_highlight')}</span>
+                <span className="text-muted-foreground text-sm sm:text-base md:text-lg">{t('hero.val_maps_text')}</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1 sm:gap-2">
                 <span className="text-green-600 dark:text-green-400 font-bold text-base sm:text-lg md:text-xl">
-                  A website
+                  {t('hero.val_web_highlight')}
                 </span>
                 <span className="text-muted-foreground text-sm sm:text-base md:text-lg">
-                  helps customers choose you.
+                  {t('hero.val_web_text')}
                 </span>
               </div>
             </div>
