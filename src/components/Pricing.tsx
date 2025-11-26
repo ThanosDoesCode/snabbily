@@ -76,7 +76,7 @@ const Pricing = ({
                             <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                             <span className="text-base text-muted-foreground ml-1">SEK</span>
                           </div>
-                          {plan.popular && <div className="inline-flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit">
+                          {plan.popular && <div className="inline-flex items-center gap-1.5 md:gap-2 md:px-4 md:py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit px-[12px] py-[7px]">
                               <span className="text-xs font-bold text-green-600 dark:text-green-400 md:text-xs">
                                 🎉 LAUNCH OFFER
                               </span>
