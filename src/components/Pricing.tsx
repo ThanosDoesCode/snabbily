@@ -116,7 +116,7 @@ const Pricing = ({ className }: PricingProps) => {
                       <div className="flex flex-col gap-3">
                         {plan.popular && (
                           <div>
-                            <span className="text-3xl sm:text-4xl font-bold text-muted-foreground line-through opacity-50">
+                            <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground line-through opacity-50">
                               {plan.originalPrice}
                             </span>
                             <span className="text-base text-muted-foreground ml-2">SEK</span>
@@ -124,8 +124,10 @@ const Pricing = ({ className }: PricingProps) => {
                         )}
 
                         <div>
-                          <span className="text-5xl sm:text-6xl font-bold text-foreground">{plan.price}</span>
-                          <span className="text-lg text-muted-foreground ml-2">SEK</span>
+                          <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground">
+                            {plan.price}
+                          </span>
+                          <span className="text-base sm:text-lg text-muted-foreground ml-2">SEK</span>
                         </div>
 
                         {plan.popular && (
