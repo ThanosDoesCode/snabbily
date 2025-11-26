@@ -2,69 +2,76 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, FileText, Hammer, Check, Rocket, ArrowRight, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
+
 interface ProcessProps {
   className?: string;
 }
-const Process = ({
-  className
-}: ProcessProps) => {
+
+const Process = ({ className }: ProcessProps) => {
+  const { t } = useTranslation();
   const [activeCard, setActiveCard] = useState<number | null>(null);
-  const steps = [{
-    icon: MessageCircle,
-    title: "Call or Message",
-    description: "We discuss your business and what you need",
-    accent: "border-l-blue-500",
-    iconBg: "bg-blue-500",
-    glowColor: "shadow-blue-500/20"
-  }, {
-    icon: FileText,
-    title: "Collect Info",
-    description: "We gather your content, photos, and booking preferences",
-    accent: "border-l-purple-500",
-    iconBg: "bg-purple-500",
-    glowColor: "shadow-purple-500/20"
-  }, {
-    icon: Hammer,
-    title: "Build Demo",
-    description: "We create a demo version for your review",
-    accent: "border-l-orange-500",
-    iconBg: "bg-orange-500",
-    glowColor: "shadow-orange-500/20"
-  }, {
-    icon: Check,
-    title: "Revision",
-    description: "You provide feedback and we make adjustments",
-    accent: "border-l-pink-500",
-    iconBg: "bg-pink-500",
-    glowColor: "shadow-pink-500/20"
-  }, {
-    icon: Hammer,
-    title: "Build Website",
-    description: "We finalize your professional website",
-    accent: "border-l-green-500",
-    iconBg: "bg-green-500",
-    glowColor: "shadow-green-500/20"
-  }, {
-    icon: Rocket,
-    title: "Deliver or Live",
-    description: "Your website goes live and is ready for customers",
-    accent: "border-l-yellow-500",
-    iconBg: "bg-yellow-500",
-    glowColor: "shadow-yellow-500/20"
-  }];
+
+  // Static design data (Icons and Colors do not change with language)
+  const stepsConfig = [
+    {
+      icon: MessageCircle,
+      accent: "border-l-blue-500",
+      iconBg: "bg-blue-500",
+      glowColor: "shadow-blue-500/20"
+    },
+    {
+      icon: FileText,
+      accent: "border-l-purple-500",
+      iconBg: "bg-purple-500",
+      glowColor: "shadow-purple-500/20"
+    },
+    {
+      icon: Hammer,
+      accent: "border-l-orange-500",
+      iconBg: "bg-orange-500",
+      glowColor: "shadow-orange-500/20"
+    },
+    {
+      icon: Check,
+      accent: "border-l-pink-500",
+      iconBg: "bg-pink-500",
+      glowColor: "shadow-pink-500/20"
+    },
+    {
+      icon: Hammer,
+      accent: "border-l-green-500",
+      iconBg: "bg-green-500",
+      glowColor: "shadow-green-500/20"
+    },
+    {
+      icon: Rocket,
+      accent: "border-l-yellow-500",
+      iconBg: "bg-yellow-500",
+      glowColor: "shadow-yellow-500/20"
+    }
+  ];
+
+  // Merge static design with dynamic translation
+  const steps = stepsConfig.map((config, index) => ({
+    ...config,
+    title: t(`process.steps.${index + 1}.title`),
+    description: t(`process.steps.${index + 1}.desc`)
+  }));
+
   return <section className={cn("py-40 bg-secondary relative overflow-hidden", className)} id="process">
       <div className="container mx-auto px-6 relative py-[120px]">
         <div className="text-center mb-24">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-semibold text-primary">STREAMLINED WORKFLOW</span>
+            <span className="text-sm font-semibold text-primary">{t('process.badge')}</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">  Our Simple Process</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">  {t('process.title')}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-            From first contact to live website in just a few days
+            {t('process.subtitle')}
           </p>
           <p className="text-sm text-muted-foreground">
-            You only send your photos and basic details. We build everything else.
+            {t('process.note')}
           </p>
         </div>
 
@@ -145,7 +152,7 @@ const Process = ({
         <div className="text-center mt-20">
           <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden">
             <span className="relative z-10 flex items-center gap-2">
-              Ready to start your journey?
+              {t('process.cta')}
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-2" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
