@@ -20,7 +20,7 @@ const Pricing = ({ className }: PricingProps) => {
     {
       name: "Starter Website",
       price: "2,490",
-      description: "Perfect for new barbershops getting online",
+      description: "Perfect for new business getting online",
       features: [
         "Up to 3 pages",
         "Standard template",
@@ -50,7 +50,7 @@ const Pricing = ({ className }: PricingProps) => {
         "Free 2 months maintenance",
         "1–2 weeks delivery",
       ],
-      tagline: "Everything you need to run your barbershop online efficiently.",
+      tagline: "Everything you need to run your business online efficiently.",
       popular: true,
       custom: false,
     },
