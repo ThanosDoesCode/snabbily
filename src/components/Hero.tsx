@@ -32,7 +32,7 @@ const Hero = () => {
               View Our Offers
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
-            <Button size="lg" variant="outline" className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto rounded-full" onClick={() => scrollToSection("contact")}>
+            <Button size="lg" variant="outline" onClick={() => scrollToSection("contact")} className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] border-2 border-primary/30 hover:bg-primary/10 hover:border-primary/70 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto rounded-2xl">
               Get Your Website
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
