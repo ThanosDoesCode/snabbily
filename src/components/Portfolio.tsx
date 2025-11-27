@@ -7,55 +7,63 @@ import fadeFlowDemo from "@/assets/fade-flow-demo.png";
 import masterCutsDemo from "@/assets/master-cuts-demo.png";
 import classicCutsDemo from "@/assets/classic-cuts-demo.png";
 import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
-const projects = [{
-  image: glowStudioDemo,
-  title: "Beauty Salon",
-  industry: "Beauty & Wellness",
-  deliveryTime: "3 days",
-  description: "Modern salon website with seamless booking integration",
-  url: "https://glow-studio-demo-swe.lovable.app"
-}, {
-  image: barberProDemo,
-  title: "Barber Shop",
-  industry: "Men's Grooming",
-  deliveryTime: "4 days",
-  description: "Elegant dark-themed barbershop with appointment scheduling",
-  url: "https://barber-pro-prompt.lovable.app"
-}, {
-  image: fadeFlowDemo,
-  title: "Barber Shop",
-  industry: "Men's Grooming",
-  deliveryTime: "4 days",
-  description: "Premium barbershop with online booking system",
-  url: "https://fade-flow-arts.lovable.app"
-}, {
-  image: masterCutsDemo,
-  title: "Barber Shop",
-  industry: "Men's Grooming",
-  deliveryTime: "3 days",
-  description: "Elegant barbershop with appointment scheduling",
-  url: "https://classic-cut-crafters.lovable.app"
-}, {
-  image: classicCutsDemo,
-  title: "Barber Shop",
-  industry: "Men's Grooming",
-  deliveryTime: "4 days",
-  description: "Classic barbershop with modern booking integration",
-  url: "https://barber-pole-chronicles.lovable.app"
-}, {
-  image: gildedRoseDemo,
-  title: "Hair Studio",
-  industry: "Beauty & Styling",
-  deliveryTime: "3 days",
-  description: "Modern hair studio with seamless online booking",
-  url: "https://gilded-rose-salon.lovable.app"
-}];
+const projects = [
+  {
+    image: glowStudioDemo,
+    title: "Beauty Salon",
+    industry: "Beauty & Wellness",
+    deliveryTime: "3 days",
+    description: "Modern salon website with seamless booking integration",
+    url: "https://glow-studio-demo-swe.lovable.app",
+  },
+  {
+    image: barberProDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
+    deliveryTime: "4 days",
+    description: "Elegant dark-themed barbershop with appointment scheduling",
+    url: "https://barber-pro-prompt.lovable.app",
+  },
+  {
+    image: fadeFlowDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
+    deliveryTime: "4 days",
+    description: "Premium barbershop with online booking system",
+    url: "https://fade-flow-arts.lovable.app",
+  },
+  {
+    image: masterCutsDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
+    deliveryTime: "3 days",
+    description: "Elegant barbershop with appointment scheduling",
+    url: "https://classic-cut-crafters.lovable.app",
+  },
+  {
+    image: classicCutsDemo,
+    title: "Barber Shop",
+    industry: "Men's Grooming",
+    deliveryTime: "4 days",
+    description: "Classic barbershop with modern booking integration",
+    url: "https://barber-pole-chronicles.lovable.app",
+  },
+  {
+    image: gildedRoseDemo,
+    title: "Hair Studio",
+    industry: "Beauty & Styling",
+    deliveryTime: "3 days",
+    description: "Modern hair studio with seamless online booking",
+    url: "https://gilded-rose-salon.lovable.app",
+  },
+];
 
 interface PortfolioProps {
   className?: string;
 }
 
-const Portfolio = ({ className }: PortfolioProps) => <section id="portfolio" className={cn("py-40 bg-secondary", className)}>
+const Portfolio = ({ className }: PortfolioProps) => (
+  <section id="portfolio" className={cn("py-40 bg-secondary", className)}>
     {/* Custom CSS animations */}
     <style>{`
       @keyframes fadeUp {
@@ -91,10 +99,13 @@ const Portfolio = ({ className }: PortfolioProps) => <section id="portfolio" cla
     `}</style>
 
     <div className="container mx-auto px-6">
-      <div className="text-center mb-20 fade-up" style={{
-      animationDelay: "0.15s"
-    }}>
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">Demo Work</h2>
+      <div
+        className="text-center mb-20 fade-up"
+        style={{
+          animationDelay: "0.15s",
+        }}
+      >
+        <h2 className="text-4xl md:text-5xl font-bold mb-4">Portfolio</h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           See how we can help enhance your online presence.
         </p>
@@ -102,13 +113,27 @@ const Portfolio = ({ className }: PortfolioProps) => <section id="portfolio" cla
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
         {projects.map((project, index) => {
-        const Wrapper = project.url ? "a" : "div";
-        return <Wrapper key={index} href={project.url || undefined} target={project.url ? "_blank" : undefined} rel={project.url ? "noopener noreferrer" : undefined} className="block" style={{
-          "--delay": `${0.25 + index * 0.1}s`
-        } as React.CSSProperties} aria-label={project.title}>
-              <div className="fade-up-delayed scale-hover rounded-lg overflow-hidden border border-border bg-card cursor-pointer" style={{
-            animationDelay: `var(--delay)`
-          }}>
+          const Wrapper = project.url ? "a" : "div";
+          return (
+            <Wrapper
+              key={index}
+              href={project.url || undefined}
+              target={project.url ? "_blank" : undefined}
+              rel={project.url ? "noopener noreferrer" : undefined}
+              className="block"
+              style={
+                {
+                  "--delay": `${0.25 + index * 0.1}s`,
+                } as React.CSSProperties
+              }
+              aria-label={project.title}
+            >
+              <div
+                className="fade-up-delayed scale-hover rounded-lg overflow-hidden border border-border bg-card cursor-pointer"
+                style={{
+                  animationDelay: `var(--delay)`,
+                }}
+              >
                 <div className="relative overflow-hidden aspect-video">
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover img-hover-scale" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-40 pointer-events-none" />
@@ -127,9 +152,11 @@ const Portfolio = ({ className }: PortfolioProps) => <section id="portfolio" cla
                   </div>
                 </div>
               </div>
-            </Wrapper>;
-      })}
+            </Wrapper>
+          );
+        })}
       </div>
     </div>
-  </section>;
+  </section>
+);
 export default Portfolio;
