@@ -2,7 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ExternalLink, Star, Zap, Smartphone } from "lucide-react";
+import { ExternalLink, Smartphone, Zap } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 import glowStudioDemo from "@/assets/glow-studio-demo.png";
 import barberProDemo from "@/assets/barber-pro-demo.png";
 import fadeFlowDemo from "@/assets/fade-flow-demo.png";
@@ -10,68 +12,49 @@ import alexandrosLiakosDemo from "@/assets/alexandros-liakos-demo.png";
 import classicCutsDemo from "@/assets/classic-cuts-demo.png";
 import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
 
-const projects = [
+interface PortfolioProjectConfig {
+  image: string;
+  type: "client" | "demo";
+  url: string;
+  tKey: string; // base key in JSON, e.g. "portfolio.projects.0"
+}
+
+const projectConfigs: PortfolioProjectConfig[] = [
   {
     image: alexandrosLiakosDemo,
-    title: "Elite Hairstylist Portfolio",
-    subtitle: "Premium portfolio with multi-language support & booking",
-    industry: "Hair Styling & Education",
     type: "client",
-    description: "Modern, dark theme with online booking",
     url: "https://alexandrosliakos.lovable.app",
-    metrics: ["Multi-language", "98/100 Lighthouse", "SEO-optimized"],
-    testimonial: "Professional website that showcases my work beautifully and attracts new clients.",
-    features: ["Next.js", "Booking", "Gallery"],
+    tKey: "portfolio.projects.0",
   },
   {
     image: barberProDemo,
-    title: "Elite Barber Lounge",
-    subtitle: "Dark, premium aesthetic with elegant animations",
-    industry: "Men's Grooming",
     type: "demo",
-    description: "Elegant dark-themed barbershop",
     url: "https://barber-pro-prompt.lovable.app",
-    features: ["SEO-ready", "Mobile-first", "Booking integrated"],
+    tKey: "portfolio.projects.1",
   },
   {
     image: fadeFlowDemo,
-    title: "Fresh Cuts Modern",
-    subtitle: "Bold, vibrant design with contemporary vibe",
-    industry: "Men's Grooming",
     type: "demo",
-    description: "Premium barbershop with online booking",
     url: "https://fade-flow-arts.lovable.app",
-    features: ["SEO-ready", "Mobile-first", "Booking integrated"],
+    tKey: "portfolio.projects.2",
   },
   {
     image: glowStudioDemo,
-    title: "Glow Beauty Studio",
-    subtitle: "Light, airy design for wellness businesses",
-    industry: "Beauty & Wellness",
     type: "demo",
-    description: "Modern salon with seamless booking",
     url: "https://glow-studio-demo-swe.lovable.app",
-    features: ["SEO-ready", "Mobile-first", "Booking integrated"],
+    tKey: "portfolio.projects.3",
   },
   {
     image: classicCutsDemo,
-    title: "Classic Cuts Heritage",
-    subtitle: "Traditional barbershop feel with modern functionality",
-    industry: "Men's Grooming",
     type: "demo",
-    description: "Classic barbershop design",
     url: "https://barber-pole-chronicles.lovable.app",
-    features: ["SEO-ready", "Mobile-first", "Booking integrated"],
+    tKey: "portfolio.projects.4",
   },
   {
     image: gildedRoseDemo,
-    title: "Gilded Rose Salon",
-    subtitle: "Elegant styling with sophisticated color palette",
-    industry: "Beauty & Styling",
     type: "demo",
-    description: "Modern hair studio design",
     url: "https://gilded-rose-salon.lovable.app",
-    features: ["SEO-ready", "Mobile-first", "Booking integrated"],
+    tKey: "portfolio.projects.5",
   },
 ];
 
@@ -80,6 +63,23 @@ interface PortfolioProps {
 }
 
 const Portfolio = ({ className }: PortfolioProps) => {
+  const { t } = useLanguage();
+
+  const projects = projectConfigs.map((p) => ({
+    ...p,
+    title: t(`${p.tKey}.title`),
+    subtitle: t(`${p.tKey}.subtitle`),
+    industry: t(`${p.tKey}.industry`),
+    description: t(`${p.tKey}.description`),
+    testimonial: t(`${p.tKey}.testimonial`),
+    metrics: [t(`${p.tKey}.metrics.0`), t(`${p.tKey}.metrics.1`), t(`${p.tKey}.metrics.2`)].filter(
+      (m) => m && m !== `${p.tKey}.metrics.0`,
+    ), // ignore missing
+    features: [t(`${p.tKey}.features.0`), t(`${p.tKey}.features.1`), t(`${p.tKey}.features.2`)].filter(
+      (f) => f && f !== `${p.tKey}.features.0`,
+    ),
+  }));
+
   const featuredProject = projects.find((p) => p.type === "client");
   const demoProjects = projects.filter((p) => p.type === "demo");
 
@@ -126,11 +126,10 @@ const Portfolio = ({ className }: PortfolioProps) => {
       `}</style>
 
       <div className="container mx-auto px-6">
+        {/* Section header */}
         <div className="text-center mb-20 fade-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Portfolio</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Real client work and interactive demos showcasing our capabilities
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("portfolio.title")}</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("portfolio.subtitle")}</p>
         </div>
 
         {/* Featured Client Project */}
@@ -138,7 +137,7 @@ const Portfolio = ({ className }: PortfolioProps) => {
           <div className="max-w-7xl mx-auto mb-16 fade-up">
             <div className="grid md:grid-cols-2 gap-8 p-6 md:p-8 bg-card rounded-2xl border-2 border-primary/20 shadow-lg card-hover">
               <div className="relative rounded-xl overflow-hidden aspect-video md:aspect-auto">
-                <div className="badge-corner bg-primary text-primary-foreground">Live Client · Case Study</div>
+                <div className="badge-corner bg-primary text-primary-foreground">{t("portfolio.featuredBadge")}</div>
                 <img
                   src={featuredProject.image}
                   alt={featuredProject.title}
@@ -154,13 +153,14 @@ const Portfolio = ({ className }: PortfolioProps) => {
                   <h3 className="text-2xl md:text-3xl font-bold mb-2">{featuredProject.title}</h3>
                   <p className="text-base text-muted-foreground mb-4">{featuredProject.subtitle}</p>
 
-                  {featuredProject.testimonial && (
-                    <blockquote className="border-l-4 border-primary pl-4 italic text-sm text-muted-foreground mb-4">
-                      "{featuredProject.testimonial}"
-                    </blockquote>
-                  )}
+                  {featuredProject.testimonial &&
+                    featuredProject.testimonial !== "portfolio.projects.0.testimonial" && (
+                      <blockquote className="border-l-4 border-primary pl-4 italic text-sm text-muted-foreground mb-4">
+                        “{featuredProject.testimonial}”
+                      </blockquote>
+                    )}
 
-                  {featuredProject.metrics && (
+                  {featuredProject.metrics && featuredProject.metrics.length > 0 && (
                     <div className="flex flex-wrap gap-3 mb-4">
                       {featuredProject.metrics.map((metric, idx) => (
                         <div key={idx} className="flex items-center gap-1.5 text-sm">
@@ -171,7 +171,7 @@ const Portfolio = ({ className }: PortfolioProps) => {
                     </div>
                   )}
 
-                  {featuredProject.features && (
+                  {featuredProject.features && featuredProject.features.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-6">
                       {featuredProject.features.map((feature, idx) => (
                         <Badge key={idx} variant="outline" className="text-xs">
@@ -186,7 +186,7 @@ const Portfolio = ({ className }: PortfolioProps) => {
                   <Button asChild className="flex-1">
                     <a href={featuredProject.url} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4 mr-2" />
-                      View Live Site
+                      {t("portfolio.ctaViewLive")}
                     </a>
                   </Button>
                 </div>
@@ -197,14 +197,14 @@ const Portfolio = ({ className }: PortfolioProps) => {
 
         {/* Demo Projects Grid */}
         <div className="max-w-7xl mx-auto">
-          <h3 className="text-2xl font-bold mb-8 text-center">Interactive Demos</h3>
+          <h3 className="text-2xl font-bold mb-8 text-center">{t("portfolio.demosTitle")}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {demoProjects.map((project, index) => (
               <div key={index} className="fade-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
                 <div className="card-hover rounded-xl overflow-hidden border border-border bg-card h-full flex flex-col">
                   <div className="relative overflow-hidden aspect-video">
                     <div className="badge-corner bg-background/75 text-foreground border border-border">
-                      Interactive Demo
+                      {t("portfolio.demoBadge")}
                     </div>
                     <img src={project.image} alt={project.title} className="w-full h-full object-cover img-zoom" />
                   </div>
@@ -217,13 +217,13 @@ const Portfolio = ({ className }: PortfolioProps) => {
                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                     <p className="text-sm text-muted-foreground mb-4 flex-grow">{project.subtitle}</p>
 
-                    {project.features && (
+                    {project.features && project.features.length > 0 && (
                       <div className="flex flex-wrap gap-1.5 mb-4">
                         {project.features.map((feature, idx) => (
                           <span key={idx} className="text-xs text-muted-foreground flex items-center gap-1">
                             {idx === 0 && <Smartphone className="w-3 h-3" />}
                             {feature}
-                            {idx < project.features!.length - 1 && " •"}
+                            {idx < project.features.length - 1 && " •"}
                           </span>
                         ))}
                       </div>
@@ -233,11 +233,11 @@ const Portfolio = ({ className }: PortfolioProps) => {
                       <Button asChild variant="default" size="sm" className="flex-1">
                         <a href={project.url} target="_blank" rel="noopener noreferrer">
                           <ExternalLink className="w-3 h-3 mr-2" />
-                          View Demo
+                          {t("portfolio.ctaViewDemo")}
                         </a>
                       </Button>
                       <Button asChild variant="outline" size="sm" className="flex-1">
-                        <a href="#contact">Use Template</a>
+                        <a href="#contact">{t("portfolio.ctaUseTemplate")}</a>
                       </Button>
                     </div>
                   </div>

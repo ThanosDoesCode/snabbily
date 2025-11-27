@@ -287,4 +287,116 @@
     "faq": "Vanliga Frågor",
     "contact": "Kontakt"
   }
+},
+"portfolio": {
+  "title": "Våra Senaste Projekt",
+  "subtitle": "Riktiga kundprojekt och interaktiva demos som visar vad vi kan göra",
+  "cta": "Redo att Skaffa Din Hemsida?",
+  "viewLive": "Visa Live",
+  "featuredBadge": "Live-kund · Case study",
+  "demoBadge": "Interaktiv Demo",
+  "demosTitle": "Interaktiva Demos",
+  "ctaViewLive": "Visa Live-sida",
+  "ctaViewDemo": "Visa Demo",
+  "ctaUseTemplate": "Använd denna mall",
+  "projects": [
+    {
+      "title": "Elite Frisörportfolio",
+      "subtitle": "Premium portfolio med flerspråkigt stöd och bokning",
+      "industry": "Hårstyling & Utbildning",
+      "description": "Modern mörk design med online-bokning och stark personlig profil.",
+      "testimonial": "Professionell hemsida som visar mitt arbete snyggt och lockar nya kunder.",
+      "metrics": [
+        "Flerspråkig",
+        "98/100 Lighthouse",
+        "SEO-optimerad"
+      ],
+      "features": [
+        "Next.js",
+        "Bokning",
+        "Galleri"
+      ]
+    },
+    {
+      "title": "Elite Barber Lounge",
+      "subtitle": "Mörk, premium känsla med eleganta animationer",
+      "industry": "Herrfrisering",
+      "description": "Elegant barbershop-sida med tydliga tjänster och bokning.",
+      "metrics": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ],
+      "features": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ]
+    },
+    {
+      "title": "Fresh Cuts Modern",
+      "subtitle": "Djärv, modern design med samtida känsla",
+      "industry": "Herrfrisering",
+      "description": "Premium barbershop-sida med fokus på moderna fades och trender.",
+      "metrics": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ],
+      "features": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ]
+    },
+    {
+      "title": "Glow Beauty Studio",
+      "subtitle": "Ljus, luftig design för wellness-företag",
+      "industry": "Skönhet & Wellness",
+      "description": "Modern salongsida med mjuka färger och ren layout.",
+      "metrics": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ],
+      "features": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ]
+    },
+    {
+      "title": "Classic Cuts Heritage",
+      "subtitle": "Traditionell barbershop-känsla med modern funktionalitet",
+      "industry": "Herrfrisering",
+      "description": "Klassisk barbershop-look med uppdaterad, responsiv design.",
+      "metrics": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ],
+      "features": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ]
+    },
+    {
+      "title": "Gilded Rose Salon",
+      "subtitle": "Elegant styling med sofistikerad färgpalett",
+      "industry": "Skönhet & Styling",
+      "description": "Elegant salongsida med fokus på färg, styling och premiumtjänster.",
+      "metrics": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ],
+      "features": [
+        "SEO-redo",
+        "Mobil-först",
+        "Bokning integrerad"
+      ]
+    }
+  ]
 }
+

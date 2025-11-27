@@ -305,4 +305,116 @@
     "faq": "FAQ",
     "contact": "Contact"
   }
+},
+"portfolio": {
+  "title": "Our Recent Projects",
+  "subtitle": "Real client work and interactive demos showcasing our capabilities",
+  "cta": "Ready to Get Your Website?",
+  "viewLive": "View Live",
+  "featuredBadge": "Live Client · Case Study",
+  "demoBadge": "Interactive Demo",
+  "demosTitle": "Interactive Demos",
+  "ctaViewLive": "View Live Site",
+  "ctaViewDemo": "View Demo",
+  "ctaUseTemplate": "Use Template",
+  "projects": [
+    {
+      "title": "Elite Hairstylist Portfolio",
+      "subtitle": "Premium portfolio with multi-language support & booking",
+      "industry": "Hair Styling & Education",
+      "description": "Modern dark theme with online booking and strong personal branding.",
+      "testimonial": "Professional website that showcases my work beautifully and attracts new clients.",
+      "metrics": [
+        "Multi-language",
+        "98/100 Lighthouse",
+        "SEO-optimized"
+      ],
+      "features": [
+        "Next.js",
+        "Booking",
+        "Gallery"
+      ]
+    },
+    {
+      "title": "Elite Barber Lounge",
+      "subtitle": "Dark, premium aesthetic with elegant animations",
+      "industry": "Men's Grooming",
+      "description": "Elegant barbershop landing page with clear services and booking.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ]
+    },
+    {
+      "title": "Fresh Cuts Modern",
+      "subtitle": "Bold, vibrant design with contemporary vibe",
+      "industry": "Men's Grooming",
+      "description": "Premium barbershop site focused on modern fades and trends.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ]
+    },
+    {
+      "title": "Glow Beauty Studio",
+      "subtitle": "Light, airy design for wellness businesses",
+      "industry": "Beauty & Wellness",
+      "description": "Modern beauty studio design with soft colors and clean layout.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ]
+    },
+    {
+      "title": "Classic Cuts Heritage",
+      "subtitle": "Traditional barbershop feel with modern functionality",
+      "industry": "Men's Grooming",
+      "description": "Classic barbershop look with updated, responsive design.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ]
+    },
+    {
+      "title": "Gilded Rose Salon",
+      "subtitle": "Elegant styling with sophisticated color palette",
+      "industry": "Beauty & Styling",
+      "description": "Elegant salon site focused on color, styling, and premium services.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Booking integrated"
+      ]
+    }
+  ]
 }
+

@@ -290,4 +290,116 @@
     "faq": "Συχνές Ερωτήσεις",
     "contact": "Επικοινωνία"
   }
+},
+"portfolio": {
+  "title": "Τα Πρόσφατα Έργα μας",
+  "subtitle": "Πραγματικά έργα πελατών και interaktiva demos που δείχνουν τι μπορούμε να κάνουμε",
+  "cta": "Έτοιμοι να Αποκτήσετε την Ιστοσελίδα σας;",
+  "viewLive": "Δείτε Live",
+  "featuredBadge": "Live Πελάτης · Case Study",
+  "demoBadge": "Interactive Demo",
+  "demosTitle": "Interactive Demos",
+  "ctaViewLive": "Δείτε τη Live Ιστοσελίδα",
+  "ctaViewDemo": "Δείτε το Demo",
+  "ctaUseTemplate": "Χρησιμοποιήστε αυτό το template",
+  "projects": [
+    {
+      "title": "Elite Χαρτοφυλάκιο Κομμωτή",
+      "subtitle": "Premium portfolio με υποστήριξη πολλών γλωσσών & σύστημα κρατήσεων",
+      "industry": "Κομμωτική & Εκπαίδευση",
+      "description": "Μοντέρνος, dark σχεδιασμός με online κρατήσεις και ισχυρό προσωπικό brand.",
+      "testimonial": "Επαγγελματική ιστοσελίδα που παρουσιάζει τη δουλειά μου τέλεια και φέρνει νέους πελάτες.",
+      "metrics": [
+        "Πολλές γλώσσες",
+        "98/100 Lighthouse",
+        "SEO βελτιστοποιημένη"
+      ],
+      "features": [
+        "Next.js",
+        "Κρατήσεις",
+        "Γκαλερί"
+      ]
+    },
+    {
+      "title": "Elite Barber Lounge",
+      "subtitle": "Σκοτεινή, premium αισθητική με κομψές animation",
+      "industry": "Ανδρικό Κομμωτήριο",
+      "description": "Εντυπωσιακή σελίδα barbershop με ξεκάθαρες υπηρεσίες και online κρατήσεις.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ]
+    },
+    {
+      "title": "Fresh Cuts Modern",
+      "subtitle": "Τολμηρό, ζωντανό design με σύγχρονη αισθητική",
+      "industry": "Ανδρικό Κομμωτήριο",
+      "description": "Premium barbershop site με έμφαση στα μοντέρνα fades και τάσεις.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ]
+    },
+    {
+      "title": "Glow Beauty Studio",
+      "subtitle": "Απαλό, φωτεινό design για επιχειρήσεις ευεξίας",
+      "industry": "Ομορφιά & Wellness",
+      "description": "Μοντέρνα σελίδα για studio ομορφιάς με ήπιες αποχρώσεις και καθαρή δομή.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ]
+    },
+    {
+      "title": "Classic Cuts Heritage",
+      "subtitle": "Παραδοσιακό barbershop feeling με σύγχρονη λειτουργικότητα",
+      "industry": "Ανδρικό Κομμωτήριο",
+      "description": "Κλασικό barbershop look με σύγχρονο, responsive σχεδιασμό.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ]
+    },
+    {
+      "title": "Gilded Rose Salon",
+      "subtitle": "Εντυπωσιακό styling με κομψή παλέτα χρωμάτων",
+      "industry": "Ομορφιά & Styling",
+      "description": "Εκλεπτυσμένη σελίδα κομμωτηρίου με έμφαση στο χρώμα και τις premium υπηρεσίες.",
+      "metrics": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ],
+      "features": [
+        "SEO-ready",
+        "Mobile-first",
+        "Ενσωματωμένες κρατήσεις"
+      ]
+    }
+  ]
 }
+
