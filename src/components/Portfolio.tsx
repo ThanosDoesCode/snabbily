@@ -140,7 +140,7 @@ const Portfolio = ({ className }: PortfolioProps) => (
                 </div>
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-left">{project.title} – Demo Project</h3>
+                    <h3 className="text-xl font-semibold text-left">{project.title}</h3>
                     <Badge variant="secondary" className="shrink-0 text-xs">
                       {project.deliveryTime}
                     </Badge>
