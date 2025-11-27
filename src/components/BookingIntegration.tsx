@@ -1,32 +1,35 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BookingIntegrationProps {
   className?: string;
 }
 
 const BookingIntegration = ({ className }: BookingIntegrationProps) => {
+  const { t } = useLanguage();
+
   const simpleMethods = [
     {
       icon: Phone,
-      name: "Click-to-Call",
-      description: "Call to book an appointment",
+      name: t("booking.simple.call.name"),
+      description: t("booking.simple.call.description"),
     },
     {
       icon: Mail,
-      name: "Email Form",
-      description: "Free booking form",
+      name: t("booking.simple.email.name"),
+      description: t("booking.simple.email.description"),
     },
   ];
+
   return (
     <section className={cn("py-20 md:py-40 bg-background", className)} id="booking">
       <div className="container mx-auto px-4 sm:px-6">
+        {/* Header */}
         <div className="text-center mb-12 md:mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 px-4">Booking Integration</h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
-              We integrate your existing booking system for free — no new platform to learn, no extra subscriptions
-          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 px-4">{t("booking.title")}</h2>
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">{t("booking.subtitle")}</p>
         </div>
 
         <div className="max-w-6xl mx-auto space-y-12 md:space-y-16">
@@ -44,24 +47,23 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
                 </div>
 
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-4 md:mb-4 leading-tight">
-                  Use Your Current Booking System
+                  {t("booking.existing.title")}
                 </h3>
 
                 <p className="text-sm sm:text-base md:text-lg text-center text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto leading-relaxed">
-                  Already using Bokadirekt, Calendly, Fresha, or another platform? Perfect! We'll integrate it directly
-                  into your website at no extra cost.
+                  {t("booking.existing.description")}
                 </p>
 
                 <div className="flex items-center justify-center pt-2">
                   <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-1 text-center">
                     <p className="text-xs sm:text-sm text-primary font-semibold order-1 sm:order-1">
-                      Keep your existing workflow
+                      {t("booking.existing.benefit1")}
                     </p>
                     <span className="hidden sm:inline text-primary order-2">•</span>
                     <div className="flex items-center gap-1 order-2 sm:order-3">
-                      <p className="text-xs sm:text-sm text-primary font-semibold">Free integration</p>
+                      <p className="text-xs sm:text-sm text-primary font-semibold">{t("booking.existing.benefit2")}</p>
                       <span className="text-primary">•</span>
-                      <p className="text-xs sm:text-sm text-primary font-semibold">No learning curve</p>
+                      <p className="text-xs sm:text-sm text-primary font-semibold">{t("booking.existing.benefit3")}</p>
                     </div>
                   </div>
                 </div>
@@ -71,13 +73,11 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
 
           {/* Simple Booking Methods */}
           <div className="opacity-0 animate-[fadeUp_0.8s_ease-out_0.8s_forwards] px-4">
-            <h3 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-center">
-              Or Add Simple Booking Options
-            </h3>
+            <h3 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-center">{t("booking.simple.title")}</h3>
             <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
               {simpleMethods.map((method, index) => (
                 <Card
-                  key={index}
+                  key={method.name + index}
                   className="group relative border border-border bg-card hover:border-primary/70 transition-all duration-500 opacity-0 animate-[slideInLeft_0.8s_ease-out_forwards] overflow-hidden"
                   style={{
                     animationDelay: `${1.0 + index * 0.15}s`,
@@ -94,9 +94,9 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
                   <CardContent className="pt-0 relative z-10">
                     <p className="text-muted-foreground text-sm sm:text-base mb-4">{method.description}</p>
                     <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                       <p className="text-xs text-primary font-medium group-hover:text-primary transition-colors">
-                        No additional cost
+                        {t("booking.simple.noCost")}
                       </p>
                     </div>
                   </CardContent>
@@ -109,4 +109,5 @@ const BookingIntegration = ({ className }: BookingIntegrationProps) => {
     </section>
   );
 };
+
 export default BookingIntegration;
