@@ -53,6 +53,37 @@
       ]
     }
   },
+
+  {
+  "why": {
+    "title": "Why You Still Need a Website",
+    "subtitle": "Even with Google Maps and booking platforms, your website is your digital storefront.",
+    "reasons": [
+      {
+        "title": "Professional Presentation",
+        "description": "Showcase your services, prices, photos, and brand identity in one beautiful place."
+      },
+      {
+        "title": "Trust & Credibility",
+        "description": "A professional website signals legitimacy and builds customer confidence before they book."
+      },
+      {
+        "title": "A Single Clean Link",
+        "description": "Share one link across all platforms instead of juggling multiple social media profiles."
+      },
+      {
+        "title": "Higher Conversion",
+        "description": "Present your business professionally before customers reach the booking stage."
+      }
+    ],
+    "highlight": {
+      "title": "Your website isn't about heavy SEO",
+      "subtitle": "It's about looking trustworthy when customers find you anywhere."
+    }
+  }
+}
+
+  
   "booking": {
     "title": "Booking Integration",
     "subtitle": "We integrate your existing booking system for free — no new platform to learn, no extra subscriptions",

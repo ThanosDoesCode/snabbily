@@ -53,6 +53,37 @@
       ]
     }
   },
+
+  {
+  "why": {
+    "title": "Varför du fortfarande behöver en hemsida",
+    "subtitle": "Även med Google Maps och bokningsplattformar är din hemsida din digitala butik.",
+    "reasons": [
+      {
+        "title": "Professionell Presentation",
+        "description": "Visa upp dina tjänster, priser, foton och varumärkesidentitet på ett och samma snygga ställe."
+      },
+      {
+        "title": "Tillit & Trovärdighet",
+        "description": "En professionell hemsida signalerar seriositet och bygger förtroende innan kunden bokar."
+      },
+      {
+        "title": "En Ren Länk",
+        "description": "Dela en enda länk över alla plattformar istället för att jonglera flera sociala profiler."
+      },
+      {
+        "title": "Högre Konvertering",
+        "description": "Presentera ditt företag professionellt innan kunden når själva bokningssteget."
+      }
+    ],
+    "highlight": {
+      "title": "Din hemsida handlar inte om tung SEO",
+      "subtitle": "Den handlar om att se pålitlig ut när kunder hittar dig – var som helst."
+    }
+  }
+}
+
+  
   "booking": {
     "title": "Bokningsintegration",
     "subtitle": "Vi integrerar ditt befintliga bokningssystem gratis — ingen ny plattform att lära sig, inga extra abonnemang",

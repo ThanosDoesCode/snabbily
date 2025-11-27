@@ -1,51 +1,57 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Building2, Shield, Link2, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface WhyWebsiteProps {
   className?: string;
 }
 
 const WhyWebsite = ({ className }: WhyWebsiteProps) => {
+  const { t } = useLanguage();
+
   const reasons = [
     {
       icon: Building2,
-      title: "Professional Presentation",
-      description: "Showcase your services, prices, photos, and brand identity in one beautiful place.",
+      title: t("why.reasons.0.title"),
+      description: t("why.reasons.0.description"),
     },
     {
       icon: Shield,
-      title: "Trust & Credibility",
-      description: "A professional website signals legitimacy and builds customer confidence before they book.",
+      title: t("why.reasons.1.title"),
+      description: t("why.reasons.1.description"),
     },
     {
       icon: Link2,
-      title: "A Single Clean Link",
-      description: "Share one link across all platforms instead of juggling multiple social media profiles.",
+      title: t("why.reasons.2.title"),
+      description: t("why.reasons.2.description"),
     },
     {
       icon: TrendingUp,
-      title: "Higher Conversion",
-      description: "Present your business professionally before customers reach the booking stage.",
+      title: t("why.reasons.3.title"),
+      description: t("why.reasons.3.description"),
     },
   ];
 
   return (
     <section className={cn("py-40 bg-secondary", className)} id="why">
       <div className="container mx-auto px-6">
+        {/* Section header */}
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Why You Still Need a Website</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Even with Google Maps and booking platforms, a website is your digital storefront
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("why.title")}</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t("why.subtitle")}</p>
         </div>
+
+        {/* Reasons grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
           {reasons.map((reason, index) => (
             <Card
               key={index}
               className="group border border-border bg-card hover:border-primary/50 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)] dark:hover:shadow-[var(--glow-card)] transition-all duration-500 opacity-0"
               style={{
-                animation: `${index % 2 === 0 ? "slideInLeft" : "slideInRight"} 0.8s ease-out ${index * 0.15}s forwards`,
+                animation: `${
+                  index % 2 === 0 ? "slideInLeft" : "slideInRight"
+                } 0.8s ease-out ${index * 0.15}s forwards`,
               }}
             >
               <CardContent className="pt-6 pb-6">
@@ -64,18 +70,18 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
             </Card>
           ))}
         </div>
+
+        {/* Highlight card */}
         <div className="max-w-4xl mx-auto opacity-0 animate-[scaleIn_0.8s_ease-out_1s_forwards]">
           <Card className="relative overflow-hidden border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 shadow-soft hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-500">
             {/* Animated glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]" />
             <CardContent className="py-6 px-6 md:py-8 md:px-8 relative z-10">
               <p className="text-base md:text-lg text-center font-medium leading-relaxed">
                 <span className="text-primary font-semibold text-lg md:text-xl block mb-2">
-                  Your website isn't about heavy SEO
+                  {t("why.highlight.title")}
                 </span>
-                <span className="text-foreground text-sm md:text-base">
-                  It's about looking trustworthy when customers find you anywhere.
-                </span>
+                <span className="text-foreground text-sm md:text-base">{t("why.highlight.subtitle")}</span>
               </p>
             </CardContent>
           </Card>
