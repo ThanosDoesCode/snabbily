@@ -7,7 +7,7 @@
   },
   "hero": {
     "title": "Fast Websites for Local Businesses",
-    "subtitle": "Get a professional, booking-ready website in 3-4 days. No hassle, no technical knowledge required.",
+    "subtitle": "Get a professional, booking-ready website in 3–4 days. No hassle, no technical knowledge required.",
     "ctaPrimary": "Get Your Website",
     "ctaSecondary": "View Portfolio"
   },
@@ -17,7 +17,7 @@
     "cta": "Get Your Website Today",
     "creation": {
       "title": "Website Creation",
-      "description": "You send the basics — We handle everything else.",
+      "description": "You send the basics — we handle everything else.",
       "features": [
         "Modern, AI-assisted design",
         "1–6 pages included",
@@ -37,7 +37,7 @@
         "Booking system support",
         "Up to 3 monthly changes",
         "Ongoing technical support",
-        "AI consultant based on your webpage"
+        "AI consultant based on your website"
       ]
     },
     "addons": {
@@ -55,10 +55,10 @@
   },
   "booking": {
     "title": "Booking Integration",
-    "subtitle": "We integrate your existing booking system for free — no new platform to learn, no extra subscriptions",
+    "subtitle": "We integrate your existing booking system for free — no new platform to learn, no extra subscriptions.",
     "existing": {
       "title": "Use Your Current Booking System",
-      "description": "Already using Bokadirekt, Calendly, Fresha, or another platform? Perfect! We'll integrate it directly into your website at no extra cost.",
+      "description": "Already using Bokadirekt, Calendly, Fresha or another platform? Perfect! We'll integrate it directly into your website at no extra cost.",
       "benefit1": "Keep your existing workflow",
       "benefit2": "Free integration",
       "benefit3": "No learning curve"
@@ -83,7 +83,7 @@
     "starter": {
       "name": "Starter Website",
       "price": "2,490",
-      "description": "Perfect for new business getting online",
+      "description": "Perfect for a new business getting online",
       "tagline": "A clean, professional website to establish your online presence.",
       "features": [
         "Up to 3 pages",
@@ -143,7 +143,7 @@
         "Security updates",
         "Booking system support",
         "Up to 3 monthly changes",
-        "AI consultant based on your webpage"
+        "AI consultant based on your website"
       ]
     },
     "mostPopular": "Most Popular",
@@ -184,121 +184,6 @@
       }
     ]
   },
-  "portfolio": {
-    "title": "Our Recent Projects",
-    "subtitle": "Real websites built for real businesses — in just a few days",
-    "cta": "Ready to Get Your Website?",
-    "items": [
-      {
-        "name": "Barber Pro",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Classic Cuts",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Master Cuts",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Hairstylist Portfolio",
-        "type": "Portfolio"
-      },
-      {
-        "name": "Barber Pole",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Fade Flow",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Gilded Rose",
-        "type": "Flower Shop"
-      },
-      {
-        "name": "Glow Studio",
-        "type": "Beauty Salon"
-      }
-    ],
-    "viewLive": "View Live"
-  },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "Common questions about websites for local businesses",
-    "questions": [
-      {
-        "question": "We already appear on Google Maps — why need a website?",
-        "answer": "Google Maps shows where you are. A website shows who you are. It presents your services, prices, photos, and brand professionally. Customers are more likely to choose a business with a website over one without."
-      },
-      {
-        "question": "We already use Bokadirekt — why add a website?",
-        "answer": "Booking platforms are great for scheduling, but they don't present your business. A website increases trust, showcases your work, explains your services, and makes customers more confident before they book. Think of it as your digital storefront."
-      },
-      {
-        "question": "Is this SEO heavy?",
-        "answer": "No — it's presentation-focused. While we include basic SEO, the main goal isn't to rank #1 on Google for every search. It's to look professional and trustworthy when customers find you through any channel — Maps, social media, word of mouth, or search."
-      },
-      {
-        "question": "How fast is delivery?",
-        "answer": "Most websites are delivered within 3-4 days. Simpler sites (up to 3 pages) typically take 4 days, while more complex sites (up to 6 pages with custom branding) can take up to 2 weeks. I'll give you an exact timeline after we discuss your needs."
-      },
-      {
-        "question": "Do I need new software or subscriptions?",
-        "answer": "No. We integrate the booking method you already use — Bokadirekt, Calendly, calls, or a simple form."
-      },
-      {
-        "question": "What if I don't have professional photos?",
-        "answer": "No problem! We can work with smartphone photos and offer professional photo editing as an add-on service. Good photos help, but they're not required to get started."
-      },
-      {
-        "question": "Can I update the website myself later?",
-        "answer": "Yes! With the optional maintenance subscription, we can help you with updates. Or we can show you how to make simple changes yourself. The choice is yours."
-      },
-      {
-        "question": "What if I don't have a domain or already have one?",
-        "answer": "If you don't have a domain, we can help you register one (typically 100-200 SEK/year). If you already have a domain, perfect! We'll connect your new website to it. Either way, we'll guide you through the process."
-      },
-      {
-        "question": "What happens after the website is live?",
-        "answer": "Your website is yours! You can choose the optional monthly maintenance plan for hosting, updates, and support, or manage it yourself. We're here to help either way."
-      }
-    ]
-  },
-  "contact": {
-    "title": "Get Your Website",
-    "subtitle": "Ready to establish your professional online presence? Let's talk!",
-    "responseTime": "We usually reply within 3-5 hours during business days.",
-    "email": {
-      "title": "Email",
-      "cta": "Send an email →"
-    },
-    "phone": {
-      "title": "Phone",
-      "cta": "Call now →",
-      "show": "Show phone number",
-      "hide": "Hide phone number"
-    },
-    "tiktok": {
-      "title": "TikTok",
-      "description": "Watch short web tips",
-      "cta": "Follow on TikTok →"
-    },
-    "fastResponse": "Fast Response Time:",
-    "fastResponseText": "We typically reply within 3–5 hours during business days."
-  },
-  "footer": {
-    "title": "Fast Websites for Local Businesses",
-    "subtitle": "Professional websites delivered in 3-4 days.",
-    "copyright": "Snabbily. All rights reserved.",
-    "services": "Services",
-    "booking": "Booking Integration",
-    "pricing": "Pricing",
-    "portfolio": "Portfolio",
-    "faq": "FAQ",
-    "contact": "Contact"
-  },
   "why": {
     "title": "Why You Still Need a Website",
     "subtitle": "Even with Google Maps and booking platforms, your website is your digital storefront",
@@ -322,5 +207,96 @@
     ],
     "highlightTitle": "Your website isn’t about heavy SEO",
     "highlightBody": "It’s about looking trustworthy when customers find you — whether that’s via Maps, social media, or word of mouth."
+  },
+  "portfolio": {
+    "title": "Our Recent Projects",
+    "subtitle": "Real websites built for real businesses — in just a few days",
+    "cta": "Ready to Get Your Website?",
+    "items": [
+      { "name": "Barber Pro", "type": "Barber Shop" },
+      { "name": "Classic Cuts", "type": "Barber Shop" },
+      { "name": "Master Cuts", "type": "Barber Shop" },
+      { "name": "Hairstylist Portfolio", "type": "Portfolio" },
+      { "name": "Barber Pole", "type": "Barber Shop" },
+      { "name": "Fade Flow", "type": "Barber Shop" },
+      { "name": "Gilded Rose", "type": "Flower Shop" },
+      { "name": "Glow Studio", "type": "Beauty Salon" }
+    ],
+    "viewLive": "View Live"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common questions about websites for local businesses",
+    "questions": [
+      {
+        "question": "We already appear on Google Maps — why do we need a website?",
+        "answer": "Google Maps shows where you are. A website shows who you are. It presents your services, prices, photos, and brand professionally. Customers are more likely to choose a business with a website over one without."
+      },
+      {
+        "question": "We already use Bokadirekt — why add a website?",
+        "answer": "Booking platforms are great for scheduling, but they don't present your business. A website increases trust, showcases your work, explains your services, and makes customers more confident before they book. Think of it as your digital storefront."
+      },
+      {
+        "question": "Is this SEO-heavy?",
+        "answer": "No — it's presentation-focused. While we include basic SEO, the main goal isn't to rank #1 on Google for every search. It's to look professional and trustworthy when customers find you through any channel — Maps, social media, word of mouth, or search."
+      },
+      {
+        "question": "How fast is delivery?",
+        "answer": "Most websites are delivered within 3–4 days. Simpler sites (up to 3 pages) typically take 4 days, while more complex sites (up to 6 pages with custom branding) can take up to 2 weeks. You'll get an exact timeline after we discuss your needs."
+      },
+      {
+        "question": "Do I need new software or subscriptions?",
+        "answer": "No. We integrate the booking method you already use — Bokadirekt, Calendly, calls, or a simple form."
+      },
+      {
+        "question": "What if I don't have professional photos?",
+        "answer": "No problem! We can work with smartphone photos and offer professional photo editing as an add-on service. Good photos help, but they're not required to get started."
+      },
+      {
+        "question": "Can I update the website myself later?",
+        "answer": "Yes! With the optional maintenance subscription, we can help you with updates. Or we can show you how to make simple changes yourself. The choice is yours."
+      },
+      {
+        "question": "What if I don't have a domain or already have one?",
+        "answer": "If you don't have a domain, we can help you register one (typically 100–200 SEK/year). If you already have a domain, perfect! We'll connect your new website to it. Either way, we'll guide you through the process."
+      },
+      {
+        "question": "What happens after the website is live?",
+        "answer": "Your website is yours! You can choose the optional monthly maintenance plan for hosting, updates, and support, or manage it yourself. We're here to help either way."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get Your Website",
+    "subtitle": "Ready to establish your professional online presence? Let's talk!",
+    "responseTime": "We usually reply within 3–5 hours during business days.",
+    "email": {
+      "title": "Email",
+      "cta": "Send an email →"
+    },
+    "phone": {
+      "title": "Phone",
+      "cta": "Call now →",
+      "show": "Show phone number",
+      "hide": "Hide phone number"
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "description": "Watch short web tips",
+      "cta": "Follow on TikTok →"
+    },
+    "fastResponse": "Fast Response Time:",
+    "fastResponseText": "We typically reply within 3–5 hours during business days."
+  },
+  "footer": {
+    "title": "Fast Websites for Local Businesses",
+    "subtitle": "Professional websites delivered in 3–4 days.",
+    "copyright": "Snabbily. All rights reserved.",
+    "services": "Services",
+    "booking": "Booking Integration",
+    "pricing": "Pricing",
+    "portfolio": "Portfolio",
+    "faq": "FAQ",
+    "contact": "Contact"
   }
 }

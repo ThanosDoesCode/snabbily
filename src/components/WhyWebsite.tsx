@@ -36,7 +36,7 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
   return (
     <section className={cn("py-40 bg-secondary", className)} id="why">
       <div className="container mx-auto px-6">
-        {/* Section header */}
+        {/* Header */}
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("why.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t("why.subtitle")}</p>
@@ -46,7 +46,7 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
           {reasons.map((reason, index) => (
             <Card
-              key={index}
+              key={reason.title + index}
               className="group border border-border bg-card hover:border-primary/50 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)] dark:hover:shadow-[var(--glow-card)] transition-all duration-500 opacity-0"
               style={{
                 animation: `${
@@ -74,12 +74,13 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
         {/* Highlight card */}
         <div className="max-w-4xl mx-auto opacity-0 animate-[scaleIn_0.8s_ease-out_1s_forwards]">
           <Card className="relative overflow-hidden border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 shadow-soft hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-500">
-            {/* Animated glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]" />
             <CardContent className="py-6 px-6 md:py-8 md:px-8 relative z-10">
               <p className="text-base md:text-lg text-center font-medium leading-relaxed">
-                <span className="text-primary font-semibold text-lg md:text-xl block mb-2">{t("highlightTitle")}</span>
-                <span className="text-foreground text-sm md:text-base">{t("highlightBody")}</span>
+                <span className="text-primary font-semibold text-lg md:text-xl block mb-2">
+                  {t("why.highlightTitle")}
+                </span>
+                <span className="text-foreground text-sm md:text-base">{t("why.highlightBody")}</span>
               </p>
             </CardContent>
           </Card>

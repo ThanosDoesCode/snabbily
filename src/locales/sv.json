@@ -7,7 +7,7 @@
   },
   "hero": {
     "title": "Snabba Hemsidor för Lokala Företag",
-    "subtitle": "Få en professionell hemsida med bokningssystem på 3-4 dagar. Ingen krångel, ingen teknisk kunskap krävs.",
+    "subtitle": "Få en professionell hemsida med bokningssystem på 3–4 dagar. Ingen krångel, ingen teknisk kunskap krävs.",
     "ctaPrimary": "Skaffa Din Hemsida",
     "ctaSecondary": "Visa Portfolio"
   },
@@ -17,7 +17,7 @@
     "cta": "Skaffa Din Hemsida Idag",
     "creation": {
       "title": "Hemsida Skapande",
-      "description": "Du skickar grunderna — Vi sköter resten.",
+      "description": "Du skickar grunderna — vi sköter resten.",
       "features": [
         "Modern, AI-assisterad design",
         "1–6 sidor ingår",
@@ -30,7 +30,7 @@
     },
     "maintenance": {
       "title": "Månadsvis Underhåll",
-      "description": "Kontinuerlig support och sinnesfrid",
+      "description": "Kontinuerlig support och sinnesro",
       "features": [
         "Pålitlig hosting ingår",
         "Säkerhets- och mjukvaruuppdateringar",
@@ -55,7 +55,7 @@
   },
   "booking": {
     "title": "Bokningsintegration",
-    "subtitle": "Vi integrerar ditt befintliga bokningssystem gratis — ingen ny plattform att lära sig, inga extra abonnemang",
+    "subtitle": "Vi integrerar ditt befintliga bokningssystem gratis — ingen ny plattform att lära sig, inga extra abonnemang.",
     "existing": {
       "title": "Använd Ditt Nuvarande Bokningssystem",
       "description": "Använder du redan Bokadirekt, Calendly, Fresha eller en annan plattform? Perfekt! Vi integrerar det direkt i din hemsida utan extra kostnad.",
@@ -158,69 +158,51 @@
     "description": "Du skickar bara dina foton och grundläggande detaljer. Vi bygger allt annat.",
     "cta": "Redo att börja din resa?",
     "steps": [
-      {
-        "title": "Ring eller Meddelande",
-        "description": "Vi diskuterar ditt företag och vad du behöver"
-      },
-      {
-        "title": "Samla Information",
-        "description": "Vi samlar in ditt innehåll, foton och bokningspreferenser"
-      },
-      {
-        "title": "Bygg Demo",
-        "description": "Vi skapar en demoversion för din granskning"
-      },
-      {
-        "title": "Revidering",
-        "description": "Du ger feedback och vi gör justeringar"
-      },
-      {
-        "title": "Bygg Hemsida",
-        "description": "Vi färdigställer din professionella hemsida"
-      },
-      {
-        "title": "Leverera eller Live",
-        "description": "Din hemsida går live och är redo för kunder"
-      }
+      { "title": "Ring eller Meddelande", "description": "Vi diskuterar ditt företag och vad du behöver" },
+      { "title": "Samla Information", "description": "Vi samlar in ditt innehåll, foton och bokningspreferenser" },
+      { "title": "Bygg Demo", "description": "Vi skapar en demoversion för din granskning" },
+      { "title": "Revidering", "description": "Du ger feedback och vi gör justeringar" },
+      { "title": "Bygg Hemsida", "description": "Vi färdigställer din professionella hemsida" },
+      { "title": "Leverera eller Live", "description": "Din hemsida går live och är redo för kunder" }
     ]
+  },
+  "why": {
+    "title": "Varför Du Fortfarande Behöver en Hemsida",
+    "subtitle": "Även med Google Maps och bokningsplattformar är hemsidan din digitala butik",
+    "reasons": [
+      {
+        "title": "Professionell presentation",
+        "description": "Visa upp dina tjänster, priser, bilder och varumärkesidentitet på ett ställe."
+      },
+      {
+        "title": "Förtroende & trovärdighet",
+        "description": "En professionell hemsida signalerar seriositet och bygger förtroende innan kunden bokar."
+      },
+      {
+        "title": "En ren länk",
+        "description": "Dela en enda länk över alla plattformar istället för att jonglera flera sociala profiler och bokningslänkar."
+      },
+      {
+        "title": "Högre konvertering",
+        "description": "Presentera ditt företag professionellt innan kunden når bokningssteget."
+      }
+    ],
+    "highlightTitle": "Din hemsida handlar inte om tung SEO",
+    "highlightBody": "Den handlar om att se pålitlig ut när kunder hittar dig — via Maps, sociala medier eller rekommendationer."
   },
   "portfolio": {
     "title": "Våra Senaste Projekt",
     "subtitle": "Riktiga hemsidor byggda för riktiga företag — på bara några dagar",
     "cta": "Redo Att Skaffa Din Hemsida?",
     "items": [
-      {
-        "name": "Barber Pro",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Classic Cuts",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Master Cuts",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Frisörportfölj",
-        "type": "Portfolio"
-      },
-      {
-        "name": "Barber Pole",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Fade Flow",
-        "type": "Barber Shop"
-      },
-      {
-        "name": "Gilded Rose",
-        "type": "Blomsteraffär"
-      },
-      {
-        "name": "Glow Studio",
-        "type": "Skönhetssalong"
-      }
+      { "name": "Barber Pro", "type": "Barber Shop" },
+      { "name": "Classic Cuts", "type": "Barber Shop" },
+      { "name": "Master Cuts", "type": "Barber Shop" },
+      { "name": "Frisörportfölj", "type": "Portfolio" },
+      { "name": "Barber Pole", "type": "Barber Shop" },
+      { "name": "Fade Flow", "type": "Barber Shop" },
+      { "name": "Gilded Rose", "type": "Blomsteraffär" },
+      { "name": "Glow Studio", "type": "Skönhetssalong" }
     ],
     "viewLive": "Visa Live"
   },
@@ -230,7 +212,7 @@
     "questions": [
       {
         "question": "Vi syns redan på Google Maps — varför behöva en hemsida?",
-        "answer": "Google Maps visar var du är. En hemsida visar vem du är. Den presenterar dina tjänster, priser, foton och varumärke professionellt. Kunder är mer benägna att välja ett företag med en hemsida över ett utan."
+        "answer": "Google Maps visar var du är. En hemsida visar vem du är. Den presenterar dina tjänster, priser, bilder och varumärke professionellt. Kunder är mer benägna att välja ett företag med en hemsida än ett utan."
       },
       {
         "question": "Vi använder redan Bokadirekt — varför lägga till en hemsida?",
@@ -238,11 +220,11 @@
       },
       {
         "question": "Är detta SEO-tungt?",
-        "answer": "Nej — det är presentationsfokuserat. Även om vi inkluderar grundläggande SEO, är huvudmålet inte att ranka #1 på Google för varje sökning. Det är att se professionell och pålitlig ut när kunder hittar dig genom vilken kanal som helst — Maps, sociala medier, mun-till-mun eller sökning."
+        "answer": "Nej — det är presentationsfokuserat. Även om vi inkluderar grundläggande SEO, är huvudmålet inte att ranka #1 på Google för varje sökning. Det är att se professionell och pålitlig ut när kunder hittar dig via vilken kanal som helst — Maps, sociala medier, mun-till-mun eller sökning."
       },
       {
         "question": "Hur snabb är leveransen?",
-        "answer": "De flesta hemsidor levereras inom 3-4 dagar. Enklare sidor (upp till 3 sidor) tar vanligtvis 4 dagar, medan mer komplexa sidor (upp till 6 sidor med anpassad varumärkesprofilering) kan ta upp till 2 veckor. Jag ger dig en exakt tidslinje efter att vi diskuterat dina behov."
+        "answer": "De flesta hemsidor levereras inom 3–4 dagar. Enklare sidor (upp till 3 sidor) tar vanligtvis 4 dagar, medan mer komplexa sidor (upp till 6 sidor med anpassad varumärkesprofilering) kan ta upp till 2 veckor. Du får en exakt tidslinje efter att vi diskuterat dina behov."
       },
       {
         "question": "Behöver jag ny programvara eller abonnemang?",
@@ -250,7 +232,7 @@
       },
       {
         "question": "Vad händer om jag inte har professionella foton?",
-        "answer": "Inga problem! Vi kan arbeta med smartphonefoton och erbjuda professionell fotoredigering som tilläggstjänst. Bra foton hjälper, men de krävs inte för att komma igång."
+        "answer": "Inga problem! Vi kan arbeta med smartphonefoton och erbjuder professionell fotoredigering som tilläggstjänst. Bra foton hjälper, men krävs inte för att komma igång."
       },
       {
         "question": "Kan jag uppdatera hemsidan själv senare?",
@@ -258,18 +240,18 @@
       },
       {
         "question": "Vad händer om jag inte har en domän eller redan har en?",
-        "answer": "Om du inte har en domän kan vi hjälpa dig att registrera en (vanligtvis 100-200 SEK/år). Om du redan har en domän, perfekt! Vi kopplar din nya hemsida till den. Hur som helst guidar vi dig genom processen."
+        "answer": "Om du inte har en domän kan vi hjälpa dig att registrera en (vanligtvis 100–200 SEK/år). Om du redan har en domän, perfekt! Vi kopplar din nya hemsida till den. Hur som helst guidar vi dig genom processen."
       },
       {
         "question": "Vad händer efter att hemsidan är live?",
-        "answer": "Din hemsida är din! Du kan välja det valfria månatliga underhållsplanen för hosting, uppdateringar och support, eller hantera den själv. Vi är här för att hjälpa till hur som helst."
+        "answer": "Din hemsida är din! Du kan välja den valfria månatliga underhållsplanen för hosting, uppdateringar och support, eller hantera den själv. Vi finns här för att hjälpa till oavsett."
       }
     ]
   },
   "contact": {
     "title": "Skaffa Din Hemsida",
     "subtitle": "Redo att etablera din professionella online-närvaro? Låt oss prata!",
-    "responseTime": "Vi svarar vanligtvis inom 3-5 timmar under arbetsdagar.",
+    "responseTime": "Vi svarar vanligtvis inom 3–5 timmar under arbetsdagar.",
     "email": {
       "title": "E-post",
       "cta": "Skicka ett e-postmeddelande →"
@@ -290,7 +272,7 @@
   },
   "footer": {
     "title": "Snabba Hemsidor för Lokala Företag",
-    "subtitle": "Professionella hemsidor levererade på 3-4 dagar.",
+    "subtitle": "Professionella hemsidor levererade på 3–4 dagar.",
     "copyright": "Snabbily. Alla rättigheter förbehållna.",
     "services": "Tjänster",
     "booking": "Bokningsintegration",
@@ -298,29 +280,5 @@
     "portfolio": "Portfolio",
     "faq": "Vanliga Frågor",
     "contact": "Kontakt"
-  },
-  "why": {
-    "title": "Varför du fortfarande behöver en hemsida",
-    "subtitle": "Även med Google Maps och bokningsplattformar är hemsidan din digitala butik",
-    "reasons": [
-      {
-        "title": "Professionell presentation",
-        "description": "Visa upp dina tjänster, priser, bilder och ditt varumärke på ett snyggt och samlat ställe."
-      },
-      {
-        "title": "Förtroende och trovärdighet",
-        "description": "En professionell hemsida signalerar seriositet och skapar trygghet innan kunden bokar."
-      },
-      {
-        "title": "En enda ren länk",
-        "description": "Dela en länk överallt istället för att jonglera flera sociala profiler och bokningssidor."
-      },
-      {
-        "title": "Högre konvertering",
-        "description": "Presentera verksamheten proffsigt innan kunden når bokningssteget."
-      }
-    ],
-    "highlightTitle": "Din hemsida handlar inte om tung SEO",
-    "highlightBody": "Den handlar om att du ser trovärdig ut när kunderna hittar dig — oavsett om det är via Maps, sociala medier eller rekommendationer."
   }
 }
