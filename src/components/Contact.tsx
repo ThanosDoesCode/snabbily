@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, MessageCircle, Instagram } from "lucide-react";
+import { Mail, Phone, MessageCircle, Instagram, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ContactProps {
@@ -8,6 +8,8 @@ interface ContactProps {
 }
 
 const Contact = ({ className }: ContactProps) => {
+  const [showFullNumber, setShowFullNumber] = useState(false);
+
   // Load Calendly script
   useEffect(() => {
     const script = document.createElement("script");
@@ -20,6 +22,10 @@ const Contact = ({ className }: ContactProps) => {
       }
     };
   }, []);
+
+  const phoneNumber = "+46 76 341 41 05";
+  const maskedNumber = "+46 76 341 XX XX";
+
   return (
     <section className={cn("py-40 bg-secondary", className)} id="contact">
       <div className="container mx-auto px-6">
@@ -92,9 +98,18 @@ const Contact = ({ className }: ContactProps) => {
                   <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
                     <Phone className="h-5 w-5 text-primary-foreground" strokeWidth={2} />
                   </div>
-                  <div>
+                  <div className="flex-grow">
                     <h3 className="font-semibold text-base mb-1">Phone</h3>
-                    <p className="text-muted-foreground text-sm">+46 76 341 41 05</p>
+                    <div className="flex items-center gap-2">
+                      <p className="text-muted-foreground text-sm">{showFullNumber ? phoneNumber : maskedNumber}</p>
+                      <button
+                        onClick={() => setShowFullNumber(!showFullNumber)}
+                        className="text-primary hover:text-primary/80 transition-colors"
+                        aria-label={showFullNumber ? "Hide phone number" : "Show phone number"}
+                      >
+                        {showFullNumber ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      </button>
+                    </div>
                     <a href="tel:+46763414105" className="text-primary hover:underline text-sm mt-1 inline-block">
                       Call now →
                     </a>
@@ -146,4 +161,5 @@ const Contact = ({ className }: ContactProps) => {
     </section>
   );
 };
+
 export default Contact;
