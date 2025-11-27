@@ -34,11 +34,11 @@ const projects = [
   },
   {
     image: masterCutsDemo,
-    title: "Barber Shop",
+    title: "Hairstylist Portfolio",
     industry: "Men's Grooming",
-    deliveryTime: "3 days",
-    description: "Elegant barbershop with appointment scheduling",
-    url: "https://classic-cut-crafters.lovable.app",
+    deliveryTime: "1 week",
+    description: "Elegant portfolio with appointment scheduling",
+    url: "https://alexandrosliakos.lovable.app",
   },
   {
     image: classicCutsDemo,
