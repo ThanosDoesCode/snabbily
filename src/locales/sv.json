@@ -5,12 +5,20 @@
     "pricing": "Priser",
     "contact": "Kontakt"
   },
+{
   "hero": {
     "title": "Snabba Hemsidor för Lokala Företag",
     "subtitle": "Få en professionell hemsida med bokningssystem på 3–4 dagar. Ingen krångel, ingen teknisk kunskap krävs.",
     "ctaPrimary": "Skaffa Din Hemsida",
-    "ctaSecondary": "Visa Portfolio"
-  },
+    "ctaSecondary": "Visa Portfolio",
+    "mapsHighlight": {
+      "line1Bold": "Google Maps",
+      "line1Rest": "hjälper kunder att hitta dig.",
+      "line2Bold": "En hemsida",
+      "line2Rest": "hjälper kunder att välja dig."
+    }
+  }
+},
   "services": {
     "title": "Vad Vi Erbjuder",
     "subtitle": "Allt du behöver för att etablera en professionell online-närvaro",

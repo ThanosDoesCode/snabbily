@@ -5,12 +5,20 @@
     "pricing": "Pricing",
     "contact": "Contact"
   },
+  {
   "hero": {
-    "title": "Fast Websites for Local Businesses",
-    "subtitle": "Get a professional, booking-ready website in 3–4 days. No hassle, no technical knowledge required.",
-    "ctaPrimary": "Get Your Website",
-    "ctaSecondary": "View Portfolio"
-  },
+    "title": "...",
+    "subtitle": "...",
+    "ctaPrimary": "...",
+    "ctaSecondary": "...",
+    "mapsHighlight": {
+      "line1Bold": "Google Maps",
+      "line1Rest": "helps customers find you.",
+      "line2Bold": "A website",
+      "line2Rest": "helps customers choose you."
+    }
+  }
+},
   "services": {
     "title": "What We Offer",
     "subtitle": "Everything you need to establish a professional online presence",
