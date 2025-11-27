@@ -228,7 +228,13 @@
       { "name": "Gilded Rose", "type": "Flower Shop" },
       { "name": "Glow Studio", "type": "Beauty Salon" }
     ],
-    "viewLive": "View Live"
+    "viewLive": "View Live",
+    "badgeLiveClient": "Live Client · Case Study",
+    "badgeInteractiveDemo": "Interactive Demo",
+    "demosTitle": "Interactive Demos",
+    "viewLiveSite": "View Live Site",
+    "viewDemo": "View Demo",
+    "useTemplate": "Use Template"
   },
   "faq": {
     "title": "Frequently Asked Questions",

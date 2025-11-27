@@ -51,7 +51,6 @@ const FAQ = ({ className }: FAQProps) => {
   return (
     <section className={cn("py-40 bg-background", className)} id="faq">
       <div className="container mx-auto px-6">
-        {/* key={language} makes the section re-animate when language changes */}
         <div className="text-center mb-20 animate-fade-in" key={language}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("faq.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("faq.subtitle")}</p>

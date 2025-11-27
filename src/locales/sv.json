@@ -210,7 +210,13 @@
       { "name": "Gilded Rose", "type": "Blomsteraffär" },
       { "name": "Glow Studio", "type": "Skönhetssalong" }
     ],
-    "viewLive": "Visa Live"
+    "viewLive": "Visa Live",
+    "badgeLiveClient": "Live-kund · Fallstudie",
+    "badgeInteractiveDemo": "Interaktiv demo",
+    "demosTitle": "Interaktiva Demon",
+    "viewLiveSite": "Visa live-sida",
+    "viewDemo": "Visa demo",
+    "useTemplate": "Använd mall"
   },
   "faq": {
     "title": "Vanliga Frågor",
