@@ -10,13 +10,6 @@ interface ServicesProps {
 
 const Services = ({ className }: ServicesProps) => {
   const { t } = useLanguage();
-  
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const services = [
     {
@@ -31,7 +24,7 @@ const Services = ({ className }: ServicesProps) => {
         t("services.creation.features.4"),
         t("services.creation.features.5"),
         t("services.creation.features.6"),
-      ]
+      ],
     },
     {
       icon: RefreshCw,
@@ -44,7 +37,7 @@ const Services = ({ className }: ServicesProps) => {
         t("services.maintenance.features.3"),
         t("services.maintenance.features.4"),
         t("services.maintenance.features.5"),
-      ]
+      ],
     },
     {
       icon: Plus,
@@ -57,19 +50,20 @@ const Services = ({ className }: ServicesProps) => {
         t("services.addons.features.3"),
         t("services.addons.features.4"),
         t("services.addons.features.5"),
-      ]
-    }
+      ],
+    },
   ];
 
   return (
     <section className={cn("py-40 bg-background", className)} id="services">
       <div className="container mx-auto px-6 py-[120px]">
+        {/* Section header */}
         <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("services.title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t("services.subtitle")}
-          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("services.subtitle")}</p>
         </div>
+
+        {/* Service cards */}
         <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <Card
@@ -79,7 +73,10 @@ const Services = ({ className }: ServicesProps) => {
             >
               <CardHeader className="pb-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                  <service.icon className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform duration-300" strokeWidth={2} />
+                  <service.icon
+                    className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform duration-300"
+                    strokeWidth={2}
+                  />
                 </div>
                 <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
                   {service.title}
@@ -89,7 +86,11 @@ const Services = ({ className }: ServicesProps) => {
               <CardContent className="pt-0">
                 <ul className="space-y-3">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-base group-hover:translate-x-1 transition-transform duration-300" style={{ transitionDelay: `${idx * 0.05}s` }}>
+                    <li
+                      key={idx}
+                      className="flex items-start gap-2.5 text-base group-hover:translate-x-1 transition-transform duration-300"
+                      style={{ transitionDelay: `${idx * 0.05}s` }}
+                    >
                       <span className="text-primary mt-0.5 font-semibold">✓</span>
                       <span className="text-muted-foreground leading-relaxed">{feature}</span>
                     </li>
@@ -100,13 +101,20 @@ const Services = ({ className }: ServicesProps) => {
           ))}
         </div>
 
-        <div className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]" style={{ animationDelay: "0.6s" }}>
-          <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden">
+        {/* CTA button */}
+        <div
+          className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]"
+          style={{ animationDelay: "0.6s" }}
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden"
+          >
             <span className="relative z-10 flex items-center gap-2">
               {t("services.cta")}
               <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
           </a>
         </div>
       </div>
