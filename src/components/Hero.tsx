@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-const Hero = () => {
+import { cn } from "@/lib/utils";
+
+interface HeroProps {
+  className?: string;
+}
+
+const Hero = ({ className }: HeroProps) => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -9,7 +15,7 @@ const Hero = () => {
       });
     }
   };
-  return <section className="relative min-h-[85vh] sm:min-h-screen flex items-start justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28">
+  return <section className={cn("relative min-h-[85vh] sm:min-h-screen flex items-start justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28", className)}>
       <div className="container mx-auto px-4 sm:px-6 py-0 sm:py-2 md:py-4 relative z-10">
         <div className="max-w-5xl mx-auto text-center py-0">
           {/* Main Headline */}
