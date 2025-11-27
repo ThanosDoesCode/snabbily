@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageToggle from "./LanguageToggle";
 
 const Navbar = () => {
+  const { t } = useLanguage();
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -44,7 +47,7 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            Snabbily
+            {t("navbar.brand")}
           </button>
 
           {/* Desktop Navigation */}
@@ -55,7 +58,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("portfolio")}
               className="hidden md:inline-flex"
             >
-              Portfolio
+              {t("navbar.portfolio")}
             </Button>
             <Button
               variant="ghost"
@@ -63,7 +66,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("pricing")}
               className="hidden md:inline-flex"
             >
-              Pricing
+              {t("navbar.pricing")}
             </Button>
             <Button
               variant="ghost"
@@ -71,8 +74,11 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="hidden md:inline-flex"
             >
-              Contact
+              {t("navbar.contact")}
             </Button>
+            <div className="hidden md:block">
+              <LanguageToggle />
+            </div>
             <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -98,7 +104,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("portfolio")}
               className="w-full justify-start"
             >
-              Portfolio
+              {t("navbar.portfolio")}
             </Button>
             <Button
               variant="ghost"
@@ -106,7 +112,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("pricing")}
               className="w-full justify-start"
             >
-              Pricing
+              {t("navbar.pricing")}
             </Button>
             <Button
               variant="ghost"
@@ -114,8 +120,11 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="w-full justify-start"
             >
-              Contact
+              {t("navbar.contact")}
             </Button>
+            <div className="mt-2">
+              <LanguageToggle />
+            </div>
           </div>
         )}
       </div>
