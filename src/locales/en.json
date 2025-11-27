@@ -53,33 +53,6 @@
       ]
     }
   },
-  "why": {
-    "title": "Why You Still Need a Website",
-    "subtitle": "Even with Google Maps and booking platforms, your website is your digital storefront.",
-    "reasons": [
-      {
-        "title": "Professional Presentation",
-        "description": "Showcase your services, prices, photos, and brand identity in one beautiful place."
-      },
-      {
-        "title": "Trust & Credibility",
-        "description": "A professional website signals legitimacy and builds customer confidence before they book."
-      },
-      {
-        "title": "A Single Clean Link",
-        "description": "Share one link across all platforms instead of juggling multiple social media profiles."
-      },
-      {
-        "title": "Higher Conversion",
-        "description": "Present your business professionally before customers reach the booking stage."
-      }
-    ],
-    "highlight": {
-      "title": "Your website isn't about heavy SEO",
-      "subtitle": "It's about looking trustworthy when customers find you anywhere."
-    }
-  }
-},
   "booking": {
     "title": "Booking Integration",
     "subtitle": "We integrate your existing booking system for free — no new platform to learn, no extra subscriptions",
@@ -285,7 +258,7 @@
       },
       {
         "question": "What if I don't have a domain or already have one?",
-        "answer": "If you don't have a domain, we can help you register one (typically 100-200 SEK/year). If you already have a domain, perfect! We'll connect your new website to it. Either way, We'll guide you through the process."
+        "answer": "If you don't have a domain, we can help you register one (typically 100-200 SEK/year). If you already have a domain, perfect! We'll connect your new website to it. Either way, we'll guide you through the process."
       },
       {
         "question": "What happens after the website is live?",
@@ -325,5 +298,29 @@
     "portfolio": "Portfolio",
     "faq": "FAQ",
     "contact": "Contact"
+  },
+  "why": {
+    "title": "Why You Still Need a Website",
+    "subtitle": "Even with Google Maps and booking platforms, your website is your digital storefront",
+    "reasons": [
+      {
+        "title": "Professional Presentation",
+        "description": "Showcase your services, prices, photos, and brand identity in one beautiful place."
+      },
+      {
+        "title": "Trust & Credibility",
+        "description": "A professional website signals legitimacy and builds customer confidence before they book."
+      },
+      {
+        "title": "A Single Clean Link",
+        "description": "Share one link across all platforms instead of juggling multiple social profiles and booking links."
+      },
+      {
+        "title": "Higher Conversion",
+        "description": "Present your business professionally before customers reach the booking stage."
+      }
+    ],
+    "highlightTitle": "Your website isn’t about heavy SEO",
+    "highlightBody": "It’s about looking trustworthy when customers find you — whether that’s via Maps, social media, or word of mouth."
   }
 }
