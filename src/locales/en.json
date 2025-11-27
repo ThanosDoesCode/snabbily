@@ -88,7 +88,7 @@
     "footer": "No hidden fees. Simple and transparent pricing.",
     "starter": {
       "name": "Starter Website",
-      "price": "2,490",
+      "price": "249",
       "description": "Perfect for a new business getting online",
       "tagline": "A clean, professional website to establish your online presence.",
       "features": [
@@ -103,12 +103,12 @@
     },
     "advanced": {
       "name": "Advanced Website",
-      "originalPrice": "4,990",
-      "price": "2,990",
+      "originalPrice": "499",
+      "price": "299",
       "description": "Complete solution with booking and analytics",
       "tagline": "Everything you need to run your business online efficiently.",
       "launchOffer": "🎉 LAUNCH OFFER",
-      "savings": "Save 2,000 SEK",
+      "savings": "Save 200",
       "features": [
         "Up to 6 pages",
         "Standard template",
@@ -141,8 +141,8 @@
     "maintenance": {
       "title": "Maintenance",
       "description": "Ongoing care for your website",
-      "price": "399",
-      "period": "SEK/month",
+      "price": "39",
+      "period": "USD/month",
       "badge": "ONGOING SUPPORT",
       "features": [
         "Reliable hosting",
@@ -155,7 +155,7 @@
     "mostPopular": "Most Popular",
     "getStarted": "Get Started",
     "requestQuote": "Request Quote",
-    "sek": "SEK"
+    "sek": "USD"
   },
   "process": {
     "badge": "STREAMLINED WORKFLOW",
