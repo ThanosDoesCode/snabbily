@@ -78,10 +78,8 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]" />
             <CardContent className="py-6 px-6 md:py-8 md:px-8 relative z-10">
               <p className="text-base md:text-lg text-center font-medium leading-relaxed">
-                <span className="text-primary font-semibold text-lg md:text-xl block mb-2">
-                  {t("why.highlight.title")}
-                </span>
-                <span className="text-foreground text-sm md:text-base">{t("why.highlight.subtitle")}</span>
+                <span className="text-primary font-semibold text-lg md:text-xl block mb-2">{t("highlightTitle")}</span>
+                <span className="text-foreground text-sm md:text-base">{t("highlightBody")}</span>
               </p>
             </CardContent>
           </Card>
