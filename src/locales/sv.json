@@ -53,33 +53,6 @@
       ]
     }
   },
-  "why": {
-    "title": "Varför du fortfarande behöver en hemsida",
-    "subtitle": "Även med Google Maps och bokningsplattformar är din hemsida din digitala butik.",
-    "reasons": [
-      {
-        "title": "Professionell Presentation",
-        "description": "Visa upp dina tjänster, priser, foton och varumärkesidentitet på ett och samma snygga ställe."
-      },
-      {
-        "title": "Tillit & Trovärdighet",
-        "description": "En professionell hemsida signalerar seriositet och bygger förtroende innan kunden bokar."
-      },
-      {
-        "title": "En Ren Länk",
-        "description": "Dela en enda länk över alla plattformar istället för att jonglera flera sociala profiler."
-      },
-      {
-        "title": "Högre Konvertering",
-        "description": "Presentera ditt företag professionellt innan kunden når själva bokningssteget."
-      }
-    ],
-    "highlight": {
-      "title": "Din hemsida handlar inte om tung SEO",
-      "subtitle": "Den handlar om att se pålitlig ut när kunder hittar dig – var som helst."
-    }
-  }
-}, 
   "booking": {
     "title": "Bokningsintegration",
     "subtitle": "Vi integrerar ditt befintliga bokningssystem gratis — ingen ny plattform att lära sig, inga extra abonnemang",
@@ -325,5 +298,29 @@
     "portfolio": "Portfolio",
     "faq": "Vanliga Frågor",
     "contact": "Kontakt"
+  },
+  "why": {
+    "title": "Varför du fortfarande behöver en hemsida",
+    "subtitle": "Även med Google Maps och bokningsplattformar är hemsidan din digitala butik",
+    "reasons": [
+      {
+        "title": "Professionell presentation",
+        "description": "Visa upp dina tjänster, priser, bilder och ditt varumärke på ett snyggt och samlat ställe."
+      },
+      {
+        "title": "Förtroende och trovärdighet",
+        "description": "En professionell hemsida signalerar seriositet och skapar trygghet innan kunden bokar."
+      },
+      {
+        "title": "En enda ren länk",
+        "description": "Dela en länk överallt istället för att jonglera flera sociala profiler och bokningssidor."
+      },
+      {
+        "title": "Högre konvertering",
+        "description": "Presentera verksamheten proffsigt innan kunden når bokningssteget."
+      }
+    ],
+    "highlightTitle": "Din hemsida handlar inte om tung SEO",
+    "highlightBody": "Den handlar om att du ser trovärdig ut när kunderna hittar dig — oavsett om det är via Maps, sociala medier eller rekommendationer."
   }
 }
