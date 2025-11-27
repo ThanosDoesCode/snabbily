@@ -1,34 +1,37 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="py-12">
       <div className="container mx-auto px-6">
         <div className="text-center">
-          <h3 className="text-2xl font-bold mb-2">Fast Websites for Local Businesses</h3>
-          <p className="text-muted-foreground mb-6">Professional websites delivered in 3-4 days.</p>
+          <h3 className="text-2xl font-bold mb-2">{t("footer.title")}</h3>
+          <p className="text-muted-foreground mb-6">{t("footer.subtitle")}</p>
           <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
             <a href="#services" className="hover:text-primary transition-colors">
-              Services
+              {t("footer.services")}
             </a>
             <a href="#booking" className="hover:text-primary transition-colors">
-              Booking Integration
+              {t("footer.booking")}
             </a>
             <a href="#pricing" className="hover:text-primary transition-colors">
-              Pricing
+              {t("footer.pricing")}
             </a>
             <a href="#portfolio" className="hover:text-primary transition-colors">
-              Portfolio
+              {t("footer.portfolio")}
             </a>
             <a href="#faq" className="hover:text-primary transition-colors">
-              FAQ
+              {t("footer.faq")}
             </a>
             <a href="#contact" className="hover:text-primary transition-colors">
-              Contact
+              {t("footer.contact")}
             </a>
           </div>
           <div className="border-t border-border pt-6">
-            <p className="text-muted-foreground text-sm">© {currentYear} Snabbily. All rights reserved.</p>
+            <p className="text-muted-foreground text-sm">© {currentYear} {t("footer.copyright")}</p>
           </div>
         </div>
       </div>

@@ -1,0 +1,302 @@
+{
+  "navbar": {
+    "brand": "Snabbily",
+    "portfolio": "Portfolio",
+    "pricing": "Priser",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Snabba Hemsidor för Lokala Företag",
+    "subtitle": "Få en professionell hemsida med bokningssystem på 3-4 dagar. Ingen krångel, ingen teknisk kunskap krävs.",
+    "ctaPrimary": "Skaffa Din Hemsida",
+    "ctaSecondary": "Visa Portfolio"
+  },
+  "services": {
+    "title": "Vad Vi Erbjuder",
+    "subtitle": "Allt du behöver för att etablera en professionell online-närvaro",
+    "cta": "Skaffa Din Hemsida Idag",
+    "creation": {
+      "title": "Hemsida Skapande",
+      "description": "Du skickar grunderna — Vi sköter resten.",
+      "features": [
+        "Modern, AI-assisterad design",
+        "1–6 sidor ingår",
+        "Mobil-först & responsiv",
+        "Bokningsintegration (vilken plattform som helst eller enkelt formulär)",
+        "SEO-optimering",
+        "Google Business-inställning",
+        "Levereras på 3–4 dagar"
+      ]
+    },
+    "maintenance": {
+      "title": "Månadsvis Underhåll",
+      "description": "Kontinuerlig support och sinnesfrid",
+      "features": [
+        "Pålitlig hosting ingår",
+        "Säkerhets- och mjukvaruuppdateringar",
+        "Support för bokningssystem",
+        "Upp till 3 ändringar per månad",
+        "Kontinuerlig teknisk support",
+        "AI-konsult baserad på din hemsida"
+      ]
+    },
+    "addons": {
+      "title": "Tillägg",
+      "description": "Förbättra din hemsida ytterligare",
+      "features": [
+        "Ytterligare sidor",
+        "Professionell fotoredigering",
+        "Anpassade landningssidor",
+        "Innehållsskrivarservice",
+        "Anpassade varumärkeselement",
+        "Avancerade integrationer"
+      ]
+    }
+  },
+  "booking": {
+    "title": "Bokningsintegration",
+    "subtitle": "Vi integrerar ditt befintliga bokningssystem gratis — ingen ny plattform att lära sig, inga extra abonnemang",
+    "existing": {
+      "title": "Använd Ditt Nuvarande Bokningssystem",
+      "description": "Använder du redan Bokadirekt, Calendly, Fresha eller en annan plattform? Perfekt! Vi integrerar det direkt i din hemsida utan extra kostnad.",
+      "benefit1": "Behåll ditt befintliga arbetsflöde",
+      "benefit2": "Gratis integration",
+      "benefit3": "Ingen inlärningskurva"
+    },
+    "simple": {
+      "title": "Eller Lägg Till Enkla Bokningsalternativ",
+      "call": {
+        "name": "Klicka-för-att-Ringa",
+        "description": "Ring för att boka tid"
+      },
+      "email": {
+        "name": "E-postformulär",
+        "description": "Gratis bokningsformulär"
+      },
+      "noCost": "Ingen extra kostnad"
+    }
+  },
+  "pricing": {
+    "title": "Enkel, Transparent Prissättning",
+    "subtitle": "Inga dolda avgifter, inga överraskningar.",
+    "footer": "Inga dolda avgifter. Enkel och transparent prissättning.",
+    "starter": {
+      "name": "Starthemsida",
+      "price": "2 490",
+      "description": "Perfekt för nya företag som ska online",
+      "tagline": "En ren, professionell hemsida för att etablera din online-närvaro.",
+      "features": [
+        "Upp till 3 sidor",
+        "Standardmall",
+        "Ingen bokningsintegration",
+        "Grundläggande SEO",
+        "Mobil-först design",
+        "Enkelt galleri",
+        "3–4 dagars leverans"
+      ]
+    },
+    "advanced": {
+      "name": "Avancerad Hemsida",
+      "originalPrice": "4 990",
+      "price": "2 990",
+      "description": "Komplett lösning med bokning och analys",
+      "tagline": "Allt du behöver för att driva ditt företag online effektivt.",
+      "launchOffer": "🎉 LANSERINGSERBJUDANDE",
+      "savings": "Spara 2 000 SEK",
+      "features": [
+        "Upp till 6 sidor",
+        "Standardmall",
+        "Bokningsintegration",
+        "Förbättrad SEO",
+        "Mobil-först design",
+        "Förbättrat galleri",
+        "Analysrapport",
+        "Gratis 2 månaders underhåll",
+        "1–2 veckors leverans"
+      ]
+    },
+    "custom": {
+      "name": "Anpassad Hemsida",
+      "price": "På Förfrågan",
+      "priceSubtitle": "Anpassad offert baserad på dina behov",
+      "description": "Helt skräddarsydd lösning byggd för din vision",
+      "tagline": "Låt oss bygga något extraordinärt tillsammans.",
+      "features": [
+        "Obegränsade sidor",
+        "Anpassad design & varumärke",
+        "Avancerade integrationer",
+        "Anpassade funktioner",
+        "Premium SEO-strategi",
+        "Professionell fotografering",
+        "Dedikerad support",
+        "Tidslinje baserad på omfattning"
+      ]
+    },
+    "maintenance": {
+      "title": "Underhåll",
+      "description": "Kontinuerlig vård för din hemsida",
+      "price": "399",
+      "period": "SEK/månad",
+      "badge": "KONTINUERLIG SUPPORT",
+      "features": [
+        "Pålitlig hosting",
+        "Säkerhetsuppdateringar",
+        "Support för bokningssystem",
+        "Upp till 3 ändringar per månad",
+        "AI-konsult baserad på din hemsida"
+      ]
+    },
+    "mostPopular": "Mest Populär",
+    "getStarted": "Kom Igång",
+    "requestQuote": "Begär Offert",
+    "sek": "SEK"
+  },
+  "process": {
+    "badge": "STRÖMLINJEFORMAT ARBETSFLÖDE",
+    "title": "Vår Enkla Process",
+    "subtitle": "Från första kontakt till live hemsida på bara några dagar",
+    "description": "Du skickar bara dina foton och grundläggande detaljer. Vi bygger allt annat.",
+    "cta": "Redo att börja din resa?",
+    "steps": [
+      {
+        "title": "Ring eller Meddelande",
+        "description": "Vi diskuterar ditt företag och vad du behöver"
+      },
+      {
+        "title": "Samla Information",
+        "description": "Vi samlar in ditt innehåll, foton och bokningspreferenser"
+      },
+      {
+        "title": "Bygg Demo",
+        "description": "Vi skapar en demoversion för din granskning"
+      },
+      {
+        "title": "Revidering",
+        "description": "Du ger feedback och vi gör justeringar"
+      },
+      {
+        "title": "Bygg Hemsida",
+        "description": "Vi färdigställer din professionella hemsida"
+      },
+      {
+        "title": "Leverera eller Live",
+        "description": "Din hemsida går live och är redo för kunder"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Våra Senaste Projekt",
+    "subtitle": "Riktiga hemsidor byggda för riktiga företag — på bara några dagar",
+    "cta": "Redo Att Skaffa Din Hemsida?",
+    "items": [
+      {
+        "name": "Barber Pro",
+        "type": "Barber Shop"
+      },
+      {
+        "name": "Classic Cuts",
+        "type": "Barber Shop"
+      },
+      {
+        "name": "Master Cuts",
+        "type": "Barber Shop"
+      },
+      {
+        "name": "Frisörportfölj",
+        "type": "Portfolio"
+      },
+      {
+        "name": "Barber Pole",
+        "type": "Barber Shop"
+      },
+      {
+        "name": "Fade Flow",
+        "type": "Barber Shop"
+      },
+      {
+        "name": "Gilded Rose",
+        "type": "Blomsteraffär"
+      },
+      {
+        "name": "Glow Studio",
+        "type": "Skönhetssalong"
+      }
+    ],
+    "viewLive": "Visa Live"
+  },
+  "faq": {
+    "title": "Vanliga Frågor",
+    "subtitle": "Vanliga frågor om hemsidor för lokala företag",
+    "questions": [
+      {
+        "question": "Vi syns redan på Google Maps — varför behöva en hemsida?",
+        "answer": "Google Maps visar var du är. En hemsida visar vem du är. Den presenterar dina tjänster, priser, foton och varumärke professionellt. Kunder är mer benägna att välja ett företag med en hemsida över ett utan."
+      },
+      {
+        "question": "Vi använder redan Bokadirekt — varför lägga till en hemsida?",
+        "answer": "Bokningsplattformar är bra för schemaläggning, men de presenterar inte ditt företag. En hemsida ökar förtroendet, visar ditt arbete, förklarar dina tjänster och gör kunderna mer säkra innan de bokar. Se det som din digitala butik."
+      },
+      {
+        "question": "Är detta SEO-tungt?",
+        "answer": "Nej — det är presentationsfokuserat. Även om vi inkluderar grundläggande SEO, är huvudmålet inte att ranka #1 på Google för varje sökning. Det är att se professionell och pålitlig ut när kunder hittar dig genom vilken kanal som helst — Maps, sociala medier, mun-till-mun eller sökning."
+      },
+      {
+        "question": "Hur snabb är leveransen?",
+        "answer": "De flesta hemsidor levereras inom 3-4 dagar. Enklare sidor (upp till 3 sidor) tar vanligtvis 4 dagar, medan mer komplexa sidor (upp till 6 sidor med anpassad varumärkesprofilering) kan ta upp till 2 veckor. Jag ger dig en exakt tidslinje efter att vi diskuterat dina behov."
+      },
+      {
+        "question": "Behöver jag ny programvara eller abonnemang?",
+        "answer": "Nej. Vi integrerar bokningsmetoden du redan använder — Bokadirekt, Calendly, samtal eller ett enkelt formulär."
+      },
+      {
+        "question": "Vad händer om jag inte har professionella foton?",
+        "answer": "Inga problem! Vi kan arbeta med smartphonefoton och erbjuda professionell fotoredigering som tilläggstjänst. Bra foton hjälper, men de krävs inte för att komma igång."
+      },
+      {
+        "question": "Kan jag uppdatera hemsidan själv senare?",
+        "answer": "Ja! Med det valfria underhållsabonnemanget kan vi hjälpa dig med uppdateringar. Eller så kan vi visa dig hur du gör enkla ändringar själv. Valet är ditt."
+      },
+      {
+        "question": "Vad händer om jag inte har en domän eller redan har en?",
+        "answer": "Om du inte har en domän kan vi hjälpa dig att registrera en (vanligtvis 100-200 SEK/år). Om du redan har en domän, perfekt! Vi kopplar din nya hemsida till den. Hur som helst guidar vi dig genom processen."
+      },
+      {
+        "question": "Vad händer efter att hemsidan är live?",
+        "answer": "Din hemsida är din! Du kan välja det valfria månatliga underhållsplanen för hosting, uppdateringar och support, eller hantera den själv. Vi är här för att hjälpa till hur som helst."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Skaffa Din Hemsida",
+    "subtitle": "Redo att etablera din professionella online-närvaro? Låt oss prata!",
+    "responseTime": "Vi svarar vanligtvis inom 3-5 timmar under arbetsdagar.",
+    "email": {
+      "title": "E-post",
+      "cta": "Skicka ett e-postmeddelande →"
+    },
+    "phone": {
+      "title": "Telefon",
+      "cta": "Ring nu →",
+      "show": "Visa telefonnummer",
+      "hide": "Dölj telefonnummer"
+    },
+    "tiktok": {
+      "title": "TikTok",
+      "description": "Se korta webbtips",
+      "cta": "Följ på TikTok →"
+    },
+    "fastResponse": "Snabb Svarstid:",
+    "fastResponseText": "Vi svarar vanligtvis inom 3–5 timmar under arbetsdagar."
+  },
+  "footer": {
+    "title": "Snabba Hemsidor för Lokala Företag",
+    "subtitle": "Professionella hemsidor levererade på 3-4 dagar.",
+    "copyright": "Snabbily. Alla rättigheter förbehållna.",
+    "services": "Tjänster",
+    "booking": "Bokningsintegration",
+    "pricing": "Priser",
+    "portfolio": "Portfolio",
+    "faq": "Vanliga Frågor",
+    "contact": "Kontakt"
+  }
+}

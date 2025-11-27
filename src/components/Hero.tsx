@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroProps {
   className?: string;
 }
 
 const Hero = ({ className }: HeroProps) => {
+  const { t } = useLanguage();
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -20,26 +22,22 @@ const Hero = ({ className }: HeroProps) => {
         <div className="max-w-5xl mx-auto text-center py-0">
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
-            Fast, Affordable Websites for Local Businesses
-            <span className="block mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-5xl bg-gradient-primary bg-clip-text text-transparent opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.5s_forwards]">
-              Delivered in 3-4 Days
-            </span>
+            {t("hero.title")}
           </h1>
 
           {/* Subheadline */}
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed opacity-0 animate-[fadeIn_0.8s_ease-out_0.8s_forwards] px-4">
-            Get a professional website in Swedish and English under 3000SEK with an existing or new booking method
-            integrated.
+            {t("hero.subtitle")}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5 sm:mb-8 md:mb-10 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
             <Button size="lg" onClick={() => scrollToSection("pricing")} className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto rounded-xl">
-              View Our Offers
+              {t("hero.ctaPrimary")}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
             <Button size="lg" variant="outline" onClick={() => scrollToSection("contact")} className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] border-2 hover:bg-primary/10 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto rounded-2xl border-border">
-              Get Your Website
+              {t("hero.ctaSecondary")}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </div>
