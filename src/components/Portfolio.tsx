@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import glowStudioDemo from "@/assets/glow-studio-demo.png";
 import barberProDemo from "@/assets/barber-pro-demo.png";
 import fadeFlowDemo from "@/assets/fade-flow-demo.png";
-import masterCutsDemo from "@/assets/master-cuts-demo.png";
+import alexandrosLiakosDemo from "@/assets/alexandros-liakos-demo.png";
 import classicCutsDemo from "@/assets/classic-cuts-demo.png";
 import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
 const projects = [
@@ -33,7 +33,7 @@ const projects = [
     url: "https://fade-flow-arts.lovable.app",
   },
   {
-    image: masterCutsDemo,
+    image: alexandrosLiakosDemo,
     title: "Hairstylist Portfolio",
     industry: "Men's Grooming",
     deliveryTime: "1 week",
