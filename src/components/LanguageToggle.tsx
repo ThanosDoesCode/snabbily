@@ -1,32 +1,43 @@
+// LanguageToggle.tsx
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
 
-const LanguageToggle = () => {
-  const { lang, setLang } = useLanguage();
+const languages = ["EN", "SV", "GR"] as const;
 
-  const languages = [
-    { code: "en" as const, label: "EN" },
-    { code: "sv" as const, label: "SV" },
-    { code: "el" as const, label: "GR" },
-  ];
+export function LanguageToggle() {
+  const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="flex items-center gap-1 border border-border rounded-lg p-1">
-      {languages.map((language) => (
-        <Button
-          key={language.code}
-          variant={lang === language.code ? "default" : "ghost"}
-          size="sm"
-          onClick={() => setLang(language.code)}
-          className={`px-3 py-1 text-xs font-semibold transition-all ${
-            lang === language.code ? "bg-primary text-primary-foreground" : "hover:bg-muted"
-          }`}
-        >
-          {language.label}
-        </Button>
-      ))}
+    <div
+      className="
+        inline-flex items-center gap-1
+        rounded-full border border-slate-200
+        bg-slate-50/80 px-1 py-1
+        shadow-sm backdrop-blur
+        overflow-hidden              /* <– keeps border clean on mobile */
+        text-xs sm:text-sm
+      "
+    >
+      {languages.map((code) => {
+        const isActive = language === code.toLowerCase();
+
+        return (
+          <button
+            key={code}
+            type="button"
+            onClick={() => setLanguage(code.toLowerCase())}
+            className={`
+              px-3 sm:px-4 py-1
+              font-semibold
+              transition-all duration-200
+              rounded-full
+              whitespace-nowrap
+              ${isActive ? "bg-blue-600 text-white shadow-sm" : "bg-transparent text-slate-700 hover:bg-slate-100"}
+            `}
+          >
+            {code}
+          </button>
+        );
+      })}
     </div>
   );
-};
-
-export default LanguageToggle;
+}
