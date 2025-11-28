@@ -7,7 +7,7 @@ const LanguageToggle = () => {
   const languages = [
     { code: "en" as const, label: "EN" },
     { code: "sv" as const, label: "SV" },
-    { code: "el" as const, label: "EL" },
+    { code: "el" as const, label: "GR" },
   ];
 
   return (
@@ -19,9 +19,7 @@ const LanguageToggle = () => {
           size="sm"
           onClick={() => setLang(language.code)}
           className={`px-3 py-1 text-xs font-semibold transition-all ${
-            lang === language.code
-              ? "bg-primary text-primary-foreground"
-              : "hover:bg-muted"
+            lang === language.code ? "bg-primary text-primary-foreground" : "hover:bg-muted"
           }`}
         >
           {language.label}
