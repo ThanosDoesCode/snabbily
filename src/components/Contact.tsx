@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, Eye, EyeOff } from "lucide-react";
+import { Mail, Phone, Eye, EyeOff, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -32,9 +32,7 @@ const Contact = ({ className }: ContactProps) => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("contact.title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">
-            {t("contact.subtitle")}
-          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-2">{t("contact.subtitle")}</p>
           <p className="text-sm text-primary font-medium">{t("contact.responseTime")}</p>
         </div>
 
@@ -64,7 +62,10 @@ const Contact = ({ className }: ContactProps) => {
                   <div>
                     <h3 className="font-semibold text-base mb-1">{t("contact.email.title")}</h3>
                     <p className="text-muted-foreground text-sm">contact@example.se</p>
-                    <a href="mailto:contact@example.se" className="text-primary hover:underline text-sm mt-1 inline-block">
+                    <a
+                      href="mailto:contact@example.se"
+                      className="text-primary hover:underline text-sm mt-1 inline-block"
+                    >
                       {t("contact.email.cta")}
                     </a>
                   </div>
@@ -98,9 +99,32 @@ const Contact = ({ className }: ContactProps) => {
               </CardContent>
             </Card>
 
+            <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
+              <CardContent className="pt-6 pb-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
+                    <Linkedin className="h-5 w-5 text-primary-foreground" strokeWidth={2} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-base mb-1">{t("contact.linkedin.title")}</h3>
+                    <p className="text-muted-foreground text-sm">{t("contact.linkedin.subtitle")}</p>
+                    <a
+                      href="https://www.linkedin.com/company/your-company"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline text-sm mt-1 inline-block"
+                    >
+                      {t("contact.linkedin.cta")}
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             <div className="bg-muted/50 rounded-lg p-5 border border-border">
               <p className="text-sm text-muted-foreground leading-relaxed">
-                <span className="font-semibold text-foreground">{t("contact.fastResponse")}</span> {t("contact.fastResponseText")}
+                <span className="font-semibold text-foreground">{t("contact.fastResponse")}</span>{" "}
+                {t("contact.fastResponseText")}
               </p>
             </div>
           </div>
