@@ -274,10 +274,10 @@
       "show": "Visa telefonnummer",
       "hide": "Dölj telefonnummer"
     },
-    "tiktok": {
-      "title": "TikTok",
-      "description": "Se korta webbtips",
-      "cta": "Följ på TikTok →"
+    "linkedin": {
+      "title": "Connecta på LinkedIn",
+      "subtitle": "Se mer om min bakgrund, erfarenhet och senaste projekt.",
+      "cta": "Öppna min LinkedIn-profil →"
     },
     "fastResponse": "Snabb Svarstid:",
     "fastResponseText": "Vi svarar vanligtvis inom 3–5 timmar under arbetsdagar."
