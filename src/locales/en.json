@@ -108,7 +108,7 @@
       "description": "Complete solution with booking and analytics",
       "tagline": "Everything you need to run your business online efficiently.",
       "launchOffer": "🎉 LAUNCH OFFER",
-      "savings": "Save 200 USD",
+      "savings": "Save 200 EURO",
       "features": [
         "Up to 6 pages",
         "Standard template",
@@ -155,7 +155,7 @@
     "mostPopular": "Most Popular",
     "getStarted": "Get Started",
     "requestQuote": "Request Quote",
-    "sek": "USD"
+    "sek": "EURO"
   },
   "process": {
     "badge": "STREAMLINED WORKFLOW",
