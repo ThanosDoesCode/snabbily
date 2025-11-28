@@ -11,7 +11,7 @@ const LanguageToggle = () => {
   ];
 
   return (
-    <div className="flex items-center gap-1 border border-border rounded-lg p-1">
+    <div className="inline-flex items-center gap-1 border border-border rounded-lg p-1 w-fit">
       {languages.map((language) => (
         <Button
           key={language.code}
