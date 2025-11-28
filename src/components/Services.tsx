@@ -64,9 +64,9 @@ const Services = ({
         </div>
 
         {/* CTA button */}
-        <div className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards]" style={{
+        <div style={{
         animationDelay: "0.6s"
-      }}>
+      }} className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] py-0 pb-[45px]">
           <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden">
             <span className="relative z-10 flex items-center gap-2">
               {t("services.cta")}
