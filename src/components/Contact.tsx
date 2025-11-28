@@ -61,7 +61,7 @@ const Contact = ({ className }: ContactProps) => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-base mb-1">{t("contact.email.title")}</h3>
-                    <p className="text-muted-foreground text-sm">contact@example.se</p>
+                    <p className="text-muted-foreground text-sm">snabbily@gmail.com</p>
                     <a
                       href="mailto:contact@example.se"
                       className="text-primary hover:underline text-sm mt-1 inline-block"
