@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, Eye, EyeOff, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,11 +18,38 @@ interface ContactProps {
 const Contact = ({ className }: ContactProps) => {
   const { t } = useLanguage();
   const [showFullNumber, setShowFullNumber] = useState(false);
+  const [calLoaded, setCalLoaded] = useState(false);
+  const calContainerRef = useRef<HTMLDivElement | null>(null);
 
+  // Lazy-load Cal.com when the calendar card enters the viewport
   useEffect(() => {
-    // Cal.com inline embed initialization
+    if (!calContainerRef.current || calLoaded) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          loadCalInline();
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(calContainerRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [calLoaded]);
+
+  const loadCalInline = () => {
+    if (typeof window === "undefined") return;
+    if (calLoaded) return;
+
     (function (C, A, L) {
-      let p = function (a, ar) {
+      let p = function (a: any, ar: any) {
         a.q.push(ar);
       };
       let d = C.document;
@@ -38,7 +65,7 @@ const Contact = ({ className }: ContactProps) => {
             cal.loaded = true;
           }
           if (ar[0] === L) {
-            const api = function () {
+            const api: any = function () {
               p(api, arguments);
             };
             const namespace = ar[1];
@@ -52,16 +79,22 @@ const Contact = ({ className }: ContactProps) => {
           }
           p(cal, ar);
         };
-    })(window, "https://app.cal.com/embed/embed.js", "init");
+    })(window as any, "https://app.cal.com/embed/embed.js", "init");
 
     window.Cal("init", "30min", { origin: "https://app.cal.com" });
     window.Cal.ns["30min"]("inline", {
       elementOrSelector: "#my-cal-inline-30min",
       config: { layout: "month_view", theme: "light" },
-      calLink: "snabbily.com/30min",
+      calLink: "snabbily.com/30min", // your existing Cal link
     });
-    window.Cal.ns["30min"]("ui", { theme: "light", hideEventTypeDetails: false, layout: "month_view" });
-  }, []);
+    window.Cal.ns["30min"]("ui", {
+      theme: "light",
+      hideEventTypeDetails: false,
+      layout: "month_view",
+    });
+
+    setCalLoaded(true);
+  };
 
   const phoneNumber = "+46 76 341 41 05";
   const maskedNumber = "+46 76 341 XX XX";
@@ -76,12 +109,24 @@ const Contact = ({ className }: ContactProps) => {
         </div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+          {/* Booking calendar */}
           <Card className="border border-border bg-card shadow-soft overflow-hidden">
             <CardContent className="p-0">
-              <div id="my-cal-inline-30min" style={{ width: "100%", height: "700px", overflow: "scroll" }} />
+              <div
+                id="my-cal-inline-30min"
+                ref={calContainerRef}
+                style={{ width: "100%", height: "700px", overflow: "scroll" }}
+              >
+                {!calLoaded && (
+                  <div className="w-full h-full flex items-center justify-center text-sm text-muted-foreground">
+                    {t("contact.loadingCalendar") ?? "Loading booking calendar..."}
+                  </div>
+                )}
+              </div>
             </CardContent>
           </Card>
 
+          {/* Contact cards */}
           <div className="space-y-6">
             <Card className="border border-border bg-card shadow-soft hover:border-primary/40 dark:hover:shadow-[var(--glow-card)] transition-all duration-300">
               <CardContent className="pt-6 pb-6">
