@@ -13,22 +13,35 @@ const Contact = ({ className }: ContactProps) => {
   const [showFullNumber, setShowFullNumber] = useState(false);
 
   useEffect(() => {
+    // Load Cal.com script
     const script = document.createElement("script");
     script.src = "https://app.cal.com/embed/embed.js";
     script.async = true;
-    document.body.appendChild(script);
 
     script.onload = () => {
-      if (window.Cal) {
-        window.Cal("init", "30min", { origin: "https://app.cal.com" });
-        window.Cal.ns["30min"]("inline", {
-          elementOrSelector: "#my-cal-inline-30min",
-          config: { layout: "month_view" },
-          calLink: "snabbily.com/30min",
-        });
-        window.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
-      }
+      // Initialize Cal after script loads
+      const initCal = () => {
+        if (typeof window.Cal !== "undefined") {
+          window.Cal("init", "30min", { origin: "https://app.cal.com" });
+          window.Cal.ns = window.Cal.ns || {};
+          window.Cal.ns["30min"] = window.Cal.ns["30min"] || (() => {});
+          window.Cal.ns["30min"]("inline", {
+            elementOrSelector: "#my-cal-inline-30min",
+            config: { layout: "month_view" },
+            calLink: "snabbily.com/30min",
+          });
+          window.Cal.ns["30min"]("ui", {
+            hideEventTypeDetails: false,
+            layout: "month_view",
+          });
+        }
+      };
+
+      // Small delay to ensure Cal is fully loaded
+      setTimeout(initCal, 100);
     };
+
+    document.body.appendChild(script);
 
     return () => {
       if (document.body.contains(script)) {
