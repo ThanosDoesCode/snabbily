@@ -141,8 +141,8 @@
     "maintenance": {
       "title": "Maintenance",
       "description": "Ongoing care for your website",
-      "price": "39",
-      "period": "EURO/month",
+      "price": "29",
+      "period": "EUR/month",
       "badge": "ONGOING SUPPORT",
       "features": [
         "Reliable hosting",
