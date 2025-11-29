@@ -5,9 +5,9 @@ const LanguageToggle = () => {
   const { lang, setLang } = useLanguage();
 
   const languages = [
-    { code: "en" as const, flag: "🇬🇧", label: "EN" },
-    { code: "sv" as const, flag: "🇸🇪", label: "SV" },
-    { code: "el" as const, flag: "🇬🇷", label: "GR" },
+    { code: "en" as const, flag: "🇬🇧" },
+    { code: "sv" as const, flag: "🇸🇪" },
+    { code: "el" as const, flag: "🇬🇷" },
   ];
 
   return (
