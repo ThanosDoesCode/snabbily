@@ -68,16 +68,27 @@ const Navbar = () => {
             <div className="hidden md:block">
               <LanguageToggle />
             </div>
-            <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
+
+            {/* Theme toggle button with accessible name */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={toggleTheme}
+              className="rounded-full"
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            >
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button with accessible name */}
             <Button
               variant="outline"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden rounded-full"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -86,7 +97,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2 animate-in slide-in-from-top duration-300">
+          <div id="mobile-menu" className="md:hidden mt-4 pb-4 space-y-2 animate-in slide-in-from-top duration-300">
             <Button
               variant="ghost"
               size="sm"
