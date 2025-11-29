@@ -5,9 +5,9 @@ const LanguageToggle = () => {
   const { lang, setLang } = useLanguage();
 
   const languages = [
-    { code: "en" as const, label: "EN" },
-    { code: "sv" as const, label: "SV" },
-    { code: "el" as const, label: "GR" },
+    { code: "en" as const, flag: "🇬🇧", label: "EN" },
+    { code: "sv" as const, flag: "🇸🇪", label: "SV" },
+    { code: "el" as const, flag: "🇬🇷", label: "GR" },
   ];
 
   return (
@@ -18,11 +18,12 @@ const LanguageToggle = () => {
           variant={lang === language.code ? "default" : "ghost"}
           size="sm"
           onClick={() => setLang(language.code)}
-          className={`px-3 py-1 text-xs font-semibold transition-all ${
+          className={`px-3 py-1 text-base transition-all ${
             lang === language.code ? "bg-primary text-primary-foreground" : "hover:bg-muted"
           }`}
+          title={language.label}
         >
-          {language.label}
+          {language.flag}
         </Button>
       ))}
     </div>
