@@ -47,13 +47,20 @@ const Contact = ({ className }: ContactProps) => {
         };
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    window.Cal("init", "30min", { origin: "https://app.cal.com" });
-    window.Cal.ns["30min"]("inline", {
-      elementOrSelector: "#my-cal-inline-30min",
-      config: { layout: "month_view" },
-      calLink: "snabbily.com/30min",
-    });
-    window.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    // Add a small delay to ensure the element exists
+    setTimeout(() => {
+      try {
+        window.Cal("init", "30min", { origin: "https://app.cal.com" });
+        window.Cal.ns["30min"]("inline", {
+          elementOrSelector: "#my-cal-inline-30min",
+          config: { layout: "month_view" },
+          calLink: "snabbily/30min",
+        });
+        window.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      } catch (error) {
+        console.error("Cal.com initialization error:", error);
+      }
+    }, 100);
   }, []);
 
   const phoneNumber = "+46 76 341 41 05";
