@@ -27,7 +27,7 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const navbarHeight = 80; // Adjust this value based on your navbar height
+      const navbarHeight = 80;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
@@ -35,7 +35,7 @@ const Navbar = () => {
         top: offsetPosition,
         behavior: "smooth",
       });
-      setIsMenuOpen(false); // Close menu after clicking
+      setIsMenuOpen(false);
     }
   };
 
@@ -50,32 +50,21 @@ const Navbar = () => {
             {t("navbar.brand")}
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("portfolio")}
-              className="hidden md:inline-flex"
-            >
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex items-center gap-4 absolute left-1/2 transform -translate-x-1/2">
+            <Button variant="ghost" size="sm" onClick={() => scrollToSection("portfolio")}>
               {t("navbar.portfolio")}
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("pricing")}
-              className="hidden md:inline-flex"
-            >
+            <Button variant="ghost" size="sm" onClick={() => scrollToSection("pricing")}>
               {t("navbar.pricing")}
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("contact")}
-              className="hidden md:inline-flex"
-            >
+            <Button variant="ghost" size="sm" onClick={() => scrollToSection("contact")}>
               {t("navbar.contact")}
             </Button>
+          </div>
+
+          {/* Right Side Controls */}
+          <div className="flex items-center gap-4">
             <div className="hidden md:block">
               <LanguageToggle />
             </div>
