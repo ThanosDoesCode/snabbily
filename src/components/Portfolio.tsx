@@ -123,8 +123,11 @@ const Portfolio = ({ className }: PortfolioProps) => {
             transform: translateY(0);
           }
         }
-        .fade-up {
-          animation: fadeUp 0.7s ease forwards;
+        /* Keep fade-up for desktop, avoid unnecessary work on small screens */
+        @media (min-width: 768px) {
+          .fade-up {
+            animation: fadeUp 0.7s ease forwards;
+          }
         }
       `}</style>
 
@@ -144,6 +147,9 @@ const Portfolio = ({ className }: PortfolioProps) => {
                   src={featuredProject.image}
                   alt={featuredProject.title}
                   className="w-full h-full object-cover img-zoom"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 768px) 50vw, 100vw"
                 />
               </div>
 
@@ -207,7 +213,14 @@ const Portfolio = ({ className }: PortfolioProps) => {
                     <div className="badge-corner bg-background/75 text-foreground border border-border">
                       {t("portfolio.badgeInteractiveDemo")}
                     </div>
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover img-zoom" />
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover img-zoom"
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    />
                   </div>
 
                   <div className="p-5 flex flex-col flex-grow">
