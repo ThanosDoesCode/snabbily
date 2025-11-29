@@ -229,24 +229,24 @@ const Pricing = ({ className }: PricingProps) => {
                 </div>
 
                 <div>
-                  <ul className="space-y-3 text-xs font-sans text-left">
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {maintenanceFeatures.slice(0, 4).map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
-                          <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
-                        </li>
-                      ))}
-                    </div>
+                  {/* FIXED LIST STRUCTURE */}
+                  <ul className="grid md:grid-cols-2 gap-3 text-xs font-sans text-left">
+                    {maintenanceFeatures.slice(0, 4).map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+                        <span className="text-base text-muted-foreground leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
 
-                    {/* Last feature styled as highlight */}
-                    <li className="flex items-start gap-3">
+                    {/* Last feature styled as highlight, still inside the same <ul> */}
+                    <li className="flex items-start gap-3 md:col-span-2">
                       <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" strokeWidth={2.5} />
                       <span className="text-base text-primary font-semibold leading-relaxed">
                         {maintenanceFeatures[4]}
                       </span>
                     </li>
                   </ul>
+
                   <div className="mt-6">
                     <Button
                       className="w-full md:w-auto px-8 text-base py-6 font-semibold relative overflow-hidden"
