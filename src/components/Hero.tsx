@@ -2,32 +2,27 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
-
 interface HeroProps {
   className?: string;
 }
-
-const Hero = ({ className }: HeroProps) => {
-  const { t } = useLanguage();
-
+const Hero = ({
+  className
+}: HeroProps) => {
+  const {
+    t
+  } = useLanguage();
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
-        behavior: "smooth",
+        behavior: "smooth"
       });
     }
   };
-
-  return (
-    <section
-      className={cn(
-        // Normal section height with comfortable padding
-        "relative flex items-start justify-center overflow-hidden py-16 sm:py-20 md:py-24",
-        className,
-      )}
-    >
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+  return <section className={cn(
+  // Normal section height with comfortable padding
+  "relative flex items-start justify-center overflow-hidden py-16 sm:py-20 md:py-24", className)}>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pb-[50px]">
         <div className="max-w-5xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
@@ -41,20 +36,11 @@ const Hero = ({ className }: HeroProps) => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-5 sm:mb-8 md:mb-10 opacity-0 animate-[fadeIn_0.8s_ease-out_1s_forwards] px-4">
-            <Button
-              size="lg"
-              onClick={() => scrollToSection("pricing")}
-              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto rounded-xl"
-            >
+            <Button size="lg" onClick={() => scrollToSection("pricing")} className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] bg-gradient-primary hover:opacity-90 hover:scale-[1.02] transition-all duration-300 font-semibold overflow-hidden relative w-full sm:w-auto rounded-xl">
               {t("hero.ctaPrimary")}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => scrollToSection("contact")}
-              className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] border-2 hover:bg-primary/10 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto rounded-2xl border-border"
-            >
+            <Button size="lg" variant="outline" onClick={() => scrollToSection("contact")} className="group text-base sm:text-lg px-8 sm:px-10 md:px-12 h-[56px] sm:h-[64px] border-2 hover:bg-primary/10 hover:scale-[1.02] transition-all duration-300 font-semibold w-full sm:w-auto rounded-2xl border-border">
               {t("hero.ctaSecondary")}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
@@ -96,8 +82,6 @@ const Hero = ({ className }: HeroProps) => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-green-500/5 rounded-full blur-3xl" />
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
