@@ -13,15 +13,47 @@ const Contact = ({ className }: ContactProps) => {
   const [showFullNumber, setShowFullNumber] = useState(false);
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
+    // Cal.com inline embed initialization
+    (function (C, A, L) {
+      let p = function (a, ar) {
+        a.q.push(ar);
+      };
+      let d = C.document;
+      C.Cal =
+        C.Cal ||
+        function () {
+          let cal = C.Cal;
+          let ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () {
+              p(api, arguments);
+            };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    window.Cal("init", "30min", { origin: "https://app.cal.com" });
+    window.Cal.ns["30min"]("inline", {
+      elementOrSelector: "#my-cal-inline-30min",
+      config: { layout: "month_view" },
+      calLink: "snabbily.com/30min",
+    });
+    window.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
   }, []);
 
   const phoneNumber = "+46 76 341 41 05";
@@ -38,17 +70,8 @@ const Contact = ({ className }: ContactProps) => {
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           <Card className="border border-border bg-card shadow-soft overflow-hidden">
-            <CardContent className="p-0" style={{ overflow: "hidden" }}>
-              <style>{`
-                .calendly-inline-widget::-webkit-scrollbar { display: none; }
-                .calendly-inline-widget { -ms-overflow-style: none; scrollbar-width: none; }
-                .calendly-inline-widget iframe { overflow: hidden !important; }
-              `}</style>
-              <div
-                className="calendly-inline-widget"
-                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1"
-                style={{ minWidth: "320px", height: "700px", overflow: "hidden" }}
-              />
+            <CardContent className="p-0">
+              <div id="my-cal-inline-30min" style={{ width: "100%", height: "700px", overflow: "scroll" }} />
             </CardContent>
           </Card>
 
