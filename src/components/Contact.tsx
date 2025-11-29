@@ -14,9 +14,22 @@ const Contact = ({ className }: ContactProps) => {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.src = "https://app.cal.com/embed/embed.js";
     script.async = true;
     document.body.appendChild(script);
+
+    script.onload = () => {
+      if (window.Cal) {
+        window.Cal("init", "30min", { origin: "https://app.cal.com" });
+        window.Cal.ns["30min"]("inline", {
+          elementOrSelector: "#my-cal-inline-30min",
+          config: { layout: "month_view" },
+          calLink: "snabbily.com/30min",
+        });
+        window.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      }
+    };
+
     return () => {
       if (document.body.contains(script)) {
         document.body.removeChild(script);
@@ -39,16 +52,7 @@ const Contact = ({ className }: ContactProps) => {
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
           <Card className="border border-border bg-card shadow-soft overflow-hidden">
             <CardContent className="p-0" style={{ overflow: "hidden" }}>
-              <style>{`
-                .calendly-inline-widget::-webkit-scrollbar { display: none; }
-                .calendly-inline-widget { -ms-overflow-style: none; scrollbar-width: none; }
-                .calendly-inline-widget iframe { overflow: hidden !important; }
-              `}</style>
-              <div
-                className="calendly-inline-widget"
-                data-url="https://calendly.com/thanos-xintarakis/new-meeting-1"
-                style={{ minWidth: "320px", height: "700px", overflow: "hidden" }}
-              />
+              <div id="my-cal-inline-30min" style={{ width: "100%", height: "700px", overflow: "scroll" }} />
             </CardContent>
           </Card>
 
@@ -61,9 +65,9 @@ const Contact = ({ className }: ContactProps) => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-base mb-1">{t("contact.email.title")}</h3>
-                    <p className="text-muted-foreground text-sm">snabbily@gmail.com</p>
+                    <p className="text-muted-foreground text-sm">contact@example.se</p>
                     <a
-                      href="mailto:snabbily@gmail.com"
+                      href="mailto:contact@example.se"
                       className="text-primary hover:underline text-sm mt-1 inline-block"
                     >
                       {t("contact.email.cta")}
