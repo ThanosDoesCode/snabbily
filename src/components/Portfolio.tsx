@@ -81,7 +81,7 @@ interface PortfolioProps {
 }
 
 const Portfolio = ({ className }: PortfolioProps) => {
-  const { t, language } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const featuredProject = projects.find((p) => p.type === "client");
   const demoProjects = projects.filter((p) => p.type === "demo");
@@ -129,7 +129,7 @@ const Portfolio = ({ className }: PortfolioProps) => {
       `}</style>
 
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20 fade-up" key={language}>
+        <div className="text-center mb-20 fade-up" key={lang}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("portfolio.title")}</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("portfolio.subtitle")}</p>
         </div>
