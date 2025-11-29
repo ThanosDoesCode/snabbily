@@ -4,6 +4,13 @@ import { Mail, Phone, Eye, EyeOff, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+// Declare Cal type for window
+declare global {
+  interface Window {
+    Cal: any;
+  }
+}
+
 interface ContactProps {
   className?: string;
 }
