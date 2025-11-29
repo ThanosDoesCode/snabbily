@@ -3,12 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ExternalLink, Smartphone, Zap } from "lucide-react";
-import glowStudioDemo from "@/assets/glow-studio-demo.png";
-import barberProDemo from "@/assets/barber-pro-demo.png";
-import fadeFlowDemo from "@/assets/fade-flow-demo.png";
-import alexandrosLiakosDemo from "@/assets/alexandros-liakos-demo.png";
-import classicCutsDemo from "@/assets/classic-cuts-demo.png";
-import gildedRoseDemo from "@/assets/gilded-rose-demo.png";
+import glowStudioDemo from "@/assets/glow-studio-demo.webp";
+import barberProDemo from "@/assets/barber-pro-demo.webp";
+import fadeFlowDemo from "@/assets/fade-flow-demo.webp";
+import alexandrosLiakosDemo from "@/assets/alexandros-liakos-demo.webp";
+import classicCutsDemo from "@/assets/classic-cuts-demo.webp";
+import gildedRoseDemo from "@/assets/gilded-rose-demo.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const projects = [
