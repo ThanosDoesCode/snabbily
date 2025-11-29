@@ -4,13 +4,6 @@ import { Mail, Phone, Eye, EyeOff, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-// Declare Cal type for window
-declare global {
-  interface Window {
-    Cal: any;
-  }
-}
-
 interface ContactProps {
   className?: string;
 }
@@ -54,20 +47,13 @@ const Contact = ({ className }: ContactProps) => {
         };
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    // Add a small delay to ensure the element exists
-    setTimeout(() => {
-      try {
-        window.Cal("init", "30min", { origin: "https://app.cal.com" });
-        window.Cal.ns["30min"]("inline", {
-          elementOrSelector: "#my-cal-inline-30min",
-          config: { layout: "month_view" },
-          calLink: "snabbily/30min",
-        });
-        window.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
-      } catch (error) {
-        console.error("Cal.com initialization error:", error);
-      }
-    }, 100);
+    window.Cal("init", "30min", { origin: "https://app.cal.com" });
+    window.Cal.ns["30min"]("inline", {
+      elementOrSelector: "#my-cal-inline-30min",
+      config: { layout: "month_view" },
+      calLink: "snabbily.com/30min",
+    });
+    window.Cal.ns["30min"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
   }, []);
 
   const phoneNumber = "+46 76 341 41 05";
