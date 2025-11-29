@@ -22,12 +22,13 @@ const Hero = ({ className }: HeroProps) => {
   return (
     <section
       className={cn(
-        "relative min-h-[85vh] sm:min-h-screen flex items-start justify-center overflow-hidden pt-20 sm:pt-24 md:pt-28",
+        // Normal section height with comfortable padding
+        "relative flex items-start justify-center overflow-hidden py-16 sm:py-20 md:py-24",
         className,
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 py-0 sm:py-2 md:py-4 relative z-10">
-        <div className="max-w-5xl mx-auto text-center py-0">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
             {t("hero.title")}
@@ -82,7 +83,7 @@ const Hero = ({ className }: HeroProps) => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-8 sm:mt-10 mb-20 sm:mb-24 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
+          <div className="mt-8 sm:mt-10 mb-8 sm:mb-10 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
             <div className="flex flex-col items-center gap-4 animate-bounce">
               <ChevronDown className="w-10 h-10 sm:w-8 sm:h-8 text-primary" strokeWidth={3.5} />
             </div>
