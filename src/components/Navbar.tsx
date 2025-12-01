@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Menu, X, Globe } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { lang, setLang, t } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -37,10 +38,6 @@ const Navbar = () => {
       document.documentElement.classList.add("dark");
       setIsDark(true);
     }
-  };
-
-  const toggleLanguage = () => {
-    setLang(lang === "en" ? "sv" : "en");
   };
 
   const scrollToSection = (id: string) => {
@@ -95,16 +92,8 @@ const Navbar = () => {
               {t("nav.contact")}
             </Button>
 
-            {/* Language Toggle */}
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={toggleLanguage}
-              className="rounded-full"
-              title={lang === "en" ? "Switch to Swedish" : "Byt till engelska"}
-            >
-              <span className="text-xs font-bold">{lang.toUpperCase()}</span>
-            </Button>
+            {/* Language Toggle - Desktop & Mobile */}
+            <LanguageToggle />
 
             {/* Theme Toggle */}
             <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
