@@ -72,7 +72,7 @@ const Navbar = () => {
               variant="outline"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full h-9 w-9 sm:h-10 sm:w-10"
+              className="rounded-full h-9 w-9 sm:h-10 sm:w-10 border-border"
               aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDark ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
@@ -83,7 +83,7 @@ const Navbar = () => {
               variant="outline"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden rounded-full h-9 w-9 sm:h-10 sm:w-10"
+              className="md:hidden rounded-full h-9 w-9 sm:h-10 sm:w-10 border-border"
               aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
