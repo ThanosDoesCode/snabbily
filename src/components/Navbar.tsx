@@ -6,6 +6,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Navbar = () => {
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
@@ -15,19 +17,24 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (isMenuOpen) {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Scrolling down
+        setIsVisible(false);
         setIsMenuOpen(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
       }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    if (isMenuOpen) {
-      window.addEventListener("scroll", handleScroll);
-    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMenuOpen]);
 
   const toggleTheme = () => {
     if (isDark) {
@@ -74,43 +81,46 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav className={`sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${
+      isVisible ? "translate-y-0" : "-translate-y-full"
+    }`}>
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="grid grid-cols-3 items-center">
+          {/* Left: Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity justify-self-start"
           >
             Snabbily
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="flex items-center gap-2">
+          {/* Center: Desktop Navigation */}
+          <div className="hidden md:flex items-center justify-center gap-2">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("portfolio")}
-              className="hidden md:inline-flex"
             >
-              {t("nav.portfolio")}
+              {t("navbar.portfolio")}
             </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("pricing")}
-              className="hidden md:inline-flex"
             >
-              {t("nav.pricing")}
+              {t("navbar.pricing")}
             </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("contact")}
-              className="hidden md:inline-flex"
             >
-              {t("nav.contact")}
+              {t("navbar.contact")}
             </Button>
+          </div>
 
+          {/* Right: Controls */}
+          <div className="flex items-center gap-3 md:gap-2 justify-self-end">
             {/* Language Cycle Button */}
             <Button
               variant="outline"
@@ -141,14 +151,14 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2 animate-in slide-in-from-top duration-300">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg p-4 space-y-2 animate-in slide-in-from-top duration-300 z-50">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("portfolio")}
               className="w-full justify-start"
             >
-              {t("nav.portfolio")}
+              {t("navbar.portfolio")}
             </Button>
             <Button
               variant="ghost"
@@ -156,7 +166,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("pricing")}
               className="w-full justify-start"
             >
-              {t("nav.pricing")}
+              {t("navbar.pricing")}
             </Button>
             <Button
               variant="ghost"
@@ -164,7 +174,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="w-full justify-start"
             >
-              {t("nav.contact")}
+              {t("navbar.contact")}
             </Button>
           </div>
         )}
