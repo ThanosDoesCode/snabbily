@@ -85,21 +85,21 @@ const Navbar = () => {
       isVisible ? "translate-y-0" : "-translate-y-full"
     }`}>
       <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+        <div className="grid grid-cols-3 items-center">
+          {/* Left: Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity justify-self-start"
           >
             Snabbily
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="flex items-center gap-2">
+          {/* Center: Desktop Navigation */}
+          <div className="hidden md:flex items-center justify-center gap-2">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("portfolio")}
-              className="hidden md:inline-flex"
             >
               {t("navbar.portfolio")}
             </Button>
@@ -107,7 +107,6 @@ const Navbar = () => {
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("pricing")}
-              className="hidden md:inline-flex"
             >
               {t("navbar.pricing")}
             </Button>
@@ -115,11 +114,13 @@ const Navbar = () => {
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("contact")}
-              className="hidden md:inline-flex"
             >
               {t("navbar.contact")}
             </Button>
+          </div>
 
+          {/* Right: Controls */}
+          <div className="flex items-center gap-2 justify-self-end">
             {/* Language Cycle Button */}
             <Button
               variant="outline"
