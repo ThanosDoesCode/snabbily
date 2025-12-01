@@ -41,16 +41,23 @@ const detectLanguage = (): Language => {
   // Check browser locale
   const browserLang = navigator.language.toLowerCase();
 
-  // Swedish detection
-  if (browserLang.startsWith("sv")) return "sv";
+  // Debug: Log detected browser language
+  console.log("Browser language detected:", browserLang);
+
+  // STRICT Swedish detection - only exact Swedish locales
+  if (browserLang === "sv" || browserLang === "sv-se" || browserLang === "sv-fi") {
+    console.log("Swedish language detected");
+    return "sv";
+  }
 
   // Greek detection (both 'el' and 'gr' codes)
-  if (browserLang.startsWith("el") || browserLang.startsWith("gr")) return "el";
+  if (browserLang === "el" || browserLang === "el-gr" || browserLang === "gr" || browserLang === "gr-gr") {
+    console.log("Greek language detected");
+    return "el";
+  }
 
-  // English detection (en-US, en-GB, etc.)
-  if (browserLang.startsWith("en")) return "en";
-
-  // Default fallback to English for all other languages
+  // Default to English for everything else (including en-US, en-GB, etc.)
+  console.log("Defaulting to English");
   return "en";
 };
 
