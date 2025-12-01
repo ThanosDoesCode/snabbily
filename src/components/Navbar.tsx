@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+vimport { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -96,34 +96,34 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Compact */}
       {isMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed inset-0 z-40 top-[64px] sm:top-[72px] bg-background/95 backdrop-blur-md animate-in fade-in-0 slide-in-from-top-2 duration-300"
+          className="md:hidden fixed left-0 right-0 z-40 top-[60px] sm:top-[68px] bg-background/95 backdrop-blur-lg border-b border-border shadow-lg animate-in slide-in-from-top-4 duration-200 ease-out"
         >
-          <div className="container mx-auto px-4 pt-6 pb-8 space-y-3">
+          <div className="container mx-auto px-4 py-4 space-y-1">
             <Button
               variant="ghost"
-              size="lg"
+              size="sm"
               onClick={() => scrollToSection("portfolio")}
-              className="w-full justify-start text-lg"
+              className="w-full justify-start text-base hover:bg-muted/50 transition-colors"
             >
               {t("navbar.portfolio")}
             </Button>
             <Button
               variant="ghost"
-              size="lg"
+              size="sm"
               onClick={() => scrollToSection("pricing")}
-              className="w-full justify-start text-lg"
+              className="w-full justify-start text-base hover:bg-muted/50 transition-colors"
             >
               {t("navbar.pricing")}
             </Button>
             <Button
               variant="ghost"
-              size="lg"
+              size="sm"
               onClick={() => scrollToSection("contact")}
-              className="w-full justify-start text-lg"
+              className="w-full justify-start text-base hover:bg-muted/50 transition-colors"
             >
               {t("navbar.contact")}
             </Button>
