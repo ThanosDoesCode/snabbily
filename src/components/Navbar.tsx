@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import LanguageToggle from "@/components/LanguageToggle";
 
 const Navbar = () => {
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -38,6 +37,13 @@ const Navbar = () => {
       document.documentElement.classList.add("dark");
       setIsDark(true);
     }
+  };
+
+  const cycleLanguage = () => {
+    const languages = ["en", "sv", "el"] as const;
+    const currentIndex = languages.indexOf(lang);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    setLang(languages[nextIndex]);
   };
 
   const scrollToSection = (id: string) => {
@@ -92,8 +98,16 @@ const Navbar = () => {
               {t("nav.contact")}
             </Button>
 
-            {/* Language Toggle - Desktop & Mobile */}
-            <LanguageToggle />
+            {/* Language Cycle Button */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={cycleLanguage}
+              className="rounded-full"
+              title={`Switch language (${lang === "en" ? "English" : lang === "sv" ? "Svenska" : "Ελληνικά"})`}
+            >
+              <span className="text-xs font-bold">{lang === "en" ? "EN" : lang === "sv" ? "SV" : "GR"}</span>
+            </Button>
 
             {/* Theme Toggle */}
             <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
