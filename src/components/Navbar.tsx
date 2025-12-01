@@ -13,21 +13,6 @@ const Navbar = () => {
     setIsDark(isDarkMode);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    if (isMenuOpen) {
-      window.addEventListener("scroll", handleScroll);
-    }
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMenuOpen]);
 
   const toggleTheme = () => {
     if (isDark) {
@@ -92,7 +77,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("portfolio")}
               className="hidden md:inline-flex"
             >
-              {t("nav.portfolio")}
+              {t("navbar.portfolio")}
             </Button>
             <Button
               variant="ghost"
@@ -100,7 +85,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("pricing")}
               className="hidden md:inline-flex"
             >
-              {t("nav.pricing")}
+              {t("navbar.pricing")}
             </Button>
             <Button
               variant="ghost"
@@ -108,7 +93,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="hidden md:inline-flex"
             >
-              {t("nav.contact")}
+              {t("navbar.contact")}
             </Button>
 
             {/* Language Cycle Button */}
@@ -141,14 +126,14 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-2 animate-in slide-in-from-top duration-300">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg p-4 space-y-2 animate-in slide-in-from-top duration-300 z-50">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("portfolio")}
               className="w-full justify-start"
             >
-              {t("nav.portfolio")}
+              {t("navbar.portfolio")}
             </Button>
             <Button
               variant="ghost"
@@ -156,7 +141,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("pricing")}
               className="w-full justify-start"
             >
-              {t("nav.pricing")}
+              {t("navbar.pricing")}
             </Button>
             <Button
               variant="ghost"
@@ -164,7 +149,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="w-full justify-start"
             >
-              {t("nav.contact")}
+              {t("navbar.contact")}
             </Button>
           </div>
         )}
