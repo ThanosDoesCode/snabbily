@@ -30,52 +30,50 @@ const getNestedTranslation = (obj: any, path: string): string => {
   return typeof result === "string" ? result : path;
 };
 
-// Auto-detect language based on browser with fallback to English
+// 1. Logic moved outside component to be pure and testable
 const detectLanguage = (): Language => {
-  // Check localStorage first (user preference)
+  // Safety check for SSR (Server Side Rendering) environments
+  if (typeof window === "undefined") return "en";
+
+  // Check localStorage first
   const stored = localStorage.getItem("lang") as Language;
   if (stored && ["en", "sv", "el"].includes(stored)) {
-    console.log("Using saved language from localStorage:", stored);
     return stored;
   }
 
-  // Check browser locale
-  const browserLang = navigator.language.toLowerCase();
+  // Check browser capability
+  const browserLang = navigator.language ? navigator.language.toLowerCase() : "en";
 
-  // Debug: Log detected browser language
-  console.log("No saved language. Browser language detected:", browserLang);
-
-  // STRICT Swedish detection - only exact Swedish locales
-  if (browserLang === "sv" || browserLang === "sv-se" || browserLang === "sv-fi") {
-    console.log("Swedish language detected");
+  // Strict Swedish Detection
+  if (browserLang.startsWith("sv")) {
     return "sv";
   }
 
-  // Greek detection (both 'el' and 'gr' codes)
-  if (browserLang === "el" || browserLang === "el-gr" || browserLang === "gr" || browserLang === "gr-gr") {
-    console.log("Greek language detected");
+  // Greek Detection
+  if (browserLang.startsWith("el") || browserLang === "gr") {
     return "el";
   }
 
-  // Default to English for everything else (including en-US, en-GB, etc.)
-  console.log("Defaulting to English");
+  // Default
   return "en";
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLangState] = useState<Language>("en");
-
-  useEffect(() => {
-    const detected = detectLanguage();
-    setLangState(detected);
-    document.documentElement.lang = detected;
-  }, []);
+  // 2. LAZY INITIALIZATION: Pass a function to useState, not a value.
+  // This runs ONLY once on mount, preventing the "English Flash".
+  const [lang, setLangState] = useState<Language>(() => {
+    const initialLang = detectLanguage();
+    // Set the HTML lang attribute immediately on boot
+    if (typeof window !== "undefined") {
+      document.documentElement.lang = initialLang;
+    }
+    return initialLang;
+  });
 
   const setLang = (newLang: Language) => {
     setLangState(newLang);
     localStorage.setItem("lang", newLang);
     document.documentElement.lang = newLang;
-    console.log("Language changed to:", newLang);
   };
 
   const t = (key: string): string => {
