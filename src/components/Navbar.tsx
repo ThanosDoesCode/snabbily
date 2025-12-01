@@ -1,4 +1,4 @@
-vimport { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
