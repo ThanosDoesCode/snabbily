@@ -184,7 +184,7 @@ const Contact = ({ className }: ContactProps) => {
                     <h3 className="font-semibold text-base mb-1">{t("contact.linkedin.title")}</h3>
                     <p className="text-muted-foreground text-sm">{t("contact.linkedin.subtitle")}</p>
                     <a
-                      href="www.linkedin.com/in/thanosxnt"
+                      href="https://www.linkedin.com/in/thanosxnt"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline text-sm mt-1 inline-block"
