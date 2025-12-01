@@ -46,6 +46,19 @@ const Navbar = () => {
     setLang(languages[nextIndex]);
   };
 
+  const getLanguageFlag = () => {
+    switch (lang) {
+      case "en":
+        return "🇬🇧";
+      case "sv":
+        return "🇸🇪";
+      case "el":
+        return "🇬🇷";
+      default:
+        return "🇬🇧";
+    }
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -72,7 +85,7 @@ const Navbar = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <Button
               variant="ghost"
               size="sm"
@@ -106,7 +119,7 @@ const Navbar = () => {
               className="rounded-full"
               title={`Switch language (${lang === "en" ? "English" : lang === "sv" ? "Svenska" : "Ελληνικά"})`}
             >
-              <span className="text-xs font-bold">{lang === "en" ? "EN" : lang === "sv" ? "SV" : "GR"}</span>
+              <span className="text-lg">{getLanguageFlag()}</span>
             </Button>
 
             {/* Theme Toggle */}
