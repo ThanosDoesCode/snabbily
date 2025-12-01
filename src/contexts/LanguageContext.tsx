@@ -35,6 +35,7 @@ const detectLanguage = (): Language => {
   // Check localStorage first (user preference)
   const stored = localStorage.getItem("lang") as Language;
   if (stored && ["en", "sv", "el"].includes(stored)) {
+    console.log("Using saved language from localStorage:", stored);
     return stored;
   }
 
@@ -42,7 +43,7 @@ const detectLanguage = (): Language => {
   const browserLang = navigator.language.toLowerCase();
 
   // Debug: Log detected browser language
-  console.log("Browser language detected:", browserLang);
+  console.log("No saved language. Browser language detected:", browserLang);
 
   // STRICT Swedish detection - only exact Swedish locales
   if (browserLang === "sv" || browserLang === "sv-se" || browserLang === "sv-fi") {
@@ -74,6 +75,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     setLangState(newLang);
     localStorage.setItem("lang", newLang);
     document.documentElement.lang = newLang;
+    console.log("Language changed to:", newLang);
   };
 
   const t = (key: string): string => {
