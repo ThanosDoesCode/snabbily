@@ -40,90 +40,97 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-        <div className="flex items-center justify-between">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
-          >
-            {t("navbar.brand")}
-          </button>
+    <>
+      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            >
+              {t("navbar.brand")}
+            </button>
 
-          {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex items-center gap-4 absolute left-1/2 transform -translate-x-1/2">
-            <Button variant="ghost" size="sm" onClick={() => scrollToSection("portfolio")}>
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden md:flex items-center gap-4 absolute left-1/2 transform -translate-x-1/2">
+              <Button variant="ghost" size="sm" onClick={() => scrollToSection("portfolio")}>
+                {t("navbar.portfolio")}
+              </Button>
+              <Button variant="ghost" size="sm" onClick={() => scrollToSection("pricing")}>
+                {t("navbar.pricing")}
+              </Button>
+              <Button variant="ghost" size="sm" onClick={() => scrollToSection("contact")}>
+                {t("navbar.contact")}
+              </Button>
+            </div>
+
+            {/* Right Side Controls */}
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+              <LanguageToggle />
+
+              {/* Theme toggle button */}
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={toggleTheme}
+                className="rounded-full h-9 w-9 sm:h-10 sm:w-10 border-border"
+                aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {isDark ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
+              </Button>
+
+              {/* Mobile Menu Button */}
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden rounded-full h-9 w-9 sm:h-10 sm:w-10 border-border"
+                aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
+              >
+                {isMenuOpen ? <X className="h-4 w-4 sm:h-5 sm:w-5" /> : <Menu className="h-4 w-4 sm:h-5 sm:w-5" />}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="md:hidden fixed inset-0 z-40 top-[64px] sm:top-[72px] bg-background/95 backdrop-blur-md animate-in fade-in-0 slide-in-from-top-2 duration-300"
+        >
+          <div className="container mx-auto px-4 pt-6 pb-8 space-y-3">
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => scrollToSection("portfolio")}
+              className="w-full justify-start text-lg"
+            >
               {t("navbar.portfolio")}
             </Button>
-            <Button variant="ghost" size="sm" onClick={() => scrollToSection("pricing")}>
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => scrollToSection("pricing")}
+              className="w-full justify-start text-lg"
+            >
               {t("navbar.pricing")}
             </Button>
-            <Button variant="ghost" size="sm" onClick={() => scrollToSection("contact")}>
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={() => scrollToSection("contact")}
+              className="w-full justify-start text-lg"
+            >
               {t("navbar.contact")}
-            </Button>
-          </div>
-
-          {/* Right Side Controls */}
-          <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-            <LanguageToggle />
-
-            {/* Theme toggle button */}
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={toggleTheme}
-              className="rounded-full h-9 w-9 sm:h-10 sm:w-10 border-border"
-              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {isDark ? <Sun className="h-4 w-4 sm:h-5 sm:w-5" /> : <Moon className="h-4 w-4 sm:h-5 sm:w-5" />}
-            </Button>
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden rounded-full h-9 w-9 sm:h-10 sm:w-10 border-border"
-              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              {isMenuOpen ? <X className="h-4 w-4 sm:h-5 sm:w-5" /> : <Menu className="h-4 w-4 sm:h-5 sm:w-5" />}
             </Button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div id="mobile-menu" className="md:hidden mt-4 pb-4 space-y-2 animate-in slide-in-from-top duration-300">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("portfolio")}
-              className="w-full justify-start"
-            >
-              {t("navbar.portfolio")}
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("pricing")}
-              className="w-full justify-start"
-            >
-              {t("navbar.pricing")}
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("contact")}
-              className="w-full justify-start"
-            >
-              {t("navbar.contact")}
-            </Button>
-          </div>
-        )}
-      </div>
-    </nav>
+      )}
+    </>
   );
 };
 
