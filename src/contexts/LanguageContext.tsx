@@ -30,9 +30,9 @@ const getNestedTranslation = (obj: any, path: string): string => {
   return typeof result === "string" ? result : path;
 };
 
-// Auto-detect language based on browser/country
+// Auto-detect language based on browser with fallback to English
 const detectLanguage = (): Language => {
-  // Check localStorage first
+  // Check localStorage first (user preference)
   const stored = localStorage.getItem("lang") as Language;
   if (stored && ["en", "sv", "el"].includes(stored)) {
     return stored;
@@ -40,14 +40,18 @@ const detectLanguage = (): Language => {
 
   // Check browser locale
   const browserLang = navigator.language.toLowerCase();
+
+  // Swedish detection
   if (browserLang.startsWith("sv")) return "sv";
-  if (browserLang.startsWith("el")) return "el";
 
-  // Optional: Check CF-IPCountry header if available (requires server-side setup)
-  // For client-side detection, we rely on browser locale
-  // If you set up a server that provides CF-IPCountry, you could fetch it here
+  // Greek detection (both 'el' and 'gr' codes)
+  if (browserLang.startsWith("el") || browserLang.startsWith("gr")) return "el";
 
-  return "en"; // Default fallback
+  // English detection (en-US, en-GB, etc.)
+  if (browserLang.startsWith("en")) return "en";
+
+  // Default fallback to English for all other languages
+  return "en";
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
@@ -69,11 +73,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     return getNestedTranslation(translations[lang], key);
   };
 
-  return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+  return <LanguageContext.Provider value={{ lang, setLang, t }}>{children}</LanguageContext.Provider>;
 };
 
 export const useLanguage = () => {
