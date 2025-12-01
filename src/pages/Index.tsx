@@ -13,7 +13,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 const Index = () => {
   return <div className="min-h-screen">
       <Navbar />
-      <Hero className="pt-[40px] py-[80px]" />
+      <Hero className="py-[80px] pt-[4px]" />
       <AnimatedSection>
         <Services className="mx-0 my-0 px-0 py-0" />
       </AnimatedSection>
