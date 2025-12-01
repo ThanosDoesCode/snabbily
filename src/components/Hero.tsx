@@ -22,10 +22,10 @@ const Hero = ({
   return <section className={cn(
   // Normal section height with comfortable padding
   "relative flex items-start justify-center overflow-hidden py-16 sm:py-20 md:py-24", className)}>
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 pb-[100px] pt-[40px]">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-[40px] pb-[10px]">
         <div className="max-w-5xl mx-auto text-center pb-0 pt-0">
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4">
+          <h1 className="sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight opacity-0 animate-[scaleIn_0.6s_cubic-bezier(0.34,1.56,0.64,1)_0.2s_forwards] px-4 text-2xl">
             {t("hero.title")}
           </h1>
 
