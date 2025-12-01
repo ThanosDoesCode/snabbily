@@ -18,7 +18,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         // Scrolling down
         setIsVisible(false);
@@ -27,14 +27,13 @@ const Navbar = () => {
         // Scrolling up
         setIsVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
-
 
   const toggleTheme = () => {
     if (isDark) {
@@ -81,12 +80,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${
-      isVisible ? "translate-y-0" : "-translate-y-full"
-    }`}>
+    <nav
+      className={`sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="container mx-auto px-6 py-4">
-        <div className="grid grid-cols-3 items-center">
-          {/* Left: Logo */}
+        {/* Layout: logo left, other stuff right on mobile; 3 columns on desktop */}
+        <div className="grid grid-cols-[auto_1fr_auto] items-center">
+          {/* Left: Logo (unchanged) */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity justify-self-start"
@@ -96,25 +98,13 @@ const Navbar = () => {
 
           {/* Center: Desktop Navigation */}
           <div className="hidden md:flex items-center justify-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("portfolio")}
-            >
+            <Button variant="ghost" size="sm" onClick={() => scrollToSection("portfolio")}>
               {t("navbar.portfolio")}
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("pricing")}
-            >
+            <Button variant="ghost" size="sm" onClick={() => scrollToSection("pricing")}>
               {t("navbar.pricing")}
             </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => scrollToSection("contact")}
-            >
+            <Button variant="ghost" size="sm" onClick={() => scrollToSection("contact")}>
               {t("navbar.contact")}
             </Button>
           </div>
