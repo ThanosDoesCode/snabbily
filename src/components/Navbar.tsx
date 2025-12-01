@@ -6,8 +6,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Navbar = () => {
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
@@ -17,21 +15,19 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setIsVisible(false);
+      if (isMenuOpen) {
         setIsMenuOpen(false);
-      } else {
-        setIsVisible(true);
       }
-
-      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+    if (isMenuOpen) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMenuOpen]);
 
   const toggleTheme = () => {
     if (isDark) {
@@ -78,15 +74,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className={`sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
+    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4">
-        {/* On mobile: logo left, controls right. On desktop: 3-column layout */}
-        <div className="flex justify-between items-center md:grid md:grid-cols-3">
-          {/* Left: Logo */}
+        <div className="flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
@@ -94,21 +84,34 @@ const Navbar = () => {
             Snabbily
           </button>
 
-          {/* Center: Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center gap-2">
-            <Button variant="ghost" size="sm" onClick={() => scrollToSection("portfolio")}>
-              {t("navbar.portfolio")}
+          {/* Desktop Navigation */}
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => scrollToSection("portfolio")}
+              className="hidden md:inline-flex"
+            >
+              {t("nav.portfolio")}
             </Button>
-            <Button variant="ghost" size="sm" onClick={() => scrollToSection("pricing")}>
-              {t("navbar.pricing")}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => scrollToSection("pricing")}
+              className="hidden md:inline-flex"
+            >
+              {t("nav.pricing")}
             </Button>
-            <Button variant="ghost" size="sm" onClick={() => scrollToSection("contact")}>
-              {t("navbar.contact")}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => scrollToSection("contact")}
+              className="hidden md:inline-flex"
+            >
+              {t("nav.contact")}
             </Button>
-          </div>
 
-          {/* Right: Controls (visible both mobile & desktop, but flex behavior differs) */}
-          <div className="flex items-center gap-2 justify-end">
+            {/* Language Cycle Button */}
             <Button
               variant="outline"
               size="icon"
@@ -119,10 +122,12 @@ const Navbar = () => {
               <span className="text-lg">{getLanguageFlag()}</span>
             </Button>
 
+            {/* Theme Toggle */}
             <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
               {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
 
+            {/* Mobile Menu Button */}
             <Button
               variant="outline"
               size="icon"
@@ -136,14 +141,14 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-lg p-4 space-y-2 animate-in slide-in-from-top duration-300 z-50">
+          <div className="md:hidden mt-4 pb-4 space-y-2 animate-in slide-in-from-top duration-300">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => scrollToSection("portfolio")}
               className="w-full justify-start"
             >
-              {t("navbar.portfolio")}
+              {t("nav.portfolio")}
             </Button>
             <Button
               variant="ghost"
@@ -151,7 +156,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("pricing")}
               className="w-full justify-start"
             >
-              {t("navbar.pricing")}
+              {t("nav.pricing")}
             </Button>
             <Button
               variant="ghost"
@@ -159,7 +164,7 @@ const Navbar = () => {
               onClick={() => scrollToSection("contact")}
               className="w-full justify-start"
             >
-              {t("navbar.contact")}
+              {t("nav.contact")}
             </Button>
           </div>
         )}
