@@ -120,7 +120,7 @@ const Navbar = () => {
           </div>
 
           {/* Right: Controls */}
-          <div className="flex items-center gap-2 justify-self-end">
+          <div className="flex items-center gap-3 md:gap-2 justify-self-end">
             {/* Language Cycle Button */}
             <Button
               variant="outline"
