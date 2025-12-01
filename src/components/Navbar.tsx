@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const Navbar = () => {
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark");
@@ -40,7 +40,7 @@ const Navbar = () => {
   };
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "sv" : "en");
+    setLang(lang === "en" ? "sv" : "en");
   };
 
   const scrollToSection = (id: string) => {
@@ -101,9 +101,9 @@ const Navbar = () => {
               size="icon"
               onClick={toggleLanguage}
               className="rounded-full"
-              title={language === "en" ? "Switch to Swedish" : "Byt till engelska"}
+              title={lang === "en" ? "Switch to Swedish" : "Byt till engelska"}
             >
-              <span className="text-xs font-bold">{language.toUpperCase()}</span>
+              <span className="text-xs font-bold">{lang.toUpperCase()}</span>
             </Button>
 
             {/* Theme Toggle */}
