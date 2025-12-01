@@ -65,9 +65,7 @@ const Navbar = () => {
 
           {/* Right Side Controls */}
           <div className="flex items-center gap-4">
-            <div className="hidden md:block">
-              <LanguageToggle />
-            </div>
+            <LanguageToggle />
 
             {/* Theme toggle button with accessible name */}
             <Button
@@ -122,9 +120,6 @@ const Navbar = () => {
             >
               {t("navbar.contact")}
             </Button>
-            <div className="mt-2">
-              <LanguageToggle />
-            </div>
           </div>
         )}
       </div>
