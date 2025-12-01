@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
@@ -35,6 +36,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(".language-dropdown")) {
+        setIsLangDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const toggleTheme = () => {
     if (isDark) {
       document.documentElement.classList.remove("dark");
@@ -45,25 +57,13 @@ const Navbar = () => {
     }
   };
 
-  const cycleLanguage = () => {
-    const languages = ["en", "sv", "el"] as const;
-    const currentIndex = languages.indexOf(lang);
-    const nextIndex = (currentIndex + 1) % languages.length;
-    setLang(languages[nextIndex]);
-  };
+  const languages = [
+    { code: "en" as const, label: "English", flag: "🇬🇧" },
+    { code: "sv" as const, label: "Svenska", flag: "🇸🇪" },
+    { code: "el" as const, label: "Ελληνικά", flag: "🇬🇷" },
+  ];
 
-  const getLanguageFlag = () => {
-    switch (lang) {
-      case "en":
-        return "🇬🇧";
-      case "sv":
-        return "🇸🇪";
-      case "el":
-        return "🇬🇷";
-      default:
-        return "🇬🇧";
-    }
-  };
+  const currentLanguage = languages.find((l) => l.code === lang) || languages[0];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -111,16 +111,38 @@ const Navbar = () => {
 
           {/* Right: Controls */}
           <div className="flex items-center gap-3 md:gap-2 justify-self-end">
-            {/* Language Cycle Button */}
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={cycleLanguage}
-              className="rounded-full"
-              title={`Switch language (${lang === "en" ? "English" : lang === "sv" ? "Svenska" : "Ελληνικά"})`}
-            >
-              <span className="text-lg">{getLanguageFlag()}</span>
-            </Button>
+            {/* Language Dropdown */}
+            <div className="relative language-dropdown">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+                className="rounded-full px-3 gap-1"
+              >
+                <span className="text-base">{currentLanguage.flag}</span>
+                <ChevronDown className={`h-3 w-3 transition-transform ${isLangDropdownOpen ? "rotate-180" : ""}`} />
+              </Button>
+
+              {isLangDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-background border border-border rounded-lg shadow-lg py-1 z-50">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => {
+                        setLang(language.code);
+                        setIsLangDropdownOpen(false);
+                      }}
+                      className={`w-full px-3 py-2 text-sm flex items-center gap-2 hover:bg-muted transition-colors ${
+                        lang === language.code ? "bg-muted font-semibold" : ""
+                      }`}
+                    >
+                      <span className="text-base">{language.flag}</span>
+                      <span>{language.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Theme Toggle */}
             <Button variant="outline" size="icon" onClick={toggleTheme} className="rounded-full">
