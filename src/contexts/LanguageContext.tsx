@@ -35,13 +35,23 @@ const detectLanguage = (): Language => {
   // Safety check for SSR (Server Side Rendering) environments
   if (typeof window === "undefined") return "en";
 
-  // Check localStorage first
+  // --- NEW LOGIC START ---
+  // 1. PRIORITY: Check URL Query Parameter (?lang=sv)
+  // This is required for SEO links to work correctly
+  const params = new URLSearchParams(window.location.search);
+  const urlLang = params.get("lang");
+  if (urlLang && ["en", "sv", "el"].includes(urlLang)) {
+    return urlLang as Language;
+  }
+  // --- NEW LOGIC END ---
+
+  // 2. Check localStorage (User preference from previous visit)
   const stored = localStorage.getItem("lang") as Language;
   if (stored && ["en", "sv", "el"].includes(stored)) {
     return stored;
   }
 
-  // Check browser capability
+  // 3. Check browser capability
   const browserLang = navigator.language ? navigator.language.toLowerCase() : "en";
 
   // Strict Swedish Detection
@@ -74,6 +84,12 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     setLangState(newLang);
     localStorage.setItem("lang", newLang);
     document.documentElement.lang = newLang;
+
+    // Optional: Update URL without reloading page (SPA friendly)
+    // This keeps the URL clean if they switch manually via the toggle
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", newLang);
+    window.history.replaceState({}, "", url);
   };
 
   const t = (key: string): string => {
