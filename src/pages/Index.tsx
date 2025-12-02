@@ -10,8 +10,11 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import SEO from "@/components/SEO";
+
 const Index = () => {
   return <div className="min-h-screen">
+      <SEO />
       <Navbar />
       <Hero className="py-[80px] pt-[4px]" />
       <AnimatedSection>
