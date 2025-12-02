@@ -70,13 +70,9 @@ const Hero = ({
 
           {/* Scroll Indicator */}
           <div className="mt-8 sm:mt-10 mb-8 sm:mb-10 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
-            <button
-              onClick={() => scrollToSection("why-website")}
-              className="flex flex-col items-center gap-4 animate-bounce cursor-pointer hover:scale-110 transition-transform duration-200"
-              aria-label="Scroll to next section"
-            >
+            <div className="flex flex-col items-center gap-4 animate-bounce">
               <ChevronDown className="w-10 h-10 sm:w-8 sm:h-8 text-primary" strokeWidth={3.5} />
-            </button>
+            </div>
           </div>
         </div>
       </div>
