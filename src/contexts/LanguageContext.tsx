@@ -64,8 +64,13 @@ const detectLanguage = (): Language => {
     return "el";
   }
 
-  // Default to Swedish
-  return "sv";
+  // English Detection
+  if (browserLang.startsWith("en")) {
+    return "en";
+  }
+
+  // Default to English for all other languages
+  return "en";
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
