@@ -64,8 +64,8 @@ const detectLanguage = (): Language => {
     return "el";
   }
 
-  // Default
-  return "en";
+  // Default to Swedish
+  return "sv";
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
