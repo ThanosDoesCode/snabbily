@@ -72,7 +72,7 @@ const projects = [
     type: "demo" as const,
     description: "Modern website for an insurance company",
     url: "https://bluemarineinsurance.lovable.app",
-    features: ["SEO-ready", "Mobile-first", "Booking integrated"],
+    features: ["SEO-ready", "Mobile-first", "Booking integrated", "AI Chatbot"],
   },
 ];
 
