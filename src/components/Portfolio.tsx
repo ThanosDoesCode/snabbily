@@ -8,7 +8,7 @@ import barberProDemo from "@/assets/barber-pro-demo.webp";
 import fadeFlowDemo from "@/assets/fade-flow-demo.webp";
 import alexandrosLiakosDemo from "@/assets/alexandros-liakos-demo.webp";
 import classicCutsDemo from "@/assets/classic-cuts-demo.webp";
-import gildedRoseDemo from "@/assets/gilded-rose-demo.webp";
+import blueMarineInsurance from "@/assets/blue-marine-insurance.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const projects = [
@@ -65,7 +65,7 @@ const projects = [
     features: ["SEO-ready", "Mobile-first", "Booking integrated"],
   },
   {
-    image: BlueMarineInsurance,
+    image: blueMarineInsurance,
     title: "Blue Marine Insurance",
     subtitle: "Professional styling with sophisticated color palette",
     industry: "Marine Insurance",
