@@ -36,54 +36,32 @@ const WhyWebsite = ({ className }: WhyWebsiteProps) => {
   return (
     <section className={cn("py-40 bg-secondary", className)} id="why">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("why.title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t("why.subtitle")}</p>
+        {/* Header — right-aligned for hierarchy variation */}
+        <div className="max-w-3xl ml-auto text-right mb-24">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">— Why a website</div>
+          <h2 className="font-serif text-5xl md:text-6xl mb-6 leading-[1.05]">{t("why.title")}</h2>
+          <p className="text-lg text-muted-foreground ml-auto max-w-xl">{t("why.subtitle")}</p>
         </div>
 
-        {/* Reasons grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+        {/* Reasons — numbered editorial list */}
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-x-16 gap-y-14 mb-20">
           {reasons.map((reason, index) => (
-            <Card
-              key={reason.title + index}
-              className="group border border-border bg-card hover:border-primary/50 hover:shadow-[0_10px_40px_rgba(0,0,0,0.15)] dark:hover:shadow-[var(--glow-card)] transition-all duration-500 opacity-0"
-              style={{
-                animation: `${
-                  index % 2 === 0 ? "slideInLeft" : "slideInRight"
-                } 0.8s ease-out ${index * 0.15}s forwards`,
-              }}
-            >
-              <CardContent className="pt-6 pb-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center flex-shrink-0 group-hover:animate-[pulse_1.5s_ease-in-out_infinite]">
-                    <reason.icon className="h-6 w-6 text-primary-foreground" strokeWidth={2} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:translate-x-2 transition-transform duration-300">
-                      {reason.title}
-                    </h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">{reason.description}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div key={reason.title + index} className="group">
+              <div className="flex items-baseline gap-4 mb-3">
+                <span className="font-serif text-3xl text-primary">0{index + 1}</span>
+                <h3 className="font-serif text-2xl md:text-3xl leading-tight">{reason.title}</h3>
+              </div>
+              <p className="text-base text-muted-foreground leading-relaxed pl-12">{reason.description}</p>
+            </div>
           ))}
         </div>
 
-        {/* Highlight card */}
-        <div className="max-w-4xl mx-auto opacity-0 animate-[scaleIn_0.8s_ease-out_1s_forwards]">
-          <Card className="relative overflow-hidden border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 shadow-soft hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)] transition-all duration-500">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-[shimmer_3s_ease-in-out_infinite]" />
-            <CardContent className="py-6 px-6 md:py-8 md:px-8 relative z-10">
-              <p className="text-base md:text-lg text-center font-medium leading-relaxed">
-                <span className="text-primary font-semibold text-lg md:text-xl block mb-2">
-                  {t("why.highlightTitle")}
-                </span>
-                <span className="text-foreground text-sm md:text-base">{t("why.highlightBody")}</span>
-              </p>
-            </CardContent>
-          </Card>
+        {/* Highlight — pulled quote style, not a card */}
+        <div className="max-w-3xl mx-auto border-l-2 border-primary pl-6 md:pl-10 py-2">
+          <p className="font-serif text-2xl md:text-3xl leading-snug mb-3">
+            {t("why.highlightTitle")}
+          </p>
+          <p className="text-base text-muted-foreground">{t("why.highlightBody")}</p>
         </div>
       </div>
     </section>

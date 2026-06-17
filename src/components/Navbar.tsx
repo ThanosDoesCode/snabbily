@@ -131,9 +131,9 @@ const Navbar = () => {
           {/* Left: Logo (unchanged) */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl md:text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity justify-self-start"
+            className="font-serif text-2xl md:text-3xl text-foreground hover:opacity-70 transition-opacity justify-self-start tracking-tight"
           >
-            Snabbily
+            Snabbily<span className="text-primary">.</span>
           </button>
 
           {/* Center: Desktop Navigation */}
