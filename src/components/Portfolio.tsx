@@ -3,11 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ExternalLink, Smartphone, Zap } from "lucide-react";
-import glowStudioDemo from "@/assets/glow-studio-demo.webp";
-import barberProDemo from "@/assets/barber-pro-demo.webp";
-import fadeFlowDemo from "@/assets/fade-flow-demo.webp";
 import alexandrosLiakosDemo from "@/assets/alexandros-liakos-demo.webp";
-import classicCutsDemo from "@/assets/classic-cuts-demo.webp";
 import blueMarineInsurance from "@/assets/blue-marine-insurance.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
