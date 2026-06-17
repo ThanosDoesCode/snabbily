@@ -194,58 +194,65 @@ const Portfolio = ({ className }: PortfolioProps) => {
         <div className="max-w-7xl mx-auto">
           <h3 className="text-2xl font-bold mb-8 text-center">{t("portfolio.demosTitle")}</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {demoProjects.map((project, index) => (
-              <div key={index} className="fade-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
-                <div className="card-hover rounded-xl overflow-hidden border border-border bg-card h-full flex flex-col">
-                  <div className="relative overflow-hidden aspect-video">
-                    <div className="badge-corner bg-background/75 text-foreground border border-border">
-                      {t("portfolio.badgeInteractiveDemo")}
-                    </div>
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover img-zoom"
-                      loading="lazy"
-                      decoding="async"
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    />
-                  </div>
-
-                  <div className="p-5 flex flex-col flex-grow">
-                    <Badge variant="secondary" className="mb-3 w-fit text-xs">
-                      {project.industry}
-                    </Badge>
-
-                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-4 flex-grow">{project.subtitle}</p>
-
-                    {project.features && (
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {project.features.map((feature, idx) => (
-                          <span key={idx} className="text-xs text-muted-foreground flex items-center gap-1">
-                            {idx === 0 && <Smartphone className="w-3 h-3" />}
-                            {feature}
-                            {idx < project.features.length - 1 && " •"}
-                          </span>
-                        ))}
+            {demoProjects.map((project, index) => {
+              const isMarine = project.title === "Blue Marine Insurance";
+              return (
+                <div key={index} className="fade-up" style={{ animationDelay: `${0.1 + index * 0.1}s` }}>
+                  <div className="card-hover rounded-xl overflow-hidden border border-border bg-card h-full flex flex-col">
+                    {isMarine && project.image && (
+                      <div className="relative overflow-hidden aspect-video">
+                        <div className="badge-corner bg-background/75 text-foreground border border-border">
+                          {t("portfolio.badgeInteractiveDemo")}
+                        </div>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover img-zoom"
+                          loading="lazy"
+                          decoding="async"
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        />
                       </div>
                     )}
 
-                    <div className="flex gap-2">
-                      <Button asChild variant="default" size="sm" className="flex-1">
-                        <a href={project.url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="w-3 h-3 mr-2" />
-                          {t("portfolio.viewDemo")}
-                        </a>
-                      </Button>
-                      <Button asChild variant="outline" size="sm" className="flex-1">
-                        <a href="#contact">{t("portfolio.useTemplate")}</a>
-                      </Button>
+                    <div className="p-5 flex flex-col flex-grow">
+                      <Badge variant="secondary" className="mb-3 w-fit text-xs">
+                        {project.industry}
+                      </Badge>
+
+                      <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4 flex-grow">{project.subtitle}</p>
+
+                      {project.features && (
+                        <div className="flex flex-wrap gap-1.5 mb-4">
+                          {project.features.map((feature, idx) => (
+                            <span key={idx} className="text-xs text-muted-foreground flex items-center gap-1">
+                              {idx === 0 && <Smartphone className="w-3 h-3" />}
+                              {feature}
+                              {idx < project.features.length - 1 && " •"}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {isMarine && project.url && (
+                        <div className="flex gap-2">
+                          <Button asChild variant="default" size="sm" className="flex-1">
+                            <a href={project.url} target="_blank" rel="noopener noreferrer">
+                              <ExternalLink className="w-3 h-3 mr-2" />
+                              {t("portfolio.viewDemo")}
+                            </a>
+                          </Button>
+                          <Button asChild variant="outline" size="sm" className="flex-1">
+                            <a href="#contact">{t("portfolio.useTemplate")}</a>
+                          </Button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
