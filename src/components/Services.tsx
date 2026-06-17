@@ -30,49 +30,40 @@ const Services = ({
   }];
   return <section className={cn("py-40 bg-background", className)} id="services">
       <div className="container mx-auto px-6 py-0">
-        {/* Section header */}
-        <div className="text-center mb-20 opacity-0 animate-[fadeUp_0.8s_ease-out_0.2s_forwards]">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">{t("services.title")}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t("services.subtitle")}</p>
+        {/* Section header — left aligned, editorial */}
+        <div className="max-w-3xl mb-24">
+          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">— {String(t("services.title")).slice(0, 8)}</div>
+          <h2 className="font-serif text-5xl md:text-6xl mb-6 leading-[1.05]">{t("services.title")}</h2>
+          <p className="text-lg text-muted-foreground max-w-xl">{t("services.subtitle")}</p>
         </div>
 
-        {/* Service cards */}
-        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
-          {services.map((service, index) => <Card key={index} className="group border border-border bg-card hover:border-primary hover:-translate-y-2 hover:shadow-large dark:hover:shadow-[var(--glow-primary)] transition-all duration-500 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] cursor-pointer" style={{
-          animationDelay: `${index * 0.15}s`
-        }}>
-              <CardHeader className="pb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                  <service.icon className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform duration-300" strokeWidth={2} />
+        {/* Services — open editorial layout, no cards */}
+        <div className="max-w-6xl mx-auto divide-y divide-border">
+          {services.map((service, index) => (
+            <div key={index} className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16 py-12 group">
+              <div className="flex items-start gap-4">
+                <span className="font-serif text-2xl text-muted-foreground">0{index + 1}</span>
+                <div>
+                  <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-3">{service.title}</h3>
+                  <p className="text-base text-muted-foreground">{service.description}</p>
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
-                  {service.title}
-                </CardTitle>
-                <CardDescription className="text-base">{service.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => <li key={idx} className="flex items-start gap-2.5 text-base group-hover:translate-x-1 transition-transform duration-300" style={{
-                transitionDelay: `${idx * 0.05}s`
-              }}>
-                      <span className="text-primary mt-0.5 font-semibold">✓</span>
-                      <span className="text-muted-foreground leading-relaxed">{feature}</span>
-                    </li>)}
-                </ul>
-              </CardContent>
-            </Card>)}
+              </div>
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 pt-2">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-base border-l-2 border-border pl-3 group-hover:border-primary/40 transition-colors">
+                    <span className="text-foreground leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* CTA button */}
-        <div style={{
-        animationDelay: "0.6s"
-      }} className="text-center mt-16 opacity-0 animate-[fadeUp_0.8s_ease-out_forwards] py-0 pb-[45px]">
-          <a href="#contact" className="inline-flex items-center justify-center gap-2 px-6 md:px-10 py-3 md:py-4 border-2 rounded-xl font-bold text-base md:text-lg transition-all duration-300 group shadow-lg border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-xl hover:scale-105 relative overflow-hidden">
-            <span className="relative z-10 flex items-center gap-2">
-              {t("services.cta")}
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+        <div className="mt-20 pb-12">
+          <a href="#contact" className="group inline-flex items-center gap-2 text-base font-medium text-foreground hover:text-primary transition-colors border-b border-foreground hover:border-primary pb-1">
+            {t("services.cta")}
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
