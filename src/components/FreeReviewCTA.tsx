@@ -1,5 +1,6 @@
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useConversionFlow } from "@/contexts/ConversionFlowContext";
 import { Button } from "./ui/button";
 
 const FreeReviewCTA = ({ className }: { className?: string }) => {
@@ -15,12 +16,8 @@ const FreeReviewCTA = ({ className }: { className?: string }) => {
           {t("freeReview.description") || "We’ll show you 3 practical improvements that could make your website clearer, faster and more effective at generating bookings or enquiries."}
         </p>
         <div className="flex items-center justify-center gap-3">
-          <button onClick={() => openStart()}> 
-            <Button variant="solid">{t("hero.ctaPrimary")}</Button>
-          </button>
-          <button onClick={() => openFreeReview()}> 
-            <Button variant="outline">{t("hero.ctaSecondary")}</Button>
-          </button>
+          <Button onClick={() => openStart()} variant="solid">{t("hero.ctaPrimary")}</Button>
+          <Button onClick={() => openFreeReview()} variant="outline">{t("hero.ctaSecondary")}</Button>
         </div>
       </div>
     </section>
