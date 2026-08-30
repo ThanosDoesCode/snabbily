@@ -1,0 +1,607 @@
+export const en = {
+  htmlLang: 'en',
+  dir: 'ltr',
+
+  brand: 'Snabbily',
+
+  nav: {
+    work: 'Work',
+    services: 'Services',
+    pricing: 'Pricing',
+    contact: 'Contact',
+    startProject: 'Start a project',
+    menu: 'Menu',
+    close: 'Close',
+  },
+
+  cta: {
+    startProject: 'Start a project',
+    freeReview: 'Get a free website review',
+    requestQuote: 'Request a quote',
+    bookCall: 'Book a call',
+    back: 'Back',
+    next: 'Continue',
+    sendRequest: 'Send my request',
+    getReview: 'Get my free review',
+    retry: 'Try again',
+    skip: 'Skip for now',
+  },
+
+  langSwitch: {
+    label: 'Language',
+    en: 'EN',
+    el: 'ΕΛ',
+    toGreek: 'Διαβάστε στα Ελληνικά',
+    toEnglish: 'Read in English',
+  },
+
+  hero: {
+    headlineLead: 'Your website should bring you ',
+    headlineEmphasis: 'business',
+    headlineTail: '.',
+    supporting:
+      'We build modern websites for service businesses designed to turn visitors into bookings, enquiries and customers. From design and copy to Google setup and integrations, we handle the entire process.',
+    supportingLineA: 'Google Maps helps customers find you.',
+    supportingLineB: 'A website helps customers choose you.',
+  },
+
+  work: {
+    eyebrow: 'Selected work',
+    index: '01',
+    projectName: 'Alexandros Liakos',
+    role: 'Hair Expert & Educator',
+    capabilities: ['Website', 'Copywriting', 'SEO', 'Booking', 'Education'],
+    description:
+      'A complete digital presence designed around services, bookings and professional education.',
+    visit: 'Visit the live site',
+    previewAlt: 'Preview of the Alexandros Liakos website',
+    metricsNote: 'Verified performance metrics will be added here.',
+  },
+
+  capabilities: {
+    eyebrow: 'What we handle',
+    index: '02',
+    title: 'Three things we take off your plate.',
+    items: [
+      {
+        no: '01',
+        title: 'Website design & build',
+        blurb: 'A professional website built around your business, brand and customers.',
+        points: [
+          'Modern design tailored to the business',
+          'Mobile-first responsive design',
+          'Copywriting support',
+          'Performance-focused implementation',
+        ],
+      },
+      {
+        no: '02',
+        title: 'Visibility & conversion',
+        blurb: 'Make it easy for people to find you, trust you and take action.',
+        points: [
+          'SEO foundation',
+          'Google setup',
+          'Booking and enquiry integrations',
+          'Analytics and conversion tracking',
+        ],
+      },
+      {
+        no: '03',
+        title: 'Hosting & ongoing care',
+        blurb: 'We keep your website online, secure and up to date after launch.',
+        points: [
+          'Reliable hosting',
+          'Security and technical updates',
+          'Backups',
+          'Small content changes and personal support',
+        ],
+      },
+    ],
+  },
+
+  why: {
+    eyebrow: 'Why a website',
+    index: '03',
+    lead: 'Social media gets attention. Your website turns that attention into trust.',
+    items: [
+      {
+        title: 'Professional presence',
+        blurb: 'Show your services, work and brand properly.',
+      },
+      {
+        title: 'Trust & credibility',
+        blurb: 'Give customers confidence before they contact or book.',
+      },
+      {
+        title: 'One destination',
+        blurb: 'One place for your services, bookings, contact details and content.',
+      },
+      {
+        title: 'Built for action',
+        blurb: 'Guide visitors toward bookings, enquiries and calls.',
+      },
+    ],
+  },
+
+  niche: {
+    eyebrow: 'Areas of focus',
+    index: '04',
+    headline: 'Built for businesses where reputation matters.',
+    body: 'Snabbily works with service businesses of every kind. Right now we work especially well with hair and beauty professionals — where presentation, trust and easy booking make the difference.',
+    focusLabel: 'Hair & beauty',
+    audience: ['Salons', 'Hairstylists', 'Educators', 'Barbers', 'Beauty professionals'],
+    cta: 'Explore hair & beauty',
+  },
+
+  booking: {
+    eyebrow: 'Booking',
+    index: '05',
+    heading: 'Keep the booking system you already use.',
+    copy: 'Already use Treatwell, Fresha, Bokadirekt or another booking platform? We’ll connect your existing booking journey directly to your website.',
+    benefits: [
+      'Keep your existing workflow',
+      'No new system to learn',
+      'Included with Professional',
+    ],
+  },
+
+  process: {
+    eyebrow: 'How it works',
+    index: '06',
+    title: 'A calm, four-step process.',
+    steps: [
+      {
+        no: '01',
+        title: 'Understand',
+        blurb: 'Tell us about your business and what you want the website to achieve.',
+      },
+      {
+        no: '02',
+        title: 'Create',
+        blurb: 'We handle structure, design, copy and technical setup.',
+      },
+      {
+        no: '03',
+        title: 'Review',
+        blurb: 'You review the website and we refine it together.',
+      },
+      {
+        no: '04',
+        title: 'Launch',
+        blurb: 'We launch, connect your analytics and keep everything running.',
+      },
+    ],
+  },
+
+  pricing: {
+    eyebrow: 'Pricing',
+    index: '07',
+    title: 'Clear pricing. No surprises.',
+    subtitle: 'One project fee, split 50/50. Optional yearly care after launch.',
+    mostPopular: 'Most popular',
+    fromLabel: 'from',
+    plans: [
+      {
+        id: 'essential',
+        name: 'Essential',
+        price: '€600',
+        tagline: 'Professional online presence.',
+        features: [
+          'Up to 4 core pages',
+          'Streamlined professional design',
+          'Mobile-first responsive design',
+          'SEO foundation',
+          'Contact functionality',
+          'Google setup',
+          'Basic analytics setup',
+        ],
+        cta: 'Start a project',
+        action: 'start' as const,
+        popular: false,
+      },
+      {
+        id: 'professional',
+        name: 'Professional',
+        price: '€900',
+        tagline: 'A website designed to help generate bookings, enquiries and customers.',
+        badge: 'Launch bonus: Analytics & conversion tracking included',
+        features: [
+          'More pages and sections',
+          'Full website copywriting',
+          'Booking integration',
+          'Stronger SEO structure',
+          'Google Analytics',
+          'Google Search Console setup',
+          'Conversion tracking',
+          'Dedicated service presentation',
+          'More customization',
+          'Priority support',
+        ],
+        cta: 'Start a project',
+        action: 'start' as const,
+        popular: true,
+      },
+      {
+        id: 'growth',
+        name: 'Growth',
+        price: '€1,300+',
+        tagline:
+          'For businesses needing landing pages, training, advanced integrations or custom functionality.',
+        features: [
+          'Landing pages and funnels',
+          'Training / course sections',
+          'Advanced integrations',
+          'Custom workflows',
+          'More extensive SEO structure',
+          'Advanced conversion architecture',
+        ],
+        cta: 'Request a quote',
+        action: 'quote' as const,
+        popular: false,
+      },
+    ],
+    hosting: {
+      title: 'Hosting & care',
+      price: '€300',
+      per: '/year',
+      lead: 'Optional after launch. Keeps your site online and looked after.',
+      features: [
+        'Reliable hosting',
+        'SSL / security',
+        'Backups',
+        'Technical updates',
+        'Small text / image changes',
+        'General support',
+      ],
+      note: 'New pages, major redesigns, advanced integrations and major functionality are quoted separately.',
+    },
+    payment: {
+      title: 'How payment works',
+      points: [
+        '50% to start, 50% when the website is approved and ready to launch.',
+        'Clear scope agreed before any work begins.',
+        'No surprise charges.',
+        'You keep ownership of your domain and content.',
+        'Personal support after launch.',
+      ],
+    },
+  },
+
+  review: {
+    eyebrow: 'Free website review',
+    index: '08',
+    heading: 'Not ready for a project? Start with a free review.',
+    copy: 'We’ll show you 3 practical improvements that could make your website clearer, faster and more effective at generating bookings or enquiries.',
+    cta: 'Get a free website review',
+  },
+
+  contact: {
+    eyebrow: 'Get in touch',
+    index: '09',
+    heading: 'Let’s make your website work for you.',
+    copy: 'Start a project when you’re ready, or reach out first — whatever suits you.',
+    primaryLabel: 'Start a project',
+    secondaryLabel: 'Get a free website review',
+    alternativeLabel: 'Or reach out directly',
+    emailLabel: 'Email',
+    phoneLabel: 'Phone / WhatsApp',
+    bookLabel: 'Book a 15-minute call',
+  },
+
+  footer: {
+    tagline: 'You focus on your business. We handle the website.',
+    servicesTitle: 'Services',
+    companyTitle: 'Snabbily',
+    legalTitle: 'Legal',
+    privacy: 'Privacy Policy',
+    cookies: 'Cookie Policy',
+    rights: 'All rights reserved.',
+    builtNote: 'Websites for service businesses in Greece.',
+  },
+
+  consent: {
+    title: 'Cookies',
+    body: 'We use essential cookies to run this site. With your consent we also use analytics cookies to understand how the site is used. You can change your mind at any time.',
+    accept: 'Accept analytics',
+    decline: 'Essential only',
+    more: 'Cookie Policy',
+  },
+
+  // ---- Conversion flows -------------------------------------------------
+  startFlow: {
+    metaTitle: 'Start a project',
+    metaDescription: 'Tell us about your business and what you need. A few quick questions — no long forms.',
+    kicker: 'Start a project',
+    heading: 'A few quick questions.',
+    subheading: 'No long forms, no account needed. This takes about a minute.',
+    stepLabel: 'Step',
+    ofLabel: 'of',
+    optional: 'optional',
+    steps: [
+      {
+        key: 'need',
+        question: 'What do you need help with?',
+        type: 'single',
+        options: ['A new website', 'Improve my current website', 'I’m not sure yet'],
+      },
+      {
+        key: 'business',
+        question: 'What type of business do you have?',
+        type: 'single',
+        options: ['Hair salon', 'Hairstylist', 'Barber', 'Beauty business', 'Other'],
+      },
+      {
+        key: 'hasWebsite',
+        question: 'Do you currently have a website?',
+        type: 'single',
+        options: ['Yes', 'No'],
+        urlPrompt: 'What’s the address?',
+        urlPlaceholder: 'yourwebsite.com',
+      },
+      {
+        key: 'goals',
+        question: 'What would you like your website to help you with?',
+        type: 'multi',
+        hint: 'Choose as many as you like.',
+        options: [
+          'Get more bookings',
+          'Get more enquiries',
+          'Look more professional',
+          'Be found more easily on Google',
+          'Promote my services',
+          'Something else',
+        ],
+      },
+      {
+        key: 'timing',
+        question: 'When would you ideally like to start?',
+        type: 'single',
+        options: ['As soon as possible', 'Within a month', '1–3 months', 'Just exploring'],
+      },
+      {
+        key: 'contact',
+        question: 'Where should I contact you?',
+        type: 'contact',
+        options: [],
+      },
+    ],
+    fields: {
+      name: 'Name',
+      email: 'Email',
+      phone: 'Phone / WhatsApp',
+      namePlaceholder: 'Your name',
+      emailPlaceholder: 'you@example.com',
+      phonePlaceholder: '+30 …',
+    },
+    validation: {
+      required: 'Please choose an option to continue.',
+      name: 'Please add your name.',
+      email: 'Please add a valid email address.',
+      url: 'Please enter a valid website address.',
+    },
+    submitting: 'Sending…',
+    error:
+      'Something went wrong sending your request. Your answers are saved — please try again.',
+    notConfigured:
+      'The enquiry form isn’t connected yet. Please email snabbily@gmail.com and we’ll take it from there.',
+    successTitle: 'Thanks, {name}.',
+    successBody: 'I’ll review your answers and get back to you shortly.',
+    successBook: 'Want to talk sooner? Book a 15-minute call.',
+    backHome: 'Back to homepage',
+  },
+
+  reviewFlow: {
+    metaTitle: 'Free website review',
+    metaDescription:
+      'Get 3 practical improvements to make your website clearer, faster and better at generating bookings or enquiries.',
+    kicker: 'Free website review',
+    heading: 'Let’s take a look at your website.',
+    subheading: 'Three quick questions and I’ll send you three practical improvements.',
+    stepLabel: 'Step',
+    ofLabel: 'of',
+    steps: [
+      {
+        key: 'url',
+        question: 'What’s your current website?',
+        type: 'url',
+        options: [],
+        placeholder: 'yourwebsite.com',
+      },
+      {
+        key: 'improve',
+        question: 'What would you most like to improve?',
+        type: 'single',
+        options: [
+          'More bookings',
+          'More enquiries',
+          'Look more professional',
+          'Google visibility',
+          'I’m not sure',
+        ],
+      },
+      {
+        key: 'contact',
+        question: 'Where should I send your review?',
+        type: 'contact',
+        options: [],
+      },
+    ],
+    fields: {
+      name: 'Name',
+      email: 'Email',
+      namePlaceholder: 'Your name',
+      emailPlaceholder: 'you@example.com',
+    },
+    validation: {
+      required: 'Please choose an option to continue.',
+      name: 'Please add your name.',
+      email: 'Please add a valid email address.',
+      url: 'Please enter a valid website address.',
+    },
+    submitting: 'Sending…',
+    error:
+      'Something went wrong sending your request. Your answers are saved — please try again.',
+    notConfigured:
+      'The review form isn’t connected yet. Please email snabbily@gmail.com and we’ll take it from there.',
+    successTitle: 'Got it — thank you.',
+    successBody: 'Your review request has been received. I’ll be in touch by email soon.',
+    backHome: 'Back to homepage',
+  },
+
+  notFound: {
+    title: 'Page not found',
+    body: 'The page you’re looking for doesn’t exist or has moved.',
+    cta: 'Back to homepage',
+  },
+
+  // ---- SEO metadata -----------------------------------------------------
+  meta: {
+    home: {
+      title: 'Website Design for Service Businesses in Greece | Snabbily',
+      description:
+        'Snabbily builds modern websites for service businesses in Greece, designed to generate bookings, enquiries and customers. Website design, SEO setup, integrations and ongoing care.',
+    },
+    hairBeauty: {
+      title: 'Websites for Hair Salons, Barbers & Beauty Businesses in Greece | Snabbily',
+      description:
+        'Modern websites built for hair and beauty professionals in Greece — salons, hairstylists, barbers and educators. Service presentation, galleries, booking integration and Google visibility.',
+    },
+    privacy: {
+      title: 'Privacy Policy | Snabbily',
+      description: 'How Snabbily collects, uses and protects your personal data.',
+    },
+    cookies: {
+      title: 'Cookie Policy | Snabbily',
+      description: 'How Snabbily uses cookies and how you can control them.',
+    },
+  },
+
+  // ---- Hair & Beauty landing page --------------------------------------
+  hairBeauty: {
+    breadcrumb: 'Hair & Beauty',
+    eyebrow: 'Hair & beauty',
+    heading: 'Websites built for hair professionals.',
+    intro:
+      'Your work is visual, personal and built on reputation. Your website should be too. We build modern websites for hair and beauty businesses in Greece — designed around your services, your galleries and easy booking.',
+    primaryCta: 'Start a project',
+    secondaryCta: 'Get a free website review',
+    audienceTitle: 'Who we build for',
+    audience: [
+      { title: 'Hair salons', blurb: 'Present your services, team and space with a site that matches your standards.' },
+      { title: 'Hairstylists', blurb: 'A personal, professional home for your work, prices and bookings.' },
+      { title: 'Barbers', blurb: 'A clean, fast website that makes booking a cut effortless.' },
+      { title: 'Hair educators', blurb: 'Showcase courses and education alongside your services.' },
+      { title: 'Beauty professionals', blurb: 'For beauty businesses where presentation and trust matter.' },
+    ],
+    featuresTitle: 'What your website does for you',
+    features: [
+      {
+        title: 'Professional online presence',
+        blurb: 'A website that reflects the quality of your work and your brand.',
+      },
+      {
+        title: 'Clear service presentation',
+        blurb: 'Show exactly what you offer, so clients arrive already knowing what they want.',
+      },
+      {
+        title: 'Galleries that sell',
+        blurb: 'Let your work speak — organised, fast-loading galleries built for mobile.',
+      },
+      {
+        title: 'Booking integration',
+        blurb: 'Connect Treatwell, Fresha or your current system directly to your site.',
+      },
+      {
+        title: 'Google visibility foundation',
+        blurb: 'Proper SEO setup and Google configuration so people can find you.',
+      },
+      {
+        title: 'Made for mobile',
+        blurb: 'Most clients find you on their phone. Your site is built for them first.',
+      },
+      {
+        title: 'More enquiries',
+        blurb: 'Clear calls to action guide visitors toward booking or getting in touch.',
+      },
+      {
+        title: 'Ongoing website care',
+        blurb: 'We keep everything online, secure and up to date after launch.',
+      },
+    ],
+    bookingTitle: 'Keep the booking system you already use',
+    bookingCopy:
+      'Treatwell, Fresha, Bokadirekt or another platform — we connect your existing booking journey to your website, so there’s no new system to learn.',
+    proofTitle: 'Selected work',
+    proofName: 'Alexandros Liakos',
+    proofRole: 'Hair Expert & Educator',
+    proofBody:
+      'A complete digital presence for a hair expert and educator — services, bookings and professional education in one place.',
+    proofVisit: 'Visit the live site',
+    ctaTitle: 'Ready when you are.',
+    ctaBody: 'Start a project, or get a free website review first.',
+  },
+
+  // ---- Legal (clearly marked as needing review) ------------------------
+  legal: {
+    reviewNotice:
+      'This document is a good-faith template. It must be reviewed by a qualified professional before launch to ensure it is accurate for Snabbily and compliant with GDPR and Greek/EU law.',
+    lastUpdatedLabel: 'Last updated',
+    lastUpdated: 'August 2026',
+    privacy: {
+      title: 'Privacy Policy',
+      intro:
+        'This Privacy Policy explains how Snabbily collects and uses personal data when you use snabbily.com or contact us through the site.',
+      sections: [
+        {
+          h: 'Who we are',
+          p: 'Snabbily provides website design and related services. For any privacy question, contact snabbily@gmail.com.',
+        },
+        {
+          h: 'What we collect',
+          p: 'When you submit an enquiry or free review request, we collect the details you provide: your name, email, optional phone number, and your answers to the questions in the form. If you accept analytics cookies, we also collect anonymous usage data.',
+        },
+        {
+          h: 'How we use it',
+          p: 'We use your details only to respond to your enquiry, prepare your website review, and communicate with you about your project. We do not sell your data.',
+        },
+        {
+          h: 'Form submissions',
+          p: 'Enquiry and review forms are processed by Formspree, which forwards your message to us by email. Please see Formspree’s own privacy policy for how they handle data in transit.',
+        },
+        {
+          h: 'Analytics',
+          p: 'With your consent, we use Google Analytics to understand how the site is used. We do not send your name, email, phone number or form answers to analytics. You can withdraw consent at any time via the cookie settings.',
+        },
+        {
+          h: 'Your rights',
+          p: 'Under GDPR you have the right to access, correct or delete your personal data, and to object to processing. To exercise these rights, email snabbily@gmail.com.',
+        },
+        {
+          h: 'Retention',
+          p: 'We keep enquiry details only as long as needed to respond and to deliver any agreed work.',
+        },
+      ],
+    },
+    cookies: {
+      title: 'Cookie Policy',
+      intro:
+        'This Cookie Policy explains how snabbily.com uses cookies and similar technologies.',
+      sections: [
+        {
+          h: 'Essential cookies',
+          p: 'These are needed for the site to function and to remember your cookie choice. They are always active and do not require consent.',
+        },
+        {
+          h: 'Analytics cookies',
+          p: 'With your consent, Google Analytics sets cookies that help us understand how visitors use the site. These are only loaded after you accept analytics cookies.',
+        },
+        {
+          h: 'Managing cookies',
+          p: 'You can accept or decline analytics cookies using the cookie banner. You can also clear cookies through your browser settings at any time.',
+        },
+      ],
+    },
+  },
+};
+
+export type Dictionary = typeof en;

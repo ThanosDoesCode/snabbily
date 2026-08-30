@@ -1,8 +1,5 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
+import './styles/index.css';
+import { ViteReactSSG } from 'vite-react-ssg';
+import { routes } from './routes';
 
-// Enable dark mode by default
-document.documentElement.classList.add("light");
-
-createRoot(document.getElementById("root")!).render(<App />);
+export const createRoot = ViteReactSSG({ routes });

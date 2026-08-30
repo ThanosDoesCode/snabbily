@@ -1,73 +1,101 @@
-# Welcome to your Lovable project
+# Snabbily
 
-## Project info
+Marketing website for **Snabbily** — a done-for-you website service for service
+businesses in Greece (initial focus: hair & beauty). Fully bilingual (English /
+Greek), statically prerendered for excellent SEO and Core Web Vitals.
 
-**URL**: https://lovable.dev/projects/7762e5d0-692b-42e6-978e-25de344e03bc
+> Positioning: **“Your website should bring you business.”**
 
-## How can I edit this code?
+## Stack
 
-There are several ways of editing your application.
+- **Vite 6** + **React 18** + **TypeScript**
+- **[vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg)** — static
+  prerendering of every route to real HTML (great SEO, fast first paint)
+- **Tailwind CSS v4** (CSS-first tokens, no component library)
+- **react-router-dom** for routing
+- No CMS, no database, no backend. Forms post directly to Formspree.
 
-**Use Lovable**
+## Getting started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7762e5d0-692b-42e6-978e-25de344e03bc) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install
+npm run dev        # http://localhost:5173
 ```
 
-**Edit a file directly in GitHub**
+```bash
+npm run build      # static prerender → dist/
+npm run preview    # serve the built site locally
+npm run lint       # ESLint
+npm run typecheck  # tsc --noEmit
+npm run gen:assets # regenerate og-image.png + app icons from scripts/gen-assets.mjs
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Environment variables
 
-**Use GitHub Codespaces**
+All are **optional** — the site degrades gracefully when a value is missing.
+Copy `.env.example` → `.env.local` and fill in what you have.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Variable                 | Purpose                                                        | If missing |
+| ------------------------ | -------------------------------------------------------------- | ---------- |
+| `VITE_SUBMIT_ENDPOINT`   | Formspree endpoint for enquiry / review forms                  | Forms show a friendly “not connected yet” message |
+| `VITE_CAL_LINK`          | Cal.com link (`user/event` or full URL) for “Book a call”      | All booking UI is hidden |
+| `VITE_GA_MEASUREMENT_ID` | GA4 measurement ID (`G-XXXX…`)                                 | Analytics + cookie banner never load |
+| `VITE_SITE_URL`          | Public origin for canonical/sitemap/OG (default `https://snabbily.com`) | Falls back to the default |
 
-## What technologies are used for this project?
+**Production form recipient:** `snabbily@gmail.com` (configured in Formspree, not in code).
+Never commit real secrets — `.env*` files are git-ignored.
 
-This project is built with:
+## Routes
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+| English                        | Greek                                             |
+| ------------------------------ | ------------------------------------------------- |
+| `/`                            | `/el`                                             |
+| `/websites-for-hair-beauty`    | `/el/kataskevi-istoselidon-gia-kommotiria`        |
+| `/start` (noindex)             | `/el/start`                                       |
+| `/review` (noindex)            | `/el/review`                                      |
+| `/privacy`                     | `/el/privacy`                                     |
+| `/cookies`                     | `/el/cookies`                                     |
 
-## How can I deploy this project?
+Nav links (Work / Services / Pricing / Contact) are homepage section anchors.
 
-Simply open [Lovable](https://lovable.dev/projects/7762e5d0-692b-42e6-978e-25de344e03bc) and click on Share -> Publish.
+## Structure
 
-## Can I connect a custom domain to my Lovable project?
+```
+src/
+  i18n/        locales, typed EN/EL dictionaries, LocaleProvider, route registry
+  lib/         config, Formspree submit, GA4, consent store, structured data, parallax
+  components/  Button, Reveal, Section, Seo, BrowserFrame, WorkPoster, LegalDoc,
+               layout/ (Nav, Footer, ConsentBanner, Layout), flow/ (primitives)
+  sections/    homepage sections (Hero, SelectedWork, Capabilities, …)
+  pages/       Home, HairBeauty, StartProject, FreeReview, Privacy, Cookies, NotFound
+  styles/      design tokens + reveal system
+public/        favicon, icons, og-image, robots.txt, sitemap.xml, manifest
+```
 
-Yes, you can!
+## Internationalisation
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Route-based. English at the root, Greek under `/el`. Content lives in typed
+dictionaries (`src/i18n/en.ts` is the source of truth; `el.ts` must match its
+shape). `hreflang` alternates and a Greek-localised landing-page slug are wired
+for locale SEO.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Accessibility & motion
+
+Semantic HTML, labelled forms, visible focus states, skip link, ~44px+ touch
+targets. Scroll-reveal animations are transform/opacity only, gated behind
+`prefers-reduced-motion`, reduced on mobile, and progressive (content is fully
+visible without JS). The hero entrance is pure CSS so the LCP element never waits
+for JavaScript.
+
+## Deployment (Vercel)
+
+Static output. `vercel.json` sets `buildCommand: npm run build`,
+`outputDirectory: dist`, `cleanUrls`, and long-cache headers for assets. Add the
+environment variables above in the Vercel project settings, then connect
+`snabbily.com`.
+
+## ⚠️ Legal review required
+
+`Privacy Policy` and `Cookie Policy` are good-faith templates and are clearly
+marked as requiring review by a qualified professional before launch (GDPR /
+Greek & EU law).
