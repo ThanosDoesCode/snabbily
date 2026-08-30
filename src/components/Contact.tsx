@@ -3,11 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, Eye, EyeOff, Linkedin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { CONTACT_EMAIL, CONTACT_PHONE, CAL_LINK, COOKIE_CONSENT_KEY } from "@/config/site";
 
 // Declare Cal type for window
 declare global {
   interface Window {
-    Cal: any;
+    // Cal is the global loader provided by Cal.com embed script. Use `unknown` to avoid leaking `any`.
+    Cal?: ((...args: unknown[]) => unknown) & { ns?: Record<string, unknown> };
   }
 }
 
@@ -20,6 +22,7 @@ const Contact = ({ className }: ContactProps) => {
   const [showFullNumber, setShowFullNumber] = useState(false);
   const [calLoaded, setCalLoaded] = useState(false);
   const calContainerRef = useRef<HTMLDivElement | null>(null);
+  const [waitingForConsent, setWaitingForConsent] = useState(false);
 
   // Lazy-load Cal.com when the calendar card enters the viewport
   useEffect(() => {
@@ -29,7 +32,12 @@ const Contact = ({ className }: ContactProps) => {
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
-          loadCalInline();
+          // Only load Cal if user has consented to non-essential cookies
+          if (hasCookieConsent()) {
+            loadCalInline();
+          } else {
+            setWaitingForConsent(true);
+          }
           observer.disconnect();
         }
       },
@@ -38,66 +46,83 @@ const Contact = ({ className }: ContactProps) => {
 
     observer.observe(calContainerRef.current);
 
+    const onConsent = () => {
+      if (waitingForConsent && hasCookieConsent()) loadCalInline();
+    };
+
+    window.addEventListener("cookie-consent-changed", onConsent);
+
     return () => {
       observer.disconnect();
+      window.removeEventListener("cookie-consent-changed", onConsent);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [calLoaded]);
+  }, [calLoaded, waitingForConsent]);
 
-  const loadCalInline = () => {
+  const ensureFullUrl = (link: string) => {
+    if (!link) return link;
+    if (/^https?:\/\//i.test(link)) return link;
+    return `https://${link}`;
+  };
+
+  const hasCookieConsent = () => {
+    try {
+      return (
+        localStorage.getItem(COOKIE_CONSENT_KEY) === "true" ||
+        (typeof document !== "undefined" && document.cookie.includes(`${COOKIE_CONSENT_KEY}=true`))
+      );
+    } catch (e) {
+      return false;
+    }
+  };
+
+  const loadCalInline = async () => {
     if (typeof window === "undefined") return;
     if (calLoaded) return;
 
-    (function (C, A, L) {
-      let p = function (a: any, ar: any) {
-        a.q.push(ar);
-      };
-      let d = C.document;
-      C.Cal =
-        C.Cal ||
-        function () {
-          let cal = C.Cal;
-          let ar = arguments;
-          if (!cal.loaded) {
-            cal.ns = {};
-            cal.q = cal.q || [];
-            d.head.appendChild(d.createElement("script")).src = A;
-            cal.loaded = true;
-          }
-          if (ar[0] === L) {
-            const api: any = function () {
-              p(api, arguments);
-            };
-            const namespace = ar[1];
-            api.q = api.q || [];
-            if (typeof namespace === "string") {
-              cal.ns[namespace] = cal.ns[namespace] || api;
-              p(cal.ns[namespace], ar);
-              p(cal, ["initNamespace", namespace]);
-            } else p(cal, ar);
-            return;
-          }
-          p(cal, ar);
-        };
-    })(window as any, "https://app.cal.com/embed/embed.js", "init");
+    const calLink = ensureFullUrl(CAL_LINK);
+    if (!calLink) return; // nothing to do
 
-    window.Cal("init", "30min", { origin: "https://app.cal.com" });
-    window.Cal.ns["30min"]("inline", {
-      elementOrSelector: "#my-cal-inline-30min",
-      config: { layout: "month_view", theme: "light" },
-      calLink: "snabbily.com/30min", // your existing Cal link
-    });
-    window.Cal.ns["30min"]("ui", {
-      theme: "light",
-      hideEventTypeDetails: false,
-      layout: "month_view",
-    });
+    try {
+      const src = "https://app.cal.com/embed/embed.js";
+      // avoid loading the script multiple times
+      if (!document.querySelector(`script[src="${src}"]`)) {
+        await new Promise<void>((resolve, reject) => {
+          const s = document.createElement("script");
+          s.src = src;
+          s.async = true;
+          s.onload = () => resolve();
+          s.onerror = () => reject(new Error("Failed to load Cal.com script"));
+          document.head.appendChild(s);
+        });
+      }
 
-    setCalLoaded(true);
+      // initialize Cal if available
+      if (typeof window.Cal === "function") {
+        window.Cal("init", "30min", { origin: "https://app.cal.com" });
+        if (window.Cal.ns && typeof window.Cal.ns["30min"] === "function") {
+          window.Cal.ns["30min"]("inline", {
+            elementOrSelector: "#my-cal-inline-30min",
+            config: { layout: "month_view", theme: "light" },
+            calLink: calLink,
+          });
+          window.Cal.ns["30min"]("ui", {
+            theme: "light",
+            hideEventTypeDetails: false,
+            layout: "month_view",
+          });
+        }
+      }
+
+      setCalLoaded(true);
+    } catch (e) {
+      // silently fail — booking will remain a contact CTA
+      console.warn("Cal.com script failed to load", e);
+    }
   };
 
-  const phoneNumber = "+46 76 341 41 05";
-  const maskedNumber = "+46 76 341 XX XX";
+  const phoneNumber = CONTACT_PHONE;
+  const maskedNumber = phoneNumber.replace(/\d(?=\d{2})/g, "X");
 
   return (
     <section className={cn("py-40 bg-secondary", className)} id="contact">
@@ -119,7 +144,27 @@ const Contact = ({ className }: ContactProps) => {
               >
                 {!calLoaded && (
                   <div className="w-full h-full flex items-center justify-center text-sm text-muted-foreground">
-                    {t("contact.loadingCalendar") ?? "Loading booking calendar..."}
+                    {waitingForConsent ? (
+                      <div className="flex flex-col items-center gap-3">
+                        <p>{t("contact.loadingRequiresConsent") ?? "Accept cookies to load the booking calendar."}</p>
+                        <button
+                          onClick={() => {
+                            try {
+                              localStorage.setItem(COOKIE_CONSENT_KEY, "true");
+                              document.cookie = `${COOKIE_CONSENT_KEY}=true; path=/; max-age=${60 * 60 * 24 * 365}`;
+                              window.dispatchEvent(new Event("cookie-consent-changed"));
+                            } catch (e) {
+                              // ignore storage/cookie write failures
+                            }
+                          }}
+                          className="px-4 py-2 rounded-md bg-primary text-primary-foreground"
+                        >
+                          {t("contact.acceptCookies") ?? "Accept cookies"}
+                        </button>
+                      </div>
+                    ) : (
+                      <div>{t("contact.loadingCalendar") ?? "Loading booking calendar..."}</div>
+                    )}
                   </div>
                 )}
               </div>
@@ -136,11 +181,8 @@ const Contact = ({ className }: ContactProps) => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-base mb-1">{t("contact.email.title")}</h3>
-                    <p className="text-muted-foreground text-sm">snabbily@gmail.com</p>
-                    <a
-                      href="mailto:snabbily@gmail.com"
-                      className="text-primary hover:underline text-sm mt-1 inline-block"
-                    >
+                    <p className="text-muted-foreground text-sm">{CONTACT_EMAIL}</p>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary hover:underline text-sm mt-1 inline-block">
                       {t("contact.email.cta")}
                     </a>
                   </div>
@@ -166,7 +208,7 @@ const Contact = ({ className }: ContactProps) => {
                         {showFullNumber ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                       </button>
                     </div>
-                    <a href="tel:+46763414105" className="text-primary hover:underline text-sm mt-1 inline-block">
+                    <a href={`tel:${phoneNumber.replace(/\s+/g, "")}`} className="text-primary hover:underline text-sm mt-1 inline-block">
                       {t("contact.phone.cta")}
                     </a>
                   </div>

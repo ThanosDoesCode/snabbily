@@ -29,6 +29,12 @@ const Footer = () => {
             <a href="#contact" className="hover:text-primary transition-colors">
               {t("footer.contact")}
             </a>
+            <a href="/privacy" className="hover:text-primary transition-colors">
+              {t("footer.privacyPolicy")}
+            </a>
+            <a href="/cookies" className="hover:text-primary transition-colors">
+              {t("footer.cookiePolicy")}
+            </a>
           </div>
           <div className="border-t border-border pt-6">
             <p className="text-muted-foreground text-sm">© {currentYear} {t("footer.copyright")}</p>

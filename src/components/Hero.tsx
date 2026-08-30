@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useConversionFlow } from "@/contexts/ConversionFlowContext";
 interface HeroProps {
   className?: string;
 }
@@ -19,6 +20,8 @@ const Hero = ({
       });
     }
   };
+
+  const { openStart, openFreeReview } = useConversionFlow();
   return <section className={cn(
   // Normal section height with comfortable padding
   "relative flex items-start justify-center overflow-hidden py-16 sm:py-20 md:py-24", className)}>
@@ -36,11 +39,11 @@ const Hero = ({
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start mb-10 px-4">
-            <Button size="lg" onClick={() => scrollToSection("pricing")} className="group text-base px-8 h-[52px] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium w-full sm:w-auto rounded-sm">
+            <Button size="lg" onClick={() => openStart()} className="group text-base px-8 h-[52px] bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium w-full sm:w-auto rounded-sm">
               {t("hero.ctaPrimary")}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="ghost" onClick={() => scrollToSection("contact")} className="group text-base px-8 h-[52px] hover:bg-transparent hover:text-primary transition-colors font-medium w-full sm:w-auto rounded-sm underline underline-offset-8 decoration-1">
+            <Button size="lg" variant="ghost" onClick={() => openFreeReview()} className="group text-base px-8 h-[52px] hover:bg-transparent hover:text-primary transition-colors font-medium w-full sm:w-auto rounded-sm underline underline-offset-8 decoration-1">
               {t("hero.ctaSecondary")}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>

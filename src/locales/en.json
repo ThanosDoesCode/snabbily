@@ -7,9 +7,9 @@
   },
   "hero": {
     "title": "Fast Websites for Local Businesses",
-    "subtitle": "A fully bespoke, dual-language website with seamless booking integration. Two months of dedicated support included. Complete package for 300€.",
-    "ctaPrimary": "Get Your Website",
-    "ctaSecondary": "View Portfolio",
+    "subtitle": "We build websites that turn visitors into bookings, enquiries and customers. You focus on your business — we handle design, mobile optimisation, copy, Google setup and booking integrations.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "Get a free website review",
     "mapsHighlight": {
       "line1Bold": "Google Maps",
       "line1Rest": "helps customers find you.",
@@ -17,6 +17,8 @@
       "line2Rest": "helps customers choose you."
     }
   },
+
+
   "services": {
     "title": "What We Offer",
     "subtitle": "Everything you need to establish a professional online presence",
@@ -86,21 +88,54 @@
     "title": "Simple, Transparent Pricing",
     "subtitle": "No hidden fees, no surprises.",
     "footer": "No hidden fees. Simple and transparent pricing.",
-    "starter": {
-      "name": "Starter Website",
-      "price": "249",
-      "description": "Perfect for a new business getting online",
+    "essential": {
+      "name": "Essential",
+      "price": "600",
+      "description": "Professional online presence.",
       "tagline": "A clean, professional website to establish your online presence.",
       "features": [
         "Up to 3 pages",
         "Standard template",
-        "No booking integration",
+        "Mobile-first responsive design",
         "Basic SEO",
-        "Mobile-first design",
-        "Simple gallery",
-        "3–4 days delivery"
+        "Simple image gallery"
       ]
     },
+    "professional": {
+      "name": "Professional",
+      "price": "900",
+      "description": "Website designed to help generate bookings, enquiries and customers.",
+      "tagline": "Designed to convert visitors into customers.",
+      "launchBonus": "Includes analytics & conversion tracking setup (launch bonus)",
+      "features": [
+        "Up to 6 pages",
+        "Booking integration (Cal.com or your platform)",
+        "Enhanced SEO basics",
+        "Analytics & conversion tracking setup",
+        "Priority support"
+      ]
+    },
+    "growth": {
+      "name": "Growth",
+      "price": "1300+",
+      "description": "More advanced website for lead generation, landing pages, courses, integrations or custom functionality.",
+      "tagline": "Advanced features and integrations for growth-oriented businesses.",
+      "features": [
+        "Landing pages and funnels",
+        "Advanced integrations (CRMs, courses, APIs)",
+        "Custom features and workflows",
+        "Conversion-focused design"
+      ]
+    },
+    "features": [
+      "Up to 3 pages",
+      "Standard template",
+      "No booking integration",
+      "Basic SEO",
+      "Mobile-first design",
+      "Simple gallery",
+      "3–4 days delivery"
+    ],
     "advanced": {
       "name": "Advanced Website",
       "originalPrice": "499",
@@ -141,8 +176,8 @@
     "maintenance": {
       "title": "Maintenance",
       "description": "Ongoing care for your website",
-      "price": "29",
-      "period": "€/month",
+      "price": "300",
+      "period": "€/year",
       "badge": "ONGOING SUPPORT",
       "features": [
         "Reliable hosting",
@@ -152,6 +187,7 @@
         "AI consultant based on your website"
       ]
     },
+    "paymentTerms": "50% payment to start, remaining 50% when the website is approved and ready to launch. A clear scope will be agreed before work begins. No surprise charges. You retain ownership of your domain and content. Support is available after launch.",
     "mostPopular": "Most Popular",
     "getStarted": "Get Started",
     "requestQuote": "Request Quote",
@@ -160,8 +196,8 @@
   "process": {
     "badge": "STREAMLINED WORKFLOW",
     "title": "Our Simple Process",
-    "subtitle": "From first contact to live website in just a few days",
-    "description": "You only send your photos and basic details. We build everything else.",
+    "subtitle": "From first contact to a website that helps you get bookings",
+    "description": "You send basic details and photos. We build a polished, mobile-optimised website ready to welcome customers.",
     "cta": "Ready to start your journey?",
     "steps": [
       {
@@ -297,6 +333,9 @@
       "subtitle": "See more about my background, experience and recent projects.",
       "cta": "Visit my LinkedIn profile →"
     },
+    "loadingCalendar": "Loading booking calendar...",
+    "loadingRequiresConsent": "Accept cookies to load the booking calendar.",
+    "acceptCookies": "Accept cookies",
     "fastResponse": "Fast Response Time:",
     "fastResponseText": "We typically reply within 3–5 hours during business days."
   },
@@ -309,6 +348,98 @@
     "pricing": "Pricing",
     "portfolio": "Portfolio",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy"
+  },
+  "freeReview": {
+    "description": "We’ll show you 3 practical improvements that could make your website clearer, faster and more effective at generating bookings or enquiries."
+  },
+  "flow": {
+    "common": {
+      "next": "Next",
+      "back": "Back",
+      "sending": "Sending..."
+    },
+    "start": {
+      "title": "Start a project",
+      "subtitle": "A quick, private questionnaire to begin your project.",
+      "step1": {
+        "question": "What do you need help with?",
+        "options": {
+          "newWebsite": "A new website",
+          "improve": "Improve my current website",
+          "unsure": "I’m not sure yet"
+        }
+      },
+      "step2": {
+        "question": "What type of business do you have?",
+        "options": {
+          "hairSalon": "Hair salon",
+          "hairstylist": "Hairstylist",
+          "barber": "Barber",
+          "beauty": "Beauty business",
+          "other": "Other"
+        }
+      },
+      "step3": {
+        "question": "Do you currently have a website?",
+        "options": {
+          "yes": "Yes",
+          "no": "No"
+        },
+        "websiteLabel": "Website URL (optional)"
+      },
+      "step4": {
+        "question": "What would you like your website to help you with?",
+        "options": {
+          "bookings": "Get more bookings",
+          "enquiries": "Get more enquiries",
+          "professional": "Look more professional",
+          "google": "Be found more easily on Google",
+          "promote": "Promote my services",
+          "other": "Something else"
+        }
+      },
+      "step5": {
+        "question": "When would you ideally like to start?",
+        "options": {
+          "asap": "As soon as possible",
+          "month": "Within a month",
+          "q1-3": "1–3 months",
+          "explore": "Just exploring"
+        }
+      },
+      "step6": {
+        "question": "Where should we contact you?",
+        "name": "Your name",
+        "email": "Email address",
+        "phone": "Phone or WhatsApp (optional)"
+      },
+      "submit": "Send my request"
+    },
+    "free": {
+      "title": "Free website review",
+      "subtitle": "A short review sent by email.",
+      "step1": {
+        "question": "What’s your current website?"
+      },
+      "step2": {
+        "question": "What would you most like to improve?",
+        "options": {
+          "bookings": "More bookings",
+          "enquiries": "More enquiries",
+          "professional": "Look more professional",
+          "google": "Google visibility",
+          "unsure": "I’m not sure"
+        }
+      },
+      "step3": {
+        "question": "Where should we send your review?",
+        "namePlaceholder": "Your name",
+        "emailPlaceholder": "Your email"
+      },
+      "submit": "Get my free review"
+    }
   }
 }

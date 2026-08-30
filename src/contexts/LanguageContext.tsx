@@ -4,7 +4,7 @@ import sv from "@/locales/sv.json";
 import el from "@/locales/el.json";
 
 type Language = "en" | "sv" | "el";
-type Translations = typeof en;
+type Translations = Record<string, unknown>;
 
 interface LanguageContextType {
   lang: Language;
@@ -17,17 +17,17 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations: Record<Language, Translations> = { en, sv, el };
 
 // Helper to get nested object property by string path
-const getNestedTranslation = (obj: any, path: string): string => {
+const getNestedTranslation = (obj: Record<string, unknown>, path: string): string => {
   const keys = path.split(".");
-  let result = obj;
+  let result: unknown = obj;
   for (const key of keys) {
-    if (result && typeof result === "object" && key in result) {
-      result = result[key];
+    if (result && typeof result === "object" && key in (result as Record<string, unknown>)) {
+      result = (result as Record<string, unknown>)[key as string];
     } else {
       return path; // Return key if not found
     }
   }
-  return typeof result === "string" ? result : path;
+  return typeof result === "string" ? (result as string) : path;
 };
 
 // 1. Logic moved outside component to be pure and testable
