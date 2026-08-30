@@ -65,7 +65,7 @@ export function SelectedWork() {
                   src="/work/alexandros-liakos.webp"
                   alt="Alexandros Liakos Hair Expert and Educator website"
                   width={1600}
-                  height={1000}
+                  height={800}
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover object-top"

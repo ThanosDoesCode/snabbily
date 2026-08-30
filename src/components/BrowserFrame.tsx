@@ -15,7 +15,7 @@ export function BrowserFrame({ url, children }: BrowserFrameProps) {
         <span className="h-2.5 w-2.5 rounded-full bg-line-strong" aria-hidden="true" />
         <span className="ml-3 truncate rounded-full bg-bone px-3 py-1 text-xs text-muted">{url}</span>
       </div>
-      <div className="aspect-[16/10] w-full">{children}</div>
+      <div className="aspect-[2/1] w-full">{children}</div>
     </figure>
   );
 }
