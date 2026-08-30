@@ -295,6 +295,7 @@ export const en = {
     legalTitle: 'Legal',
     privacy: 'Privacy Policy',
     cookies: 'Cookie Policy',
+    cookieSettings: 'Cookie settings',
     rights: 'All rights reserved.',
     builtNote: 'Websites for service businesses in Greece.',
   },
@@ -704,7 +705,7 @@ export const en = {
           h: 'Managing your choices',
           blocks: [
             'When you visit the site, you can accept or decline analytics cookies through the relevant banner.',
-            'You can also change or withdraw your choice later through the cookie settings, where that option is available on the site.',
+            'You can also change or withdraw your consent at any time by reopening Cookie settings from the site footer.',
             'You can also delete cookies through your browser settings.',
           ],
         },

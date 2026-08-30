@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n';
 import { useConsent } from '@/lib/consent';
-import { loadAnalytics } from '@/lib/analytics';
+import { loadAnalytics, disableAnalytics } from '@/lib/analytics';
 import { isAnalyticsConfigured } from '@/lib/config';
 
 export function ConsentBanner() {
@@ -12,9 +12,11 @@ export function ConsentBanner() {
 
   useEffect(() => setMounted(true), []);
 
-  // Load analytics whenever consent is (or becomes) granted.
+  // Honour the current choice: load analytics when granted, turn it off when
+  // withdrawn (denied) so a changed choice takes effect without a page reload.
   useEffect(() => {
     if (consent === 'granted') loadAnalytics();
+    else if (consent === 'denied') disableAnalytics();
   }, [consent]);
 
   // Nothing to consent to if analytics isn't configured.

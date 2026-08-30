@@ -15,8 +15,15 @@ declare global {
 
 let loaded = false;
 
+const disableKey = `ga-disable-${GA_MEASUREMENT_ID}`;
+
 export function loadAnalytics(): void {
-  if (loaded || !isAnalyticsConfigured || typeof window === 'undefined') return;
+  if (!isAnalyticsConfigured || typeof window === 'undefined') return;
+
+  // Re-enable measurement if it was previously turned off in this session.
+  (window as unknown as Record<string, unknown>)[disableKey] = false;
+
+  if (loaded) return;
   loaded = true;
 
   const s = document.createElement('script');
@@ -30,6 +37,17 @@ export function loadAnalytics(): void {
   };
   window.gtag('js', new Date());
   window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+}
+
+/**
+ * Stop Google Analytics from sending data in the current session, using GA's
+ * official `ga-disable-<ID>` flag. Used when consent is withdrawn without a
+ * page reload. On the next load, GA simply is not injected while consent is
+ * denied, so the choice is respected either way.
+ */
+export function disableAnalytics(): void {
+  if (!isAnalyticsConfigured || typeof window === 'undefined') return;
+  (window as unknown as Record<string, unknown>)[disableKey] = true;
 }
 
 export type AnalyticsEvent =

@@ -7,11 +7,14 @@ const STORAGE_KEY = 'snabbily.consent.analytics';
 interface ConsentContextValue {
   consent: ConsentState;
   setConsent: (value: 'granted' | 'denied') => void;
+  /** Clear the stored choice and reopen the consent banner. */
+  resetConsent: () => void;
 }
 
 const ConsentContext = createContext<ConsentContextValue>({
   consent: 'unset',
   setConsent: () => {},
+  resetConsent: () => {},
 });
 
 function readStored(): ConsentState {
@@ -42,7 +45,20 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  return <ConsentContext.Provider value={{ consent, setConsent }}>{children}</ConsentContext.Provider>;
+  const resetConsent = useCallback(() => {
+    setConsentState('unset');
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      /* ignore */
+    }
+  }, []);
+
+  return (
+    <ConsentContext.Provider value={{ consent, setConsent, resetConsent }}>
+      {children}
+    </ConsentContext.Provider>
+  );
 }
 
 export function useConsent(): ConsentContextValue {

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n';
-import { CONTACT_EMAIL } from '@/lib/config';
+import { CONTACT_EMAIL, isAnalyticsConfigured } from '@/lib/config';
+import { useConsent } from '@/lib/consent';
 
 export function Footer() {
   const { t, path } = useI18n();
+  const { resetConsent } = useConsent();
   const home = home_(path('home'));
   const year = new Date().getFullYear();
 
@@ -63,6 +65,17 @@ export function Footer() {
                   {t.footer.cookies}
                 </Link>
               </li>
+              {isAnalyticsConfigured && (
+                <li>
+                  <button
+                    type="button"
+                    onClick={resetConsent}
+                    className="link-underline text-left text-ink-soft hover:text-ink"
+                  >
+                    {t.footer.cookieSettings}
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>

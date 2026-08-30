@@ -1,6 +1,6 @@
 # Snabbily
 
-Marketing website for **Snabbily** — a done-for-you website service for service
+Marketing website for **Snabbily**, a done-for-you website service for service
 businesses in Greece (initial focus: hair & beauty). Fully bilingual (English /
 Greek), statically prerendered for excellent SEO and Core Web Vitals.
 
@@ -9,7 +9,7 @@ Greek), statically prerendered for excellent SEO and Core Web Vitals.
 ## Stack
 
 - **Vite 6** + **React 18** + **TypeScript**
-- **[vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg)** — static
+- **[vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg)**: static
   prerendering of every route to real HTML (great SEO, fast first paint)
 - **Tailwind CSS v4** (CSS-first tokens, no component library)
 - **react-router-dom** for routing
@@ -32,7 +32,7 @@ npm run gen:assets # regenerate og-image.png + app icons from scripts/gen-assets
 
 ## Environment variables
 
-All are **optional** — the site degrades gracefully when a value is missing.
+All are **optional**. The site degrades gracefully when a value is missing.
 Copy `.env.example` → `.env.local` and fill in what you have.
 
 | Variable                 | Purpose                                                        | If missing |
@@ -43,7 +43,7 @@ Copy `.env.example` → `.env.local` and fill in what you have.
 | `VITE_SITE_URL`          | Public origin for canonical/sitemap/OG (default `https://snabbily.com`) | Falls back to the default |
 
 **Production form recipient:** `snabbily@gmail.com` (configured in Formspree, not in code).
-Never commit real secrets — `.env*` files are git-ignored.
+Never commit real secrets. `.env*` files are git-ignored.
 
 ## Routes
 
