@@ -32,3 +32,8 @@ pnpm-debug.log*
 
 # vercel
 .vercel
+
+# local agent skills (installed via `skills add` — not part of the website)
+.agents/
+.claude/
+skills-lock.json
