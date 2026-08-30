@@ -543,42 +543,133 @@ export const en = {
 
   // ---- Legal (clearly marked as needing review) ------------------------
   legal: {
-    reviewNotice:
-      'This document is a good-faith template. It must be reviewed by a qualified professional before launch to ensure it is accurate for Snabbily and compliant with GDPR and Greek/EU law.',
     lastUpdatedLabel: 'Last updated',
     lastUpdated: 'August 2026',
     privacy: {
       title: 'Privacy Policy',
       intro:
-        'This Privacy Policy explains how Snabbily collects and uses personal data when you use snabbily.com or contact us through the site.',
+        'This Privacy Policy explains how Snabbily collects, uses and protects personal data when you visit snabbily.com, submit a form or contact us.',
       sections: [
         {
           h: 'Who we are',
-          p: 'Snabbily provides website design and related services. For any privacy question, contact snabbily@gmail.com.',
+          blocks: [
+            'Snabbily provides website design and development, SEO, integrations, hosting and technical support.',
+            'For any question about the protection of personal data, you can contact us at snabbily@gmail.com.',
+            'Once Snabbily’s business registration in Sweden is complete, the full details of the data controller will be added here.',
+          ],
         },
         {
-          h: 'What we collect',
-          p: 'When you submit an enquiry or free review request, we collect the details you provide: your name, email, optional phone number, and your answers to the questions in the form. If you accept analytics cookies, we also collect anonymous usage data.',
+          h: 'What data we collect',
+          blocks: [
+            'When you complete an enquiry form or request a free website review, we may collect:',
+            [
+              'name',
+              'email address',
+              'optionally a phone or WhatsApp number',
+              'your website address',
+              'information about your business and your needs',
+              'the answers you give in our forms',
+            ],
+            'If you give your consent for analytics, we may also collect technical and statistical data about how the website is used.',
+          ],
         },
         {
-          h: 'How we use it',
-          p: 'We use your details only to respond to your enquiry, prepare your website review, and communicate with you about your project. We do not sell your data.',
+          h: 'Why we use your data',
+          blocks: [
+            'We use your personal data to:',
+            [
+              'respond to your request',
+              'prepare a free website review',
+              'contact you about a possible project',
+              'provide services agreed with you',
+              'improve how the website works and the experience of using it, when you have consented to analytics',
+            ],
+            'We do not sell your personal data.',
+          ],
         },
         {
-          h: 'Form submissions',
-          p: 'Enquiry and review forms are processed by Formspree, which forwards your message to us by email. Please see Formspree’s own privacy policy for how they handle data in transit.',
+          h: 'Legal basis for processing',
+          blocks: [
+            'Depending on the situation, processing is based on:',
+            [
+              'your consent, for example for analytics cookies',
+              'taking steps at your request before entering into a contract',
+              'the performance of a contract, once you become a client',
+              'legal obligations that may apply',
+              'a legitimate business interest, where this is permitted and your rights do not override it',
+            ],
+          ],
         },
         {
-          h: 'Analytics',
-          p: 'With your consent, we use Google Analytics to understand how the site is used. We do not send your name, email, phone number or form answers to analytics. You can withdraw consent at any time via the cookie settings.',
+          h: 'Forms and Formspree',
+          blocks: [
+            'The website’s forms are sent through Formspree, which acts as a technical infrastructure provider for receiving requests.',
+            'The data you enter in the form is transmitted to Formspree and then forwarded to Snabbily.',
+            'Formspree’s processing of the data is also governed by its own terms and privacy policies.',
+          ],
+        },
+        {
+          h: 'Google Analytics',
+          blocks: [
+            'With your consent, we use Google Analytics 4 to understand how the website is used.',
+            'We do not send your name, email, phone number or the answers you submit in the forms to Google Analytics.',
+            'Google Analytics may use cookies and technical identifiers to measure use of the website.',
+            'Analytics is only enabled after the required consent is given.',
+            'You can change or withdraw your consent through the cookie settings.',
+          ],
+        },
+        {
+          h: 'Cookies',
+          blocks: [
+            'The website uses essential cookies for basic functionality and, only with your consent, cookies or similar technologies for analytics.',
+            'You can find more information in the Cookie Policy.',
+          ],
+        },
+        {
+          h: 'Who has access to the data',
+          blocks: [
+            'Your data may be processed by service providers that are necessary for running the website and communicating with you, such as:',
+            ['Formspree', 'Google Analytics', 'hosting and infrastructure provider', 'email provider'],
+            'We only use the data that is necessary for each purpose.',
+          ],
+        },
+        {
+          h: 'Transfers outside the EEA',
+          blocks: [
+            'Some service providers may process data outside the European Economic Area.',
+            'Where required, such transfers must rely on appropriate safeguards under the GDPR, such as adequacy decisions or approved contractual clauses.',
+          ],
+        },
+        {
+          h: 'How long we keep the data',
+          blocks: [
+            'We keep the details of requests only for as long as necessary to respond, to discuss a possible collaboration or to provide agreed services.',
+            'Data that must be kept for tax, accounting or other legal reasons may be retained for longer, in line with the applicable obligations.',
+          ],
         },
         {
           h: 'Your rights',
-          p: 'Under GDPR you have the right to access, correct or delete your personal data, and to object to processing. To exercise these rights, email snabbily@gmail.com.',
+          blocks: [
+            'Under the GDPR, and depending on the situation, you have the right to:',
+            [
+              'access to your personal data',
+              'rectification of inaccurate data',
+              'erasure',
+              'restriction of processing',
+              'objection to processing',
+              'data portability',
+              'withdrawal of consent at any time, where processing is based on consent',
+              'lodging a complaint with the competent data protection authority',
+            ],
+            'To exercise any of these rights, contact us at snabbily@gmail.com.',
+          ],
         },
         {
-          h: 'Retention',
-          p: 'We keep enquiry details only as long as needed to respond and to deliver any agreed work.',
+          h: 'Changes to this Privacy Policy',
+          blocks: [
+            'This Privacy Policy may be updated when our services, the tools we use or legal requirements change.',
+            'The date of the last update is shown at the top of the page.',
+          ],
         },
       ],
     },
@@ -589,15 +680,21 @@ export const en = {
       sections: [
         {
           h: 'Essential cookies',
-          p: 'These are needed for the site to function and to remember your cookie choice. They are always active and do not require consent.',
+          blocks: [
+            'These are needed for the site to function and to remember your cookie choice. They are always active and do not require consent.',
+          ],
         },
         {
           h: 'Analytics cookies',
-          p: 'With your consent, Google Analytics sets cookies that help us understand how visitors use the site. These are only loaded after you accept analytics cookies.',
+          blocks: [
+            'With your consent, Google Analytics sets cookies that help us understand how visitors use the site. These are only loaded after you accept analytics cookies.',
+          ],
         },
         {
           h: 'Managing cookies',
-          p: 'You can accept or decline analytics cookies using the cookie banner. You can also clear cookies through your browser settings at any time.',
+          blocks: [
+            'You can accept or decline analytics cookies using the cookie banner. You can also clear cookies through your browser settings at any time.',
+          ],
         },
       ],
     },
