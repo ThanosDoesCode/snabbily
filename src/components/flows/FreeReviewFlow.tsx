@@ -2,6 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { useConversionFlow } from "@/contexts/ConversionFlowContext";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { toast } from "@/components/ui/use-toast";
+import { cn } from "@/lib/utils";
+
+const optionClass = "border border-border rounded-lg p-3 transition-transform transition-colors";
 
 const FreeReviewFlow = () => {
   const { mode, isOpen, close, freeReviewState } = useConversionFlow();
@@ -30,10 +34,10 @@ const FreeReviewFlow = () => {
     setSubmitting(false);
     if (res.ok) {
       close();
-      alert(`Thanks, ${answers.name || "there"}. We'll email your review shortly.`);
+      toast({ title: `Thanks, ${answers.name || "there"}.`, description: t("flow.free.successDescription") });
     } else {
       const msg = res.message || "Submission failed or backend not configured. Your answers are still here — please try again.";
-      alert(msg);
+      toast({ title: t("flow.common.errorTitle"), description: msg, variant: "destructive" });
     }
   };
 
@@ -73,7 +77,11 @@ const FreeReviewFlow = () => {
                   ["google", t("flow.free.step2.options.google")],
                   ["unsure", t("flow.free.step2.options.unsure")],
                 ].map(([k, label]) => (
-                  <button key={String(k)} className="border border-border rounded-lg p-3" onClick={() => setAnswer("goal", k)}>
+                  <button
+                    key={String(k)}
+                    className={cn(optionClass, answers.goal === k ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")}
+                    onClick={() => setAnswer("goal", k)}
+                  >
                     {label}
                   </button>
                 ))}

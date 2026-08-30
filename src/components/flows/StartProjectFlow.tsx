@@ -3,10 +3,11 @@ import { useConversionFlow, StartAnswers } from "@/contexts/ConversionFlowContex
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { toast } from "@/components/ui/use-toast";
 
 const maxStep = 6;
 
-const optionClass = "border border-border rounded-lg p-4 text-left w-full cursor-pointer min-h-[44px] flex items-center";
+const optionClass = "border border-border rounded-lg p-4 text-left w-full cursor-pointer min-h-[44px] flex items-center transition-transform transition-colors";
 
 const StartProjectFlow = () => {
   const { mode, isOpen, close, startState } = useConversionFlow();
@@ -46,13 +47,13 @@ const StartProjectFlow = () => {
     setSubmitting(false);
     if (res.ok) {
       close();
-      alert(`Thanks, ${answers.name || "there"}. I’ll review your answers and get back to you shortly.`);
+      toast({ title: `Thanks, ${answers.name || "there"}.`, description: t("flow.start.successDescription") });
     } else {
       // preserve form and show error so user can retry
       const msg =
         res.message ||
         `Submission failed or backend not configured. Your answers are still here — please try again or contact us directly.`;
-      alert(msg);
+      toast({ title: t("flow.common.errorTitle"), description: msg, variant: "destructive" });
     }
   };
 
@@ -83,11 +84,24 @@ const StartProjectFlow = () => {
             <div>
               <p className="mb-3 text-base">{t("flow.start.step1.question")}</p>
               <div className="grid gap-3">
-                <button className={optionClass} onClick={() => setAndNext("need", "new_website")}>
+                <button
+                  className={cn(optionClass, answers.need === "new_website" ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")}
+                  onClick={() => setAndNext("need", "new_website")}
+                >
                   {t("flow.start.step1.options.newWebsite")}
                 </button>
-                <button className={optionClass} onClick={() => setAndNext("need", "improve")}>{t("flow.start.step1.options.improve")}</button>
-                <button className={optionClass} onClick={() => setAndNext("need", "unsure")}>{t("flow.start.step1.options.unsure")}</button>
+                <button
+                  className={cn(optionClass, answers.need === "improve" ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")}
+                  onClick={() => setAndNext("need", "improve")}
+                >
+                  {t("flow.start.step1.options.improve")}
+                </button>
+                <button
+                  className={cn(optionClass, answers.need === "unsure" ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")}
+                  onClick={() => setAndNext("need", "unsure")}
+                >
+                  {t("flow.start.step1.options.unsure")}
+                </button>
               </div>
             </div>
           )}
@@ -103,7 +117,11 @@ const StartProjectFlow = () => {
                   ["beauty", t("flow.start.step2.options.beauty")],
                   ["other", t("flow.start.step2.options.other")],
                 ].map(([k, label]) => (
-                  <button key={String(k)} className={optionClass} onClick={() => setAndNext("businessType", k)}>
+                  <button
+                    key={String(k)}
+                    className={cn(optionClass, answers.businessType === k ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")}
+                    onClick={() => setAndNext("businessType", k)}
+                  >
                     {label}
                   </button>
                 ))}
@@ -115,10 +133,10 @@ const StartProjectFlow = () => {
             <div>
               <p className="mb-3 text-base">{t("flow.start.step3.question")}</p>
               <div className="grid gap-3">
-                <button className={optionClass} onClick={() => setAndNext("hasWebsite", "yes")}>
+                <button className={cn(optionClass, answers.hasWebsite === "yes" ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")} onClick={() => setAndNext("hasWebsite", "yes")}>
                   {t("flow.start.step3.options.yes")}
                 </button>
-                <button className={optionClass} onClick={() => setAndNext("hasWebsite", "no")}>{t("flow.start.step3.options.no")}</button>
+                <button className={cn(optionClass, answers.hasWebsite === "no" ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")} onClick={() => setAndNext("hasWebsite", "no")}>{t("flow.start.step3.options.no")}</button>
               </div>
               {answers.hasWebsite === "yes" && (
                 <div className="mt-3">
@@ -146,21 +164,27 @@ const StartProjectFlow = () => {
                   ["google", t("flow.start.step4.options.google")],
                   ["promote", t("flow.start.step4.options.promote")],
                   ["other", t("flow.start.step4.options.other")],
-                ].map(([k, label]) => (
-                  <label key={String(k)} className={cn(optionClass, "flex items-center gap-3")}>
-                    <input
-                      type="checkbox"
-                      checked={(answers.goals || []).includes(String(k))}
-                      onChange={(e) => {
-                        const set = new Set(answers.goals || []);
-                        if (e.target.checked) set.add(String(k));
-                        else set.delete(String(k));
-                        setAnswer("goals", Array.from(set));
-                      }}
-                    />
-                    <span>{label}</span>
-                  </label>
-                ))}
+                ].map(([k, label]) => {
+                  const checked = (answers.goals || []).includes(String(k));
+                  return (
+                    <label
+                      key={String(k)}
+                      className={cn(optionClass, "flex items-center gap-3", checked ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={(e) => {
+                          const set = new Set(answers.goals || []);
+                          if (e.target.checked) set.add(String(k));
+                          else set.delete(String(k));
+                          setAnswer("goals", Array.from(set));
+                        }}
+                      />
+                      <span>{label}</span>
+                    </label>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -175,7 +199,7 @@ const StartProjectFlow = () => {
                   ["1-3", t("flow.start.step5.options.q1-3")],
                   ["explore", t("flow.start.step5.options.explore")],
                 ].map(([k, label]) => (
-                  <button key={String(k)} className={optionClass} onClick={() => setAndNext("startWhen", k)}>
+                  <button key={String(k)} className={cn(optionClass, answers.startWhen === k ? "border-primary bg-primary/5 scale-101" : "hover:scale-102")} onClick={() => setAndNext("startWhen", k)}>
                     {label}
                   </button>
                 ))}
