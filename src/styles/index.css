@@ -155,7 +155,9 @@
    Reveal system — IntersectionObserver toggles [data-reveal] -> .is-visible.
    Transform + opacity only. Staggered via --reveal-delay.
    ========================================================================== */
-[data-reveal] {
+/* Progressive enhancement: only hide/animate when JS is active. Without JS
+   (or before hydration for crawlers) all content is fully visible. */
+.js [data-reveal] {
   opacity: 0;
   transform: translateY(18px);
   transition:
@@ -164,27 +166,47 @@
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
-[data-reveal='fade'] {
+.js [data-reveal='fade'] {
   transform: none;
 }
-[data-reveal].is-visible {
+.js [data-reveal].is-visible {
   opacity: 1;
   transform: none;
 }
 
-/* Hero underline draw. */
-.hero-underline path {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1s var(--ease-out-soft) 0.45s;
+/* Hero entrance — pure CSS so the LCP headline never waits for JS.
+   Plays on load; disabled under reduced-motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-rise {
+    opacity: 0;
+    animation: heroRise 0.8s var(--ease-out-soft) both;
+    animation-delay: var(--rise-delay, 0ms);
+  }
+  .hero-underline path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: heroDraw 1s var(--ease-out-soft) 0.5s forwards;
+  }
 }
-.hero-underline.is-drawn path {
-  stroke-dashoffset: 0;
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes heroDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @media (max-width: 640px) {
   /* Reduced motion intensity on mobile. */
-  [data-reveal] {
+  .js [data-reveal] {
     transform: translateY(10px);
     transition-duration: 0.5s;
   }
@@ -202,11 +224,11 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  [data-reveal] {
+  .js [data-reveal] {
     opacity: 1;
     transform: none;
   }
-  .hero-underline path {
+  .js .hero-underline path {
     stroke-dashoffset: 0;
   }
 }

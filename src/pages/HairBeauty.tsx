@@ -3,6 +3,7 @@ import { useI18n } from '@/i18n';
 import { Seo } from '@/components/Seo';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/BrowserFrame';
+import { WorkPoster } from '@/components/WorkPoster';
 import { CtaLink, ArrowRight } from '@/components/Button';
 import { SITE_URL, ALEXANDROS_URL } from '@/lib/config';
 import { serviceLd, breadcrumbLd } from '@/lib/structuredData';
@@ -30,24 +31,33 @@ export default function HairBeauty() {
 
       {/* Hero */}
       <section className="shell pb-14 pt-14 md:pb-20 md:pt-20">
-        <Reveal as="nav" variant="fade" className="mb-8 flex items-center gap-2 text-sm text-muted">
+        <nav
+          className="hero-rise mb-8 flex items-center gap-2 text-sm text-muted"
+          aria-label="Breadcrumb"
+        >
           <Link to={path('home')} className="hover:text-ink">
             Snabbily
           </Link>
           <span aria-hidden="true">/</span>
           <span className="text-ink">{t.hairBeauty.breadcrumb}</span>
-        </Reveal>
+        </nav>
 
-        <Reveal as="p" variant="fade" className="eyebrow mb-6">
+        <p className="hero-rise eyebrow mb-6" style={{ ['--rise-delay' as string]: '60ms' }}>
           {t.hairBeauty.eyebrow}
-        </Reveal>
-        <Reveal as="h1" className="max-w-4xl text-h1 leading-[1.04] text-ink">
+        </p>
+        <h1 className="hero-rise max-w-4xl text-h1 leading-[1.04] text-ink" style={{ ['--rise-delay' as string]: '120ms' }}>
           {t.hairBeauty.heading}
-        </Reveal>
-        <Reveal as="p" delay={100} className="mt-7 max-w-2xl text-lead leading-relaxed text-ink-soft">
+        </h1>
+        <p
+          className="hero-rise mt-7 max-w-2xl text-lead leading-relaxed text-ink-soft"
+          style={{ ['--rise-delay' as string]: '200ms' }}
+        >
           {t.hairBeauty.intro}
-        </Reveal>
-        <Reveal delay={180} className="mt-9 flex flex-col gap-3 sm:flex-row">
+        </p>
+        <div
+          className="hero-rise mt-9 flex flex-col gap-3 sm:flex-row"
+          style={{ ['--rise-delay' as string]: '280ms' }}
+        >
           <CtaLink to={path('start')} size="lg">
             {t.hairBeauty.primaryCta}
             <ArrowRight />
@@ -55,7 +65,7 @@ export default function HairBeauty() {
           <CtaLink to={path('review')} variant="secondary" size="lg">
             {t.hairBeauty.secondaryCta}
           </CtaLink>
-        </Reveal>
+        </div>
       </section>
 
       {/* Audience */}
@@ -141,11 +151,9 @@ export default function HairBeauty() {
             </Reveal>
           </div>
           <Reveal variant="fade">
-            <BrowserFrame
-              src="/work/alexandros-liakos.png"
-              alt={t.work.previewAlt}
-              url="alexandrosliakos.lovable.app"
-            />
+            <BrowserFrame url="alexandrosliakos.lovable.app">
+              <WorkPoster name={t.hairBeauty.proofName} role={t.hairBeauty.proofRole} />
+            </BrowserFrame>
           </Reveal>
         </div>
       </section>

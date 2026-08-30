@@ -2,6 +2,7 @@ import { useI18n } from '@/i18n';
 import { Section, IndexMarker } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/BrowserFrame';
+import { WorkPoster } from '@/components/WorkPoster';
 import { ArrowRight } from '@/components/Button';
 import { useParallax } from '@/lib/useParallax';
 import { ALEXANDROS_URL } from '@/lib/config';
@@ -53,11 +54,9 @@ export function SelectedWork() {
 
         <Reveal variant="fade" className="order-1 lg:order-2">
           <div ref={parallaxRef} className="will-change-transform">
-            <BrowserFrame
-              src="/work/alexandros-liakos.png"
-              alt={t.work.previewAlt}
-              url="alexandrosliakos.lovable.app"
-            />
+            <BrowserFrame url="alexandrosliakos.lovable.app">
+              <WorkPoster name={t.work.projectName} role={t.work.role} />
+            </BrowserFrame>
           </div>
         </Reveal>
       </div>
