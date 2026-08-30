@@ -102,18 +102,24 @@ export default function StartProject() {
 
   const submit = async () => {
     setStatus('submitting');
-    const payload = {
-      locale,
+    // Human-readable payload for the notification email. Optional fields are
+    // omitted when empty so the email stays clean. No analytics/consent/internal
+    // data is included.
+    const phone = answers.phone.trim();
+    const websiteUrl = answers.websiteUrl.trim();
+    const payload: Record<string, string> = {
+      form_type: 'Start Project',
+      name: answers.name.trim(),
+      email: answers.email.trim(),
       need: answers.need,
       business: answers.business,
       has_website: answers.hasWebsite,
-      website_url: answers.websiteUrl || '—',
       goals: answers.goals.join(', '),
-      timing: answers.timing,
-      name: answers.name.trim(),
-      email: answers.email.trim(),
-      phone: answers.phone.trim() || '—',
+      timeline: answers.timing,
+      locale,
     };
+    if (phone) payload.phone = phone;
+    if (websiteUrl) payload.website_url = websiteUrl;
     const result = await submitForm('New Snabbily Project Enquiry', payload);
     if (result.ok) {
       setStatus('success');

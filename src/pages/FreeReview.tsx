@@ -69,11 +69,12 @@ export default function FreeReview() {
   const submit = async () => {
     setStatus('submitting');
     const result = await submitForm('New Free Website Review Request', {
-      locale,
-      website: answers.url.trim(),
-      improve: answers.improve,
+      form_type: 'Free Website Review',
       name: answers.name.trim(),
       email: answers.email.trim(),
+      website: answers.url.trim(),
+      primary_goal: answers.improve,
+      locale,
     });
     if (result.ok) {
       setStatus('success');
