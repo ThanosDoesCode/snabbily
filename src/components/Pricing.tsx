@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useConversionFlow } from "@/contexts/ConversionFlowContext";
 
 interface PricingProps {
   className?: string;
@@ -19,70 +20,58 @@ const Pricing = ({ className }: PricingProps) => {
     }
   };
 
+  const { openStart, openFreeReview } = useConversionFlow();
+
   const plans = [
     {
-      key: "starter",
-      name: t("pricing.starter.name"),
-      price: t("pricing.starter.price"),
-      description: t("pricing.starter.description"),
-      tagline: t("pricing.starter.tagline"),
+      key: "essential",
+      name: t("pricing.essential.name"),
+      price: t("pricing.essential.price"),
+      description: t("pricing.essential.description"),
+      tagline: t("pricing.essential.tagline"),
       features: [
-        t("pricing.starter.features.0"),
-        t("pricing.starter.features.1"),
-        t("pricing.starter.features.2"),
-        t("pricing.starter.features.3"),
-        t("pricing.starter.features.4"),
-        t("pricing.starter.features.5"),
-        t("pricing.starter.features.6"),
+        t("pricing.essential.features.0") || "Up to 3 pages",
+        t("pricing.essential.features.1") || "Standard template",
+        t("pricing.essential.features.2") || "Mobile-first responsive design",
+        t("pricing.essential.features.3") || "Basic SEO",
+        t("pricing.essential.features.4") || "Image gallery",
       ],
       popular: false,
       custom: false,
     },
     {
-      key: "advanced",
-      name: t("pricing.advanced.name"),
-      originalPrice: t("pricing.advanced.originalPrice"),
-      price: t("pricing.advanced.price"),
-      description: t("pricing.advanced.description"),
-      tagline: t("pricing.advanced.tagline"),
-      launchOfferLabel: t("pricing.advanced.launchOffer"),
-      savingsLabel: t("pricing.advanced.savings"),
+      key: "professional",
+      name: t("pricing.professional.name"),
+      price: t("pricing.professional.price"),
+      description: t("pricing.professional.description"),
+      tagline: t("pricing.professional.tagline"),
+      launchBonus: t("pricing.professional.launchBonus"),
       features: [
-        t("pricing.advanced.features.0"),
-        t("pricing.advanced.features.1"),
-        t("pricing.advanced.features.2"),
-        t("pricing.advanced.features.3"),
-        t("pricing.advanced.features.4"),
-        t("pricing.advanced.features.5"),
-        t("pricing.advanced.features.6"),
-        t("pricing.advanced.features.7"),
-        t("pricing.advanced.features.8"),
+        t("pricing.professional.features.0") || "Up to 6 pages",
+        t("pricing.professional.features.1") || "Booking integration",
+        t("pricing.professional.features.2") || "Enhanced SEO",
+        t("pricing.professional.features.3") || "Analytics setup (included)",
+        t("pricing.professional.features.4") || "Priority support",
       ],
       popular: true,
       custom: false,
     },
     {
-      key: "custom",
-      name: t("pricing.custom.name"),
-      price: null,
-      description: t("pricing.custom.description"),
-      tagline: t("pricing.custom.tagline"),
-      priceLabel: t("pricing.custom.price"),
-      priceSubtitle: t("pricing.custom.priceSubtitle"),
+      key: "growth",
+      name: t("pricing.growth.name"),
+      price: t("pricing.growth.price"),
+      description: t("pricing.growth.description"),
+      tagline: t("pricing.growth.tagline"),
       features: [
-        t("pricing.custom.features.0"),
-        t("pricing.custom.features.1"),
-        t("pricing.custom.features.2"),
-        t("pricing.custom.features.3"),
-        t("pricing.custom.features.4"),
-        t("pricing.custom.features.5"),
-        t("pricing.custom.features.6"),
-        t("pricing.custom.features.7"),
+        t("pricing.growth.features.0") || "Landing pages & funnels",
+        t("pricing.growth.features.1") || "Advanced integrations",
+        t("pricing.growth.features.2") || "Custom functionality",
+        t("pricing.growth.features.3") || "Conversion-focused design",
       ],
       popular: false,
       custom: true,
     },
-  ] as const;
+  ];
 
   const maintenanceFeatures = [
     t("pricing.maintenance.features.0"),
@@ -115,8 +104,8 @@ const Pricing = ({ className }: PricingProps) => {
                 className={cn(
                   "group relative border bg-card transition-all duration-500 overflow-hidden h-full hover:scale-105",
                   plan.popular
-                    ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)]"
-                    : "border-border hover:border-primary",
+                    ? "border-primary shadow-soft dark:shadow-[var(--glow-primary)] md:scale-105 z-10"
+                    : "border-border hover:border-primary md:scale-95",
                 )}
               >
                 <div
@@ -155,16 +144,11 @@ const Pricing = ({ className }: PricingProps) => {
                           <span className="text-sm md:text-base text-muted-foreground ml-2">{t("pricing.sek")}</span>
                         </div>
 
-                        {plan.popular && plan.launchOfferLabel && plan.savingsLabel && (
-                          <div className="inline-flex items-center gap-1 sm:gap-0.5 md:gap-1 lg:gap-2 px-3 sm:px-1 md:px-2 lg:px-4 py-2 sm:py-0.5 md:py-1 lg:py-2.5 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 sm:border md:border-2 border-green-500/40 rounded-full w-fit text-center">
-                            <span className="text-xs sm:text-[7px] md:text-[8px] lg:text-sm font-bold text-green-600 dark:text-green-400 whitespace-nowrap">
-                              {plan.launchOfferLabel}
-                            </span>
-                            <span className="text-xs sm:text-[7px] md:text-[8px] lg:text-sm font-bold text-green-600 dark:text-green-400 whitespace-nowrap">
-                              {plan.savingsLabel}
-                            </span>
-                          </div>
-                        )}
+                        {plan.popular && plan.launchBonus && (
+                         <div className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full w-fit text-center">
+                           <span className="text-sm font-semibold text-green-600 dark:text-green-400 whitespace-nowrap">{plan.launchBonus}</span>
+                         </div>
+                                                )}
                       </div>
                     )}
                   </div>
@@ -188,7 +172,7 @@ const Pricing = ({ className }: PricingProps) => {
                     className="w-full text-base py-6 font-semibold relative overflow-hidden"
                     variant={plan.popular ? "default" : "outline"}
                     size="lg"
-                    onClick={scrollToContact}
+                    onClick={() => openStart()}
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       {plan.custom ? (
@@ -252,7 +236,7 @@ const Pricing = ({ className }: PricingProps) => {
                       className="w-full md:w-auto px-8 text-base py-6 font-semibold relative overflow-hidden"
                       variant="default"
                       size="lg"
-                      onClick={scrollToContact}
+                      onClick={() => openStart()}
                     >
                       <span className="relative z-10">{t("pricing.getStarted")}</span>
                     </Button>
@@ -261,6 +245,11 @@ const Pricing = ({ className }: PricingProps) => {
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Payment terms */}
+        <div className="text-center mt-6">
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">{t("pricing.paymentTerms")}</p>
         </div>
 
         {/* Footer text */}
