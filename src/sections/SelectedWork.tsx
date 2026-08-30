@@ -2,7 +2,6 @@ import { useI18n } from '@/i18n';
 import { Section, IndexMarker } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/BrowserFrame';
-import { WorkPoster } from '@/components/WorkPoster';
 import { ArrowRight } from '@/components/Button';
 import { useParallax } from '@/lib/useParallax';
 import { ALEXANDROS_URL } from '@/lib/config';
@@ -62,7 +61,15 @@ export function SelectedWork() {
               className="group block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
             >
               <BrowserFrame url="alexandrosliakos.lovable.app">
-                <WorkPoster name={t.work.projectName} role={t.work.role} />
+                <img
+                  src="/work/alexandros-liakos.webp"
+                  alt="Alexandros Liakos Hair Expert and Educator website"
+                  width={1600}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover object-top"
+                />
               </BrowserFrame>
             </a>
           </div>
