@@ -7,7 +7,7 @@ export type SubmitResult =
 /**
  * Send a submission to the configured Formspree endpoint.
  * Success is reported only on a 2xx response. Failures are surfaced to the
- * caller so answers can be preserved and a retry offered — we never silently
+ * caller so answers can be preserved and a retry offered. We never silently
  * "queue" a failed submission and pretend it will send later.
  */
 export async function submitForm(

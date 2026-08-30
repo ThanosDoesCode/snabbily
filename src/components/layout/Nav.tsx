@@ -8,7 +8,7 @@ function Wordmark({ to }: { to: string }) {
     <Link
       to={to}
       className="font-serif text-2xl leading-none tracking-tight text-ink"
-      aria-label="Snabbily — home"
+      aria-label="Snabbily home"
     >
       Snabbily<span className="text-coral">.</span>
     </Link>

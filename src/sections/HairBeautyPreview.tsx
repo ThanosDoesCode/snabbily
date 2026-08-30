@@ -41,9 +41,7 @@ export function HairBeautyPreview() {
                 className="flex items-center justify-between border-t border-line py-4 text-lg text-ink"
               >
                 {a}
-                <span className="text-line-strong" aria-hidden="true">
-                  —
-                </span>
+                <span className="h-px w-6 bg-line-strong" aria-hidden="true" />
               </li>
             ))}
           </ul>

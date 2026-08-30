@@ -127,7 +127,7 @@ export const en = {
     eyebrow: 'Areas of focus',
     index: '04',
     headline: 'Built for businesses where reputation matters.',
-    body: 'Snabbily works with service businesses of every kind. Right now we work especially well with hair and beauty professionals — where presentation, trust and easy booking make the difference.',
+    body: 'Snabbily works with service businesses of every kind. Right now we work especially well with hair and beauty professionals, where presentation, trust and easy booking make the difference.',
     focusLabel: 'Hair & Beauty',
     audience: ['Salons', 'Hairstylists', 'Educators', 'Barbers', 'Beauty professionals'],
     cta: 'Explore hair & beauty',
@@ -279,7 +279,7 @@ export const en = {
     eyebrow: 'Get in touch',
     index: '09',
     heading: 'Let’s make your website work for you.',
-    copy: 'Start a project when you’re ready, or reach out first — whatever suits you.',
+    copy: 'Start a project when you’re ready, or reach out first. Whatever suits you.',
     primaryLabel: 'Start a project',
     secondaryLabel: 'Get a free website review',
     alternativeLabel: 'Or reach out directly',
@@ -310,7 +310,7 @@ export const en = {
   // ---- Conversion flows -------------------------------------------------
   startFlow: {
     metaTitle: 'Start a project',
-    metaDescription: 'Tell us about your business and what you need. A few quick questions — no long forms.',
+    metaDescription: 'Tell us about your business and what you need. A few quick questions, no long forms.',
     kicker: 'Start a project',
     heading: 'A few quick questions.',
     subheading: 'No long forms, no account needed. This takes about a minute.',
@@ -381,7 +381,7 @@ export const en = {
     },
     submitting: 'Sending…',
     error:
-      'Something went wrong sending your request. Your answers are saved — please try again.',
+      'Something went wrong sending your request. Your answers are saved. Please try again.',
     notConfigured:
       'The enquiry form isn’t connected yet. Please email snabbily@gmail.com and we’ll take it from there.',
     successTitle: 'Thanks, {name}.',
@@ -440,10 +440,10 @@ export const en = {
     },
     submitting: 'Sending…',
     error:
-      'Something went wrong sending your request. Your answers are saved — please try again.',
+      'Something went wrong sending your request. Your answers are saved. Please try again.',
     notConfigured:
       'The review form isn’t connected yet. Please email snabbily@gmail.com and we’ll take it from there.',
-    successTitle: 'Got it — thank you.',
+    successTitle: 'Got it, thank you.',
     successBody: 'Your review request has been received. I’ll be in touch by email soon.',
     backHome: 'Back to homepage',
   },
@@ -464,7 +464,7 @@ export const en = {
     hairBeauty: {
       title: 'Websites for Hair Salons, Barbers & Beauty Businesses in Greece | Snabbily',
       description:
-        'Modern websites built for hair and beauty professionals in Greece — salons, hairstylists, barbers and educators. Service presentation, galleries, booking integration and Google visibility.',
+        'Modern websites built for hair and beauty professionals in Greece: salons, hairstylists, barbers and educators. Service presentation, galleries, booking integration and Google visibility.',
     },
     privacy: {
       title: 'Privacy Policy | Snabbily',
@@ -482,7 +482,7 @@ export const en = {
     eyebrow: 'Hair & Beauty',
     heading: 'Websites built for hair professionals.',
     intro:
-      'Your work is visual, personal and built on reputation. Your website should be too. We build modern websites for hair and beauty businesses in Greece — designed around your services, your galleries and easy booking.',
+      'Your work is visual, personal and built on reputation. Your website should be too. We build modern websites for hair and beauty businesses in Greece, designed around your services, your galleries and easy booking.',
     primaryCta: 'Start a project',
     secondaryCta: 'Get a free website review',
     audienceTitle: 'Who we build for',
@@ -505,7 +505,7 @@ export const en = {
       },
       {
         title: 'Galleries that sell',
-        blurb: 'Let your work speak — organised, fast-loading galleries built for mobile.',
+        blurb: 'Let your work speak: organised, fast-loading galleries built for mobile.',
       },
       {
         title: 'Booking integration',
@@ -530,12 +530,12 @@ export const en = {
     ],
     bookingTitle: 'Keep the booking system you already use',
     bookingCopy:
-      'Treatwell, Fresha or another platform — we connect your existing booking journey to your website, so there’s no new system to learn.',
+      'Treatwell, Fresha or another platform: we connect your existing booking journey to your website, so there’s no new system to learn.',
     proofTitle: 'Selected work',
     proofName: 'Alexandros Liakos',
     proofRole: 'Hair Expert & Educator',
     proofBody:
-      'A complete digital presence for a hair expert and educator — services, bookings and professional education in one place.',
+      'A complete digital presence for a hair expert and educator: services, bookings and professional education in one place.',
     proofVisit: 'Visit the live site',
     ctaTitle: 'Ready when you are.',
     ctaBody: 'Start a project, or get a free website review first.',

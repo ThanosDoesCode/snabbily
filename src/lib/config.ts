@@ -1,6 +1,6 @@
 /**
  * Central runtime configuration read from Vite env vars.
- * Every integration is optional — the UI checks these booleans and degrades
+ * Every integration is optional. The UI checks these booleans and degrades
  * gracefully when a value is missing. Values are inlined at build time.
  */
 

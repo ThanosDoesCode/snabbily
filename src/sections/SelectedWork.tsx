@@ -57,7 +57,7 @@ export function SelectedWork() {
               href={ALEXANDROS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${t.work.projectName} — ${t.work.visit}`}
+              aria-label={`${t.work.projectName}, ${t.work.visit}`}
               className="group block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
             >
               <BrowserFrame url="alexandrosliakos.lovable.app">

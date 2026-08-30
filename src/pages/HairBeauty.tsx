@@ -154,7 +154,7 @@ export default function HairBeauty() {
               href={ALEXANDROS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${t.hairBeauty.proofName} — ${t.hairBeauty.proofVisit}`}
+              aria-label={`${t.hairBeauty.proofName}, ${t.hairBeauty.proofVisit}`}
               className="group block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
             >
               <BrowserFrame url="alexandrosliakos.lovable.app">

@@ -1,6 +1,6 @@
 import { SITE_URL, CONTACT_EMAIL } from './config';
 
-/** Truthful Organization data — no ratings, reviews or unverified claims. */
+/** Truthful Organization data, no ratings, reviews or unverified claims. */
 export function organizationLd(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',

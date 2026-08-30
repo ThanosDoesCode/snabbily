@@ -3,7 +3,7 @@ import { GA_MEASUREMENT_ID, isAnalyticsConfigured } from './config';
 /**
  * Lightweight GA4 loader. Loads only after analytics consent is granted and a
  * measurement ID is configured. Never sends personal data (names, emails,
- * phone numbers or form answers) — only anonymous event names.
+ * phone numbers or form answers), only event names.
  */
 
 declare global {

@@ -83,7 +83,7 @@
     text-wrap: pretty;
   }
 
-  /* Editorial paper grain — fixed, cheap, never repaints on scroll. */
+  /* Editorial paper grain: fixed, cheap, never repaints on scroll. */
   body::before {
     content: '';
     position: fixed;
@@ -167,7 +167,7 @@
 }
 
 /* ==========================================================================
-   Reveal system — IntersectionObserver toggles [data-reveal] -> .is-visible.
+   Reveal system: IntersectionObserver toggles [data-reveal] -> .is-visible.
    Transform + opacity only. Staggered via --reveal-delay.
    ========================================================================== */
 /* Progressive enhancement: only hide/animate when JS is active. Without JS
@@ -189,7 +189,7 @@
   transform: none;
 }
 
-/* Hero entrance — pure CSS so the LCP headline never waits for JS.
+/* Hero entrance: pure CSS so the LCP headline never waits for JS.
    Plays on load; disabled under reduced-motion. */
 @media (prefers-reduced-motion: no-preference) {
   .hero-rise {
