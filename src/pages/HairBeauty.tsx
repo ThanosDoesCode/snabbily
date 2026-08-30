@@ -109,7 +109,7 @@ export default function HairBeauty() {
               </p>
             </Reveal>
             <Reveal delay={100} className="flex flex-wrap gap-2.5">
-              {['Treatwell', 'Fresha', 'Bokadirekt'].map((p) => (
+              {['Treatwell', 'Fresha'].map((p) => (
                 <span
                   key={p}
                   className="rounded-full border border-line-strong bg-bone px-4 py-2 text-ink-soft"

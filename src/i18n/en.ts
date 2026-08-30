@@ -128,7 +128,7 @@ export const en = {
     index: '04',
     headline: 'Built for businesses where reputation matters.',
     body: 'Snabbily works with service businesses of every kind. Right now we work especially well with hair and beauty professionals — where presentation, trust and easy booking make the difference.',
-    focusLabel: 'Hair & beauty',
+    focusLabel: 'Hair & Beauty',
     audience: ['Salons', 'Hairstylists', 'Educators', 'Barbers', 'Beauty professionals'],
     cta: 'Explore hair & beauty',
   },
@@ -137,7 +137,7 @@ export const en = {
     eyebrow: 'Booking',
     index: '05',
     heading: 'Keep the booking system you already use.',
-    copy: 'Already use Treatwell, Fresha, Bokadirekt or another booking platform? We’ll connect your existing booking journey directly to your website.',
+    copy: 'Already use Treatwell, Fresha or another booking platform? We’ll connect your existing booking journey directly to your website.',
     benefits: [
       'Keep your existing workflow',
       'No new system to learn',
@@ -479,7 +479,7 @@ export const en = {
   // ---- Hair & Beauty landing page --------------------------------------
   hairBeauty: {
     breadcrumb: 'Hair & Beauty',
-    eyebrow: 'Hair & beauty',
+    eyebrow: 'Hair & Beauty',
     heading: 'Websites built for hair professionals.',
     intro:
       'Your work is visual, personal and built on reputation. Your website should be too. We build modern websites for hair and beauty businesses in Greece — designed around your services, your galleries and easy booking.',
@@ -530,7 +530,7 @@ export const en = {
     ],
     bookingTitle: 'Keep the booking system you already use',
     bookingCopy:
-      'Treatwell, Fresha, Bokadirekt or another platform — we connect your existing booking journey to your website, so there’s no new system to learn.',
+      'Treatwell, Fresha or another platform — we connect your existing booking journey to your website, so there’s no new system to learn.',
     proofTitle: 'Selected work',
     proofName: 'Alexandros Liakos',
     proofRole: 'Hair Expert & Educator',
