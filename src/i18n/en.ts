@@ -679,21 +679,47 @@ export const en = {
         'This Cookie Policy explains how snabbily.com uses cookies and similar technologies.',
       sections: [
         {
+          h: 'What cookies are',
+          blocks: [
+            'Cookies are small files stored on your device when you visit a website. They can be used for basic functionality, to store your preferences or to measure how the website is used.',
+          ],
+        },
+        {
           h: 'Essential cookies',
           blocks: [
-            'These are needed for the site to function and to remember your cookie choice. They are always active and do not require consent.',
+            'Some cookies or similar technologies are necessary for the basic operation of the site and to remember your choice about cookies.',
+            'These are always active and are not used for analytics or advertising purposes.',
           ],
         },
         {
           h: 'Analytics cookies',
           blocks: [
-            'With your consent, Google Analytics sets cookies that help us understand how visitors use the site. These are only loaded after you accept analytics cookies.',
+            'With your consent, we use Google Analytics 4 to understand how the website is used.',
+            'Analytics is only enabled after you choose to accept it through the cookie banner.',
+            'Cookies or other technical identifiers may be used to measure visits, page views and general usage patterns.',
+            'We do not send your name, email, phone number or the answers you submit in the forms to Google Analytics.',
           ],
         },
         {
-          h: 'Managing cookies',
+          h: 'Managing your choices',
           blocks: [
-            'You can accept or decline analytics cookies using the cookie banner. You can also clear cookies through your browser settings at any time.',
+            'When you visit the site, you can accept or decline analytics cookies through the relevant banner.',
+            'You can also change or withdraw your choice later through the cookie settings, where that option is available on the site.',
+            'You can also delete cookies through your browser settings.',
+          ],
+        },
+        {
+          h: 'Third-party cookies',
+          blocks: [
+            'When you have consented to analytics, cookies or similar technologies from Google may be used to provide the Google Analytics service.',
+            'The use of these technologies is also governed by Google’s policies.',
+          ],
+        },
+        {
+          h: 'Changes to this Cookie Policy',
+          blocks: [
+            'This Cookie Policy may be updated when the tools we use, the way the site works or the relevant legal requirements change.',
+            'The date of the last update is shown at the top of the page.',
           ],
         },
       ],
