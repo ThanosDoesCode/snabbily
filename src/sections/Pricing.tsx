@@ -75,7 +75,17 @@ export function Pricing() {
                 </p>
               )}
 
-              <ul className="mt-6 flex-1 space-y-2.5">
+              {plan.includesPrevious && (
+                <p
+                  className={`mt-6 text-xs font-medium uppercase tracking-[0.12em] ${
+                    dark ? 'text-bone/60' : 'text-muted'
+                  }`}
+                >
+                  {plan.includesPrevious}
+                </p>
+              )}
+
+              <ul className={`${plan.includesPrevious ? 'mt-3' : 'mt-6'} flex-1 space-y-2.5`}>
                 {plan.features.map((f) => (
                   <li key={f} className={`flex gap-2.5 text-sm ${dark ? 'text-bone/85' : 'text-ink-soft'}`}>
                     <Check dark={dark} />

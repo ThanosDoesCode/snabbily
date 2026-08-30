@@ -227,6 +227,20 @@
   }
 }
 
+/* FAQ disclosure: animate open/close via grid-template-rows. Open by default so
+   the answers are visible without JS and to crawlers; collapsed once JS runs. */
+.faq-panel {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+.js .faq-panel {
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s var(--ease-out-soft);
+}
+.js .faq-panel.is-open {
+  grid-template-rows: 1fr;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

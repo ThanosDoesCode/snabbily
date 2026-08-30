@@ -38,6 +38,19 @@ export function serviceLd(name: string, description: string, url: string): Recor
   };
 }
 
+/** FAQ structured data. Must mirror the FAQ questions/answers visible on the page. */
+export function faqPageLd(items: { q: string; a: string }[]): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  };
+}
+
 export function breadcrumbLd(items: { name: string; url: string }[]): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
