@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Conversion flows are intentionally noindex (see meta robots).
+Disallow: /start
+Disallow: /review
+Disallow: /el/start
+Disallow: /el/review
+
+Sitemap: https://snabbily.com/sitemap.xml
