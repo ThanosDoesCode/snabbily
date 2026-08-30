@@ -6,7 +6,7 @@ export function Capabilities() {
   const { t } = useI18n();
 
   return (
-    <Section id="services" className="bg-bone-deep/40">
+    <Section id="services" tone="sunk">
       <IndexMarker index={t.capabilities.index} label={t.capabilities.eyebrow} />
 
       <Reveal as="h2" className="mt-8 max-w-2xl text-h2 text-ink">

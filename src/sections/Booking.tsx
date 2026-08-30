@@ -6,7 +6,7 @@ export function Booking() {
   const { t } = useI18n();
 
   return (
-    <Section className="bg-bone-deep/40">
+    <Section tone="sunk">
       <IndexMarker index={t.booking.index} label={t.booking.eyebrow} />
 
       <div className="mt-10 grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-end md:gap-16">

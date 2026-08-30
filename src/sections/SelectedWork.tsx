@@ -28,11 +28,11 @@ export function SelectedWork() {
             {t.work.description}
           </Reveal>
 
-          <Reveal delay={200} className="mt-7 flex flex-wrap gap-2">
+          <Reveal delay={200} className="mt-8 flex flex-wrap gap-x-3 gap-y-2">
             {t.work.capabilities.map((cap) => (
               <span
                 key={cap}
-                className="rounded-full border border-line-strong px-3.5 py-1.5 text-sm text-ink-soft"
+                className="rounded-full border border-line-strong px-3 py-1 text-xs uppercase tracking-[0.08em] text-muted"
               >
                 {cap}
               </span>
@@ -54,9 +54,17 @@ export function SelectedWork() {
 
         <Reveal variant="fade" className="order-1 lg:order-2">
           <div ref={parallaxRef} className="will-change-transform">
-            <BrowserFrame url="alexandrosliakos.lovable.app">
-              <WorkPoster name={t.work.projectName} role={t.work.role} />
-            </BrowserFrame>
+            <a
+              href={ALEXANDROS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${t.work.projectName} — ${t.work.visit}`}
+              className="group block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
+            >
+              <BrowserFrame url="alexandrosliakos.lovable.app">
+                <WorkPoster name={t.work.projectName} role={t.work.role} />
+              </BrowserFrame>
+            </a>
           </div>
         </Reveal>
       </div>

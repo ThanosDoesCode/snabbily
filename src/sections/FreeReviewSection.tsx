@@ -7,7 +7,7 @@ export function FreeReviewSection() {
   const { t, path } = useI18n();
 
   return (
-    <Section className="bg-bone-deep/40">
+    <Section tone="sunk">
       <IndexMarker index={t.review.index} label={t.review.eyebrow} />
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-16">
