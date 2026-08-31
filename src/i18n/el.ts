@@ -207,7 +207,6 @@ export const el: Dictionary = {
         name: 'Professional',
         price: '€900',
         tagline: 'Για επιχειρήσεις που θέλουν η ιστοσελίδα τους να φέρνει κρατήσεις, επικοινωνίες και νέους πελάτες.',
-        badge: 'Bonus λανσαρίσματος: Ρύθμιση Google Business Profile χωρίς επιπλέον χρέωση',
         includesPrevious: 'Ό,τι περιλαμβάνει το Essential, συν:',
         features: [
           'Περισσότερες σελίδες και ενότητες',
@@ -288,6 +287,18 @@ export const el: Dictionary = {
     emailLabel: 'Email',
     phoneLabel: 'Τηλέφωνο / WhatsApp',
     bookLabel: 'Κλείστε κλήση 15 λεπτών',
+  },
+
+  bonus: {
+    teaser: 'Στείλτε το αίτημά σας και ξεκλειδώστε ένα launch bonus.',
+    heading: 'Το αίτημά σας στάλθηκε.',
+    pick: 'Διαλέξτε μία κάρτα για να ξεκλειδώσετε το launch bonus σας.',
+    cardAria: 'Κάρτα',
+    amount: '€100',
+    reward: 'Κερδίσατε €100 έκπτωση στο project σας.',
+    rewardSupport: 'Ισχύει για Professional και Growth αν ξεκινήσετε το project σας μέσα στις επόμενες 7 ημέρες.',
+    codeLabel: 'Κωδικός bonus',
+    validUntilLabel: 'Ισχύει έως',
   },
 
   faq: {

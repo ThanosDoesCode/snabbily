@@ -66,15 +66,6 @@ export function Pricing() {
                 {plan.tagline}
               </p>
 
-              {plan.badge && (
-                <p className="mt-4 flex items-start gap-2 rounded-lg border border-coral/35 bg-coral/10 px-3 py-2 text-sm font-medium text-[#f0906f]">
-                  <svg viewBox="0 0 16 16" width="14" height="14" className="mt-0.5 shrink-0" fill="currentColor" aria-hidden="true">
-                    <path d="M8 1l1.9 4.1 4.5.5-3.3 3 .9 4.4L8 10.9 4 13l.9-4.4-3.3-3 4.5-.5z" />
-                  </svg>
-                  <span>{plan.badge}</span>
-                </p>
-              )}
-
               {plan.includesPrevious && (
                 <p
                   className={`mt-6 text-xs font-medium uppercase tracking-[0.12em] ${
@@ -109,6 +100,11 @@ export function Pricing() {
           );
         })}
       </div>
+
+      <Reveal className="mt-8 flex items-center justify-center gap-2 text-center text-sm text-muted">
+        <span className="inline-block h-1 w-1 shrink-0 rounded-full bg-coral" aria-hidden="true" />
+        {t.bonus.teaser}
+      </Reveal>
 
       {/* Hosting & care + payment */}
       <div className="mt-8 grid gap-5 md:grid-cols-2">

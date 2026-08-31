@@ -56,7 +56,8 @@ export type AnalyticsEvent =
   | 'start_project_completed'
   | 'free_review_started'
   | 'free_review_completed'
-  | 'book_call_clicked';
+  | 'book_call_clicked'
+  | 'bonus_revealed';
 
 /** Track a conversion event. Params must never contain personal data. */
 export function track(event: AnalyticsEvent, params?: Record<string, string | number>): void {

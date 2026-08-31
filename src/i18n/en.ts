@@ -205,7 +205,6 @@ export const en = {
         name: 'Professional',
         price: '€900',
         tagline: 'For businesses that want their website to help generate bookings, enquiries and new customers.',
-        badge: 'Launch bonus: Google Business Profile setup included',
         includesPrevious: 'Everything in Essential, plus:',
         features: [
           'More pages and sections',
@@ -286,6 +285,18 @@ export const en = {
     emailLabel: 'Email',
     phoneLabel: 'Phone / WhatsApp',
     bookLabel: 'Book a 15-minute call',
+  },
+
+  bonus: {
+    teaser: 'Submit a project request and unlock a launch bonus.',
+    heading: 'Your request is in.',
+    pick: 'Pick a card to unlock your launch bonus.',
+    cardAria: 'Card',
+    amount: '€100',
+    reward: 'You unlocked €100 off your project.',
+    rewardSupport: 'Valid on Professional and Growth if you start your project within 7 days.',
+    codeLabel: 'Bonus code',
+    validUntilLabel: 'Valid until',
   },
 
   faq: {

@@ -30,6 +30,11 @@ export function Contact() {
               {t.contact.secondaryLabel}
             </CtaLink>
           </Reveal>
+
+          <Reveal delay={220} className="mt-5 flex items-center gap-2 text-sm text-muted">
+            <span className="inline-block h-1 w-1 shrink-0 rounded-full bg-coral" aria-hidden="true" />
+            {t.bonus.teaser}
+          </Reveal>
         </div>
 
         <Reveal variant="fade" delay={120} className="lg:pl-10">

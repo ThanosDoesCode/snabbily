@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useI18n } from '@/i18n';
 import { Seo } from '@/components/Seo';
-import { Button, CtaLink, ArrowRight } from '@/components/Button';
+import { Button, ArrowRight } from '@/components/Button';
 import { ProgressBar, OptionButton, Field, FlowShell, type StepDef } from '@/components/flow/primitives';
+import { BonusReveal } from '@/components/flow/BonusReveal';
 import { submitForm } from '@/lib/submit';
 import { track } from '@/lib/analytics';
-import { isSubmitConfigured, CAL_URL, isCalConfigured } from '@/lib/config';
+import { isSubmitConfigured } from '@/lib/config';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const URL_RE = /^([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i;
@@ -48,6 +49,14 @@ export default function StartProject() {
   const [answers, setAnswers] = useState<Answers>(EMPTY);
   const [error, setError] = useState('');
   const [status, setStatus] = useState<Status>('idle');
+
+  // Source attribution: utm_source wins, then source, else "direct".
+  const [searchParams] = useSearchParams();
+  const source = useMemo(() => {
+    const utm = (searchParams.get('utm_source') || '').trim();
+    const src = (searchParams.get('source') || '').trim();
+    return utm || src || 'direct';
+  }, [searchParams]);
 
   useEffect(() => {
     track('start_project_started');
@@ -134,13 +143,16 @@ export default function StartProject() {
       <>
         <Seo locale={locale} pageKey="start" title={f.metaTitle} description={f.metaDescription} />
         <FlowShell>
-          <SuccessCard
-            title={f.successTitle.replace('{name}', answers.name.trim().split(' ')[0] || '')}
-            body={f.successBody}
-            book={isCalConfigured ? f.successBook : undefined}
-            calUrl={CAL_URL}
-            backHome={f.backHome}
-            homeHref={homeHref}
+          <BonusReveal
+            answers={{
+              name: answers.name.trim(),
+              email: answers.email.trim(),
+              business: answers.business,
+              need: answers.need,
+              timing: answers.timing,
+              phone: answers.phone.trim(),
+            }}
+            source={source}
           />
         </FlowShell>
       </>
@@ -296,43 +308,5 @@ export default function StartProject() {
         </div>
       </FlowShell>
     </>
-  );
-}
-
-function SuccessCard({
-  title,
-  body,
-  book,
-  calUrl,
-  backHome,
-  homeHref,
-}: {
-  title: string;
-  body: string;
-  book?: string;
-  calUrl: string;
-  backHome: string;
-  homeHref: string;
-}) {
-  return (
-    <div className="text-center">
-      <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-coral/12">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" aria-hidden="true">
-          <path d="M5 12.5l4.5 4.5L19 7" stroke="var(--color-coral)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-      <h1 className="mt-6 text-h2 text-ink">{title}</h1>
-      <p className="mx-auto mt-4 max-w-md text-lead text-ink-soft">{body}</p>
-      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-        {book && (
-          <CtaLink href={calUrl} size="md" onClick={() => track('book_call_clicked')}>
-            {book}
-          </CtaLink>
-        )}
-        <CtaLink to={homeHref} variant="secondary" size="md">
-          {backHome}
-        </CtaLink>
-      </div>
-    </div>
   );
 }
