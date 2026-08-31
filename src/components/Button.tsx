@@ -5,11 +5,11 @@ type Variant = 'primary' | 'secondary' | 'accent' | 'invert';
 type Size = 'md' | 'lg';
 
 const base =
-  'group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-tight transition-[transform,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100';
+  'group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium tracking-tight transition-[transform,background-color,border-color,color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100';
 
 const sizes: Record<Size, string> = {
-  md: 'min-h-[44px] px-6 py-3 text-[0.95rem]',
-  lg: 'min-h-[52px] px-8 py-4 text-base',
+  md: 'min-h-[44px] px-6 py-3 text-[0.95rem] max-[360px]:px-4',
+  lg: 'min-h-[52px] px-8 py-4 text-base max-[360px]:px-5 max-[360px]:text-[0.92rem]',
 };
 
 const variants: Record<Variant, string> = {

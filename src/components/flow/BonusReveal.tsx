@@ -127,7 +127,7 @@ export function BonusReveal({ answers, source }: { answers: BonusAnswers; source
               aria-pressed={isSel}
               onClick={() => onSelect(i)}
               className={[
-                'flex aspect-[4/5] flex-col items-center justify-center rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-2 focus-visible:outline-offset-2',
+                'group flex aspect-[4/5] flex-col items-center justify-center rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline-2 focus-visible:outline-offset-2',
                 selected === null
                   ? 'cursor-pointer border-line-strong bg-paper hover:-translate-y-1 hover:border-ink'
                   : 'cursor-default',
@@ -149,8 +149,11 @@ export function BonusReveal({ answers, source }: { answers: BonusAnswers; source
                   <span className="mt-1.5 font-serif text-2xl text-ink">{b.amount}</span>
                 </span>
               ) : (
-                <span className="font-serif text-3xl text-ink md:text-4xl" aria-hidden="true">
-                  {no}
+                <span
+                  className="font-serif text-3xl leading-none text-ink transition-colors duration-300 group-hover:text-coral md:text-4xl"
+                  aria-hidden="true"
+                >
+                  S<span className="text-coral">.</span>
                 </span>
               )}
             </button>

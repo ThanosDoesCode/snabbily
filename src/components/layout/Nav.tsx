@@ -77,8 +77,8 @@ export function Nav() {
       <nav className="shell flex h-16 items-center justify-between md:h-20" aria-label="Main">
         <Wordmark to={home} />
 
-        <div className="hidden items-center gap-8 md:flex">
-          <ul className="flex items-center gap-7">
+        <div className="hidden items-center gap-6 lg:flex">
+          <ul className="flex items-center gap-6">
             {links.map((l) => (
               <li key={l.hash}>
                 <Link
@@ -99,7 +99,7 @@ export function Nav() {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-4 lg:hidden">
           <LanguageSwitcher />
           <button
             type="button"
@@ -132,7 +132,7 @@ export function Nav() {
 
       {/* Mobile menu */}
       {open && (
-        <div id="mobile-menu" className="border-t border-line bg-bone md:hidden">
+        <div id="mobile-menu" className="border-t border-line bg-bone lg:hidden">
           <div className="shell flex flex-col gap-1 py-4">
             {links.map((l) => (
               <Link
