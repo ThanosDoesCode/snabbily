@@ -1,24 +1,39 @@
-# Logs
-logs
-*.log
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# build output
+dist
+dist-ssr
+.vite
+
+# local env files
+.env
+.env.local
+.env.*.local
+
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# editor / os
+.DS_Store
+.idea
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# vercel
+.vercel
+
+# local agent skills (installed via `skills add`, not part of the website)
+.agents/
+.claude/
+skills-lock.json
