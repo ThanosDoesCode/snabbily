@@ -248,11 +248,11 @@
   pointer-events: none;
   transform: translateX(0);
   will-change: transform;
-  animation: curtainReveal 3.1s var(--ease-out-soft) both;
+  animation: curtainReveal 2.4s var(--ease-out-soft) both;
 }
 @keyframes curtainReveal {
   0%,
-  70% {
+  73% {
     transform: translateX(0);
   }
   100% {
@@ -271,7 +271,7 @@
   line-height: 1;
   font-size: clamp(2rem, 8vw, 4rem);
   color: var(--color-bone);
-  animation: curtainNameOut 0.42s var(--ease-out-soft) 1.75s both;
+  animation: curtainNameOut 0.25s var(--ease-out-soft) 1.5s both;
 }
 .curtain-name__letter {
   display: inline-block;
