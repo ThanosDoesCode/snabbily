@@ -306,7 +306,7 @@ export const el: Dictionary = {
     cookies: 'Πολιτική Cookies',
     cookieSettings: 'Ρυθμίσεις cookies',
     rights: 'Με επιφύλαξη παντός δικαιώματος.',
-    builtNote: 'Ιστοσελίδες για επιχειρήσεις υπηρεσιών στην Ελλάδα.',
+    builtNote: 'Ιστοσελίδες για επιχειρήσεις υπηρεσιών.',
   },
 
   consent: {

@@ -304,7 +304,7 @@ export const en = {
     cookies: 'Cookie Policy',
     cookieSettings: 'Cookie settings',
     rights: 'All rights reserved.',
-    builtNote: 'Websites for service businesses in Greece.',
+    builtNote: 'Websites for service businesses.',
   },
 
   consent: {
