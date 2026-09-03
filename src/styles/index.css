@@ -335,15 +335,18 @@
   }
 }
 
-/* Selected work: each framed device shows a page at rest, plays a scroll-through
-   of several real pages on hover, and jumps to a page when its pill is clicked.
-   The pages are stacked into a "reel" moved by a single GPU transform driven from
-   WorkReel; offsets are measured from the DOM so no pixel heights are baked in. */
+/* Selected work: each framed device shows its home page at rest. On hover the
+   page scrolls to the bottom, fades out, and the next page fades in at the top
+   and scrolls, and so on, like watching someone browse the site. Pages are
+   stacked and each moves with a single GPU transform; cqh resolves to the
+   frame's own height so every page bottom-aligns without baked-in pixel heights.
+   --slice is one page's screen time; three pages play back to back. */
 .work-shot,
 .work-phone {
   position: relative;
   width: 100%;
   overflow: hidden;
+  container-type: size;
 }
 .work-shot {
   aspect-ratio: 16 / 10;
@@ -351,121 +354,109 @@
 .work-phone {
   aspect-ratio: 9 / 19.5;
 }
-.reel-root {
-  position: absolute;
-  inset: 0;
-}
-.work-reel {
+.reel-page {
   position: absolute;
   inset: 0 0 auto 0;
   width: 100%;
+  opacity: 0;
   transform: translateY(0);
-  will-change: transform;
+  will-change: transform, opacity;
+  --slice: 4s;
 }
-.work-reel > div {
-  position: relative;
+.reel-page:first-child {
+  opacity: 1;
 }
-.work-reel img {
+.reel-page img {
   display: block;
   width: 100%;
   height: auto;
 }
-/* A clear break between pages: a band that reads like the address bar changing
-   to the next route, with a hairline shadow so each page looks like its own
-   document. */
-.reel-sep {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.55rem 0.4rem;
-  background: var(--color-bone-deep);
-  border-block: 1px solid var(--color-line);
-  box-shadow:
-    0 -8px 16px -10px rgba(28, 24, 21, 0.25),
-    0 8px 16px -10px rgba(28, 24, 21, 0.25);
+@media (prefers-reduced-motion: no-preference) {
+  .reel-card:hover .reel-page {
+    animation-duration: var(--slice);
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  /* Home: on screen already, scroll then fade out. */
+  .reel-card:hover .reel-page:nth-child(1) {
+    animation-name: reelFirst;
+    animation-delay: 0s;
+  }
+  /* Collections and Contact: fade in, scroll, fade out. */
+  .reel-card:hover .reel-page:nth-child(2) {
+    animation-name: reelNext;
+    animation-delay: var(--slice);
+  }
+  .reel-card:hover .reel-page:nth-child(3) {
+    animation-name: reelNext;
+    animation-delay: calc(var(--slice) * 2);
+  }
+  /* Title card: fade in and hold as the closing frame. */
+  .reel-card:hover .reel-page:nth-child(4) {
+    animation-name: reelEnd;
+    animation-delay: calc(var(--slice) * 3);
+  }
 }
-.reel-sep__pill {
-  max-width: 90%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  border-radius: 9999px;
-  background: var(--color-bone);
-  border: 1px solid var(--color-line-strong);
-  padding: 0.18rem 0.7rem;
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.03em;
-  color: var(--color-muted);
+/* Home is already on screen: scroll to the bottom, then fade out. */
+@keyframes reelFirst {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  8% {
+    transform: translateY(0);
+  }
+  84% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  92% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(100cqh - 100%));
+  }
 }
-/* Page controls overlaid on each frame. Always visible (so touch users can tap
-   them), a touch more prominent on hover/focus. */
-.reel-nav {
-  position: absolute;
-  left: 50%;
-  bottom: 0.55rem;
-  z-index: 2;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  padding: 0.2rem;
-  border-radius: 9999px;
-  background: color-mix(in srgb, var(--color-bone) 84%, transparent);
-  border: 1px solid var(--color-line);
-  box-shadow: 0 8px 22px -12px rgba(28, 24, 21, 0.5);
-  backdrop-filter: blur(6px);
-  opacity: 0.72;
-  transition: opacity 0.35s var(--ease-out-soft);
+/* A middle page: fade in at the top, scroll to the bottom, fade out. */
+@keyframes reelNext {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  12% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  84% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  92% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(100cqh - 100%));
+  }
 }
-.reel-root:hover .reel-nav,
-.reel-root:focus-within .reel-nav {
-  opacity: 1;
-}
-.reel-nav__btn {
-  cursor: pointer;
-  border: 0;
-  border-radius: 9999px;
-  background: transparent;
-  padding: 0.22rem 0.6rem;
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  color: var(--color-muted);
-  transition:
-    color 0.2s var(--ease-out-soft),
-    background 0.2s var(--ease-out-soft);
-}
-.reel-nav__btn:hover {
-  color: var(--color-ink);
-}
-.reel-nav__btn[aria-current='true'] {
-  color: var(--color-ink);
-  background: var(--color-paper);
-  box-shadow: 0 1px 3px -1px rgba(28, 24, 21, 0.3);
-}
-.reel-nav--compact {
-  bottom: 0.35rem;
-  gap: 0.1rem;
-  padding: 0.2rem 0.25rem;
-}
-.reel-nav--compact .reel-nav__btn {
-  padding: 0.28rem;
-}
-.reel-nav__dot {
-  display: block;
-  width: 5px;
-  height: 5px;
-  border-radius: 9999px;
-  background: var(--color-line-strong);
-  transition: background 0.2s var(--ease-out-soft);
-}
-.reel-nav__btn:hover .reel-nav__dot {
-  background: var(--color-muted);
-}
-.reel-nav__btn[aria-current='true'] .reel-nav__dot {
-  background: var(--color-coral);
+/* The closing title card: fade in at the top and hold (it fills the frame, so
+   there is nothing to scroll). */
+@keyframes reelEnd {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  16% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 640px) {
