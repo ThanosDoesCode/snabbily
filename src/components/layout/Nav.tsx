@@ -125,22 +125,22 @@ export function Nav() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? t.nav.close : t.nav.menu}
-            className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-ink"
+            className="group -mr-2 inline-flex h-11 w-11 items-center justify-center text-ink"
           >
-            <span className="relative block h-4 w-6" aria-hidden="true">
+            <span className="relative block h-4 w-[26px]" aria-hidden="true">
               <span
-                className={`absolute left-0 block h-[1.5px] w-6 bg-ink transition-transform duration-300 ${
-                  open ? 'top-1/2 rotate-45' : 'top-0.5'
+                className={`absolute left-0 top-0 h-[1.5px] w-full origin-center rounded-full bg-ink transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  open ? 'translate-y-[7px] rotate-45' : ''
                 }`}
               />
               <span
-                className={`absolute left-0 top-1/2 block h-[1.5px] w-6 bg-ink transition-opacity duration-200 ${
-                  open ? 'opacity-0' : 'opacity-100'
+                className={`absolute left-0 top-1/2 h-[1.5px] -translate-y-1/2 rounded-full bg-ink transition-[width,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  open ? 'w-full opacity-0' : 'w-[60%] opacity-100 group-hover:w-full'
                 }`}
               />
               <span
-                className={`absolute left-0 block h-[1.5px] w-6 bg-ink transition-transform duration-300 ${
-                  open ? 'top-1/2 -rotate-45' : 'bottom-0.5'
+                className={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center rounded-full bg-ink transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  open ? '-translate-y-[7px] -rotate-45' : ''
                 }`}
               />
             </span>
