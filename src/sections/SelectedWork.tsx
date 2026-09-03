@@ -2,6 +2,7 @@ import { useI18n } from '@/i18n';
 import { Section, IndexMarker } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/BrowserFrame';
+import { PhoneFrame } from '@/components/PhoneFrame';
 import { ArrowRight } from '@/components/Button';
 import { useParallax } from '@/lib/useParallax';
 import { ALEXANDROS_URL } from '@/lib/config';
@@ -15,7 +16,7 @@ export function SelectedWork() {
       <IndexMarker index={t.work.index} label={t.work.eyebrow} />
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
-        <div className="order-2 lg:order-1">
+        <div className="order-2 min-w-0 lg:order-1">
           <Reveal as="h2" className="text-[length:var(--text-h1)] text-ink">
             {t.work.projectName}
           </Reveal>
@@ -51,7 +52,7 @@ export function SelectedWork() {
           </Reveal>
         </div>
 
-        <Reveal variant="fade" className="order-1 lg:order-2">
+        <Reveal variant="fade" className="relative order-1 min-w-0 pb-6 pl-10 sm:pl-16 lg:order-2 lg:pb-8">
           <div ref={parallaxRef} className="will-change-transform">
             <a
               href={ALEXANDROS_URL}
@@ -63,7 +64,7 @@ export function SelectedWork() {
               <BrowserFrame url="alexandrosliakos.lovable.app">
                 <img
                   src="/work/alexandros-liakos.webp"
-                  alt="Alexandros Liakos Hair Expert and Educator website"
+                  alt="Alexandros Liakos Hair Mentor and Educator website"
                   width={1600}
                   height={800}
                   loading="lazy"
@@ -72,6 +73,14 @@ export function SelectedWork() {
                 />
               </BrowserFrame>
             </a>
+          </div>
+
+          {/* Mobile view of the same site, tucked into the lower-left corner. */}
+          <div className="pointer-events-none absolute bottom-0 left-0 w-[30%] max-w-[128px] sm:w-[26%]">
+            <PhoneFrame
+              src="/work/alexandros-liakos-mobile.webp"
+              alt="Alexandros Liakos website on mobile"
+            />
           </div>
         </Reveal>
       </div>

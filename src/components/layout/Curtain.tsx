@@ -35,7 +35,7 @@ export function Curtain() {
       setDone(true);
       return;
     }
-    const timer = window.setTimeout(() => setDone(true), 3600);
+    const timer = window.setTimeout(() => setDone(true), 3000);
     return () => window.clearTimeout(timer);
   }, []);
 
