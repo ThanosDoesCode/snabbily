@@ -219,6 +219,34 @@
   }
 }
 
+/* One-time name intro: the wordmark reveals letter by letter on page load.
+   Pure CSS, so it never delays interactivity and plays once on mount. The nav
+   stays mounted across client-side navigation, so it does not replay on scroll
+   or route change, only on an actual page load or refresh. The full name is in
+   the initial HTML and the link keeps its aria-label, so assistive tech reads
+   the name once, not letter by letter. Disabled under reduced motion. */
+.name-intro__letter {
+  display: inline-block;
+  white-space: pre;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .name-intro__letter {
+    opacity: 0;
+    animation: nameIntro 0.45s var(--ease-out-soft) both;
+    animation-delay: calc(150ms + var(--i, 0) * 50ms);
+  }
+}
+@keyframes nameIntro {
+  from {
+    opacity: 0;
+    transform: translateY(0.32em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 640px) {
   /* Reduced motion intensity on mobile. */
   .js [data-reveal] {

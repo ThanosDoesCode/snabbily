@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useI18n } from '@/i18n';
 import { CtaLink, ArrowRight } from '@/components/Button';
+
+// The wordmark, split into letters for the one-time page-load intro animation.
+// The link carries the accessible name via aria-label, so the decorative
+// per-letter spans are hidden from assistive tech and the name is read once.
+const WORDMARK_LETTERS = 'Snabbily'.split('');
 
 function Wordmark({ to }: { to: string }) {
   return (
@@ -10,7 +16,19 @@ function Wordmark({ to }: { to: string }) {
       className="font-serif text-2xl leading-none tracking-tight text-ink"
       aria-label="Snabbily home"
     >
-      Snabbily<span className="text-coral">.</span>
+      <span className="name-intro" aria-hidden="true">
+        {WORDMARK_LETTERS.map((ch, i) => (
+          <span key={i} className="name-intro__letter" style={{ '--i': i } as CSSProperties}>
+            {ch}
+          </span>
+        ))}
+        <span
+          className="name-intro__letter text-coral"
+          style={{ '--i': WORDMARK_LETTERS.length } as CSSProperties}
+        >
+          .
+        </span>
+      </span>
     </Link>
   );
 }
