@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n';
 import { Seo } from '@/components/Seo';
 import { Reveal } from '@/components/Reveal';
-import { BrowserFrame } from '@/components/BrowserFrame';
+import { AlexandrosShowcase } from '@/components/AlexandrosShowcase';
 import { CtaLink, ArrowRight } from '@/components/Button';
 import { SITE_URL, ALEXANDROS_URL } from '@/lib/config';
 import { serviceLd, breadcrumbLd } from '@/lib/structuredData';
@@ -108,7 +108,7 @@ export default function HairBeauty() {
               </p>
             </Reveal>
             <Reveal delay={100} className="flex flex-wrap gap-2.5">
-              {['Treatwell', 'Fresha'].map((p) => (
+              {['Treatwell', 'Fresha', 'Booksy'].map((p) => (
                 <span
                   key={p}
                   className="rounded-full border border-line-strong bg-bone px-4 py-2 text-ink-soft"
@@ -149,27 +149,7 @@ export default function HairBeauty() {
               </a>
             </Reveal>
           </div>
-          <Reveal variant="fade">
-            <a
-              href={ALEXANDROS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t.hairBeauty.proofName}, ${t.hairBeauty.proofVisit}`}
-              className="group block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
-            >
-              <BrowserFrame url="alexandrosliakos.lovable.app">
-                <img
-                  src="/work/alexandros-home.webp"
-                  alt="Alexandros Liakos Hair Expert and Educator website"
-                  width={1280}
-                  height={2018}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover object-top"
-                />
-              </BrowserFrame>
-            </a>
-          </Reveal>
+          <AlexandrosShowcase />
         </div>
       </section>
 
