@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useI18n } from '@/i18n';
 import { CtaLink, ArrowRight } from '@/components/Button';
+
+// The wordmark, split into letters for the one-time page-load intro animation.
+// The link carries the accessible name via aria-label, so the decorative
+// per-letter spans are hidden from assistive tech and the name is read once.
+const WORDMARK_LETTERS = 'Snabbily'.split('');
 
 function Wordmark({ to }: { to: string }) {
   return (
@@ -10,7 +16,19 @@ function Wordmark({ to }: { to: string }) {
       className="font-serif text-2xl leading-none tracking-tight text-ink"
       aria-label="Snabbily home"
     >
-      Snabbily<span className="text-coral">.</span>
+      <span className="name-intro" aria-hidden="true">
+        {WORDMARK_LETTERS.map((ch, i) => (
+          <span key={i} className="name-intro__letter" style={{ '--i': i } as CSSProperties}>
+            {ch}
+          </span>
+        ))}
+        <span
+          className="name-intro__letter text-coral"
+          style={{ '--i': WORDMARK_LETTERS.length } as CSSProperties}
+        >
+          .
+        </span>
+      </span>
     </Link>
   );
 }
@@ -107,22 +125,22 @@ export function Nav() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? t.nav.close : t.nav.menu}
-            className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-ink"
+            className="group -mr-2 inline-flex h-11 w-11 items-center justify-center text-ink"
           >
-            <span className="relative block h-4 w-6" aria-hidden="true">
+            <span className="relative block h-4 w-[26px]" aria-hidden="true">
               <span
-                className={`absolute left-0 block h-[1.5px] w-6 bg-ink transition-transform duration-300 ${
-                  open ? 'top-1/2 rotate-45' : 'top-0.5'
+                className={`absolute left-0 top-0 h-[1.5px] w-full origin-center rounded-full bg-ink transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  open ? 'translate-y-[7px] rotate-45' : ''
                 }`}
               />
               <span
-                className={`absolute left-0 top-1/2 block h-[1.5px] w-6 bg-ink transition-opacity duration-200 ${
-                  open ? 'opacity-0' : 'opacity-100'
+                className={`absolute left-0 top-1/2 h-[1.5px] -translate-y-1/2 rounded-full bg-ink transition-[width,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  open ? 'w-full opacity-0' : 'w-[60%] opacity-100 group-hover:w-full'
                 }`}
               />
               <span
-                className={`absolute left-0 block h-[1.5px] w-6 bg-ink transition-transform duration-300 ${
-                  open ? 'top-1/2 -rotate-45' : 'bottom-0.5'
+                className={`absolute bottom-0 left-0 h-[1.5px] w-full origin-center rounded-full bg-ink transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  open ? '-translate-y-[7px] -rotate-45' : ''
                 }`}
               />
             </span>

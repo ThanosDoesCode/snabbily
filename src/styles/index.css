@@ -219,6 +219,75 @@
   }
 }
 
+/* ==========================================================================
+   Page-load intro: an ink curtain reveals the page left to right, and the
+   wordmark is written in left to right underneath it. Both are pure CSS on
+   elements present in the prerendered HTML, so the intro paints from the very
+   first frame (no flash), never blocks content for crawlers or no-JS visitors,
+   and never delays interactivity. They live in the persistent Layout/Nav, so
+   the intro plays once per real page load and never on SPA navigation, language
+   switches or scrolling. Fully skipped under reduced motion.
+   ========================================================================== */
+
+/* Curtain: a full-viewport ink panel that holds briefly, then slides off to the
+   right to reveal the page. Hidden entirely without JS and under reduced motion,
+   and non-interactive throughout so it can never trap clicks or scrolling. */
+.curtain {
+  display: none;
+}
+.js .curtain {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background-color: var(--color-ink);
+  pointer-events: none;
+  transform: translateX(0);
+  will-change: transform;
+  animation: curtainReveal 1.05s var(--ease-out-soft) both;
+}
+@keyframes curtainReveal {
+  0%,
+  22% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Wordmark: each letter fades and slides a touch from the left into place, in
+   sequence, so the name reads as if it is being written left to right as the
+   curtain lifts. The full name is in the initial HTML and the link keeps its
+   aria-label, so assistive tech reads it once, not letter by letter. */
+.name-intro__letter {
+  display: inline-block;
+  white-space: pre;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .name-intro__letter {
+    opacity: 0;
+    animation: nameIntro 0.4s var(--ease-out-soft) both;
+    animation-delay: calc(320ms + var(--i, 0) * 55ms);
+  }
+}
+@keyframes nameIntro {
+  from {
+    opacity: 0;
+    transform: translateX(-0.18em);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .curtain {
+    display: none;
+    animation: none;
+  }
+}
+
 @media (max-width: 640px) {
   /* Reduced motion intensity on mobile. */
   .js [data-reveal] {

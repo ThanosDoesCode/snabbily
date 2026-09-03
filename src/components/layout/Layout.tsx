@@ -6,6 +6,7 @@ import { ConsentProvider } from '@/lib/consent';
 import { Nav } from './Nav';
 import { Footer } from './Footer';
 import { ConsentBanner } from './ConsentBanner';
+import { Curtain } from './Curtain';
 
 /** Scrolls to a hash target on navigation, or to the top on page change. */
 function ScrollManager({ pathname, hash }: { pathname: string; hash: string }) {
@@ -43,6 +44,7 @@ export function Layout() {
         </main>
         <Footer />
         <ConsentBanner />
+        <Curtain />
       </ConsentProvider>
     </I18nProvider>
   );

@@ -99,33 +99,9 @@ export const en = {
     ],
   },
 
-  why: {
-    eyebrow: 'Why a website',
-    index: '03',
-    lead: 'Social media gets attention. Your website turns that attention into trust.',
-    items: [
-      {
-        title: 'Professional presence',
-        blurb: 'Show your services, work and brand properly.',
-      },
-      {
-        title: 'Trust & credibility',
-        blurb: 'Give customers confidence before they contact or book.',
-      },
-      {
-        title: 'One destination',
-        blurb: 'One place for your services, bookings, contact details and content.',
-      },
-      {
-        title: 'Built for action',
-        blurb: 'Guide visitors toward bookings, enquiries and calls.',
-      },
-    ],
-  },
-
   niche: {
     eyebrow: 'Areas of focus',
-    index: '04',
+    index: '03',
     headline: 'Built for businesses where reputation matters.',
     body: 'Snabbily works with service businesses of every kind. Right now we work especially well with hair and beauty professionals, where presentation, trust and easy booking make the difference.',
     focusLabel: 'Hair & Beauty',
@@ -133,21 +109,9 @@ export const en = {
     cta: 'Explore hair & beauty',
   },
 
-  booking: {
-    eyebrow: 'Booking',
-    index: '05',
-    heading: 'Keep the booking system you already use.',
-    copy: 'Already use Treatwell, Fresha or another booking platform? We’ll connect your existing booking journey directly to your website.',
-    benefits: [
-      'Keep your existing workflow',
-      'No new system to learn',
-      'Included with Professional',
-    ],
-  },
-
   process: {
     eyebrow: 'How it works',
-    index: '06',
+    index: '04',
     title: 'A calm, four-step process.',
     steps: [
       {
@@ -175,7 +139,7 @@ export const en = {
 
   pricing: {
     eyebrow: 'Pricing',
-    index: '07',
+    index: '05',
     title: 'Clear pricing. No surprises.',
     subtitle: 'One project fee, split 50/50. Optional yearly care after launch.',
     mostPopular: 'Most popular',
@@ -266,17 +230,9 @@ export const en = {
     },
   },
 
-  review: {
-    eyebrow: 'Free website review',
-    index: '09',
-    heading: 'Not ready for a project? Start with a free review.',
-    copy: 'We’ll show you 3 practical improvements that could make your website clearer, faster and more effective at generating bookings or enquiries.',
-    cta: 'Get a free website review',
-  },
-
   contact: {
     eyebrow: 'Get in touch',
-    index: '10',
+    index: '07',
     heading: 'Let’s make your website work for you.',
     copy: 'Start a project when you’re ready, or reach out first. Whatever suits you.',
     primaryLabel: 'Start a project',
@@ -301,7 +257,7 @@ export const en = {
 
   faq: {
     eyebrow: 'FAQ',
-    index: '08',
+    index: '06',
     title: 'The questions we get most.',
     items: [
       {
@@ -348,7 +304,7 @@ export const en = {
     cookies: 'Cookie Policy',
     cookieSettings: 'Cookie settings',
     rights: 'All rights reserved.',
-    builtNote: 'Websites for service businesses in Greece.',
+    builtNote: 'Websites for service businesses.',
   },
 
   consent: {
