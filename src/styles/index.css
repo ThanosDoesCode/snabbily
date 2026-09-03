@@ -335,6 +335,47 @@
   }
 }
 
+/* Selected work: each framed device shows a page at rest, then scrolls through
+   several real pages of the site on hover, flowing from one page into the next.
+   The pages are stacked into a "reel" and moved with a single GPU transform.
+   cqh resolves to the frame's own height, so the last page bottom-aligns to the
+   window without hard-coding any pixel heights. */
+.work-shot,
+.work-phone {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  container-type: size;
+}
+.work-shot {
+  aspect-ratio: 16 / 10;
+}
+.work-phone {
+  aspect-ratio: 9 / 19.5;
+}
+.work-reel {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  transform: translateY(0);
+}
+.work-reel > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .work-reel {
+    transition: transform 1.2s var(--ease-out-soft);
+    will-change: transform;
+  }
+  .reel-card:hover .work-reel,
+  .reel-card:focus-visible .work-reel {
+    transform: translateY(calc(100cqh - 100%));
+    transition: transform 12s linear;
+  }
+}
+
 @media (max-width: 640px) {
   /* Reduced motion intensity on mobile. */
   .js [data-reveal] {

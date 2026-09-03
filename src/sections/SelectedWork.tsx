@@ -59,18 +59,14 @@ export function SelectedWork() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${t.work.projectName}, ${t.work.visit}`}
-              className="group block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
+              className="group reel-card block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
             >
-              <BrowserFrame url="alexandrosliakos.lovable.app">
-                <img
-                  src="/work/alexandros-liakos.webp"
-                  alt="Alexandros Liakos Hair Mentor and Educator website"
-                  width={1600}
-                  height={800}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover object-top"
-                />
+              <BrowserFrame url="alexandrosliakos.lovable.app" contentClassName="work-shot">
+                <div className="work-reel">
+                  <img src="/work/alexandros-home.webp" alt="" width={1280} height={2018} loading="lazy" decoding="async" />
+                  <img src="/work/alexandros-collections.webp" alt="" width={1280} height={2474} loading="lazy" decoding="async" />
+                  <img src="/work/alexandros-contact.webp" alt="" width={1280} height={1521} loading="lazy" decoding="async" />
+                </div>
               </BrowserFrame>
             </a>
           </div>
@@ -81,12 +77,15 @@ export function SelectedWork() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${t.work.projectName} on mobile, ${t.work.visit}`}
-            className="group/phone absolute bottom-0 left-0 block w-[30%] max-w-[128px] rounded-[1.8rem] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 sm:w-[26%]"
+            className="group/phone reel-card absolute bottom-0 left-0 block w-[30%] max-w-[128px] rounded-[1.8rem] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 sm:w-[26%]"
           >
-            <PhoneFrame
-              src="/work/alexandros-liakos-mobile.webp"
-              alt="Alexandros Liakos website on mobile"
-            />
+            <PhoneFrame>
+              <div className="work-reel">
+                <img src="/work/alexandros-home-mobile.webp" alt="" width={780} height={6210} loading="lazy" decoding="async" />
+                <img src="/work/alexandros-collections-mobile.webp" alt="" width={780} height={6078} loading="lazy" decoding="async" />
+                <img src="/work/alexandros-contact-mobile.webp" alt="" width={780} height={4916} loading="lazy" decoding="async" />
+              </div>
+            </PhoneFrame>
           </a>
         </Reveal>
       </div>

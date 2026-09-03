@@ -159,10 +159,10 @@ export default function HairBeauty() {
             >
               <BrowserFrame url="alexandrosliakos.lovable.app">
                 <img
-                  src="/work/alexandros-liakos.webp"
+                  src="/work/alexandros-home.webp"
                   alt="Alexandros Liakos Hair Expert and Educator website"
-                  width={1600}
-                  height={800}
+                  width={1280}
+                  height={2018}
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover object-top"
