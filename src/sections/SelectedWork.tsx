@@ -64,7 +64,9 @@ export function SelectedWork() {
               <BrowserFrame url="alexandrosliakos.lovable.app" contentClassName="work-shot">
                 <div className="work-reel">
                   <img src="/work/alexandros-home.webp" alt="" width={1280} height={2018} loading="lazy" decoding="async" />
+                  <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/collections</span></div>
                   <img src="/work/alexandros-collections.webp" alt="" width={1280} height={2474} loading="lazy" decoding="async" />
+                  <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/contact</span></div>
                   <img src="/work/alexandros-contact.webp" alt="" width={1280} height={1521} loading="lazy" decoding="async" />
                 </div>
               </BrowserFrame>
@@ -82,7 +84,9 @@ export function SelectedWork() {
             <PhoneFrame>
               <div className="work-reel">
                 <img src="/work/alexandros-home-mobile.webp" alt="" width={780} height={6210} loading="lazy" decoding="async" />
+                <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/collections</span></div>
                 <img src="/work/alexandros-collections-mobile.webp" alt="" width={780} height={6078} loading="lazy" decoding="async" />
+                <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/contact</span></div>
                 <img src="/work/alexandros-contact-mobile.webp" alt="" width={780} height={4916} loading="lazy" decoding="async" />
               </div>
             </PhoneFrame>

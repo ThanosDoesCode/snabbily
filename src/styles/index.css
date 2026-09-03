@@ -364,6 +364,34 @@
   width: 100%;
   height: auto;
 }
+/* A clear break between pages: a band that reads like the address bar changing
+   to the next route, with a hairline shadow so each page looks like its own
+   document. */
+.reel-sep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.4rem;
+  background: var(--color-bone-deep);
+  border-block: 1px solid var(--color-line);
+  box-shadow:
+    0 -8px 16px -10px rgba(28, 24, 21, 0.25),
+    0 8px 16px -10px rgba(28, 24, 21, 0.25);
+}
+.reel-sep__pill {
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 9999px;
+  background: var(--color-bone);
+  border: 1px solid var(--color-line-strong);
+  padding: 0.18rem 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+}
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .work-reel {
     transition: transform 1.2s var(--ease-out-soft);
