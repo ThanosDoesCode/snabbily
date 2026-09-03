@@ -335,17 +335,15 @@
   }
 }
 
-/* Selected work: each framed device shows a page at rest, then scrolls through
-   several real pages of the site on hover, flowing from one page into the next.
-   The pages are stacked into a "reel" and moved with a single GPU transform.
-   cqh resolves to the frame's own height, so the last page bottom-aligns to the
-   window without hard-coding any pixel heights. */
+/* Selected work: each framed device shows a page at rest, plays a scroll-through
+   of several real pages on hover, and jumps to a page when its pill is clicked.
+   The pages are stacked into a "reel" moved by a single GPU transform driven from
+   WorkReel; offsets are measured from the DOM so no pixel heights are baked in. */
 .work-shot,
 .work-phone {
   position: relative;
   width: 100%;
   overflow: hidden;
-  container-type: size;
 }
 .work-shot {
   aspect-ratio: 16 / 10;
@@ -353,13 +351,21 @@
 .work-phone {
   aspect-ratio: 9 / 19.5;
 }
+.reel-root {
+  position: absolute;
+  inset: 0;
+}
 .work-reel {
   position: absolute;
   inset: 0 0 auto 0;
   width: 100%;
   transform: translateY(0);
+  will-change: transform;
 }
-.work-reel > img {
+.work-reel > div {
+  position: relative;
+}
+.work-reel img {
   display: block;
   width: 100%;
   height: auto;
@@ -392,16 +398,74 @@
   letter-spacing: 0.03em;
   color: var(--color-muted);
 }
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .work-reel {
-    transition: transform 1.2s var(--ease-out-soft);
-    will-change: transform;
-  }
-  .reel-card:hover .work-reel,
-  .reel-card:focus-visible .work-reel {
-    transform: translateY(calc(100cqh - 100%));
-    transition: transform 12s linear;
-  }
+/* Page controls overlaid on each frame. Always visible (so touch users can tap
+   them), a touch more prominent on hover/focus. */
+.reel-nav {
+  position: absolute;
+  left: 50%;
+  bottom: 0.55rem;
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--color-bone) 84%, transparent);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 8px 22px -12px rgba(28, 24, 21, 0.5);
+  backdrop-filter: blur(6px);
+  opacity: 0.72;
+  transition: opacity 0.35s var(--ease-out-soft);
+}
+.reel-root:hover .reel-nav,
+.reel-root:focus-within .reel-nav {
+  opacity: 1;
+}
+.reel-nav__btn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  padding: 0.22rem 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--color-muted);
+  transition:
+    color 0.2s var(--ease-out-soft),
+    background 0.2s var(--ease-out-soft);
+}
+.reel-nav__btn:hover {
+  color: var(--color-ink);
+}
+.reel-nav__btn[aria-current='true'] {
+  color: var(--color-ink);
+  background: var(--color-paper);
+  box-shadow: 0 1px 3px -1px rgba(28, 24, 21, 0.3);
+}
+.reel-nav--compact {
+  bottom: 0.35rem;
+  gap: 0.1rem;
+  padding: 0.2rem 0.25rem;
+}
+.reel-nav--compact .reel-nav__btn {
+  padding: 0.28rem;
+}
+.reel-nav__dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: var(--color-line-strong);
+  transition: background 0.2s var(--ease-out-soft);
+}
+.reel-nav__btn:hover .reel-nav__dot {
+  background: var(--color-muted);
+}
+.reel-nav__btn[aria-current='true'] .reel-nav__dot {
+  background: var(--color-coral);
 }
 
 @media (max-width: 640px) {

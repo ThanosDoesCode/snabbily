@@ -3,9 +3,22 @@ import { Section, IndexMarker } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/BrowserFrame';
 import { PhoneFrame } from '@/components/PhoneFrame';
+import { WorkReel, type ReelPage } from '@/components/WorkReel';
 import { ArrowRight } from '@/components/Button';
 import { useParallax } from '@/lib/useParallax';
 import { ALEXANDROS_URL } from '@/lib/config';
+
+const DESKTOP_PAGES: ReelPage[] = [
+  { src: '/work/alexandros-home.webp', w: 1280, h: 2018, label: 'Home', path: '/' },
+  { src: '/work/alexandros-collections.webp', w: 1280, h: 2474, label: 'Collections', path: '/collections' },
+  { src: '/work/alexandros-contact.webp', w: 1280, h: 1521, label: 'Contact', path: '/contact' },
+];
+
+const MOBILE_PAGES: ReelPage[] = [
+  { src: '/work/alexandros-home-mobile.webp', w: 780, h: 6210, label: 'Home', path: '/' },
+  { src: '/work/alexandros-collections-mobile.webp', w: 780, h: 6078, label: 'Collections', path: '/collections' },
+  { src: '/work/alexandros-contact-mobile.webp', w: 780, h: 4916, label: 'Contact', path: '/contact' },
+];
 
 export function SelectedWork() {
   const { t } = useI18n();
@@ -54,43 +67,19 @@ export function SelectedWork() {
 
         <Reveal variant="fade" className="relative order-1 min-w-0 pb-6 pl-10 sm:pl-16 lg:order-2 lg:pb-8">
           <div ref={parallaxRef} className="will-change-transform">
-            <a
-              href={ALEXANDROS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t.work.projectName}, ${t.work.visit}`}
-              className="group reel-card block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
-            >
-              <BrowserFrame url="alexandrosliakos.lovable.app" contentClassName="work-shot">
-                <div className="work-reel">
-                  <img src="/work/alexandros-home.webp" alt="" width={1280} height={2018} loading="lazy" decoding="async" />
-                  <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/collections</span></div>
-                  <img src="/work/alexandros-collections.webp" alt="" width={1280} height={2474} loading="lazy" decoding="async" />
-                  <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/contact</span></div>
-                  <img src="/work/alexandros-contact.webp" alt="" width={1280} height={1521} loading="lazy" decoding="async" />
-                </div>
+            <div className="group rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
+              <BrowserFrame url="alexandrosliakos.lovable.app" href={ALEXANDROS_URL} contentClassName="work-shot">
+                <WorkReel pages={DESKTOP_PAGES} ariaLabel={`${t.work.projectName} website preview`} />
               </BrowserFrame>
-            </a>
+            </div>
           </div>
 
           {/* Mobile view of the same site, tucked into the lower-left corner. */}
-          <a
-            href={ALEXANDROS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${t.work.projectName} on mobile, ${t.work.visit}`}
-            className="group/phone reel-card absolute bottom-0 left-0 block w-[30%] max-w-[128px] rounded-[1.8rem] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 sm:w-[26%]"
-          >
+          <div className="group/phone absolute bottom-0 left-0 w-[30%] max-w-[128px] rounded-[1.8rem] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 sm:w-[26%]">
             <PhoneFrame>
-              <div className="work-reel">
-                <img src="/work/alexandros-home-mobile.webp" alt="" width={780} height={6210} loading="lazy" decoding="async" />
-                <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/collections</span></div>
-                <img src="/work/alexandros-collections-mobile.webp" alt="" width={780} height={6078} loading="lazy" decoding="async" />
-                <div className="reel-sep" aria-hidden="true"><span className="reel-sep__pill">/contact</span></div>
-                <img src="/work/alexandros-contact-mobile.webp" alt="" width={780} height={4916} loading="lazy" decoding="async" />
-              </div>
+              <WorkReel pages={MOBILE_PAGES} ariaLabel={`${t.work.projectName} website preview, mobile`} compact />
             </PhoneFrame>
-          </a>
+          </div>
         </Reveal>
       </div>
     </Section>
