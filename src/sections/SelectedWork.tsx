@@ -76,12 +76,18 @@ export function SelectedWork() {
           </div>
 
           {/* Mobile view of the same site, tucked into the lower-left corner. */}
-          <div className="pointer-events-none absolute bottom-0 left-0 w-[30%] max-w-[128px] sm:w-[26%]">
+          <a
+            href={ALEXANDROS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.work.projectName} on mobile, ${t.work.visit}`}
+            className="group/phone absolute bottom-0 left-0 block w-[30%] max-w-[128px] rounded-[1.8rem] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 sm:w-[26%]"
+          >
             <PhoneFrame
               src="/work/alexandros-liakos-mobile.webp"
               alt="Alexandros Liakos website on mobile"
             />
-          </div>
+          </a>
         </Reveal>
       </div>
     </Section>
