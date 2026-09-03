@@ -229,30 +229,77 @@
    switches or scrolling. Fully skipped under reduced motion.
    ========================================================================== */
 
-/* Curtain: a full-viewport ink panel that holds briefly, then slides off to the
-   right to reveal the page. Hidden entirely without JS and under reduced motion,
-   and non-interactive throughout so it can never trap clicks or scrolling. */
+/* Curtain: a full-viewport ink panel. The website name is written across it,
+   held so it can be read, then the panel slides off to the right to reveal the
+   page. Hidden entirely without JS and under reduced motion, and non-interactive
+   throughout so it can never trap clicks or scrolling. */
 .curtain {
   display: none;
 }
 .js .curtain {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   inset: 0;
   z-index: 90;
+  padding-inline: 1.5rem;
   background-color: var(--color-ink);
   pointer-events: none;
   transform: translateX(0);
   will-change: transform;
-  animation: curtainReveal 1.05s var(--ease-out-soft) both;
+  animation: curtainReveal 3.1s var(--ease-out-soft) both;
 }
 @keyframes curtainReveal {
   0%,
-  22% {
+  70% {
     transform: translateX(0);
   }
   100% {
     transform: translateX(100%);
+  }
+}
+
+/* The website name, written across the curtain, then faded out just before the
+   panel lifts so it never overlaps the header wordmark underneath. */
+.curtain-name {
+  display: inline-flex;
+  white-space: nowrap;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-size: clamp(2rem, 8vw, 4rem);
+  color: var(--color-bone);
+  animation: curtainNameOut 0.42s var(--ease-out-soft) 1.75s both;
+}
+.curtain-name__letter {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  transform: translateX(-0.2em);
+  animation: curtainName 0.5s var(--ease-out-soft) both;
+  animation-delay: calc(280ms + var(--i, 0) * 80ms);
+}
+.curtain-name__dot {
+  color: var(--color-coral);
+}
+@keyframes curtainName {
+  from {
+    opacity: 0;
+    transform: translateX(-0.2em);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes curtainNameOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
