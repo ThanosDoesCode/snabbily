@@ -62,30 +62,51 @@ export function Pricing() {
                 <span className="font-serif text-5xl leading-none">{plan.price}</span>
               </div>
 
-              <p className={`mt-4 min-h-[3rem] ${dark ? 'text-bone/75' : 'text-ink-soft'}`}>
+              <p className={`mt-4 text-[0.95rem] leading-snug ${dark ? 'text-bone/80' : 'text-ink-soft'}`}>
                 {plan.tagline}
               </p>
 
-              {plan.includesPrevious && (
-                <p
-                  className={`mt-6 text-xs font-medium uppercase tracking-[0.12em] ${
-                    dark ? 'text-bone/60' : 'text-muted'
-                  }`}
-                >
-                  {plan.includesPrevious}
-                </p>
-              )}
-
-              <ul className={`${plan.includesPrevious ? 'mt-3' : 'mt-6'} flex-1 space-y-2.5`}>
-                {plan.features.map((f) => (
-                  <li key={f} className={`flex gap-2.5 text-sm ${dark ? 'text-bone/85' : 'text-ink-soft'}`}>
+              {/* Outcomes: the prominent, plain-language benefits. */}
+              <p
+                className={`mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.14em] ${
+                  dark ? 'text-bone' : 'text-ink'
+                }`}
+              >
+                {t.pricing.helpsLabel}
+              </p>
+              <ul className="mt-3 space-y-2">
+                {plan.outcomes.map((o) => (
+                  <li key={o} className={`flex gap-2.5 text-sm leading-snug ${dark ? 'text-bone/90' : 'text-ink'}`}>
                     <Check dark={dark} />
+                    <span>{o}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Included: the technical detail, kept smaller and subdued. */}
+              <p
+                className={`mt-6 text-[0.7rem] font-medium uppercase tracking-[0.14em] ${
+                  dark ? 'text-bone/45' : 'text-muted'
+                }`}
+              >
+                {t.pricing.includedLabel}
+              </p>
+              {plan.includesPrevious && (
+                <p className={`mt-2 text-xs ${dark ? 'text-bone/65' : 'text-ink-soft'}`}>{plan.includesPrevious}</p>
+              )}
+              <ul className="mt-2 space-y-1.5">
+                {plan.features.map((f) => (
+                  <li key={f} className={`flex gap-2 text-xs leading-snug ${dark ? 'text-bone/60' : 'text-muted'}`}>
+                    <span
+                      className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${dark ? 'bg-bone/40' : 'bg-line-strong'}`}
+                      aria-hidden="true"
+                    />
                     <span>{f}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8">
+              <div className="mt-auto pt-8">
                 <CtaLink
                   to={plan.action === 'start' ? path('start') : undefined}
                   href={plan.action === 'quote' ? quoteHref : undefined}
