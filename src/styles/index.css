@@ -335,6 +335,130 @@
   }
 }
 
+/* Selected work: each framed device shows its home page at rest. On hover the
+   page scrolls to the bottom, fades out, and the next page fades in at the top
+   and scrolls, and so on, like watching someone browse the site. Pages are
+   stacked and each moves with a single GPU transform; cqh resolves to the
+   frame's own height so every page bottom-aligns without baked-in pixel heights.
+   --slice is one page's screen time; three pages play back to back. */
+.work-shot,
+.work-phone {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  container-type: size;
+}
+.work-shot {
+  aspect-ratio: 16 / 10;
+}
+.work-phone {
+  aspect-ratio: 9 / 19.5;
+}
+.reel-page {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(0);
+  will-change: transform, opacity;
+  --slice: 4s;
+}
+.reel-page:first-child {
+  opacity: 1;
+}
+.reel-page img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reel-card:hover .reel-page {
+    animation-duration: var(--slice);
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  /* Home: on screen already, scroll then fade out. */
+  .reel-card:hover .reel-page:nth-child(1) {
+    animation-name: reelFirst;
+    animation-delay: 0s;
+  }
+  /* Collections and Contact: fade in, scroll, fade out. */
+  .reel-card:hover .reel-page:nth-child(2) {
+    animation-name: reelNext;
+    animation-delay: var(--slice);
+  }
+  .reel-card:hover .reel-page:nth-child(3) {
+    animation-name: reelNext;
+    animation-delay: calc(var(--slice) * 2);
+  }
+  /* Title card: fade in and hold as the closing frame. */
+  .reel-card:hover .reel-page:nth-child(4) {
+    animation-name: reelEnd;
+    animation-delay: calc(var(--slice) * 3);
+  }
+}
+/* Home is already on screen: scroll to the bottom, then fade out. */
+@keyframes reelFirst {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  8% {
+    transform: translateY(0);
+  }
+  84% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  92% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(100cqh - 100%));
+  }
+}
+/* A middle page: fade in at the top, scroll to the bottom, fade out. */
+@keyframes reelNext {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  12% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  84% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  92% {
+    opacity: 1;
+    transform: translateY(calc(100cqh - 100%));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(100cqh - 100%));
+  }
+}
+/* The closing title card: fade in at the top and hold (it fills the frame, so
+   there is nothing to scroll). */
+@keyframes reelEnd {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  16% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 640px) {
   /* Reduced motion intensity on mobile. */
   .js [data-reveal] {
