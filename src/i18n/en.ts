@@ -143,15 +143,64 @@ export const en = {
     title: 'Clear pricing. No surprises.',
     subtitle: 'One project fee, split 50/50. Optional yearly care after launch.',
     mostPopular: 'Most popular',
-    fromLabel: 'from',
+    oneTimeLabel: 'One-time project fee',
+    bestForLabel: 'Best for',
     helpsLabel: 'What this helps you do',
     includedLabel: 'Included',
+    careLabel: 'Optional Hosting & Support',
+    perYear: '/year',
+    careBestForLabel: 'Best for',
+    careBoundary:
+      'Small content updates and technical maintenance are included. New pages, redesigns, new integrations and custom development are quoted separately.',
     plans: [
+      {
+        id: 'solo',
+        name: 'Solo',
+        price: '€400',
+        menuLine: 'For independent professionals',
+        tagline:
+          'A simple, professional website for independent professionals who need to be easy to understand, trust and contact.',
+        bestFor:
+          'Independent professionals who do not need a complex website, advanced booking flows or custom functionality.',
+        outcomes: [
+          'Look professional online',
+          'Clearly explain who you are and what you offer',
+          'Make it easy for people to contact you',
+          'Give visitors a clean mobile experience',
+        ],
+        features: [
+          '1 to 3 core pages',
+          'Custom, mobile-friendly design',
+          'Simple copy support',
+          'Contact form',
+          'Basic SEO setup',
+          'Google Analytics + Search Console setup',
+        ],
+        cta: 'Start a project',
+        action: 'start' as const,
+        popular: false,
+        care: {
+          name: 'Solo Care',
+          price: '€180',
+          bestFor: 'Simple personal or solo-professional websites.',
+          features: [
+            'Hosting',
+            'SSL and security',
+            'Backups',
+            'Technical updates',
+            'Small text and image changes',
+            'Basic support',
+          ],
+        },
+      },
       {
         id: 'essential',
         name: 'Essential',
         price: '€600',
+        menuLine: 'For a strong small-business presence',
         tagline: 'Build trust and give customers a professional place to understand and contact your business.',
+        bestFor:
+          'Small businesses that need a polished, trustworthy website and a clear way for customers to understand services and get in touch.',
         outcomes: [
           'Look professional and trustworthy online',
           'Make your services easy to understand',
@@ -169,12 +218,26 @@ export const en = {
         cta: 'Start a project',
         action: 'start' as const,
         popular: false,
+        care: {
+          name: 'Essential Care',
+          price: '€240',
+          bestFor: 'Small-business websites with slightly more ongoing content.',
+          features: [
+            'Everything in Solo Care',
+            'More content support',
+            'More frequent small updates',
+            'Ongoing technical checks',
+          ],
+        },
       },
       {
         id: 'professional',
         name: 'Professional',
         price: '€900',
+        menuLine: 'For bookings and enquiries',
         tagline: 'Turn your website into a tool for generating bookings, enquiries and new customers.',
+        bestFor:
+          'Businesses that want their website to actively help generate leads, bookings and customer enquiries.',
         outcomes: [
           'Give your key services their own pages',
           'Make it easier for visitors to book or enquire',
@@ -191,16 +254,33 @@ export const en = {
           'Stronger SEO setup',
           'Service pages built around enquiries',
           'Priority support during launch',
+          'Easy editing for key website content where appropriate',
         ],
         cta: 'Start a project',
         action: 'start' as const,
         popular: true,
+        care: {
+          name: 'Professional Care',
+          price: '€300',
+          bestFor: 'Websites with booking systems, more pages or tracking.',
+          features: [
+            'Hosting, SSL and backups',
+            'Technical updates',
+            'Small content changes',
+            'Booking and integration checks',
+            'Analytics support',
+            'Priority support',
+          ],
+        },
       },
       {
         id: 'growth',
         name: 'Growth',
         price: '€1,300+',
+        menuLine: 'For more advanced growth goals',
         tagline: 'Build a custom website system around campaigns, leads, bookings or more complex growth goals.',
+        bestFor:
+          'Businesses with campaigns, training, advanced booking flows, multiple service categories or more complex growth needs.',
         outcomes: [
           'Create landing pages for campaigns and offers',
           'Build more advanced booking or enquiry journeys',
@@ -216,27 +296,25 @@ export const en = {
           'Custom workflows',
           'Deeper SEO architecture',
           'Custom functionality for your project',
+          'Easy editing for more of your content where relevant',
         ],
         cta: 'Request a quote',
         action: 'quote' as const,
         popular: false,
+        care: {
+          name: 'Growth Care',
+          price: '€480',
+          bestFor: 'Complex websites with custom functionality, workflows or integrations.',
+          features: [
+            'Everything in Professional Care',
+            'More advanced technical support',
+            'Integration and workflow checks',
+            'More complex troubleshooting',
+            'Higher-priority support',
+          ],
+        },
       },
     ],
-    hosting: {
-      title: 'Hosting & support',
-      price: '€300',
-      per: '/year',
-      lead: 'Optional after launch. Keeps your site online and looked after.',
-      features: [
-        'Hosting',
-        'SSL and security',
-        'Backups',
-        'Technical updates',
-        'Small content changes',
-        'Personal support',
-      ],
-      note: 'New pages, major redesigns, advanced integrations and major functionality are quoted separately.',
-    },
     payment: {
       title: 'How payment works',
       points: [
@@ -281,7 +359,7 @@ export const en = {
     items: [
       {
         q: 'How much does a website for a small business cost in Greece?',
-        a: 'Our packages currently start from €600. The final price depends on the number of pages, the features you need and any integrations, so we agree a clear scope before we begin.',
+        a: 'Our packages currently start from €400. The final price depends on the number of pages, the features you need and any integrations, so we agree a clear scope before we begin.',
       },
       {
         q: 'How long does it take to build a professional website?',
@@ -294,6 +372,10 @@ export const en = {
       {
         q: 'Can you connect Treatwell or Fresha to my website?',
         a: 'Yes. If you already use Treatwell, Fresha or another system, we connect it to your website, so you keep managing bookings exactly as you do now.',
+      },
+      {
+        q: 'Can I update the website myself after launch?',
+        a: 'Yes. Depending on the project, we can provide simple editing access for key content such as services, prices, images or text. If you prefer, Snabbily can also handle updates for you through the support plan.',
       },
       {
         q: 'Do I need a website if I already have Instagram and Google Maps?',
