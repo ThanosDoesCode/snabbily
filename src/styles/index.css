@@ -459,6 +459,23 @@
   }
 }
 
+/* Pricing detail panel: a restrained fade when the selected package changes. */
+@media (prefers-reduced-motion: no-preference) {
+  .pricing-panel {
+    animation: pricingFade 0.35s var(--ease-out-soft) both;
+  }
+}
+@keyframes pricingFade {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 640px) {
   /* Reduced motion intensity on mobile. */
   .js [data-reveal] {
