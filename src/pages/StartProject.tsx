@@ -16,6 +16,7 @@ interface Answers {
   need: string;
   business: string;
   businessOther: string;
+  goalOther: string;
   hasWebsite: string;
   websiteUrl: string;
   goals: string[];
@@ -29,6 +30,7 @@ const EMPTY: Answers = {
   need: '',
   business: '',
   businessOther: '',
+  goalOther: '',
   hasWebsite: '',
   websiteUrl: '',
   goals: [],
@@ -51,6 +53,12 @@ export default function StartProject() {
   const [answers, setAnswers] = useState<Answers>(EMPTY);
   const [error, setError] = useState('');
   const [status, setStatus] = useState<Status>('idle');
+
+  useEffect(() => {
+    if (status === 'success') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+  }, [status]);
 
   // Source attribution: utm_source wins, then source, else "direct".
   const [searchParams] = useSearchParams();
@@ -86,8 +94,14 @@ export default function StartProject() {
             return f.validation.url;
           return '';
         }
-        case 'goals':
-          return answers.goals.length ? '' : f.validation.required;
+        case 'goals': {
+          if (!answers.goals.length) return f.validation.required;
+          const otherOption = current.options[current.options.length - 1];
+          if (answers.goals.includes(otherOption) && !answers.goalOther.trim()) {
+            return f.validation.required;
+          }
+          return '';
+        }
         case 'timing':
           return answers.timing ? '' : f.validation.required;
         case 'contact':
@@ -142,6 +156,14 @@ export default function StartProject() {
     ) {
       payload.business_other = answers.businessOther.trim();
     }
+
+    const goalsStep = steps.find((item) => item.key === 'goals');
+    const otherGoalOption = goalsStep?.options[goalsStep.options.length - 1];
+
+    if (otherGoalOption && answers.goals.includes(otherGoalOption)) {
+      payload.goal_other = answers.goalOther.trim();
+    }
+
     if (phone) payload.phone = phone;
     if (websiteUrl) payload.website_url = websiteUrl;
     const result = await submitForm('New Snabbily Project Enquiry', payload);
@@ -245,6 +267,29 @@ export default function StartProject() {
                   value={answers.businessOther}
                   onChange={(e) =>
                     setAnswers((a) => ({ ...a, businessOther: e.target.value }))
+                  }
+                />
+              </div>
+            )}
+
+          {current.key === 'goals' &&
+            answers.goals.includes(current.options[current.options.length - 1]) && (
+              <div className="pt-2">
+                <Field
+                  id="goal-other"
+                  label={
+                    locale === 'el'
+                      ? 'Τι άλλο θέλετε να πετύχετε;'
+                      : 'What else would you like to achieve?'
+                  }
+                  placeholder={
+                    locale === 'el'
+                      ? 'π.χ. Να προωθήσω μαθήματα ή μια νέα υπηρεσία'
+                      : 'e.g. Promote training or launch a new service'
+                  }
+                  value={answers.goalOther}
+                  onChange={(e) =>
+                    setAnswers((a) => ({ ...a, goalOther: e.target.value }))
                   }
                 />
               </div>
