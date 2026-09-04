@@ -439,7 +439,7 @@ export const el: Dictionary = {
         key: 'business',
         question: 'Τι επιχείρηση έχετε;',
         type: 'single',
-        options: ['Κομμωτήριο', 'Hair stylist', 'Barber', 'Επιχείρηση ομορφιάς', 'Άλλο'],
+        options: ['Κομμωτήριο', 'Hair stylist', 'Barber', 'Επιχείρηση ομορφιάς', 'Ψυχολόγος / Θεραπευτής', 'Σύμβουλος / Coach', 'Άλλο'],
       },
       {
         key: 'hasWebsite',
