@@ -15,6 +15,7 @@ const URL_RE = /^([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i;
 interface Answers {
   need: string;
   business: string;
+  businessOther: string;
   hasWebsite: string;
   websiteUrl: string;
   goals: string[];
@@ -27,6 +28,7 @@ interface Answers {
 const EMPTY: Answers = {
   need: '',
   business: '',
+  businessOther: '',
   hasWebsite: '',
   websiteUrl: '',
   goals: [],
@@ -70,7 +72,14 @@ export default function StartProject() {
         case 'need':
           return answers.need ? '' : f.validation.required;
         case 'business':
-          return answers.business ? '' : f.validation.required;
+          if (!answers.business) return f.validation.required;
+          if (
+            (answers.business === 'Other' || answers.business === 'Άλλο') &&
+            !answers.businessOther.trim()
+          ) {
+            return f.validation.required;
+          }
+          return '';
         case 'hasWebsite': {
           if (!answers.hasWebsite) return f.validation.required;
           if (answers.hasWebsite === current.options[0] && answers.websiteUrl && !URL_RE.test(answers.websiteUrl.trim()))
@@ -127,6 +136,12 @@ export default function StartProject() {
       timeline: answers.timing,
       locale,
     };
+    if (
+      answers.business === 'Other' ||
+      answers.business === 'Άλλο'
+    ) {
+      payload.business_other = answers.businessOther.trim();
+    }
     if (phone) payload.phone = phone;
     if (websiteUrl) payload.website_url = websiteUrl;
     const result = await submitForm('New Snabbily Project Enquiry', payload);
@@ -147,7 +162,10 @@ export default function StartProject() {
             answers={{
               name: answers.name.trim(),
               email: answers.email.trim(),
-              business: answers.business,
+              business:
+                answers.business === 'Other' || answers.business === 'Άλλο'
+                  ? answers.businessOther.trim()
+                  : answers.business,
               need: answers.need,
               timing: answers.timing,
               phone: answers.phone.trim(),
@@ -212,6 +230,25 @@ export default function StartProject() {
                 </OptionButton>
               );
             })}
+
+          {current.key === 'business' &&
+            (answers.business === 'Other' || answers.business === 'Άλλο') && (
+              <div className="pt-2">
+                <Field
+                  id="business-other"
+                  label={locale === 'el' ? 'Ποιο είναι το επάγγελμά σας;' : 'What type of business is it?'}
+                  placeholder={
+                    locale === 'el'
+                      ? 'π.χ. Γιατρός, φωτογράφος, λογιστής'
+                      : 'e.g. Doctor, photographer, accountant'
+                  }
+                  value={answers.businessOther}
+                  onChange={(e) =>
+                    setAnswers((a) => ({ ...a, businessOther: e.target.value }))
+                  }
+                />
+              </div>
+            )}
 
           {/* Conditional URL field for hasWebsite === Yes */}
           {current.key === 'hasWebsite' && answers.hasWebsite === current.options[0] && (

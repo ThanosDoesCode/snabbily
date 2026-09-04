@@ -437,7 +437,7 @@ export const en = {
         key: 'business',
         question: 'What type of business do you have?',
         type: 'single',
-        options: ['Hair salon', 'Hairstylist', 'Barber', 'Beauty business', 'Other'],
+        options: ['Hair salon', 'Hairstylist', 'Barber', 'Beauty business', 'Psychologist / Therapist', 'Consultant / Coach', 'Other'],
       },
       {
         key: 'hasWebsite',
