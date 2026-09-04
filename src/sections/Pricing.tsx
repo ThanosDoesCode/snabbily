@@ -20,6 +20,27 @@ function Dot() {
   return <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-line-strong" aria-hidden="true" />;
 }
 
+/** Circled arrow shown on the currently selected package in the desktop menu. */
+function SelectArrow({ active }: { active: boolean }) {
+  return (
+    <span
+      className={`shrink-0 transition-opacity duration-200 ${active ? 'opacity-100' : 'opacity-0'}`}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 26 26" width="26" height="26" fill="none">
+        <circle cx="13" cy="13" r="12" stroke="var(--color-coral)" strokeWidth="1.3" />
+        <path
+          d="M9.5 13h7M13.6 9.6 17 13l-3.4 3.4"
+          stroke="var(--color-coral)"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
 /** The detail for one package: value first, then included, then the matching
     optional Care plan. Used in the desktop panel and each mobile accordion. */
 function PanelContent({
@@ -127,6 +148,9 @@ function PanelContent({
   );
 }
 
+/** A package option in the desktop selector: name and a short positioning line,
+    with a circled arrow marking the active one. No price here; the price lives in
+    the detail panel. */
 function MenuItem({
   plan,
   active,
@@ -138,29 +162,27 @@ function MenuItem({
   mostPopular: string;
   onSelect: () => void;
 }) {
-  const base = 'relative w-full rounded-xl border px-5 py-4 text-left transition-colors duration-200';
+  const base = 'w-full rounded-xl border px-5 py-4 text-left transition-[background-color,border-color] duration-200';
   const state = active
-    ? 'border-line-strong bg-paper shadow-[0_18px_40px_-30px_rgba(28,24,21,0.5)]'
-    : plan.popular
-      ? 'border-coral/30 hover:bg-paper/50'
-      : 'border-transparent hover:bg-paper/50';
+    ? 'border-line-strong bg-paper shadow-[0_14px_34px_-28px_rgba(28,24,21,0.4)]'
+    : 'border-line/70 bg-transparent hover:border-line-strong hover:bg-paper/45';
+
   return (
     <button type="button" role="tab" aria-selected={active} onClick={onSelect} className={`${base} ${state}`}>
-      <span
-        className={`absolute left-0 top-1/2 h-8 w-[3px] -translate-y-1/2 rounded-full bg-coral transition-opacity duration-200 ${
-          active ? 'opacity-100' : 'opacity-0'
-        }`}
-        aria-hidden="true"
-      />
-      <span className="flex items-baseline justify-between gap-3">
-        <span className="font-serif text-lg text-ink">{plan.name}</span>
-        <span className="font-serif text-lg text-ink">{plan.price}</span>
-      </span>
-      <span className="mt-0.5 flex items-center justify-between gap-2">
-        <span className="text-xs text-muted">{plan.menuLine}</span>
-        {plan.popular && (
-          <span className="shrink-0 text-[0.6rem] font-semibold uppercase tracking-[0.12em] text-coral">{mostPopular}</span>
-        )}
+      <span className="grid grid-cols-[1fr_auto] items-center gap-x-4">
+        <span className="min-w-0">
+          <span className="flex flex-wrap items-center gap-2">
+            <span className="font-serif text-[1.2rem] leading-tight text-ink">{plan.name}</span>
+            {plan.popular && (
+              <span className="rounded-full bg-coral/10 px-2 py-0.5 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-coral">
+                {mostPopular}
+              </span>
+            )}
+          </span>
+          <span className="mt-1.5 block text-xs leading-snug text-muted">{plan.menuLine}</span>
+        </span>
+
+        <SelectArrow active={active} />
       </span>
     </button>
   );
@@ -190,7 +212,7 @@ export function Pricing() {
 
       {/* Desktop: package menu + detail panel */}
       <Reveal className="mt-12 hidden lg:grid lg:grid-cols-[19rem_1fr] lg:items-start lg:gap-8">
-        <div role="tablist" aria-label={pricing.eyebrow} className="flex flex-col gap-1.5">
+        <div role="tablist" aria-label={pricing.eyebrow} className="flex flex-col gap-3">
           {plans.map((p, i) => (
             <MenuItem key={p.id} plan={p} active={i === active} mostPopular={pricing.mostPopular} onSelect={() => setActive(i)} />
           ))}
@@ -226,19 +248,16 @@ export function Pricing() {
                   </span>
                   <span className="mt-0.5 block truncate text-xs text-muted">{p.menuLine}</span>
                 </span>
-                <span className="flex shrink-0 items-center gap-3">
-                  <span className="font-serif text-lg text-ink">{p.price}</span>
-                  <svg
-                    viewBox="0 0 16 16"
-                    width="14"
-                    height="14"
-                    fill="none"
-                    aria-hidden="true"
-                    className={`shrink-0 text-muted transition-transform duration-300 ${on ? 'rotate-180' : ''}`}
-                  >
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
+                <svg
+                  viewBox="0 0 16 16"
+                  width="14"
+                  height="14"
+                  fill="none"
+                  aria-hidden="true"
+                  className={`shrink-0 text-muted transition-transform duration-300 ${on ? 'rotate-180' : ''}`}
+                >
+                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </button>
               <div className="grid transition-[grid-template-rows] duration-300 ease-out" style={{ gridTemplateRows: on ? '1fr' : '0fr' }}>
                 <div className="overflow-hidden">
