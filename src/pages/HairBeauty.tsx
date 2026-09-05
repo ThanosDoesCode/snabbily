@@ -6,11 +6,11 @@ import { AlexandrosShowcase } from '@/components/AlexandrosShowcase';
 import { CtaLink, ArrowRight } from '@/components/Button';
 import { SITE_URL, ALEXANDROS_URL } from '@/lib/config';
 import { serviceLd, breadcrumbLd } from '@/lib/structuredData';
-import { PAGE_PATHS } from '@/i18n/routes';
+import { pagePath } from '@/i18n/routes';
 
 export default function HairBeauty() {
   const { locale, t, path } = useI18n();
-  const canonical = `${SITE_URL}${PAGE_PATHS.hairBeauty[locale]}`;
+  const canonical = `${SITE_URL}${pagePath('hairBeauty', locale)}`;
 
   return (
     <>
@@ -36,6 +36,10 @@ export default function HairBeauty() {
         >
           <Link to={path('home')} className="hover:text-ink">
             Snabbily
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link to={path('websiteDesign')} className="hover:text-ink">
+            {locale === 'el' ? 'Κατασκευή ιστοσελίδων' : 'Website design'}
           </Link>
           <span aria-hidden="true">/</span>
           <span className="text-ink">{t.hairBeauty.breadcrumb}</span>

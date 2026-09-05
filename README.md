@@ -50,6 +50,7 @@ Never commit real secrets. `.env*` files are git-ignored.
 | English                        | Greek                                             |
 | ------------------------------ | ------------------------------------------------- |
 | `/`                            | `/el`                                             |
+| `/website-design-for-small-businesses` | `/el/kataskevi-istoselidon`                |
 | `/websites-for-hair-beauty`    | `/el/kataskevi-istoselidon-gia-kommotiria`        |
 | `/start` (noindex)             | `/el/start`                                       |
 | `/review` (noindex)            | `/el/review`                                      |

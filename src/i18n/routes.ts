@@ -3,10 +3,21 @@ export const LOCALES: Locale[] = ['en', 'el'];
 export const DEFAULT_LOCALE: Locale = 'en';
 
 /** Logical pages and their canonical path in each language. */
-export type PageKey = 'home' | 'hairBeauty' | 'start' | 'review' | 'privacy' | 'cookies';
+export type PageKey =
+  | 'home'
+  | 'websiteDesign'
+  | 'hairBeauty'
+  | 'start'
+  | 'review'
+  | 'privacy'
+  | 'cookies';
 
 export const PAGE_PATHS: Record<PageKey, Record<Locale, string>> = {
   home: { en: '/', el: '/el' },
+  websiteDesign: {
+    en: '/website-design-for-small-businesses',
+    el: '/el/kataskevi-istoselidon',
+  },
   hairBeauty: {
     en: '/websites-for-hair-beauty',
     el: '/el/kataskevi-istoselidon-gia-kommotiria',

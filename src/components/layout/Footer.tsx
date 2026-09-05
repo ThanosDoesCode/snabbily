@@ -4,9 +4,9 @@ import { CONTACT_EMAIL, isAnalyticsConfigured } from '@/lib/config';
 import { useConsent } from '@/lib/consent';
 
 export function Footer() {
-  const { t, path } = useI18n();
+  const { locale, t, path } = useI18n();
   const { resetConsent } = useConsent();
-  const home = home_(path('home'));
+  const home = path('home');
   const year = new Date().getFullYear();
 
   return (
@@ -24,6 +24,11 @@ export function Footer() {
           <nav aria-label={t.footer.servicesTitle}>
             <h2 className="eyebrow">{t.footer.servicesTitle}</h2>
             <ul className="mt-4 space-y-2.5 text-ink-soft">
+              <li>
+                <Link className="link-underline hover:text-ink" to={path('websiteDesign')}>
+                  {locale === 'el' ? 'Κατασκευή ιστοσελίδων' : 'Website design'}
+                </Link>
+              </li>
               <li>
                 <Link className="link-underline hover:text-ink" to={`${home}#services`}>
                   {t.nav.services}
@@ -89,8 +94,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
-
-function home_(p: string): string {
-  return p === '/' ? '' : p;
 }

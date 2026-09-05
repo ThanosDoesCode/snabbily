@@ -1,6 +1,7 @@
 import type { RouteRecord } from 'vite-react-ssg';
 import { Layout } from '@/components/layout/Layout';
 import Home from '@/pages/Home';
+import WebsiteDesign from '@/pages/WebsiteDesign';
 import HairBeauty from '@/pages/HairBeauty';
 import StartProject from '@/pages/StartProject';
 import FreeReview from '@/pages/FreeReview';
@@ -15,6 +16,7 @@ export const routes: RouteRecord[] = [
     children: [
       // English
       { index: true, element: <Home /> },
+      { path: 'website-design-for-small-businesses', element: <WebsiteDesign /> },
       { path: 'websites-for-hair-beauty', element: <HairBeauty /> },
       { path: 'start', element: <StartProject /> },
       { path: 'review', element: <FreeReview /> },
@@ -23,6 +25,7 @@ export const routes: RouteRecord[] = [
 
       // Greek
       { path: 'el', element: <Home /> },
+      { path: 'el/kataskevi-istoselidon', element: <WebsiteDesign /> },
       { path: 'el/kataskevi-istoselidon-gia-kommotiria', element: <HairBeauty /> },
       { path: 'el/start', element: <StartProject /> },
       { path: 'el/review', element: <FreeReview /> },

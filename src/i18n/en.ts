@@ -579,7 +579,7 @@ export const en = {
   // ---- SEO metadata -----------------------------------------------------
   meta: {
     home: {
-      title: 'Website Design for Service Businesses in Greece | Snabbily',
+      title: 'Snabbily | Custom Websites for Service Businesses in Greece',
       description:
         'Snabbily builds modern websites for service businesses in Greece, designed to generate bookings, enquiries and customers. Website design, SEO setup, integrations and ongoing care.',
     },

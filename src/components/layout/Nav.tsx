@@ -56,6 +56,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const home = path('home');
+  const homeAnchor = home === '/' ? '/' : home;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -100,7 +101,7 @@ export function Nav() {
             {links.map((l) => (
               <li key={l.hash}>
                 <Link
-                  to={`${home === '/' ? '' : home}#${l.hash}`}
+                  to={`${homeAnchor}#${l.hash}`}
                   className="link-underline text-sm font-medium text-ink-soft hover:text-ink"
                 >
                   {l.label}
@@ -155,7 +156,7 @@ export function Nav() {
             {links.map((l) => (
               <Link
                 key={l.hash}
-                to={`${home === '/' ? '' : home}#${l.hash}`}
+                to={`${homeAnchor}#${l.hash}`}
                 className="flex min-h-[48px] items-center border-b border-line/60 font-serif text-xl text-ink"
               >
                 {l.label}
