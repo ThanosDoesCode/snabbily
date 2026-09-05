@@ -273,6 +273,11 @@
   color: var(--color-bone);
   animation: curtainNameOut 0.25s var(--ease-out-soft) 1.5s both;
 }
+@media (max-width: 639px) {
+  .curtain-name {
+    font-size: clamp(2.5rem, 10vw, 3rem);
+  }
+}
 .curtain-name__letter {
   display: inline-block;
   white-space: pre;
