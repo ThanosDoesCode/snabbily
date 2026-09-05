@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n';
 import { Section, IndexMarker } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
 
 export function Capabilities() {
-  const { t } = useI18n();
+  const { locale, t, path } = useI18n();
 
   return (
     <Section id="services" tone="sunk">
@@ -41,6 +42,14 @@ export function Capabilities() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal className="mt-8">
+        <Link to={path('websiteDesign')} className="link-underline font-medium text-ink">
+          {locale === 'el'
+            ? 'Περισσότερα για την κατασκευή ιστοσελίδας για την επιχείρησή σας'
+            : 'Explore website design for your small business'}
+        </Link>
+      </Reveal>
     </Section>
   );
 }

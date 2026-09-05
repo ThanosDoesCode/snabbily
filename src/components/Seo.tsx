@@ -18,8 +18,10 @@ export function Seo({ locale, pageKey, title, description, jsonLd }: SeoProps) {
   const canonical = `${SITE_URL}${path === '/' ? '' : path}`;
   const noindex = NOINDEX_PAGES.includes(pageKey);
 
-  const enUrl = `${SITE_URL}${PAGE_PATHS[pageKey].en === '/' ? '' : PAGE_PATHS[pageKey].en}`;
-  const elUrl = `${SITE_URL}${PAGE_PATHS[pageKey].el}`;
+  const enPath = PAGE_PATHS[pageKey].en;
+  const elPath = PAGE_PATHS[pageKey].el;
+  const enUrl = `${SITE_URL}${enPath === '/' ? '' : enPath}`;
+  const elUrl = `${SITE_URL}${elPath}`;
   const ogLocale = locale === 'el' ? 'el_GR' : 'en_GB';
 
   return (
