@@ -196,6 +196,7 @@ export function Pricing() {
   const pricing = t.pricing;
   const plans = pricing.plans;
   const [active, setActive] = useState(0);
+  const [mobileActive, setMobileActive] = useState<number | null>(0);
 
   return (
     <Section id="pricing">
@@ -228,13 +229,13 @@ export function Pricing() {
       {/* Mobile / tablet: accordion */}
       <Reveal className="mt-10 flex flex-col gap-3 lg:hidden">
         {plans.map((p, i) => {
-          const on = i === active;
+          const on = i === mobileActive;
           return (
             <div key={p.id} className={`rounded-2xl border ${on ? 'border-line-strong bg-paper' : 'border-line bg-paper/40'}`}>
               <button
                 type="button"
                 aria-expanded={on}
-                onClick={() => setActive(i)}
+                onClick={() => setMobileActive((current) => (current === i ? null : i))}
                 className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left"
               >
                 <span className="min-w-0">
