@@ -71,13 +71,14 @@ function PanelContent({
 
       <p className={`${compact ? '' : 'mt-4'} font-serif text-5xl leading-none text-ink`}>{plan.price}</p>
       <p className="mt-1.5 text-xs uppercase tracking-[0.14em] text-muted">{pricing.oneTimeLabel}</p>
+      {'priceNote' in plan && <p className="mt-2 max-w-xl text-xs leading-relaxed text-muted">{plan.priceNote}</p>}
 
-      <p className="mt-5 max-w-xl text-lead leading-relaxed text-ink-soft">{plan.tagline}</p>
+      <p className={`${compact ? 'mt-4' : 'mt-5'} max-w-xl text-lead leading-relaxed text-ink-soft`}>{plan.tagline}</p>
 
-      <p className="mt-6 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink">{pricing.bestForLabel}</p>
+      <p className={`${compact ? 'mt-5' : 'mt-6'} text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink`}>{pricing.bestForLabel}</p>
       <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-ink-soft">{plan.bestFor}</p>
 
-      <div className="mt-7 grid gap-x-10 gap-y-7 sm:grid-cols-2">
+      <div className={`${compact ? 'mt-6 gap-y-5' : 'mt-7 gap-y-7'} grid gap-x-10 sm:grid-cols-2`}>
         {/* Outcomes: prominent, plain-language value. */}
         <div>
           <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-ink">{pricing.helpsLabel}</p>
@@ -94,7 +95,7 @@ function PanelContent({
         {/* Included: subdued technical detail. */}
         <div>
           <p className="text-[0.7rem] font-medium uppercase tracking-[0.14em] text-muted">{pricing.includedLabel}</p>
-          {plan.includesPrevious && <p className="mt-2 text-xs text-ink-soft">{plan.includesPrevious}</p>}
+          {'includesPrevious' in plan && <p className="mt-2 text-xs font-semibold text-ink">{plan.includesPrevious}</p>}
           <ul className="mt-2 space-y-1.5">
             {plan.features.map((f) => (
               <li key={f} className="flex gap-2 text-xs leading-snug text-muted">
@@ -106,7 +107,11 @@ function PanelContent({
         </div>
       </div>
 
-      <div className="mt-8">
+      {'scopeNote' in plan && (
+        <p className={`${compact ? 'mt-4' : 'mt-5'} max-w-xl text-xs leading-relaxed text-muted`}>{plan.scopeNote}</p>
+      )}
+
+      <div className={compact ? 'mt-7' : 'mt-8'}>
         <CtaLink
           to={plan.action === 'start' ? startHref : undefined}
           href={plan.action === 'quote' ? quoteHref : undefined}
@@ -119,7 +124,7 @@ function PanelContent({
       </div>
 
       {/* Optional, secondary Care plan matched to this package. */}
-      <div className="mt-8 rounded-xl border border-line bg-bone/60 p-5">
+      <div className={`${compact ? 'mt-6 p-4' : 'mt-8 p-5'} rounded-xl border border-line bg-bone/60`}>
         <div className="flex items-baseline justify-between gap-4">
           <div>
             <p className="text-[0.62rem] font-medium uppercase tracking-[0.14em] text-muted">{pricing.careLabel}</p>
@@ -130,10 +135,7 @@ function PanelContent({
             <span className="text-sm text-muted">{pricing.perYear}</span>
           </p>
         </div>
-        <p className="mt-2 text-sm text-ink-soft">
-          <span className="text-muted">{pricing.careBestForLabel}: </span>
-          {care.bestFor}
-        </p>
+        {'includesPrevious' in care && <p className="mt-3 text-xs font-semibold text-ink-soft">{care.includesPrevious}</p>}
         <ul className="mt-3 grid gap-1.5 sm:grid-cols-2">
           {care.features.map((f) => (
             <li key={f} className="flex gap-2 text-xs text-ink-soft">
@@ -142,15 +144,14 @@ function PanelContent({
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-xs leading-relaxed text-muted">{pricing.careBoundary}</p>
+        <p className="mt-3 border-t border-line pt-3 text-xs leading-relaxed text-muted">{pricing.careBoundary}</p>
       </div>
     </div>
   );
 }
 
-/** A package option in the desktop selector: name and a short positioning line,
-    with a circled arrow marking the active one. No price here; the price lives in
-    the detail panel. */
+/** A package option in the desktop selector: name, positioning line and price,
+    with a circled arrow marking the active one. */
 function MenuItem({
   plan,
   active,
@@ -182,7 +183,10 @@ function MenuItem({
           <span className="mt-1.5 block text-xs leading-snug text-muted">{plan.menuLine}</span>
         </span>
 
-        <SelectArrow active={active} />
+        <span className="flex shrink-0 items-center gap-3">
+          <span className="font-serif text-base text-ink">{plan.price}</span>
+          <SelectArrow active={active} />
+        </span>
       </span>
     </button>
   );
@@ -249,20 +253,23 @@ export function Pricing() {
                   </span>
                   <span className="mt-0.5 block truncate text-xs text-muted">{p.menuLine}</span>
                 </span>
-                <svg
-                  viewBox="0 0 16 16"
-                  width="14"
-                  height="14"
-                  fill="none"
-                  aria-hidden="true"
-                  className={`shrink-0 text-muted transition-transform duration-300 ${on ? 'rotate-180' : ''}`}
-                >
-                  <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <span className="flex shrink-0 items-center gap-2.5">
+                  <span className="font-serif text-sm text-ink">{p.price}</span>
+                  <svg
+                    viewBox="0 0 16 16"
+                    width="14"
+                    height="14"
+                    fill="none"
+                    aria-hidden="true"
+                    className={`shrink-0 text-muted transition-transform duration-300 ${on ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
               </button>
               <div className="grid transition-[grid-template-rows] duration-300 ease-out" style={{ gridTemplateRows: on ? '1fr' : '0fr' }}>
                 <div className="overflow-hidden">
-                  <div className="border-t border-line px-5 pb-6 pt-5">
+                  <div className="border-t border-line px-5 pb-5 pt-4">
                     <PanelContent plan={p} pricing={pricing} startHref={startHref} quoteHref={quoteHref} compact />
                   </div>
                 </div>
