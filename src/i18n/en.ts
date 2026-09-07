@@ -505,7 +505,7 @@ export const en = {
     error:
       'Something went wrong sending your request. Your answers are saved. Please try again.',
     notConfigured:
-      'The enquiry form isn’t connected yet. Please email snabbily@gmail.com and we’ll take it from there.',
+      'The enquiry form isn’t connected yet. Please email thanos@snabbily.com and we’ll take it from there.',
     successTitle: 'Thanks, {name}.',
     successBody: 'I’ll review your answers and get back to you shortly.',
     successBook: 'Want to talk sooner? Book a 15-minute call.',
@@ -564,7 +564,7 @@ export const en = {
     error:
       'Something went wrong sending your request. Your answers are saved. Please try again.',
     notConfigured:
-      'The review form isn’t connected yet. Please email snabbily@gmail.com and we’ll take it from there.',
+      'The review form isn’t connected yet. Please email thanos@snabbily.com and we’ll take it from there.',
     successTitle: 'Got it, thank you.',
     successBody: 'Your review request has been received. I’ll be in touch by email soon.',
     backHome: 'Back to homepage',
@@ -652,7 +652,7 @@ export const en = {
           h: 'Who we are',
           blocks: [
             'Snabbily provides website design and development, SEO, integrations, hosting and technical support.',
-            'For any question about the protection of personal data, you can contact us at snabbily@gmail.com.',
+            'For any question about the protection of personal data, you can contact us at thanos@snabbily.com.',
             'Once Snabbily’s business registration in Sweden is complete, the full details of the data controller will be added here.',
           ],
         },
@@ -759,7 +759,7 @@ export const en = {
               'withdrawal of consent at any time, where processing is based on consent',
               'lodging a complaint with the competent data protection authority',
             ],
-            'To exercise any of these rights, contact us at snabbily@gmail.com.',
+            'To exercise any of these rights, contact us at thanos@snabbily.com.',
           ],
         },
         {
