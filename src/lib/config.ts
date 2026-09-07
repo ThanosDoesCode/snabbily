@@ -26,7 +26,7 @@ export const CAL_URL = isCalConfigured
   : '';
 
 /** Public contact details (safe to expose). */
-export const CONTACT_EMAIL = 'snabbily@gmail.com';
+export const CONTACT_EMAIL = 'thanos@snabbily.com';
 
 /** Live reference project shown as selected work. */
 export const ALEXANDROS_URL = 'https://alexandrosliakos.lovable.app';
