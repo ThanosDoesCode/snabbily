@@ -1,102 +1,355 @@
 # Snabbily
 
-Marketing website for **Snabbily**, a done-for-you website service for service
-businesses in Greece (initial focus: hair & beauty). Fully bilingual (English /
-Greek), statically prerendered for excellent SEO and Core Web Vitals.
+Snabbily is a bilingual web design service for small businesses in Greece, with an initial focus on hair and beauty businesses.
 
-> Positioning: **“Your website should bring you business.”**
+This repository contains the production marketing website for Snabbily. It is built with React, TypeScript, Vite, static prerendering, and a mobile-first responsive design.
+
+[View live website](https://snabbily.com)
+
+## Overview
+
+The Snabbily website is designed to convert visitors into enquiries while remaining fast, accessible, and search-engine friendly.
+
+The site is fully bilingual in English and Greek, with static prerendering for SEO, fast first paint, and strong Core Web Vitals.
+
+It uses a deliberately lightweight architecture with no CMS, database, or custom backend. Enquiry forms submit directly through Formspree.
 
 ## Stack
 
-- **Vite 6** + **React 18** + **TypeScript**
-- **[vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg)**: static
-  prerendering of every route to real HTML (great SEO, fast first paint)
-- **Tailwind CSS v4** (CSS-first tokens, no component library)
-- **react-router-dom** for routing
-- No CMS, no database, no backend. Forms post directly to Formspree.
+- Vite 6
+- React 18
+- TypeScript
+- Tailwind CSS v4
+- vite-react-ssg
+- react-router-dom
+- Formspree
+- Vercel
 
-## Getting started
+## Key Features
+
+- Fully bilingual English and Greek experience
+- Route-based internationalisation
+- Static prerendering of every route
+- SEO-friendly metadata and canonical URLs
+- hreflang alternates
+- Structured data
+- Responsive mobile-first design
+- Lead-generation forms
+- Cal.com booking integration
+- Optional GA4 analytics
+- Cookie consent handling
+- Accessible forms and navigation
+- Reduced-motion support
+- Open Graph metadata
+- Sitemap and robots configuration
+- PWA-style manifest and generated icons
+
+## Architecture
+
+The website is intentionally built without a CMS, database, or custom backend.
+
+Content is stored directly inside typed locale dictionaries and the React application.
+
+Forms submit to Formspree, booking links can connect to Cal.com, and analytics are loaded only when configured and permitted through consent.
+
+Static prerendering produces real HTML for every public route, improving search indexing and initial rendering performance.
+
+## Getting Started
+
+### Requirements
+
+- Node.js
+- npm
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ThanosDoesCode/snabbily.git
+cd snabbily
+```
+
+Install dependencies:
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
 ```
+
+Start the development server:
 
 ```bash
-npm run build      # static prerender → dist/
-npm run preview    # serve the built site locally
-npm run lint       # ESLint
-npm run typecheck  # tsc --noEmit
-npm run gen:assets # regenerate og-image.png + app icons from scripts/gen-assets.mjs
+npm run dev
 ```
 
-## Environment variables
+The local development server runs at:
 
-All are **optional**. The site degrades gracefully when a value is missing.
-Copy `.env.example` → `.env.local` and fill in what you have.
+```text
+http://localhost:5173
+```
 
-| Variable                 | Purpose                                                        | If missing |
-| ------------------------ | -------------------------------------------------------------- | ---------- |
-| `VITE_SUBMIT_ENDPOINT`   | Formspree endpoint for enquiry / review forms                  | Forms show a friendly “not connected yet” message |
-| `VITE_CAL_LINK`          | Cal.com link (`user/event` or full URL) for “Book a call”      | All booking UI is hidden |
-| `VITE_GA_MEASUREMENT_ID` | GA4 measurement ID (`G-XXXX…`)                                 | Analytics + cookie banner never load |
-| `VITE_SITE_URL`          | Public origin for canonical/sitemap/OG (default `https://snabbily.com`) | Falls back to the default |
+## Available Commands
 
-**Production form recipient:** `snabbily@gmail.com` (configured in Formspree, not in code).
-Never commit real secrets. `.env*` files are git-ignored.
+Run a production build:
+
+```bash
+npm run build
+```
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+Run ESLint:
+
+```bash
+npm run lint
+```
+
+Run TypeScript checks:
+
+```bash
+npm run typecheck
+```
+
+Regenerate Open Graph and application icon assets:
+
+```bash
+npm run gen:assets
+```
+
+## Environment Variables
+
+All environment variables are optional.
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+Then configure the variables you need.
+
+| Variable | Purpose | If missing |
+| --- | --- | --- |
+| `VITE_SUBMIT_ENDPOINT` | Formspree endpoint for enquiry and review forms | Forms show a friendly unavailable message |
+| `VITE_CAL_LINK` | Cal.com booking link | Booking UI is hidden |
+| `VITE_GA_MEASUREMENT_ID` | Google Analytics 4 measurement ID | Analytics and cookie banner do not load |
+| `VITE_SITE_URL` | Public site origin used for canonical URLs, sitemap, and Open Graph metadata | Falls back to `https://snabbily.com` |
+
+Real secrets should never be committed to the repository.
+
+Environment files are ignored by Git, while `.env.example` contains safe placeholder configuration.
 
 ## Routes
 
-| English                        | Greek                                             |
-| ------------------------------ | ------------------------------------------------- |
-| `/`                            | `/el`                                             |
-| `/website-design-for-small-businesses` | `/el/kataskevi-istoselidon`                |
-| `/websites-for-hair-beauty`    | `/el/kataskevi-istoselidon-gia-kommotiria`        |
-| `/start` (noindex)             | `/el/start`                                       |
-| `/review` (noindex)            | `/el/review`                                      |
-| `/privacy`                     | `/el/privacy`                                     |
-| `/cookies`                     | `/el/cookies`                                     |
+| English | Greek |
+| --- | --- |
+| `/` | `/el` |
+| `/website-design-for-small-businesses` | `/el/kataskevi-istoselidon` |
+| `/websites-for-hair-beauty` | `/el/kataskevi-istoselidon-gia-kommotiria` |
+| `/start` | `/el/start` |
+| `/review` | `/el/review` |
+| `/privacy` | `/el/privacy` |
+| `/cookies` | `/el/cookies` |
 
-Nav links (Work / Services / Pricing / Contact) are homepage section anchors.
+The `/start` and `/review` routes are configured as `noindex`.
 
-## Structure
+Homepage navigation links such as Work, Services, Pricing, and Contact use section anchors.
 
-```
+## Project Structure
+
+```text
 src/
-  i18n/        locales, typed EN/EL dictionaries, LocaleProvider, route registry
-  lib/         config, Formspree submit, GA4, consent store, structured data, parallax
-  components/  Button, Reveal, Section, Seo, BrowserFrame, WorkPoster, LegalDoc,
-               layout/ (Nav, Footer, ConsentBanner, Layout), flow/ (primitives)
-  sections/    homepage sections (Hero, SelectedWork, Capabilities, …)
-  pages/       Home, HairBeauty, StartProject, FreeReview, Privacy, Cookies, NotFound
-  styles/      design tokens + reveal system
-public/        favicon, icons, og-image, robots.txt, sitemap.xml, manifest
+  i18n/
+    en.ts
+    el.ts
+    route registry
+    LocaleProvider
+
+  lib/
+    configuration
+    Formspree submission
+    GA4
+    consent store
+    structured data
+    parallax utilities
+
+  components/
+    Button
+    Reveal
+    Section
+    Seo
+    BrowserFrame
+    WorkPoster
+    LegalDoc
+
+    layout/
+      Nav
+      Footer
+      ConsentBanner
+      Layout
+
+    flow/
+      shared UI primitives
+
+  sections/
+    homepage sections
+
+  pages/
+    Home
+    HairBeauty
+    StartProject
+    FreeReview
+    Privacy
+    Cookies
+    NotFound
+
+  styles/
+    design tokens
+    reveal system
+
+public/
+  favicon
+  icons
+  og-image
+  robots.txt
+  sitemap.xml
+  manifest
 ```
 
 ## Internationalisation
 
-Route-based. English at the root, Greek under `/el`. Content lives in typed
-dictionaries (`src/i18n/en.ts` is the source of truth; `el.ts` must match its
-shape). `hreflang` alternates and a Greek-localised landing-page slug are wired
-for locale SEO.
+Internationalisation is route-based.
 
-## Accessibility & motion
+English content is available from the root routes, while Greek content uses the `/el` prefix.
 
-Semantic HTML, labelled forms, visible focus states, skip link, ~44px+ touch
-targets. Scroll-reveal animations are transform/opacity only, gated behind
-`prefers-reduced-motion`, reduced on mobile, and progressive (content is fully
-visible without JS). The hero entrance is pure CSS so the LCP element never waits
-for JavaScript.
+Content is stored in typed dictionaries:
 
-## Deployment (Vercel)
+```text
+src/i18n/en.ts
+src/i18n/el.ts
+```
 
-Static output. `vercel.json` sets `buildCommand: npm run build`,
-`outputDirectory: dist`, `cleanUrls`, and long-cache headers for assets. Add the
-environment variables above in the Vercel project settings, then connect
-`snabbily.com`.
+The English dictionary acts as the source structure, and the Greek dictionary matches the same shape.
 
-## ⚠️ Legal review required
+The application also includes locale-specific SEO configuration, including:
 
-`Privacy Policy` and `Cookie Policy` are good-faith templates and are clearly
-marked as requiring review by a qualified professional before launch (GDPR /
-Greek & EU law).
+- hreflang alternates
+- canonical URLs
+- Greek-localised route slugs
+- translated metadata
+
+## SEO
+
+The website uses static prerendering so every public route is generated as real HTML during the build process.
+
+SEO features include:
+
+- Unique page titles
+- Meta descriptions
+- Canonical URLs
+- hreflang tags
+- Open Graph metadata
+- Sitemap
+- robots.txt
+- Structured data
+- Localised route slugs
+- Static HTML output
+
+The goal is to maintain strong search visibility without introducing unnecessary runtime complexity.
+
+## Accessibility
+
+The interface includes:
+
+- Semantic HTML
+- Labelled form fields
+- Visible keyboard focus states
+- Skip navigation link
+- Large mobile touch targets
+- Reduced-motion support
+- Progressive enhancement
+
+Interactive content remains usable even when animations are disabled.
+
+## Motion and Performance
+
+Animations are intentionally lightweight.
+
+Scroll reveal effects use transform and opacity only.
+
+Motion is reduced on smaller devices and disabled when the user has enabled:
+
+```css
+prefers-reduced-motion
+```
+
+The hero entrance is implemented with CSS so the Largest Contentful Paint element does not depend on JavaScript execution.
+
+## Forms
+
+The enquiry and website review forms submit directly to Formspree.
+
+No form-processing backend is maintained inside this repository.
+
+When `VITE_SUBMIT_ENDPOINT` is not configured, the interface fails gracefully and informs the user rather than sending a broken request.
+
+## Analytics and Consent
+
+Google Analytics 4 support is optional.
+
+Analytics only load when a GA4 measurement ID is configured and the relevant consent state allows it.
+
+If analytics are not configured, the website functions normally without them.
+
+## Deployment
+
+The production site is deployed with Vercel.
+
+The project uses `vercel.json` to configure:
+
+- `npm run build` as the build command
+- `dist` as the output directory
+- clean URLs
+- long-lived cache headers for static assets
+
+Production environment variables are configured through Vercel rather than committed to the repository.
+
+## Development Approach
+
+Snabbily is developed using a combination of:
+
+- React and TypeScript
+- Git and GitHub
+- Vercel
+- AI-assisted development workflows
+- Manual testing
+- SEO and performance iteration
+
+The project is continuously refined based on real business requirements, conversion goals, responsive behaviour, and search visibility.
+
+## Project Status
+
+Snabbily is actively developed and used as the main website for the Snabbily service.
+
+Current areas of focus include:
+
+- SEO expansion
+- Industry-specific landing pages
+- Conversion improvements
+- Portfolio and demo presentation
+- Performance
+- Accessibility
+- Lead-generation workflows
+- English and Greek content refinement
+
+## Author
+
+**Thanos Xyntarakis**
+
+Computer Science student in Sweden building web applications, client projects, and AI-assisted software products.
+
+[GitHub](https://github.com/ThanosDoesCode)
+
+[LinkedIn](https://www.linkedin.com/in/thanosxnt)
