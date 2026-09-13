@@ -146,6 +146,8 @@ export const el: Dictionary = {
     subtitle: 'Ένα κόστος ανά project, σε δύο δόσεις 50/50. Προαιρετική ετήσια υποστήριξη μετά τη δημοσίευση.',
     mostPopular: 'Πιο δημοφιλές',
     oneTimeLabel: 'Εφάπαξ κόστος project',
+    vatLine: 'χωρίς ΦΠΑ, όπου εφαρμόζεται',
+    vatNote: 'Η εφαρμογή ΦΠΑ εξαρτάται από τον πελάτη και τη χώρα.',
     bestForLabel: 'Ιδανικό για',
     helpsLabel: 'Σε τι σας βοηθά',
     includedLabel: 'Περιλαμβάνει',

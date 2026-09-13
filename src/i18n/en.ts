@@ -144,6 +144,8 @@ export const en = {
     subtitle: 'One project fee, split 50/50. Optional yearly care after launch.',
     mostPopular: 'Most popular',
     oneTimeLabel: 'One-time project fee',
+    vatLine: 'excl. VAT where applicable',
+    vatNote: 'VAT treatment depends on the customer and country.',
     bestForLabel: 'Best for',
     helpsLabel: 'What this helps you do',
     includedLabel: 'Included',

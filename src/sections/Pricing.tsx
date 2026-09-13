@@ -70,7 +70,8 @@ function PanelContent({
       )}
 
       <p className={`${compact ? '' : 'mt-4'} font-serif text-5xl leading-none text-ink`}>{plan.price}</p>
-      <p className="mt-1.5 text-xs uppercase tracking-[0.14em] text-muted">{pricing.oneTimeLabel}</p>
+      <p className="mt-1.5 text-xs text-muted">{pricing.vatLine}</p>
+      <p className="mt-1 text-xs uppercase tracking-[0.14em] text-muted">{pricing.oneTimeLabel}</p>
       {'priceNote' in plan && <p className="mt-2 max-w-xl text-xs leading-relaxed text-muted">{plan.priceNote}</p>}
 
       <p className={`${compact ? 'mt-4' : 'mt-5'} max-w-xl text-lead leading-relaxed text-ink-soft`}>{plan.tagline}</p>
@@ -296,6 +297,8 @@ export function Pricing() {
           ))}
         </ul>
       </Reveal>
+
+      <Reveal className="mt-6 text-center text-xs text-muted">{pricing.vatNote}</Reveal>
     </Section>
   );
 }
