@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useI18n } from '@/i18n';
 import { Section, IndexMarker } from '@/components/Section';
 import { Reveal } from '@/components/Reveal';
@@ -6,7 +7,7 @@ import { ArrowRight } from '@/components/Button';
 import { ALEXANDROS_URL } from '@/lib/config';
 
 export function SelectedWork() {
-  const { t } = useI18n();
+  const { t, path } = useI18n();
 
   return (
     <Section id="work">
@@ -37,15 +38,24 @@ export function SelectedWork() {
           </Reveal>
 
           <Reveal delay={260} className="mt-8">
-            <a
-              href={ALEXANDROS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline inline-flex items-center gap-2 font-medium text-ink"
-            >
-              {t.work.visit}
-              <ArrowRight />
-            </a>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a
+                href={ALEXANDROS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline inline-flex items-center gap-2 font-medium text-ink"
+              >
+                {t.work.visit}
+                <ArrowRight />
+              </a>
+              <Link
+                to={path('concepts')}
+                className="link-underline inline-flex items-center gap-2 text-sm font-medium text-ink-soft hover:text-ink"
+              >
+                {t.work.conceptsLink}
+                <ArrowRight />
+              </Link>
+            </div>
           </Reveal>
         </div>
 

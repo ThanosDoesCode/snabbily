@@ -3,6 +3,7 @@ import { Layout } from '@/components/layout/Layout';
 import Home from '@/pages/Home';
 import WebsiteDesign from '@/pages/WebsiteDesign';
 import HairBeauty from '@/pages/HairBeauty';
+import WebsiteConcepts from '@/pages/WebsiteConcepts';
 import StartProject from '@/pages/StartProject';
 import FreeReview from '@/pages/FreeReview';
 import Privacy from '@/pages/Privacy';
@@ -18,6 +19,7 @@ export const routes: RouteRecord[] = [
       { index: true, element: <Home /> },
       { path: 'website-design-for-small-businesses', element: <WebsiteDesign /> },
       { path: 'websites-for-hair-beauty', element: <HairBeauty /> },
+      { path: 'website-concepts', element: <WebsiteConcepts /> },
       { path: 'start', element: <StartProject /> },
       { path: 'review', element: <FreeReview /> },
       { path: 'privacy', element: <Privacy /> },
@@ -27,6 +29,7 @@ export const routes: RouteRecord[] = [
       { path: 'el', element: <Home /> },
       { path: 'el/kataskevi-istoselidon', element: <WebsiteDesign /> },
       { path: 'el/kataskevi-istoselidon-gia-kommotiria', element: <HairBeauty /> },
+      { path: 'el/website-concepts', element: <WebsiteConcepts /> },
       { path: 'el/start', element: <StartProject /> },
       { path: 'el/review', element: <FreeReview /> },
       { path: 'el/privacy', element: <Privacy /> },

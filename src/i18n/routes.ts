@@ -7,6 +7,7 @@ export type PageKey =
   | 'home'
   | 'websiteDesign'
   | 'hairBeauty'
+  | 'concepts'
   | 'start'
   | 'review'
   | 'privacy'
@@ -22,6 +23,7 @@ export const PAGE_PATHS: Record<PageKey, Record<Locale, string>> = {
     en: '/websites-for-hair-beauty',
     el: '/el/kataskevi-istoselidon-gia-kommotiria',
   },
+  concepts: { en: '/website-concepts', el: '/el/website-concepts' },
   start: { en: '/start', el: '/el/start' },
   review: { en: '/review', el: '/el/review' },
   privacy: { en: '/privacy', el: '/el/privacy' },

@@ -54,6 +54,7 @@ export const en = {
     description:
       'A complete digital presence designed around services, bookings and professional education.',
     visit: 'Visit the live site',
+    conceptsLink: 'Explore website concepts',
     previewAlt: 'Preview of the Alexandros Liakos website',
     metricsNote: 'Verified performance metrics will be added here.',
   },
@@ -395,6 +396,7 @@ export const en = {
     cookieSettings: 'Cookie settings',
     rights: 'All rights reserved.',
     builtNote: 'Websites for service businesses.',
+    concepts: 'Website concepts',
   },
 
   consent: {
@@ -564,6 +566,11 @@ export const en = {
       description:
         'Modern websites built for hair and beauty professionals in Greece: salons, hairstylists, barbers and educators. Service presentation, galleries, booking integration and Google visibility.',
     },
+    concepts: {
+      title: 'Website Concepts for Service Businesses | Snabbily',
+      description:
+        'Explore six Snabbily demo website concepts for health, professional services, construction and travel businesses.',
+    },
     privacy: {
       title: 'Privacy Policy | Snabbily',
       description: 'How Snabbily collects, uses and protects your personal data.',
@@ -572,6 +579,75 @@ export const en = {
       title: 'Cookie Policy | Snabbily',
       description: 'How Snabbily uses cookies and how you can control them.',
     },
+  },
+
+  // ---- Website concepts -------------------------------------------------
+  concepts: {
+    eyebrow: 'Concept portfolio',
+    heading: 'Website Concepts',
+    intro:
+      'A selection of demo websites showing how Snabbily can adapt its design to different service industries.',
+    filterLabel: 'Filter website concepts by category',
+    allLabel: 'All',
+    conceptLabel: 'Concept',
+    categories: {
+      health: 'Health & Wellness',
+      professional: 'Professional Services',
+      home: 'Home & Construction',
+      travel: 'Travel & Leisure',
+    },
+    items: [
+      {
+        id: 'dermatologist',
+        title: 'Dermatologist',
+        category: 'health' as const,
+        description:
+          'A clean medical website focused on trust, services and appointment enquiries.',
+        videoLabel: 'Play the Dermatologist concept video',
+      },
+      {
+        id: 'psychologist',
+        title: 'Psychologist',
+        category: 'health' as const,
+        description:
+          'A calm, professional website designed around credibility and easy contact.',
+        videoLabel: 'Play the Psychologist concept video',
+      },
+      {
+        id: 'dental-clinic',
+        title: 'Dental Clinic',
+        category: 'health' as const,
+        description: 'A modern clinic website built around treatments, trust and bookings.',
+        videoLabel: 'Play the Dental Clinic concept video',
+      },
+      {
+        id: 'architect',
+        title: 'Architect',
+        category: 'professional' as const,
+        description:
+          'A portfolio-led website focused on projects, visual presentation and enquiries.',
+        videoLabel: 'Play the Architect concept video',
+      },
+      {
+        id: 'aluminium-security',
+        title: 'Aluminium & Security Systems',
+        category: 'home' as const,
+        description:
+          'A service-business website for aluminium frames, screens, security doors and installations.',
+        videoLabel: 'Play the Aluminium and Security Systems concept video',
+      },
+      {
+        id: 'boat-rentals',
+        title: 'Boat Rentals',
+        category: 'travel' as const,
+        description:
+          'A visual rental website designed around boats, destinations and booking enquiries.',
+        videoLabel: 'Play the Boat Rentals concept video',
+      },
+    ],
+    ctaTitle: 'Like one of these directions?',
+    ctaBody: 'We can build a custom website around your business, brand and goals.',
+    ctaLabel: 'Start a project',
   },
 
   // ---- Hair & Beauty landing page --------------------------------------
