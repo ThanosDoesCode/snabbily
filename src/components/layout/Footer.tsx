@@ -45,6 +45,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link className="link-underline hover:text-ink" to={path('concepts')}>
+                  {t.footer.concepts}
+                </Link>
+              </li>
+              <li>
                 <Link className="link-underline hover:text-ink" to={path('review')}>
                   {t.cta.freeReview}
                 </Link>
