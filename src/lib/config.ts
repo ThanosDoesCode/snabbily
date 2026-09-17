@@ -29,4 +29,4 @@ export const CAL_URL = isCalConfigured
 export const CONTACT_EMAIL = 'thanos@snabbily.com';
 
 /** Live reference project shown as selected work. */
-export const ALEXANDROS_URL = 'https://alexandrosliakos.lovable.app';
+export const ALEXANDROS_URL = 'https://alexandrosliakos.com';
