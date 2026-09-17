@@ -1,6 +1,7 @@
 import { useI18n } from '@/i18n';
 import { Seo } from '@/components/Seo';
 import { LegalDoc } from '@/components/LegalDoc';
+import { CookieSettings } from '@/components/CookieSettings';
 
 export default function Cookies() {
   const { locale, t } = useI18n();
@@ -12,6 +13,7 @@ export default function Cookies() {
         intro={t.legal.cookies.intro}
         sections={t.legal.cookies.sections}
       />
+      <CookieSettings />
     </>
   );
 }

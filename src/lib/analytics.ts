@@ -36,7 +36,34 @@ export function loadAnalytics(): void {
     window.dataLayer!.push(args);
   };
   window.gtag('js', new Date());
-  window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+  // send_page_view: false so the SPA controls page views itself (see
+  // trackPageView) and the initial view is never double counted.
+  window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true, send_page_view: false });
+
+  // Record the page the visitor is on right now (first view after consent).
+  trackPageView(currentPath());
+}
+
+function currentPath(): string {
+  if (typeof window === 'undefined') return '/';
+  // Pathname only. Query strings are intentionally excluded because future URLs
+  // could carry identifiers or PII, which must never reach Google Analytics.
+  return window.location.pathname;
+}
+
+/**
+ * Send a GA4 page_view for a client-side navigation. No-op until analytics has
+ * been loaded (i.e. consent granted), so navigation before consent is never
+ * tracked. Sends only the path (query strings excluded for privacy) and title,
+ * never PII.
+ */
+export function trackPageView(path: string): void {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return;
+  window.gtag('event', 'page_view', {
+    page_path: path,
+    page_location: window.location.origin + path,
+    page_title: document.title,
+  });
 }
 
 /**

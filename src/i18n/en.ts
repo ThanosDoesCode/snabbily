@@ -400,11 +400,24 @@ export const en = {
   },
 
   consent: {
-    title: 'Cookies',
-    body: 'We use essential cookies to run this site. With your consent we also use analytics cookies to understand how the site is used. You can change your mind at any time.',
-    accept: 'Accept analytics',
-    decline: 'Essential only',
+    title: 'Cookie settings',
+    body: 'We use necessary cookies to make the website work. With your permission, we also use analytics to understand how visitors use Snabbily and improve the site.',
+    accept: 'Accept all',
+    decline: 'Necessary only',
     more: 'Cookie Policy',
+  },
+
+  cookieSettings: {
+    title: 'Cookie settings',
+    intro: 'Choose which cookies Snabbily can use. Necessary cookies are always on because the site needs them to work.',
+    necessaryTitle: 'Necessary',
+    necessaryBody: 'Used for essential website functionality and to remember your consent preferences.',
+    analyticsTitle: 'Analytics',
+    analyticsBody: 'Helps us understand visits, page usage and important website interactions through Google Analytics.',
+    alwaysActive: 'Always active',
+    toggleLabel: 'Analytics cookies',
+    statusOn: 'Analytics is on. You can turn it off at any time.',
+    statusOff: 'Analytics is off. Turn it on to help us improve Snabbily.',
   },
 
   // ---- Conversion flows -------------------------------------------------
