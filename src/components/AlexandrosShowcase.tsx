@@ -37,7 +37,7 @@ export function AlexandrosShowcase({ className }: { className?: string }) {
           aria-label={`${t.work.projectName}, ${t.work.visit}`}
           className="group reel-card block rounded-xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-4"
         >
-          <BrowserFrame url="alexandrosliakos.lovable.app" contentClassName="work-shot">
+          <BrowserFrame url="alexandrosliakos.com" contentClassName="work-shot">
             <WorkReel pages={DESKTOP_PAGES} />
           </BrowserFrame>
         </a>

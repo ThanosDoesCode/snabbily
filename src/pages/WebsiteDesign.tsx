@@ -298,7 +298,7 @@ export default function WebsiteDesign() {
           </div>
 
           <div className="hero-rise min-w-0" style={rise(220)}>
-            <BrowserFrame url="alexandrosliakos.lovable.app" contentClassName="aspect-[4/3] overflow-hidden bg-paper">
+            <BrowserFrame url="alexandrosliakos.com" contentClassName="aspect-[4/3] overflow-hidden bg-paper">
               <img
                 src="/work/alexandros-home.webp"
                 alt={copy.heroAlt}
