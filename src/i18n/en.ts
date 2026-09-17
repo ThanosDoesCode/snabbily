@@ -570,14 +570,14 @@ export const en = {
   // ---- SEO metadata -----------------------------------------------------
   meta: {
     home: {
-      title: 'Snabbily | Custom Websites for Service Businesses in Greece',
+      title: 'Snabbily | Custom Websites for Service Businesses',
       description:
-        'Snabbily builds modern websites for service businesses in Greece, designed to generate bookings, enquiries and customers. Website design, SEO setup, integrations and ongoing care.',
+        'Snabbily builds custom websites for service businesses, designed to generate bookings, enquiries and customers. Website design, SEO setup, integrations and ongoing care.',
     },
     hairBeauty: {
-      title: 'Websites for Hair Salons, Barbers & Beauty Businesses in Greece | Snabbily',
+      title: 'Websites for Hair Salons, Barbers & Beauty Businesses | Snabbily',
       description:
-        'Modern websites built for hair and beauty professionals in Greece: salons, hairstylists, barbers and educators. Service presentation, galleries, booking integration and Google visibility.',
+        'Modern websites built for hair and beauty professionals: salons, hairstylists, barbers and educators. Service presentation, galleries, booking integration and Google visibility.',
     },
     concepts: {
       title: 'Website Concepts for Service Businesses | Snabbily',
@@ -669,7 +669,7 @@ export const en = {
     eyebrow: 'Hair & Beauty',
     heading: 'Websites built for hair professionals.',
     intro:
-      'Your work is visual, personal and built on reputation. Your website should be too. We build modern websites for hair and beauty businesses in Greece, designed around your services, your galleries and easy booking.',
+      'Your work is visual, personal and built on reputation. Your website should be too. We build modern websites for hair and beauty businesses, designed around your services, your galleries and easy booking.',
     primaryCta: 'Start a project',
     secondaryCta: 'Get a free website review',
     audienceTitle: 'Who we build for',

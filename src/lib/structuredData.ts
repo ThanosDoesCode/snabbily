@@ -10,8 +10,7 @@ export function organizationLd(): Record<string, unknown> {
     email: CONTACT_EMAIL,
     logo: `${SITE_URL}/icon-512.png`,
     description:
-      'Snabbily builds modern websites for service businesses in Greece, designed to generate bookings, enquiries and customers.',
-    areaServed: 'GR',
+      'Snabbily builds custom websites for service businesses, designed to generate bookings, enquiries and customers.',
   };
 }
 
@@ -34,7 +33,6 @@ export function serviceLd(name: string, description: string, url: string): Recor
     description,
     url,
     provider: { '@type': 'Organization', name: 'Snabbily', url: SITE_URL },
-    areaServed: { '@type': 'Country', name: 'Greece' },
   };
 }
 
